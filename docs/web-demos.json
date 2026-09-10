@@ -66,9 +66,10 @@
   },
   {
     "directory": "013-plinkopinball",
-    "title": "Plinkopinball · 可玩的 Three.js 研究",
-    "description": "把 Blender 三维场景、钉板落球、弹珠台和动态声音组合为浏览器互动体验。提供作者原版入口、独立中文物理实验与技术拆解。",
-    "preview": "assets/capability-overview.svg",
-    "previewAlt": "模型烘焙、碰撞提取、物理计算、三维画面与声音的能力流程"
+    "title": "Plinkopinball · 弹珠下落的 3D 游戏",
+    "description": "Plinkopinball 是一个弹珠下落的 3D 游戏：点击投球，看小球穿过钉阵落到弹珠台，再用挡板和蓄力装置继续击球。 本研究另附原理说明与八种独立二维扩展玩法。",
+    "preview": "assets/gameplay-screenshot.png",
+    "previewAlt": "作者原版 Plinkopinball 3D 游戏：弹珠从木质钉板下落，进入弹珠台与轨道",
+    "previewCaption": "游戏实际截图 · Andrew Woan 作者原站 · 2026-09-10，来源与范围见研究文档"
   }
 ]

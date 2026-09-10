@@ -1,6 +1,6 @@
 # 013 · Plinkopinball
 
-用 Blender 与 Three.js 制作浏览器弹珠互动：把钉板落球、弹珠台挡板、轨道与声音放进精细三维场景，展示视觉、物理与资源流程如何协作。
+Plinkopinball 是一个弹珠下落的 3D 游戏：点击投球，看小球穿过钉阵落到弹珠台，再用挡板和蓄力装置继续击球。
 
 ## 项目资料
 
@@ -19,6 +19,8 @@
 
 ## 研究摘要
 
+它交付的是一个可在浏览器中运行的具体游戏演示。我们主要学习它如何把三维画面、弹珠运动、输入和音效组织起来，再探索新的玩法。
+
 - **核心能力：** 精细三维场景、投球与碰撞、左右挡板、蓄力机构、拱形轨道、多球管理和动态声音反馈。
 - **值得借鉴：** 静态烘焙与动态材质分工；二维物理映射回三维；从模型截面提取碰撞边界；实例化绘制；资源变化自动刷新。
 - **适用场景：** 活动主题页、创意作品集、浏览器小游戏、Three.js 教学与物理科普。
@@ -34,13 +36,15 @@
 
 ## 代表性图片
 
-![Plinkopinball 的能力与实现流程：模型资源、碰撞提取、运动求解、画面与声音](assets/capability-overview.svg)
+![Plinkopinball 原版 3D 游戏：八颗弹珠从木质钉板下落，进入带有挡板与拱形轨道的弹珠台](assets/gameplay-screenshot.png)
 
-图 1：依据固定源码原创绘制的能力流程图，非原站截图。图源与使用范围见 [图片说明](assets/README.md)。
+图 1：作者原版游戏的实际运行画面，2026-09-10 以静音模式进入并投下 8 球后截取。来源：[Andrew Woan 的在线演示](https://codrops-demo-for-threejs-conference-ten.vercel.app/)。截图对应当日原站，不保证与固定研究提交完全相同；图源与使用范围见 [图片说明](assets/README.md)。
 
 ## 文档与运行
 
 - [完整中文理解](notes/01-understanding.md)
+- [八种扩展玩法及验证](notes/03-game-directions.md)
+- [技术流程图](assets/capability-overview.svg)
 - [来源、许可与验证](notes/02-sources-and-verification.md)
 - [Web 展示运行说明](web/README.md)
 

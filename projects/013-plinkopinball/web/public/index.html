@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="体验 Plinkopinball 原版 3D 弹珠台，通过中文物理实验理解碰撞、挡板、烘焙光照与实例化渲染。">
-  <title>Plinkopinball · 可玩的 Three.js 研究</title>
+  <meta name="description" content="Plinkopinball 是一个弹珠下落的 3D 游戏：点击投球，看小球穿过钉阵落到弹珠台，再用挡板和蓄力装置继续击球。">
+  <title>Plinkopinball · 弹珠下落的 3D 游戏</title>
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.mjs"></script>
 </head>
@@ -11,8 +11,8 @@
 <a class="skip" href="#guide">跳到演示</a>
 <header class="topbar"><a class="brand" href="./"><span class="mark">013</span> PLINKOPINBALL</a><nav aria-label="主导航"><a href="./games.html">八种玩法</a><a href="#mechanism">技术拆解</a><a href="#uses">场景与扩展</a><a href="./sources.html">来源与验证</a><a href="../">研究集 ↗</a></nav></header>
 <main>
-<section class="intro" id="guide"><div><p class="eyebrow">BLENDER × THREE.JS × PHYSICS</p><h1>把三维场景，变成可玩的体验。</h1></div><p>先玩作者的弹珠台，再打开原理实验。<br>观察小球如何从一次点击，变成碰撞、运动与声音。</p></section>
-<a class="games-entry" href="./games.html"><span><strong>新：八种可玩的游戏方向</strong> 解谜、迷宫、打砖块、轨道、机关、分类、节奏与竞速</span><b>进入玩法实验室 →</b></a>
+<section class="intro" id="guide"><div><p class="eyebrow">BLENDER × THREE.JS × PHYSICS</p><h1>一个弹珠下落的 3D 游戏。</h1></div><p>点击投球，看弹珠穿过钉阵落入下方桌面。<br>再用挡板、蓄力装置和轨道继续击球。</p></section>
+<a class="games-entry" href="./games.html"><span><strong>我们制作的八种二维扩展玩法</strong> 解谜、迷宫、打砖块、轨道、机关、分类、节奏与竞速</span><b>进入玩法实验室 →</b></a>
 <section class="experience" aria-label="弹珠互动展示">
   <div class="stage-column">
     <div class="stage-toolbar"><div class="tabs" role="tablist" aria-label="演示模式"><button id="original-tab" role="tab" aria-selected="true" aria-controls="original-panel">原版 3D 体验 <span>↗ LIVE</span></button><button id="lab-tab" role="tab" aria-selected="false" aria-controls="lab-panel" tabindex="-1">原理实验 <span>2D LAB</span></button></div><a class="external" href="https://codrops-demo-for-threejs-conference-ten.vercel.app/" target="_blank" rel="noopener noreferrer">独立窗口 ↗</a></div>

@@ -6,7 +6,7 @@ const web=await realpath(fileURLToPath(new URL('../',import.meta.url))),project=
 if(dirname(out)!==web)throw new Error('Output escaped project');
 try{const existing=await lstat(out);if(existing.isSymbolicLink()||await realpath(out)!==out)throw new Error('Redirected output');await rm(out,{recursive:true});}catch(error){if(error.code!=='ENOENT')throw error;}
 await mkdir(out);await cp(join(web,'public'),out,{recursive:true});await mkdir(join(out,'assets'));await mkdir(join(out,'notes'));
-await cp(join(project,'assets/capability-overview.svg'),join(out,'assets/capability-overview.svg'));
+for(const asset of ['capability-overview.svg','gameplay-screenshot.png'])await cp(join(project,'assets',asset),join(out,'assets',asset));
 for(const [name,slug] of [['01-understanding.md','understanding'],['02-sources-and-verification.md','sources'],['03-game-directions.md','games-notes']]){
  const md=await readFile(join(project,'notes',name),'utf8'),title=md.match(/^# (.+)$/m)[1],article=render(md);
  await cp(join(project,'notes',name),join(out,'notes',name));

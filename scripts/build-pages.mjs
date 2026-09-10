@@ -11,6 +11,7 @@ const seen = new Set();
 for (const demo of demos) {
   if (!/^\d{3}-[a-z0-9-]+$/.test(demo.directory) || seen.has(demo.directory)) throw new Error('Invalid or duplicate demo directory');
   if (demo.preview && (!/^assets\/[a-z0-9-]+\.(png|webp|svg)$/.test(demo.preview) || typeof demo.previewAlt !== 'string' || !demo.previewAlt.trim())) throw new Error('Invalid preview path or missing alternative text');
+  if (demo.previewCaption !== undefined && typeof demo.previewCaption !== 'string') throw new Error('Invalid preview caption');
   seen.add(demo.directory);
 }
 // Only the fixed, generated root dist directory is cleaned.
@@ -32,7 +33,8 @@ for (const demo of demos.sort((a, b) => a.directory.localeCompare(b.directory)))
 const repository = 'https://github.com/yydshly/0910_codex_project';
 const cards = demos.map(demo => {
   const preview = demo.preview ? `<a href="./${demo.directory}/#guide"><img class="project-preview" src="./${demo.directory}/${escape(demo.preview)}" alt="${escape(demo.previewAlt)}" loading="lazy" style="display:block;width:100%;height:auto;margin:18px 0;border:1px solid #dce3ef;border-radius:8px"></a>` : '';
-  return `<article><p class="label">项目 ${demo.directory.slice(0, 3)}</p><h2>${escape(demo.title)}</h2>${preview}<p>${escape(demo.description)}</p><div class="links"><a class="primary" href="./${demo.directory}/">进入演示 →</a><a href="${repository}/tree/main/projects/${demo.directory}">研究文档 ↗</a></div></article>`;
+  const caption = demo.preview && demo.previewCaption ? `<p style="font-size:13px;margin-top:-8px">${escape(demo.previewCaption)}</p>` : '';
+  return `<article><p class="label">项目 ${demo.directory.slice(0, 3)}</p><h2>${escape(demo.title)}</h2>${preview}${caption}<p>${escape(demo.description)}</p><div class="links"><a class="primary" href="./${demo.directory}/">进入演示 →</a><a href="${repository}/tree/main/projects/${demo.directory}">研究文档 ↗</a></div></article>`;
 }).join('\n');
 await writeFile(new URL('index.html', output), `<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="开源项目中文研究与交互演示导航"><title>开源项目研究集 · 在线演示</title>

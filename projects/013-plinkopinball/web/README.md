@@ -1,6 +1,6 @@
 # Plinkopinball 能力展示
 
-零第三方依赖的独立静态网页，包含原版外部嵌入、原创二维原理实验、可切换技术拆解、应用场景与完整中文研究。
+研究对象是一个弹珠下落的 3D 游戏。本站为零第三方依赖的独立静态网页，包含作者原版外部嵌入、实际游戏截图、原创二维原理实验、可切换技术拆解、应用场景与完整中文研究。
 
 ## 本地运行
 
@@ -22,7 +22,7 @@ node scripts/serve.mjs
 - games.html：八种可切换游戏方向，含三档难度、自动演示、亲自试玩、三星评级与本机最佳成绩；支持 #puzzle、#maze、#breakout、#track、#chain、#sorting、#rhythm、#race 定位。
 - games-notes.html：玩法操作、使用算法、原型边界和测试记录。
 - notes/：与研究文档一致的 Markdown 下载。
-- assets/：原创流程图。
+- assets/：作者原站实际游戏截图（已记录日期与来源），以及原创技术流程图。
 - public/physics.mjs：独立二维教学模型，固定步长，最多 80 球。
 - public/app.mjs：界面输入、绘制、模式切换与参数控制。
 - public/games-engine.mjs：八种独立游戏的状态、规则与胜负判定；games-view.mjs 绘制玩法表面，games-app.mjs 处理用户操作。
