@@ -6,7 +6,7 @@
   },
   {
     "directory": "002-memmy-agent",
-    "title": "Memmy · 记忆与执行的边界",
-    "description": "外部接入整体架构、记忆写入与召回原理、Agent 职责边界，以及与 Mnemosyne 的对照。"
+    "title": "Memmy Agent",
+    "description": "为多个 AI Agent 提供共享长期记忆，支持历史采集、经验提炼与任务续接，并内置独立 Agent 执行环境。"
   }
 ]
