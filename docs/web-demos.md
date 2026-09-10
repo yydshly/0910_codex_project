@@ -15,7 +15,7 @@
 | 007 · DeepTutor | [能力、产品对照与实践意义](https://yydshly.github.io/0910_codex_project/007-deeptutor/) · [完整架构图](https://yydshly.github.io/0910_codex_project/007-deeptutor/full-architecture.svg) · [来源与验证](https://yydshly.github.io/0910_codex_project/007-deeptutor/sources.html) |
 | 008 · Pi Web | [能力、本质与 Codex 对比](https://yydshly.github.io/0910_codex_project/008-pi-web/) · [完整理解](https://yydshly.github.io/0910_codex_project/008-pi-web/understanding.html) · [总览图](https://yydshly.github.io/0910_codex_project/008-pi-web/assets/research-overview.svg) |
 | 009 · YC AI Research | [网页能力、更新情况与研究价值](https://yydshly.github.io/0910_codex_project/009-yc-ai-research/) |
-| 010 · Awesome OSINT Arsenal | [工具目录、场景与核心能力](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
+| 010 · Awesome OSINT Arsenal | [工具查找、安装说明与完整理解](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 | 011 · Luvus | [任务管理与 Agent 适配](https://yydshly.github.io/0910_codex_project/011-luvus/) · [完整理解](https://yydshly.github.io/0910_codex_project/011-luvus/understanding.html) · [详细架构](https://yydshly.github.io/0910_codex_project/011-luvus/architecture.html) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
@@ -57,6 +57,17 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Awesome OSINT Arsenal 完整理解与摘要更新
+
+- 日期：2026-09-10；平台：现有 GitHub Pages。
+- 发布源码：`ca228de77d87da05033adebd34d46d8a0400de78`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34456730772)。
+- 摘要统一为“以工具查找为主的工具合集，按用途整理情报与安全工具、网站及学习资料，并提供获取方式和批量安装脚本，帮助找到并准备所需工具”。
+- 网页将目录搜索前置，加入正式完整理解 PNG 和高清入口，补充已有清单搜索、上游人工维护、网页固定快照及未来自动发现流程的边界。
+- 独立导出本次待提交内容后构建十个展示通过，488 处本地引用通过检查；本项目 20 处引用、搜索组合、场景和 PNG 字节一致性检查通过。
+- 核对线上部署版本、本项目 12 个文件与根导航：HTTP 200，文本统一换行后与验证构建一致，PNG 哈希一致；十个展示入口均 HTTP 200。
+- PNG 已目视检查。未做浏览器点击、截图或视觉回归；没有继续安装或执行第三方工具。
+
 
 ### Luvus 模块引导与完整研究
 
