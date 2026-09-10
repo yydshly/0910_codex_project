@@ -14,6 +14,7 @@
 | 006 · Maigret | [账号用户名跨站检查：完整理解与总览图](https://yydshly.github.io/0910_codex_project/006-maigret/) |
 | 007 · DeepTutor | [能力、产品对照与实践意义](https://yydshly.github.io/0910_codex_project/007-deeptutor/) · [完整架构图](https://yydshly.github.io/0910_codex_project/007-deeptutor/full-architecture.svg) · [来源与验证](https://yydshly.github.io/0910_codex_project/007-deeptutor/sources.html) |
 | 008 · Pi Web | [能力、本质与 Codex 对比](https://yydshly.github.io/0910_codex_project/008-pi-web/) · [完整理解](https://yydshly.github.io/0910_codex_project/008-pi-web/understanding.html) · [总览图](https://yydshly.github.io/0910_codex_project/008-pi-web/assets/research-overview.svg) |
+| 009 · YC AI Research | [网页能力、更新情况与研究价值](https://yydshly.github.io/0910_codex_project/009-yc-ai-research/) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -54,6 +55,16 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### YC AI Research 网页能力与研究价值展示
+
+- 日期：2026-09-10；平台：仓库既有 GitHub Pages 统一站点。
+- 首发源码：`f494c4a047f396d1ebc70b5c536e0cf4e5430e6f`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34452029853)。
+- 网页区分官网、单篇清单与研究项目，解释更新边界、网页功能、五项代表研究、使用场景和研究价值，含原创 SVG 流程图与两份笔记下载。
+- 统一构建八个项目通过，394 处本地引用通过子路径检查；新增页面六个章节、五项代表研究、13 处本地链接与下载一致性检查通过。
+- 核对线上源码版本及 13 个文件，均 HTTP 200，内容类型正确，统一换行后的文本与验证构建一致；含原有七个项目入口回归。
+- 未运行上游模型或完整复现实验；未做浏览器截图、真实点击或视觉回归。OpenReview 入口受浏览器验证影响，JETS 和 Guide Labs 仍标为原文转述。
+
 
 ### DeepTutor 能力、对照与完整架构发布
 

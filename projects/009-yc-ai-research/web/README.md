@@ -24,6 +24,6 @@ python -m http.server 8009 --bind 127.0.0.1 --directory dist
 
 沿用[仓库 GitHub Pages 约定](../../../docs/web-demos.md)，登记于 `docs/web-demos.json`。当前会话没有可调用的 Sites 托管连接器，因此保留仓库统一发布方式。
 
-生产地址在上线验证后补充。验证边界见[来源记录](../notes/02-sources-and-verification.md)。
+[在线阅读](https://yydshly.github.io/0910_codex_project/009-yc-ai-research/)。2026-09-10 已上线，首次发布与验证记录见仓库部署文档。验证边界见[来源记录](../notes/02-sources-and-verification.md)。
 
 [返回项目说明](../README.md)
