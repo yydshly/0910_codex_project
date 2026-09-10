@@ -23,6 +23,7 @@
 | 008 | [Pi Web](projects/008-pi-web/README.md) | [agegr/pi-web](https://github.com/agegr/pi-web) | 基于 Pi 的自托管浏览器编程工作台，支持读写代码、执行命令、会话与文件管理、模型和技能配置；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具，可用于研究 GitHub 项目、组织个人开发，并为自建领域助手提供工作台与扩展设计参考 | 完整理解与线上展示完成；上游未实测 | [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/) |
 | 009 | [YC AI Research](projects/009-yc-ai-research/README.md) | [原始文章（非代码仓库）](https://www.empirical.health/blog/yc-startups-publishing-ai-research) | AI 研究资讯汇总博客，整理 YC 创业公司、研究方向和论文链接；对我当前寻找可用工具、研究 GitHub 项目的直接价值有限，主要作为信息来源与候选项目线索保留，按需查阅，不列为重点研究 | 参考资料归档；按需查阅 | [在线阅读](https://yydshly.github.io/0910_codex_project/009-yc-ai-research/) |
 | 010 | [Awesome OSINT Arsenal](projects/010-awesome-osint-arsenal/README.md) | [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | 整理第三方情报与安全工具、网站及学习资源，提供结构化目录和批量安装脚本；帮助发现与准备工具，实际查询与分析由各工具完成 | 目录与中文展示完成；按要求未安装工具 | [打开工具导航](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
+| 011 | [Luvus](projects/011-luvus/README.md) | [RizRiyz/luvus](https://github.com/RizRiyz/luvus) | 通过任务管理与适配层连接已有 Agent，提供任务下发、会话管理、并行协调、检查与结果整合；主 Agent 可选，可为我们的项目研究流程与验收规则提供参考 | 中文研究与模块图完成；上游未运行 | — |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
@@ -88,6 +89,12 @@ Pi Web 提供可自托管的浏览器 AI 编程工作台，把代码操作、任
 [![Awesome OSINT Arsenal 职责图：工具目录、选择与准备、第三方执行、人工核验](projects/010-awesome-osint-arsenal/assets/research-overview.svg)](projects/010-awesome-osint-arsenal/README.md)
 
 从具体问题找到候选工具，理解“合集负责目录与准备，第三方工具负责查询与分析”。中文展示包含 753 条原始目录记录、用途筛选和六个场景；记录含网站、平台与学习资料，不表示工具已安装。图源：依据固定源码原创绘制，非运行截图。[项目资料](projects/010-awesome-osint-arsenal/README.md) · [完整理解](projects/010-awesome-osint-arsenal/notes/01-understanding.md) · [网页运行说明](projects/010-awesome-osint-arsenal/web/README.md) · [打开工具导航](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/)
+
+### 011 · Luvus
+
+[![Luvus 模块引导：任务管理与 Agent 适配连接已有助手，助手自己调用模型与工具执行任务](projects/011-luvus/assets/entry-guide.svg)](projects/011-luvus/README.md)
+
+从“任务管理＋Agent 适配”理解多 Agent 工作台；主 Agent 可选，Luvus 负责控制与协调，已有 Agent 负责具体执行。来源：依据固定源码原创整理，非产品截图；上游未运行验证。[完整理解与产品对照](projects/011-luvus/notes/01-understanding.md) · [放大模块图](projects/011-luvus/assets/entry-guide.svg) · [详细架构](projects/011-luvus/notes/02-full-architecture.md) · [网页运行说明](projects/011-luvus/web/README.md)
 
 ## 仓库导航
 

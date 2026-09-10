@@ -49,5 +49,12 @@
     "description": "提供工具分类目录、结构化数据和批量安装脚本，帮助发现与准备第三方工具；中文展示可搜索753条记录并按六个场景理解工具用途，暂不安装或执行调查。",
     "preview": "assets/research-overview.svg",
     "previewAlt": "合集提供目录和安装入口，第三方工具执行查询或分析，使用者核验结果"
+  },
+  {
+    "directory": "011-luvus",
+    "title": "Luvus · 多 Agent 任务工作台",
+    "description": "通过任务管理与适配层连接已有 Agent，提供任务下发、会话管理、并行协调、检查与结果整合；主 Agent 可选，可为我们的项目研究流程与验收规则提供参考。",
+    "preview": "assets/entry-guide.svg",
+    "previewAlt": "Luvus 的任务管理与 Agent 适配连接已有助手，具体工作由助手自己的模型与工具完成"
   }
 ]
