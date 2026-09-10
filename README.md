@@ -25,7 +25,7 @@
 | 010 | [Awesome OSINT Arsenal](projects/010-awesome-osint-arsenal/README.md) | [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | 以工具查找为主的工具合集，按用途整理情报与安全工具、网站及学习资料，并提供获取方式和批量安装脚本，帮助找到并准备所需工具。 | 完整理解与工具查找展示完成；按要求未安装工具 | [打开工具导航](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 | 011 | [Luvus](projects/011-luvus/README.md) | [RizRiyz/luvus](https://github.com/RizRiyz/luvus) | Luvus 是多 Agent 终端工作台，统一接入 Claude Code、Codex、Pi 等编程助手，支持任务下发与依赖管理、会话恢复、状态跟踪、并行工作目录协调、检查命令和分支整合，并提供远程接入、定时任务与模块扩展 | 中文研究与线上展示完成；上游未运行 | [在线阅读](https://yydshly.github.io/0910_codex_project/011-luvus/) |
 | 012 | [Crypto 101](projects/012-crypto101-book/README.md) | [crypto101/book](https://github.com/crypto101/book) | 面向程序员的密码学入门书源码，通过加密、认证、密钥与漏洞案例解释完整安全系统，并提供多格式书稿构建流程；适合基础学习、中文知识整理与教学参考 | 关键知识清单与线上导读完成；上游未实测 | [开始学习](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [关键知识清单](https://yydshly.github.io/0910_codex_project/012-crypto101-book/knowledge.html) |
-| 013 | [Plinkopinball](projects/013-plinkopinball/README.md) | [andrewwoan/codrops-demo-for-threejs-conference](https://github.com/andrewwoan/codrops-demo-for-threejs-conference) | 将 Blender 三维场景、钉板落球与弹珠台玩法结合，支持物理碰撞、挡板、轨道和动态声音，可用于创意活动、小游戏及 Three.js 教学，借鉴烘焙视觉、低维物理与实例化渲染的组合 | 中文研究与八方向玩法原型已上线；原站基础交互已验证 | [原版体验与原理实验](https://yydshly.github.io/0910_codex_project/013-plinkopinball/) · [八种游戏方向](https://yydshly.github.io/0910_codex_project/013-plinkopinball/games.html) |
+| 013 | [Plinkopinball](projects/013-plinkopinball/README.md) | [andrewwoan/codrops-demo-for-threejs-conference](https://github.com/andrewwoan/codrops-demo-for-threejs-conference) | 将 Blender 三维场景、钉板落球与弹珠台玩法结合，支持物理碰撞、挡板、轨道和动态声音，可用于创意活动、小游戏及 Three.js 教学，借鉴烘焙视觉、低维物理与实例化渲染的组合 | 中文研究与八方向挑战版已上线；含三档难度与本机成绩 | [原版体验与原理实验](https://yydshly.github.io/0910_codex_project/013-plinkopinball/) · [八种游戏方向](https://yydshly.github.io/0910_codex_project/013-plinkopinball/games.html) |
 | 014 | [threestudio](projects/014-threestudio/README.md) | [threestudio-project/threestudio](https://github.com/threestudio-project/threestudio) | 依赖 NVIDIA GPU/CUDA、Python/PyTorch、三维计算组件及预训练权重的 AI 三维生成框架；接收文字、参考图或场景数据，支持生成、指令编辑与几何纹理优化，输出三维表示、纹理网格和环绕预览 | 文档与模块总览完成；上游安装和生成未实测 | — |
 <!-- PROJECT_INDEX_END -->
 
@@ -107,7 +107,7 @@ Pi Web 提供可自托管的浏览器 AI 编程工作台，把代码操作、任
 
 ### 013 · Plinkopinball
 
-[新增：八种可玩的游戏方向](https://yydshly.github.io/0910_codex_project/013-plinkopinball/games.html) · 物理解谜、迷宫、打砖块、轨道建造、连锁机关、颜色分类、节奏击球和竞速。支持自动演示与亲自试玩，均为本研究原创二维概念原型。
+[升级：八种挑战玩法](https://yydshly.github.io/0910_codex_project/013-plinkopinball/games.html) · 物理解谜、迷宫、打砖块、轨道建造、连锁机关、颜色分类、节奏击球和竞速。新增三档难度、收集与道具、限时机关、双押长按和三圈竞速；支持自动演示、亲自试玩、三星评级与本机成绩，均为本研究原创二维概念原型。
 
 [![Plinkopinball 的能力流程：模型与烘焙、碰撞提取、运动求解、画面与声音](projects/013-plinkopinball/assets/capability-overview.svg)](projects/013-plinkopinball/README.md)
 
