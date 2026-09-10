@@ -29,7 +29,7 @@ node scripts/serve.mjs
 - `scripts/`：构建、静态检查和本地 HTTP 预览。
 - `dist/`：生成产物，不提交。
 
-已按仓库[统一发布约定](../../../docs/web-demos.md)接入 [web-demos.json](../../../docs/web-demos.json)。根目录可运行 `node scripts/build-pages.mjs` 和 `node scripts/check-pages.mjs` 检查子路径。当前未发布，不登记线上链接；沿用仓库 GitHub Pages 发布结构。
+已按仓库[统一发布约定](../../../docs/web-demos.md)接入 [web-demos.json](../../../docs/web-demos.json)。根目录可运行 `node scripts/build-pages.mjs` 和 `node scripts/check-pages.mjs` 检查子路径。已于 2026-09-10 发布并验证：[在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/) · [完整理解](https://yydshly.github.io/0910_codex_project/008-pi-web/understanding.html) · [总览 SVG](https://yydshly.github.io/0910_codex_project/008-pi-web/assets/research-overview.svg)。沿用仓库 GitHub Pages 发布结构；首发源码 c0f6259666c77eadeee92167d7977bafc718eca9。
 
 部署静态展示不会获得上游智能体能力；运行 Pi Web 本体需要常驻服务端及模型配置。
 

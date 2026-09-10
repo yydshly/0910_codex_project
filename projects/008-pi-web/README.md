@@ -14,9 +14,9 @@
 | 上游许可证 | [MIT](https://github.com/agegr/pi-web/blob/b1a72962d385db4a82b93ad5802e9024d5b44874/LICENSE)，© 2026 agegr |
 | 技术栈 | Next.js 16.3.1、React 19、TypeScript、Tailwind CSS 4；Pi SDK 0.85.1；xterm.js、node-pty |
 | 环境要求 | 上游 Node.js ≥ 22.19.0；本研究静态展示 Node.js ≥ 22，无第三方依赖 |
-| 研究状态 | 固定源码研究与本地能力展示完成；上游真实任务未运行 |
+| 研究状态 | 完整理解与线上能力展示完成；上游真实任务未运行 |
 | 收录日期 / 最近更新 | 2026-09-10 |
-| 在线演示 | —（本地展示已提供，尚未发布验证） |
+| 在线演示 | [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/) · [完整理解](https://yydshly.github.io/0910_codex_project/008-pi-web/understanding.html) |
 
 ## 研究摘要
 

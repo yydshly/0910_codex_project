@@ -11,6 +11,7 @@
 | 002 · Memmy Agent | [记忆与执行的边界](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) · [外部接入整体架构](https://yydshly.github.io/0910_codex_project/002-memmy-agent/#external-guide) |
 | 003 · AnySearch Skill | [客户端背后的搜索服务](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/) · [完整理解文档](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/notes/05-complete-understanding.html) |
 | 006 · Maigret | [账号用户名跨站检查：完整理解与总览图](https://yydshly.github.io/0910_codex_project/006-maigret/) |
+| 008 · Pi Web | [能力、本质与 Codex 对比](https://yydshly.github.io/0910_codex_project/008-pi-web/) · [完整理解](https://yydshly.github.io/0910_codex_project/008-pi-web/understanding.html) · [总览图](https://yydshly.github.io/0910_codex_project/008-pi-web/assets/research-overview.svg) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -49,6 +50,16 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Pi Web 完整理解与能力展示发布
+
+- 日期：2026-09-10；平台：现有 GitHub Pages 统一站点。
+- 首发源码：`c0f6259666c77eadeee92167d7977bafc718eca9`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34444791540)。
+- 摘要聚焦库的能力、本质及 Codex 对比意义；增加完整中文文章与原创 PNG/SVG 总览，说明界面、Pi 引擎与模型的分工，不将相似体验写为能力等同。
+- 仅导出本次待提交内容构建五个已登记项目，263 处站内引用通过检查；Pi Web 的 35 处页面引用、三场景 / 15 阶段、文章与源码链接检查通过。
+- 核对线上版本及 10 个文件：均 HTTP 200，文本统一换行后与验证构建一致，PNG 字节一致，内容类型正确；原有四个项目入口回归通过。
+- 发布的是静态研究展示；上游智能体和同任务效果对比未运行，未做浏览器视觉或真实点击测试。原创总览 PNG 已单独目视检查。
+
 
 ### Maigret 研究展示追加发布
 
