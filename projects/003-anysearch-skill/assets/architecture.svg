@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+<title id="title">AnySearch Skill 架构</title><desc id="desc">Agent 根据技能规范选择能力，跨平台客户端请求远端目录、搜索与抽取接口。后端未包含在仓库中。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L0 6 L9 3Z" fill="#637b94"/></marker></defs>
+<rect width="1200" height="520" rx="22" fill="#f3f6fb"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="45" y="60" font-size="30" font-weight="700" fill="#142f49">AnySearch Skill · 从问题到可引用资料</text>
+<text x="45" y="98" font-size="18" fill="#5a6e83">技能规范指导调用策略，客户端连接远端检索服务</text>
+<rect x="45" y="132" width="690" height="300" rx="16" fill="#e5edf8"/>
+<rect x="766" y="132" width="389" height="300" rx="16" fill="#e4f1ec"/>
+<text x="68" y="171" font-size="19" font-weight="700" fill="#284768">本地：宿主 Agent + 本仓库</text>
+<text x="790" y="171" font-size="19" font-weight="700" fill="#22634d">远端：AnySearch 服务</text>
+<rect x="68" y="209" width="176" height="128" rx="12" fill="white"/>
+<text x="88" y="250" font-size="22" font-weight="700" fill="#284768">用户问题</text>
+<text x="88" y="289" font-size="16" fill="#5a6e83">事实 / 文档 / 行业</text>
+<rect x="276" y="209" width="204" height="128" rx="12" fill="white"/>
+<text x="296" y="250" font-size="22" font-weight="700" fill="#284768">Agent 决策</text>
+<text x="296" y="285" font-size="16" fill="#5a6e83">读取技能，发现能力</text>
+<text x="296" y="313" font-size="16" fill="#5a6e83">选择领域，补齐参数</text>
+<rect x="512" y="209" width="201" height="128" rx="12" fill="white"/>
+<text x="531" y="250" font-size="22" font-weight="700" fill="#284768">跨平台 CLI</text>
+<text x="531" y="285" font-size="16" fill="#5a6e83">Python / Node.js</text>
+<text x="531" y="313" font-size="16" fill="#5a6e83">PowerShell / Bash</text>
+<path d="M244 272H268 M480 272H504 M713 272H784" stroke="#637b94" stroke-width="2.5" marker-end="url(#arrow)" fill="none"/>
+<rect x="792" y="197" width="337" height="150" rx="12" fill="white"/>
+<text x="812" y="232" font-size="19" font-weight="700" fill="#22634d">能力目录 → 搜索 → 正文抽取</text>
+<text x="812" y="269" font-size="17" fill="#5a6e83">GET /v1/sub-domains</text>
+<text x="812" y="300" font-size="17" fill="#5a6e83">POST /v1/search</text>
+<text x="812" y="331" font-size="17" fill="#5a6e83">POST /v1/extract</text>
+<text x="68" y="385" font-size="17" fill="#284768">返回 Markdown，由 Agent 核对来源并组织回答</text>
+<text x="792" y="384" font-size="17" fill="#22634d">搜索后端未包含在本仓库中</text>
+<text x="45" y="476" font-size="14" fill="#637b94">来源：依据上游源码原创绘制 · commit 15b7ea5 · 2026-09-10 · 非产品截图</text>
+</g></svg>

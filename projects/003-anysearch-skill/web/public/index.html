@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="理解 AnySearch Skill：云端搜索服务的开源客户端，专业查询与会员权限的区别，同类服务、开源 Agent 的搜索来源，以及对我们的实际价值。">
+  <title>AnySearch Skill · 客户端背后的搜索服务</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header"><a href="../">开源项目研究集</a><span>003 / AnySearch Skill</span><a href="https://github.com/anysearch-ai/anysearch-skill">上游仓库 ↗</a></header>
+<div class="layout">
+  <aside><nav aria-label="阅读目录"><p class="eyebrow">理解一个搜索 Skill</p><a href="#boundary">01 · 客户端与服务端</a><a href="#capabilities">02 · 能力与权限</a><a href="#alternatives">03 · 同类产品</a><a href="#agents">04 · Agent 调用来源</a><a href="#meaning">05 · 对我们的意义</a><a href="#evidence">06 · 完整图与证据</a><hr><a href="./notes/05-complete-understanding.html">阅读全文 ↗</a></nav></aside>
+  <main id="main">
+    <section class="intro" id="boundary">
+      <p class="eyebrow">客户端开源 / 搜索由云端执行</p>
+      <h1>一个搜索服务，<br>供 Agent 使用的入口。</h1>
+      <p class="lead">AnySearch Skill 是 <strong>AnySearch 云端检索服务的开源客户端与使用规范</strong>。它把搜索能力交给已有 Agent 调用，实际搜索在 <code>api.anysearch.com</code> 完成。</p>
+      <div class="boundary-grid">
+        <article><span class="step">1 / 决定查什么</span><h2>已有 Agent</h2><p>理解需求，选择工具和参数，读取结果后组织回答。</p><p class="note">Skill 不修改模型参数。</p></article>
+        <article class="client"><span class="step">2 / 提交请求</span><h2>这个开源仓库</h2><p><code>SKILL.md</code> 指导使用；跨平台脚本负责请求、并发、错误和输出。</p><p class="note">Python · Node.js · PowerShell · Bash</p></article>
+        <article class="server"><span class="step">3 / 执行检索</span><h2>AnySearch 云端</h2><p>搜索、专业数据查询、网页正文抽取。</p><p class="note">对应后端源码未公开；具体索引与算法未验证。</p></article>
+      </div>
+      <div class="call-chain"><strong>一次调用</strong><span>发现能力 → 填写参数 → 云端检索 → 返回内容 → Agent 核对与回答</span></div>
+      <p class="caption">下载客户端不能获得可自行部署的完整搜索系统。人也可以直接使用 CLI 或 API。<a href="./notes/05-complete-understanding.html#section-2">查看职责与接口依据</a></p>
+    </section>
+
+    <section id="capabilities">
+      <div class="section-heading"><span>02</span><h2>特殊能力，来自更具体的查询。</h2></div>
+      <p>通用搜索返回相关网页；专业查询可以使用股票代码、DOI、航班号或软件版本等参数，取得相应领域记录。统一接口可能减少逐个接入数据源的工作。</p>
+      <div class="capability-grid">
+        <article><h3>通用搜索</h3><p>问题或关键词 → 标题、链接与摘要。单次返回 1–10 条。</p></article>
+        <article><h3>专业查询</h3><p>标识与筛选条件 → 行情、论文引用、航班、漏洞等记录。</p></article>
+        <article><h3>并行检索</h3><p>最多 5 个查询同时执行，允许部分失败；每项分别计入请求额度。</p></article>
+        <article><h3>正文抽取</h3><p>URL → 可读正文。支持网页、文本、JSON、Markdown；不支持 PDF、Word、图片和音视频。</p></article>
+      </div>
+      <p class="catalog"><strong>17 个领域 / 40 个子能力</strong><span>2026-09-10 目录实查；数量不代表全部能力已实测。</span><a href="./notes/capabilities-2026-09-10.json">查看参数快照 ↗</a></p>
+      <div class="two-column">
+        <article class="panel"><h3>服务套餐有免费额度</h3><p><strong>Free：$0/月</strong><br>1,000 次请求/日，每 Key 20 QPS。</p><p>Professional 标注“即将推出”；Enterprise 联系销售。匿名额度更低，尚无逐项能力的套餐对照表。</p><a href="https://www.anysearch.com/pricing">官方价格页 ↗</a><p class="note">按 2026-09-10 记录，后续可能变化。</p></article>
+        <article class="panel amber"><h3>专业能力 ≠ 第三方会员</h3><p>能查论文、金融或新闻，不代表拥有知网、付费研报、金融终端或新闻付费墙的访问权。</p><p>目前没有证据证明这些会员权益随 AnySearch 提供；数据采购与授权范围没有完整公开。</p></article>
+      </div>
+    </section>
+
+    <section id="alternatives">
+      <div class="section-heading"><span>03</span><h2>比较服务本身，也比较实现边界。</h2></div>
+      <p>同类方案不只以 Skill 形式出现。API、MCP 或内置工具都能成为 Agent 的入口；决定价值的是信息来源、覆盖、质量和成本。</p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="同类搜索服务比较"><table><thead><tr><th>方案</th><th>主要能力</th><th>对我们的参考价值</th></tr></thead><tbody>
+        <tr><td><a href="https://docs.tavily.com/documentation/about">Tavily</a></td><td>Agent 搜索、筛选、抓取与提取</td><td>对照检索上下文与工具接口</td></tr>
+        <tr><td><a href="https://exa.ai/docs/reference/the-exa-index">Exa</a></td><td>自有索引、语义检索、内容获取</td><td>理解自建索引型服务的差异</td></tr>
+        <tr><td><a href="https://brave.com/search/api/">Brave Search API</a></td><td>独立网页索引与排序</td><td>比较上游搜索来源与覆盖</td></tr>
+        <tr><td><a href="https://docs.parallel.ai/getting-started/overview">Parallel</a></td><td>搜索、提取、多步骤研究</td><td>理解检索与研究流程的结合</td></tr>
+        <tr><td><a href="https://docs.perplexity.ai/docs/search/quickstart">Perplexity Search</a></td><td>排序结果、过滤与内容获取</td><td>区分返回资料与生成答案</td></tr>
+        <tr><td><a href="https://serpapi.com/search-api">SerpApi</a></td><td>提供 Google 等搜索引擎结果</td><td>研究搜索结果 API 的接入方式</td></tr>
+        <tr><td><a href="https://docs.firecrawl.dev/contributing/open-source-or-cloud">Firecrawl</a></td><td>搜索、抓取与正文提取</td><td>研究开源实现；云端与开源能力有边界</td></tr>
+        <tr><td><a href="https://docs.searxng.org/">SearXNG</a></td><td>聚合多个上游搜索来源</td><td>服务端开源，可自行部署与研究</td></tr>
+      </tbody></table></div>
+      <p class="caption">相邻组件 <a href="https://docs.crawl4ai.com/">Crawl4AI</a> 适合研究浏览器采集和正文清洗，本身不等于完整全网搜索索引。以上为定位比较，未进行统一质量排名。</p>
+    </section>
+
+    <section id="agents">
+      <div class="section-heading"><span>04</span><h2>开源 Agent，仍然可以调用商业搜索。</h2></div>
+      <p>搜索通常是宿主环境交给模型的工具。Agent 核心开源、搜索供应商开源、模型开源，是三个不同的问题。</p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="开源 Agent 搜索调用来源"><table><thead><tr><th>开源 Agent / 核心</th><th>工具入口</th><th>实际调用来源与边界</th></tr></thead><tbody>
+        <tr><td><a href="https://learn.chatgpt.com/docs/web-search">Codex CLI</a></td><td><code>web_search</code></td><td>OpenAI 托管搜索；有缓存与 live 等模式。CLI 开源不代表云端搜索后端开源。</td></tr>
+        <tr><td><a href="https://geminicli.com/docs/tools/web-search/">Gemini CLI</a></td><td><code>google_web_search</code><br><code>web_fetch</code></td><td>Google Search grounding；由 Gemini API 处理搜索结果，网页读取是另一工具。</td></tr>
+        <tr><td><a href="https://opencode.ai/docs/tools/#websearch">OpenCode</a></td><td><code>websearch / webfetch</code></td><td>Exa 或 Parallel；取决于 provider 与启用配置。</td></tr>
+        <tr><td><a href="https://docs.openclaw.ai/tools/web">OpenClaw</a></td><td><code>web_search / web_fetch</code></td><td>可配置 Brave、Exa、Tavily、Parallel、Perplexity、Gemini、Grok、SearXNG 等；支持不代表全部启用。</td></tr>
+        <tr><td><a href="https://github.com/earendil-works/pi/blob/400d6905ce46ec46e79da8a7701b1b48850192df/packages/coding-agent/README.md">Pi 默认核心</a></td><td><code>read / write / edit / bash</code></td><td>默认无独立 web_search；通过扩展、Skill、包或程序补充。</td></tr>
+      </tbody></table></div>
+      <details><summary>Claude Code、Cursor 与 Grok 呢？</summary><p>Claude Code 的 WebSearch 调用 Anthropic 后端，可另接 MCP 工具；Cursor 有网页搜索和浏览器，本次核对文档未明确固定搜索供应商；Grok API 有网页搜索与专门的 X 搜索。工具开放范围取决于具体产品、配置与权限。</p><a href="./notes/05-complete-understanding.html#section-8">查看完整比较与官方来源</a></details>
+    </section>
+
+    <section id="meaning">
+      <div class="section-heading"><span>05</span><h2>对我们有用的，是哪一部分？</h2></div>
+      <div class="value-grid">
+        <article><span class="eyebrow">学习客户端</span><h3>有清楚的参考价值</h3><p>能力目录、参数设计、并行请求、错误处理、多语言适配，以及如何让 Agent 正确使用工具。</p></article>
+        <article><span class="eyebrow">研究搜索后端</span><h3>需要看其他项目</h3><p>索引、路由、排序与抓取实现没有公开。可进一步研究 SearXNG、Crawl4AI、Firecrawl 的相应开源部分。</p></article>
+        <article><span class="eyebrow">判断是否安装</span><h3>看实际增量</h3><p>缺少搜索工具时，它能提供入口；已有搜索时，应验证它是否带来缺失数据、更好结果或更低成本。</p></article>
+      </div>
+      <p class="conclusion">研究判断：<strong>适合参考服务接入设计；无法仅靠这个仓库研究或部署完整搜索后端。</strong>专业目录的丰富程度，仍需通过实际任务检验。</p>
+    </section>
+
+    <section id="evidence">
+      <div class="section-heading"><span>06</span><h2>完整图、原始依据与验证范围。</h2></div>
+      <div class="downloads"><a class="button" href="./notes/05-complete-understanding.html">阅读完整研究 →</a><a href="./assets/research-overview.svg">打开完整总览图 ↗</a><a href="./assets/research-overview.png" download>下载 PNG</a><a href="./notes/05-complete-understanding.md" download>下载 Markdown</a></div>
+      <details class="overview"><summary>展开完整理解图</summary><figure><a href="./assets/research-overview.svg"><img src="./assets/research-overview.png" width="2520" height="4035" loading="lazy" alt="AnySearch 客户端与云端边界、服务能力、收费、同类产品、开源 Agent 的搜索调用来源和研究价值完整总览"></a><figcaption>原创研究图，依据固定源码、在线目录及官方文档；非产品截图。<a href="./notes/05-complete-understanding.html#sources">查看来源</a></figcaption></figure></details>
+      <div class="two-column evidence"><div><h3>已经验证</h3><p>客户端源码与接口；Python、Node.js、PowerShell 本地模拟接口测试；在线通用搜索、React 文档检索和网页正文抽取；完整能力目录。</p></div><div><h3>仍未验证</h3><p>全部专业能力的效果、免费额度极限、后端算法、上游采购与授权、竞品对照质量。浏览器、RSS、API 和索引的具体组合不能靠客户端断言。</p></div></div>
+      <p class="caption">本页为静态研究展示，没有部署 AnySearch 搜索服务器，也不代用户发起付费查询。</p>
+    </section>
+    <footer>研究于 2026-09-10 · AnySearch Skill 3.1.1 / <code>15b7ea5</code> · 上游 Apache-2.0<br><a href="https://github.com/yydshly/0910_codex_project/tree/main/projects/003-anysearch-skill">研究文档与验证记录</a> · <a href="https://github.com/anysearch-ai/anysearch-skill/tree/15b7ea5039983c9dee328be8c7c609f3eb86058e">固定上游版本</a> · <a href="../">返回演示导航</a></footer>
+  </main>
+</div>
+</body>
+</html>

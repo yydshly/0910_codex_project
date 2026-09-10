@@ -8,5 +8,10 @@
     "directory": "002-memmy-agent",
     "title": "Memmy Agent",
     "description": "为多个 AI Agent 提供共享长期记忆，支持历史采集、经验提炼与任务续接，并内置独立 Agent 执行环境。"
+  },
+  {
+    "directory": "003-anysearch-skill",
+    "title": "AnySearch Skill",
+    "description": "AnySearch 云端搜索服务的开源客户端，为 Agent 接入通用与专业检索、并行查询和正文抽取；帮助理解工具接入，并与 Tavily、Exa 等服务比较增量价值。"
   }
 ]

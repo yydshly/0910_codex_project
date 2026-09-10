@@ -1,0 +1,1142 @@
+{
+  "observed_on": "2026-09-10",
+  "source": "https://api.anysearch.com/v1/sub-domains",
+  "evidence_scope": "Live capability directory declarations only; not an end-to-end verification of every capability.",
+  "domains": [
+    {
+      "domain": "general",
+      "description": "General search",
+      "sub_domains": [
+        {
+          "sub_domain": "general.general",
+          "description": "General search"
+        }
+      ]
+    },
+    {
+      "domain": "resource",
+      "description": "Image search with professional photography, SVG, illustrations and vector graphics",
+      "sub_domains": [
+        {
+          "sub_domain": "resource.image",
+          "description": "Professional photography, diverse stock photos, SVG, illustrations and vector graphics"
+        }
+      ]
+    },
+    {
+      "domain": "social_media",
+      "description": "Social media information search",
+      "sub_domains": [
+        {
+          "sub_domain": "social_media.social_media",
+          "description": "Social media information search and retrieval",
+          "params": {
+            "keyword": {
+              "description": "AI large models / Python developer / Musk (Search keywords take precedence over query fields)",
+              "required": false,
+              "sort_order": 1
+            },
+            "region": {
+              "description": "Beijing / Shanghai / Guangdong (Region filtering only works when type=weibo_hot)",
+              "required": false,
+              "sort_order": 2
+            },
+            "type": {
+              "description": "type：weibo / weibo_hot / zhihu / zhihu_hot / x_top / x_latest / x_media / x_people / x_lists / reddit_post / reddit_community / reddit_comment / reddit_media / reddit_people / linkedin_people / linkedin_jobs / linkedin_company / linkedin_posts / wechatmp（Target platforms and search patterns）",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "finance",
+      "description": "Stocks, forex, crypto, commodities, ETF, futures quotes, financial news, fundamentals, macro data, screening, calendar",
+      "sub_domains": [
+        {
+          "sub_domain": "finance.quote",
+          "description": "Real-time and historical quotes for stocks, forex, crypto, commodities, indices, ETFs, futures",
+          "params": {
+            "cn_code": {
+              "description": "Chinese market symbol. type=stock: e.g., `000001.SZ`, `600519.SH`; type=index: e.g., `399300.SZ`; type=etf: e.g., `510300.SH`; type=forex: e.g., `USDCNH.FXCM`",
+              "required": false,
+              "sort_order": 2
+            },
+            "period": {
+              "description": "Historical data time range. Values: `7d`/`14d`/`30d`/`90d`/`180d`/`1y`/`5y` or custom `{N}d`. International markets default `7d`, Chinese markets default `30d`",
+              "required": false,
+              "sort_order": 3
+            },
+            "symbol": {
+              "description": "International market symbol. type=stock: e.g., `AAPL`; type=forex: e.g., `EURUSD` (6-char pair); type=crypto: e.g., `BTCUSD` (required); type=commodity: e.g., `CLUSD` (empty returns market snapshot)",
+              "required": false,
+              "sort_order": 1
+            },
+            "type": {
+              "description": "Asset type. Values: `stock` (global stocks + A-shares), `forex` (foreign exchange), `crypto` (cryptocurrency), `commodity` (commodities), `index` (Chinese indices), `etf` (Chinese ETFs)",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "finance.news",
+          "description": "Global financial news, company announcements, broker research summaries",
+          "params": {
+            "cn_code": {
+              "description": "A-share ticker, used only when type=announcement. E.g., `600519.SH`. When empty, returns market-wide announcements",
+              "required": false,
+              "sort_order": 0
+            },
+            "news_src": {
+              "description": "Chinese flash news source, used only when type=flash. Default `sina`. Values: `sina` (Sina Finance), `wallstreetcn` (Wallstreetcn), `10jqka` (Tonghuashun), `eastmoney` (East Money), `cls` (Cailian Press), `yicai` (Yicai), `yuncaijing` (Cloud Finance), `fenghuang` (Phoenix Finance), `jinrongjie` (Financial Street)",
+              "required": false,
+              "sort_order": 0
+            },
+            "period": {
+              "description": "Query time range. type=flash/announcement defaults to `1d` (current day). Valid values same as quote",
+              "required": false,
+              "sort_order": 0
+            },
+            "symbol": {
+              "description": "International market ticker, used only when type=stock. E.g., `AAPL`. When empty, parsed from query",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "News type. Values: `general` (global English financial news), `stock` (international single-stock news), `flash` (Chinese financial headlines), `announcement` (A-share listed company announcements)",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "finance.screen",
+          "description": "Screen stocks by market cap, PE, dividend yield, sector, country (international markets only)",
+          "params": {
+            "country": {
+              "description": "ISO 3166-1 alpha-2 country code, used only when type=stock. E.g., `US`, `JP`, `GB`, `DE`, `CN`, `HK`. Note: filters by company registration country, not exchange country",
+              "required": false,
+              "sort_order": 2
+            },
+            "sector": {
+              "description": "GICS sector, used only when type=stock. Values: `Technology`, `Healthcare`, `Financial Services`, `Consumer Cyclical`, `Consumer Defensive`, `Industrials`, `Energy`, `Basic Materials`, `Communication Services`, `Real Estate`, `Utilities`",
+              "required": false,
+              "sort_order": 1
+            },
+            "type": {
+              "description": "Screen type. Values: `stock` (screen stocks by sector/country), `etf` (search ETFs by name, query used as filter)",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "finance.calendar",
+          "description": "Earnings dates, guidance, economic data releases, IPO schedules",
+          "params": {
+            "period": {
+              "description": "Forward-looking time range. Default `7d`. Valid values same as quote",
+              "required": false,
+              "sort_order": 1
+            },
+            "symbol": {
+              "description": "Stock ticker, used only when type=dividends. E.g., `AAPL`. When empty, returns market-wide schedule",
+              "required": false,
+              "sort_order": 2
+            },
+            "type": {
+              "description": "Calendar type. Values: `earnings` (earnings release schedule), `dividends` (dividend calendar), `ipos` (IPO schedule), `economic` (economic data release calendar)",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "finance.macro",
+          "description": "Macroeconomic indicators: GDP, CPI, PMI, interest rates (Shibor/LPR/Fed Funds), money supply, social financing",
+          "params": {
+            "period": {
+              "description": "Data time range. Default varies by type: gdp defaults to `2y`, cpi/lpr/money_supply/social_finance defaults to `1y`, shibor defaults to `30d`, US indicators truncated by maxResults. Valid values same as quote",
+              "required": false,
+              "sort_order": 1
+            },
+            "type": {
+              "description": "Indicator type. Values: `gdp` (China & US GDP), `cpi` (China & US CPI), `fed_funds` (Federal Funds Rate), `treasury` (US Treasury yield curve 1M~30Y), `unemployment` (US unemployment rate), `nonfarm` (US nonfarm payrolls), `shibor` (China interbank rates), `lpr` (China LPR loan rates), `money_supply` (China M0/M1/M2), `social_finance` (China aggregate social financing)",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "finance.fundamental",
+          "description": "Financial statements, valuation metrics, analyst ratings, shareholder structure, SEC filings",
+          "params": {
+            "cn_code": {
+              "description": "A-share ticker, **required** when type=income/balance/cashflow/indicator/holder. E.g., `600519.SH`",
+              "required": true,
+              "sort_order": 2
+            },
+            "period": {
+              "description": "Used only when type=holder, controls shareholder data time range. Default `1y`",
+              "required": false,
+              "sort_order": 3
+            },
+            "symbol": {
+              "description": "International market ticker, used when type=overview. E.g., `AAPL`. When empty, parsed from query",
+              "required": true,
+              "sort_order": 1
+            },
+            "type": {
+              "description": "Data type. Values: `overview` (summary card: ratings + target price + income statement + key metrics, international markets), `income` (income statement, A-shares), `balance` (balance sheet, A-shares), `cashflow` (cash flow statement, A-shares), `indicator` (financial indicators: ROE/gross margin etc., A-shares), `holder` (top 10 shareholders, A-shares)",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "academic",
+      "description": "Scholarly paper search, biomedical literature, preprints, citations, datasets",
+      "sub_domains": [
+        {
+          "sub_domain": "academic.search",
+          "description": "Cross-discipline paper search by keyword, title, author, institution with metadata and open access links",
+          "params": {
+            "category": {
+              "description": "Subject category, comma-separated multi-value. Valid values (22): `Computer Science`, `Medicine`, `Biology`, `Chemistry`, `Physics`, `Mathematics`, `Materials Science`, `Engineering`, `Environmental Science`, `Geology`, `Geography`, `Sociology`, `Psychology`, `Economics`, `Business`, `Political Science`, `Linguistics`, `Philosophy`, `History`, `Art`, `Education`, `Law`.",
+              "required": false,
+              "sort_order": 0
+            },
+            "doi": {
+              "description": "DOI direct lookup. Skips keyword search and returns the single publication matching the DOI.\nFormat: standard DOI, e.g., 10.1145/3292500.3330701\nWhen doi is provided, query may be empty and other filter parameters are ignored.",
+              "required": false,
+              "sort_order": 0
+            },
+            "min_citations": {
+              "description": "Minimum citation count, non-negative integer string, e.g., `100`. Used for academic quality filtering. Maps to `minCitationCount` parameter.",
+              "required": false,
+              "sort_order": 0
+            },
+            "open_access": {
+              "description": "Whether to return only open access publications.\nValid values: true / false",
+              "required": false,
+              "sort_order": 0
+            },
+            "sort": {
+              "description": "Sort field. Valid values: `cited_by_count`, `publication_date`, `publication_year`, `relevance_score`, `display_name`. Append `:asc` or `:desc` to specify direction, e.g., `cited_by_count:desc`. Default: sort by relevance.",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "1. Document type filter. Valid values: `article`, `book`, `book-chapter`, `dataset`, `dissertation`, `preprint`, `report`, `review`, `other`. 2. Publication type, comma-separated multi-value (no spaces). Valid values (13): `JournalArticle`, `Conference`, `Review`, `CaseReport`, `ClinicalTrial`, `Dataset`, `Editorial`, `LettersAndComments`, `MetaAnalysis`, `News`, `Study`, `Book`, `BookSection`.",
+              "required": false,
+              "sort_order": 0
+            },
+            "venue": {
+              "description": "Journal/conference name, comma-separated multi-value. Must match S2 database exactly. Common values: `NeurIPS`, `ICML`, `ICLR`, `CVPR`, `Nature`, `Science`, `Cell`, `Lancet`. Maps to `venue` parameter.",
+              "required": false,
+              "sort_order": 0
+            },
+            "year_from": {
+              "description": "Publication year start (inclusive), four digits.\nExample: 2020",
+              "required": false,
+              "sort_order": 0
+            },
+            "year_to": {
+              "description": "Publication year end (inclusive), four digits.\nExample: 2024\nFor single-year queries, set year_from and year_to to the same value.",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "academic.citation",
+          "description": "Citation relationships, citation counts, reference lists by DOI or title",
+          "params": {
+            "category": {
+              "description": "Subject category, comma-separated multi-value. Valid values (22): `Computer Science`, `Medicine`, `Biology`, `Chemistry`, `Physics`, `Mathematics`, `Materials Science`, `Engineering`, `Environmental Science`, `Geology`, `Geography`, `Sociology`, `Psychology`, `Economics`, `Business`, `Political Science`, `Linguistics`, `Philosophy`, `History`, `Art`, `Education`, `Law`.",
+              "required": false,
+              "sort_order": 11
+            },
+            "doi": {
+              "description": "DOI identifier, e.g. 10.1038/s41586-021-03819-2",
+              "required": false,
+              "sort_order": 0
+            },
+            "filter": {
+              "description": "RAMOSE filter expression. Format: `field:value`, e.g., `creation:2020-*-*` (citations after 2020).",
+              "required": false,
+              "sort_order": 3
+            },
+            "id": {
+              "description": "Persistent identifier value extracted from user input. Do NOT include type prefixes like \"doi:\" or \"pmid:\". Formats: DOI (e.g. 10.1038/s41586-021-03819-2), PMID (pure digits, e.g. 33817056), ISSN (e.g. 0138-9130), ISBN (e.g. 9781402096327), ORCID (e.g. 0000-0003-0530-4305), OMID (e.g. br/06101801781), OCI (digits-digits, e.g. 06101801781-06180334099, only for op=citation).",
+              "required": true,
+              "sort_order": 12
+            },
+            "id_type": {
+              "description": "Identifier type. Values: `doi`, `pmid`, `issn`, `isbn`, `orcid`, `omid`. When empty, auto-detected from query format (e.g., `10.xxx/yyy` → doi, pure digits → pmid).",
+              "required": false,
+              "sort_order": 2
+            },
+            "min_citations": {
+              "description": "Minimum citation count, non-negative integer string, e.g., `100`. Used for academic quality filtering",
+              "required": false,
+              "sort_order": 8
+            },
+            "op": {
+              "description": "Operation type. Values: `metadata` (metadata query, default), `citations` (cited-by list), `references` (reference list), `citation-count` (citation count), `reference-count` (reference count), `author` (works by author), `editor` (works by editor), `venue-citation-count` (journal citation count), `citation` (single citation relationship, requires OCI)",
+              "required": false,
+              "sort_order": 1
+            },
+            "open_access": {
+              "description": "Whether open access. Valid values: true, false",
+              "required": false,
+              "sort_order": 9
+            },
+            "sort": {
+              "description": "RAMOSE sort expression. Format: `field:order`, e.g., `creation:desc` (descending by creation time).",
+              "required": false,
+              "sort_order": 4
+            },
+            "type": {
+              "description": "1. Document type filter. Values: `journal-article` (journal paper), `book` (book), `proceedings-article` (conference paper), `dataset` (dataset), `book-chapter` (book chapter), `posted-content` (preprint), `report` (report), etc. Maps to Crossref `filter=type:{value}`. 2. Publication type, comma-separated multi-value (no spaces). Valid values (13): `JournalArticle`, `Conference`, `Review`, `CaseReport`, `ClinicalTrial`, `Dataset`, `Editorial`, `LettersAndComments`, `MetaAnalysis`, `News`, `Study`, `Book`, `BookSection`. Maps to `publicationTypes` parameter.",
+              "required": false,
+              "sort_order": 5
+            },
+            "venue": {
+              "description": "Journal/conference name, comma-separated multi-value. Must match S2 database exactly. Common values: `NeurIPS`, `ICML`, `ICLR`, `CVPR`, `Nature`, `Science`, `Cell`, `Lancet`.",
+              "required": false,
+              "sort_order": 10
+            },
+            "year_from": {
+              "description": "Publication date lower bound. Format `YYYY`, `YYYY-MM`, or `YYYY-MM-DD`.",
+              "required": false,
+              "sort_order": 6
+            },
+            "year_to": {
+              "description": "Publication date upper bound. Format `YYYY`, `YYYY-MM`, or `YYYY-MM-DD`.",
+              "required": false,
+              "sort_order": 7
+            }
+          }
+        },
+        {
+          "sub_domain": "academic.biomedical",
+          "description": "Biomedical and clinical literature search covering MEDLINE journals with MeSH terms and PMC full-text links",
+          "params": {
+            "date_type": {
+              "description": "Date filter dimension. Values: `pdat` (publication date, default), `edat` (entry date), `mdat` (modification date)",
+              "required": false,
+              "sort_order": 0
+            },
+            "field": {
+              "description": "Query field restriction. Values: `tiab` (title+abstract, default), `title` (title only), `author` (author), `journal` (journal), `mesh` (MeSH terms), `all` (all fields). Used to control PubMed field tags during query rewriting, avoiding ambiguity from automatic MeSH expansion.",
+              "required": false,
+              "sort_order": 0
+            },
+            "has_pdf": {
+              "description": "Whether to return only publications with PDF full text.",
+              "required": false,
+              "sort_order": 0
+            },
+            "open_access": {
+              "description": "Whether to return only open access publications.",
+              "required": false,
+              "sort_order": 0
+            },
+            "sort": {
+              "description": "Sort order. Values: `relevance` (default, PubMed Best Match), `date` (newest first), `pub_date` (publication date), `author` (author surname), `journal` (journal name), `cited` (by citation count).",
+              "required": false,
+              "sort_order": 0
+            },
+            "source": {
+              "description": "Data sub-database filter. Values: `MED` (PubMed/MEDLINE), `PMC` (PMC full text), `PPR` (preprints bioRxiv/medRxiv), `AGR` (Agricola agriculture), `PAT` (patents), etc.",
+              "required": false,
+              "sort_order": 0
+            },
+            "year_from": {
+              "description": "Publication year/date lower bound. Format `YYYY` or `YYYY/MM/DD`.",
+              "required": false,
+              "sort_order": 0
+            },
+            "year_to": {
+              "description": "Publication year/date upper bound. Format `YYYY` or `YYYY/MM/DD`.",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "academic.dataset",
+          "description": "Research datasets, open-source code and scientific software across Zenodo, Dryad, Figshare",
+          "params": {
+            "client_id": {
+              "description": "Data repository identifier. Examples: `cern.zenodo` (Zenodo), `figshare.ars` (Figshare), `bl.dryad` (Dryad).",
+              "required": false,
+              "sort_order": 0
+            },
+            "resource_type": {
+              "description": "Resource type filter. Values: `Dataset` (datasets), `Software` (software), `Text` (text), `Image` (images), `Audiovisual` (audio/video), `Collection` (collections), `InteractiveResource` (interactive resources), etc.",
+              "required": false,
+              "sort_order": 0
+            },
+            "year_from": {
+              "description": "Publication year lower bound (inclusive), e.g., `2020`.",
+              "required": false,
+              "sort_order": 0
+            },
+            "year_to": {
+              "description": "Publication year upper bound (inclusive), e.g., `2024`.",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "academic.preprint",
+          "description": "Preprint paper search across CS, physics, math, biology, economics for cutting-edge research",
+          "params": {
+            "doi": {
+              "description": "DOI direct lookup. Skips keyword search and returns the single publication matching the DOI.\nFormat: standard DOI, e.g., 10.1145/3292500.3330701\nWhen doi is provided, query may be empty and other filter parameters are ignored.",
+              "required": false,
+              "sort_order": 6
+            },
+            "field": {
+              "description": "Query field restriction. Values: `ti` (title), `au` (author), `abs` (abstract), `co` (comments), `jr` (journal reference), `cat`/`category` (category), `all` (all fields, default).",
+              "required": false,
+              "sort_order": 2
+            },
+            "language": {
+              "description": "Document language ISO code, e.g., `en` (English), `zh` (Chinese), `de` (German).",
+              "required": false,
+              "sort_order": 5
+            },
+            "open_access": {
+              "description": "Whether to return only open access publications.\nValid values: true / false",
+              "required": false,
+              "sort_order": 7
+            },
+            "order": {
+              "description": "Sort direction. Values: `asc` (ascending), `desc` (descending, default). Only effective when `sort` is non-empty.",
+              "required": false,
+              "sort_order": 1
+            },
+            "sort": {
+              "description": "Sort field. Values: `relevance` (relevance, default), `date_submitted` (submission date), `date_updated` (update date).",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "1. Document type filter. Valid values: `article`, `book`, `book-chapter`, `dataset`, `dissertation`, `preprint`, `report`, `review`, `other`. 2. Publication type, comma-separated multi-value (no spaces). Valid values (13): `JournalArticle`, `Conference`, `Review`, `CaseReport`, `ClinicalTrial`, `Dataset`, `Editorial`, `LettersAndComments`, `MetaAnalysis`, `News`, `Study`, `Book`, `BookSection`.",
+              "required": false,
+              "sort_order": 8
+            },
+            "year_from": {
+              "description": "Publication year lower bound (inclusive), e.g., `2020`.",
+              "required": false,
+              "sort_order": 3
+            },
+            "year_to": {
+              "description": "Publication year upper bound (inclusive), e.g., `2024`.",
+              "required": false,
+              "sort_order": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "legal",
+      "description": "Court cases, statutes, legislation tracking",
+      "sub_domains": [
+        {
+          "sub_domain": "legal.case",
+          "description": "Court decisions and legal opinions, searchable by keyword, case name, court, date across CN, US, CA and ECHR",
+          "params": {
+            "case_id": {
+              "description": "CanLII case identifier. Format: 4-digit year + lowercase court code + case number, e.g. `2008scc9` (Dunsmuir v. New Brunswick), `2014onca925`, `1998canlii793`. When provided, the plugin performs an exact case metadata lookup. When empty, falls back to database browsing mode. Do NOT pass natural language queries or keywords — only valid CanLII caseIds.",
+              "required": false,
+              "sort_order": 5
+            },
+            "database_id": {
+              "description": "Target court database code. Examples: `csc-scc` (Supreme Court of Canada), `onca` (Ontario Court of Appeal), `bcca` (BC Court of Appeal), `fca` (Federal Court of Appeal), `qcca` (Quebec Court of Appeal). When empty, uses configured default database list.",
+              "required": false,
+              "sort_order": 3
+            },
+            "doc_type": {
+              "description": "Document type to search. Values: `o` (opinions, default), `r` (RECAP archives), `rd` (RECAP documents), `d` (dockets), `p` (people/judges), `oa` (oral arguments). When empty, defaults to opinions. Alternatively, ECHR document type filter. Values: `JUDGMENTS` (judgments), `DECISIONS` (decisions), `COMMUNICATEDCASES` (communicated cases). When empty, searches all three types.",
+              "required": false,
+              "sort_order": 0
+            },
+            "language": {
+              "description": "API output language. Values: `en` (English, default), `fr` (French). Affects returned case title and URL language version.",
+              "required": false,
+              "sort_order": 2
+            },
+            "respondent": {
+              "description": "Respondent country code in ISO 3166-1 alpha-3 format. Examples: `TUR` (Turkey), `FRA` (France), `RUS` (Russia), `GBR` (UK), `DEU` (Germany), `ITA` (Italy), `UKR` (Ukraine). When empty, no country filter.",
+              "required": false,
+              "sort_order": 1
+            },
+            "service": {
+              "description": "Target search service, takes priority over tag-based routing. Values: `case` or `case-search` (semantic case search), `casekw` or `case-keyword` (keyword case search), `law` or `law-search` (statute search). When empty, auto-routed by tags, defaulting to statute search.",
+              "required": false,
+              "sort_order": 4
+            }
+          }
+        },
+        {
+          "sub_domain": "legal.statute",
+          "description": "Legal text lookup for laws, administrative regulations, regulatory rules with article positioning and version history",
+          "params": {
+            "agency": {
+              "description": "Publishing agency slug identifier. Common values: `environmental-protection-agency` (EPA), `securities-and-exchange-commission` (SEC), `food-and-drug-administration` (FDA), `federal-communications-commission` (FCC), `department-of-energy` (DOE), `department-of-labor` (DOL). When empty, searches all agencies.",
+              "required": false,
+              "sort_order": 0
+            },
+            "collection": {
+              "description": "Document collection code to restrict search. Common values: `FR` (Federal Register), `CFR` (Code of Federal Regulations), `USCODE` (United States Code), `BILLS` (Congressional Bills), `PLAW` (Public and Private Laws), `USCOURTS` (Court Opinions), `CREC` (Congressional Record), `STATUTE` (Statutes at Large). When empty, searches all collections.",
+              "required": false,
+              "sort_order": 0
+            },
+            "date_from": {
+              "description": "1. Regulation effective date filter, format `YYYY-MM-DD`. Only returns provisions effective on or after this date. Example: `2024-01-01` limits to content effective from 2024 onward. When empty, no date filter. 2. Publication date lower bound, format `YYYY-MM-DD`. Only returns documents published on or after this date. When empty, no lower bound.",
+              "required": false,
+              "sort_order": 0
+            },
+            "date_to": {
+              "description": "Publication date upper bound, format `YYYY-MM-DD`. Only returns documents published on or before this date. Use with `date_from` to define a date range. When empty, no upper bound.",
+              "required": false,
+              "sort_order": 0
+            },
+            "doc_type": {
+              "description": "1. Document type filter, using EUR-Lex resource-type codes. Values: `REG` (Regulation), `DIR` (Directive), `DEC` (Decision). When empty, searches all types. 2. UK legislation type code, takes priority over type extraction in tags. Values: `ukpga` (UK Public General Acts), `uksi` (UK Statutory Instruments), `asp` (Acts of the Scottish Parliament), `anaw` (Acts of the National Assembly for Wales), `nia` (Northern Ireland Acts), `primary` (all primary legislation), `secondary` (all secondary legislation), `all` (all types). When empty, no type filter. 3. Federal Register document type filter. Values: `RULE` (final rules), `PRORULE` (proposed rules), `NOTICE` (notices), `PRESDOCU` (presidential documents, including executive orders). When empty, searches all types.",
+              "required": false,
+              "sort_order": 0
+            },
+            "historical": {
+              "description": "Whether to include historical version documents. Value: `true` or `false`, default `false`. When `true`, returns historical revision versions of documents.",
+              "required": false,
+              "sort_order": 0
+            },
+            "language": {
+              "description": "Result language, using ISO 639-1 codes. Values: `en` (English, default), `fr` (French), `de` (German), `it` (Italian), `es` (Spanish) and other EU official languages. Affects the title and abstract language of returned documents.",
+              "required": false,
+              "sort_order": 0
+            },
+            "title": {
+              "description": "CFR Title number, to restrict search scope to a specific federal regulation title. Examples: `40` (Environmental Protection), `21` (Food and Drugs), `48` (Federal Acquisition Regulations), `49` (Transportation), `6` (Domestic Security). When empty, searches all Titles.",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "legal.legislation",
+          "description": "Legislation tracking: bill status, voting records, committee deliberations for US Congress (international only)",
+          "params": {
+            "congress": {
+              "description": "Specify which US Congress session to query. Integer value, e.g., 118 for the 118th Congress (2023-2024), 119 for the 119th (2025-2026). When empty, auto-calculates current session. Required when querying bills from previous sessions.",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "health",
+      "description": "Drug info, clinical trials, public health statistics",
+      "sub_domains": [
+        {
+          "sub_domain": "health.trial",
+          "description": "Clinical trial registry search by disease, drug, phase, region with enrollment criteria and status"
+        },
+        {
+          "sub_domain": "health.drug",
+          "description": "Drug labels, adverse reactions, interactions, recalls by drug name, NDC code, or barcode",
+          "params": {
+            "type": {
+              "description": "Query type. Values: `name` (drug name search), `ndc` (NDC code lookup), `upc` (UPC barcode lookup)",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "health.stats",
+          "description": "Global public health statistics across 194 countries: mortality, morbidity, life expectancy, disease burden"
+        }
+      ]
+    },
+    {
+      "domain": "business",
+      "description": "Company registration, business contacts, job listings, international trade data",
+      "sub_domains": [
+        {
+          "sub_domain": "business.people",
+          "description": "Business contacts search by title, company, location with business email and professional background",
+          "params": {
+            "keyword": {
+              "description": "software engineer / stripe.com (search keyword / company domain)",
+              "required": false,
+              "sort_order": 0
+            },
+            "location": {
+              "description": "California / London (location filter)",
+              "required": false,
+              "sort_order": 0
+            },
+            "seniority": {
+              "description": "executive / senior / entry (seniority filter)",
+              "required": false,
+              "sort_order": 0
+            },
+            "title": {
+              "description": "CTO / Head of Engineering (title filter)",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "PeopleSearch / EmailLookup (contact search / domain email lookup)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "business.company",
+          "description": "Company registration, shareholder structure, executives, and business status across global financial entities",
+          "params": {
+            "keyword": {
+              "description": "Alibaba / Apple Inc. / AAPL (company name / credit code / LEI code / ticker)",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "ChineseEnterprise / GlobalLEI / USFilings (Chinese enterprise registry / global LEI entity / US SEC filings)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "business.trade",
+          "description": "International trade statistics by commodity code, country, and time period for imports and exports",
+          "params": {
+            "date_start": {
+              "description": "2023 (year)",
+              "required": false,
+              "sort_order": 0
+            },
+            "flow": {
+              "description": "export / import / both (trade direction)",
+              "required": false,
+              "sort_order": 0
+            },
+            "hs_code": {
+              "description": "0902 / 8471 (HS code, must be 2/4/6/10 digits)",
+              "required": false,
+              "sort_order": 0
+            },
+            "location": {
+              "description": "China / United States (partner country name)",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "GlobalBilateralTrade / USImportExport (global bilateral trade / US import & export)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "business.jobs",
+          "description": "Global job listings by position, skills, location, salary across 16+ countries",
+          "params": {
+            "keyword": {
+              "description": "software engineer / python (search keyword)",
+              "required": false,
+              "sort_order": 0
+            },
+            "location": {
+              "description": "San Francisco / London / us (city/region/country)",
+              "required": false,
+              "sort_order": 0
+            },
+            "salary_min": {
+              "description": "80000 / 120000 (minimum annual salary USD)",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "GeneralJobs / RemoteJobs / USFederalJobs (general job listings / remote positions / US federal jobs)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "security",
+      "description": "Malware scanning, threat intelligence, background noise, CVE vulnerabilities",
+      "sub_domains": [
+        {
+          "sub_domain": "security.scan",
+          "description": "Submit file hash, URL, IP or domain to 70+ security vendor aggregate scan",
+          "params": {
+            "ioc": {
+              "description": "Indicator of compromise to scan: domain, IP, URL, or file hash (MD5/SHA1/SHA256)",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "security.noise",
+          "description": "Check if IPv4 address is internet background scanning noise or known legitimate service",
+          "params": {
+            "ip": {
+              "description": "Single IPv4 address to check, e.g. 8.8.8.8",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "security.intel",
+          "description": "Threat intelligence for IP, domain, URL or file hash with historical malicious records and IOC indicators",
+          "params": {
+            "ioc": {
+              "description": "Indicator of compromise: domain, IP, URL, or file hash",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "security.vuln",
+          "description": "CVE vulnerability details with CVSS scores, affected versions, patch links, and exploitation status",
+          "params": {
+            "type": {
+              "description": "Query intent: CVE lookup by ID / commit hash lookup / package vulnerability query， e.g  \"cve\" / \"commit\" / \"package\"",
+              "required": true,
+              "sort_order": 0
+            },
+            "value": {
+              "description": "Value matching the type: CVE ID / 40-char hex / `ecosystem:name@version`. Comma-separated for batch, auto-dedup\ne.g. \n{\"type\": \"cve\", \"value\": \"CVE-2021-44228\"}\n{\"type\": \"package\", \"value\": \"PyPI:jinja2@2.4.1\"}\n{\"type\": \"commit\", \"value\": \"6879efc2c1596d11a6a6ad296f80063b558d5e0f\"}",
+              "required": true,
+              "sort_order": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "ip",
+      "description": "Global patent search, family tracing, legal status across 100+ countries",
+      "sub_domains": [
+        {
+          "sub_domain": "ip.global",
+          "description": "Global patent aggregation and family tracing via EPO DOCDB/INPADOC, covering 100+ countries with legal status",
+          "params": {
+            "applicant": {
+              "description": "Huawei / Huawei Technologies (applicant/organization name filter)",
+              "required": false,
+              "sort_order": 2
+            },
+            "date_start": {
+              "description": "2020 / 20200101 (publication/application date start)",
+              "required": false,
+              "sort_order": 4
+            },
+            "ipc": {
+              "description": "H01L / G06N (IPC/CPC classification filter)",
+              "required": false,
+              "sort_order": 3
+            },
+            "keyword": {
+              "description": "solar cell / AI (search keyword)",
+              "required": false,
+              "sort_order": 1
+            },
+            "type": {
+              "description": "GlobalPatent (global patents)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "code",
+      "description": "Developer documentation, code snippet search across GitHub",
+      "sub_domains": [
+        {
+          "sub_domain": "code.snippet",
+          "description": "Search real code implementations across 1M+ public GitHub repositories with regex and language filtering",
+          "params": {
+            "lang": {
+              "description": "Filter by programming language, e.g. TypeScript, Python",
+              "required": false,
+              "sort_order": 0
+            },
+            "path": {
+              "description": "Filter by file path pattern, e.g. src/components/",
+              "required": false,
+              "sort_order": 0
+            },
+            "repo": {
+              "description": "Filter by GitHub repository, e.g. facebook/react",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "code.doc",
+          "description": "Query developer documentation and code examples by library name and topic across npm, PyPI, Cargo ecosystems",
+          "params": {
+            "library": {
+              "description": "Library or framework name to query docs for, e.g. react, express",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "energy",
+      "description": "Electricity market data, energy production and consumption statistics",
+      "sub_domains": [
+        {
+          "sub_domain": "energy.electricity",
+          "description": "Electricity market data: prices, generation mix, demand, carbon intensity across 200+ countries",
+          "params": {
+            "date_end": {
+              "description": "2026-05-24 / 2025 (end date)",
+              "required": false,
+              "sort_order": 0
+            },
+            "date_start": {
+              "description": "2026-05-23 / 2020 (start date)",
+              "required": false,
+              "sort_order": 0
+            },
+            "location": {
+              "description": "France / New South Wales / California / China (region name)",
+              "required": false,
+              "sort_order": 0
+            },
+            "metric": {
+              "description": "price / generation / emissions / demand / capacity (metric)",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "EUElectricity / AustralianElectricity / USEnergyData / GlobalElectricity (Europe / Australia / US / global electricity data)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "energy.production",
+          "description": "Energy production and consumption stats for oil, gas, coal, nuclear, renewables including output and inventory",
+          "params": {
+            "date_start": {
+              "description": "2023-01 / 2020 (start date)",
+              "required": false,
+              "sort_order": 0
+            },
+            "frequency": {
+              "description": "monthly / annual / quarterly (data frequency)",
+              "required": false,
+              "sort_order": 0
+            },
+            "keyword": {
+              "description": "crude oil production / residential electricity price (search keyword)",
+              "required": false,
+              "sort_order": 0
+            },
+            "location": {
+              "description": "California / Texas / United States (region name)",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "USEnergyData (US energy data)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "environment",
+      "description": "Air quality index, AQI and PM2.5 data",
+      "sub_domains": [
+        {
+          "sub_domain": "environment.aqi",
+          "description": "Real-time global air quality index (AQI) and PM2.5/PM10 data by city name",
+          "params": {
+            "location": {
+              "description": "20002 / 38.9,-77.0 / Beijing (zip code / coordinates / city name)",
+              "required": false,
+              "sort_order": 1
+            },
+            "type": {
+              "description": "GlobalAirQuality (global air quality)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "agriculture",
+      "description": "FAO global agriculture statistics",
+      "sub_domains": [
+        {
+          "sub_domain": "agriculture.fao",
+          "description": "FAO global agriculture statistics covering production, trade, and food prices",
+          "params": {
+            "date_start": {
+              "description": "2023 (year)",
+              "required": false,
+              "sort_order": 0
+            },
+            "domain": {
+              "description": "production / trade / prices (data domain)",
+              "required": false,
+              "sort_order": 0
+            },
+            "keyword": {
+              "description": "wheat production / rice trade (search keyword)",
+              "required": false,
+              "sort_order": 0
+            },
+            "location": {
+              "description": "World / China (region name)",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "GlobalAgriculture (global agriculture data)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "travel",
+      "description": "Flight ticket search, real-time flight status",
+      "sub_domains": [
+        {
+          "sub_domain": "travel.flight_status",
+          "description": "Real-time flight departure/arrival status, gate info, delay information and airport boards",
+          "params": {
+            "adults": {
+              "description": "Number of adults",
+              "required": false,
+              "sort_order": 0
+            },
+            "arrival": {
+              "description": "Arrival airport IATA 3-letter code",
+              "required": true,
+              "sort_order": 0
+            },
+            "cabin_class": {
+              "description": "Cabin class. Valid values: Economy, Business, First, PremiumEconomy. Representing: economy, business, first class, premium economy respectively",
+              "required": false,
+              "sort_order": 0
+            },
+            "children": {
+              "description": "Number of children",
+              "required": false,
+              "sort_order": 0
+            },
+            "currency": {
+              "description": "Currency code. Examples: USD, CNY",
+              "required": false,
+              "sort_order": 0
+            },
+            "date": {
+              "description": "2026-06-15 (query date)",
+              "required": true,
+              "sort_order": 0
+            },
+            "departure": {
+              "description": "Departure airport IATA 3-letter code (e.g., `PEK`, `LAX`)",
+              "required": true,
+              "sort_order": 0
+            },
+            "flight_number": {
+              "description": "DL47 / CA981 (flight number)",
+              "required": false,
+              "sort_order": 0
+            },
+            "infants": {
+              "description": "Number of infants",
+              "required": false,
+              "sort_order": 0
+            },
+            "return_date": {
+              "description": "25/06/2026 (return date, empty = one-way)",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "FlightStatus (flight status query)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        },
+        {
+          "sub_domain": "travel.flight",
+          "description": "Search global flight tickets by origin, destination, date, cabin class with baggage and price comparison",
+          "params": {
+            "adults": {
+              "description": "Number of adults",
+              "required": false,
+              "sort_order": 0
+            },
+            "arrival": {
+              "description": "Arrival airport IATA 3-letter code",
+              "required": true,
+              "sort_order": 0
+            },
+            "cabin_class": {
+              "description": "Cabin class. Valid values: Economy, Business, First, PremiumEconomy. Representing: economy, business, first class, premium economy respectively",
+              "required": false,
+              "sort_order": 0
+            },
+            "children": {
+              "description": "Number of children",
+              "required": false,
+              "sort_order": 0
+            },
+            "currency": {
+              "description": "Currency code. Examples: USD, CNY",
+              "required": false,
+              "sort_order": 0
+            },
+            "date": {
+              "description": "15/06/2026 / 2026-06-15 (departure date)",
+              "required": true,
+              "sort_order": 0
+            },
+            "departure": {
+              "description": "Departure airport IATA 3-letter code (e.g., `PEK`, `LAX`)",
+              "required": true,
+              "sort_order": 0
+            },
+            "destination": {
+              "description": "SFO / London (destination IATA code or city name)",
+              "required": false,
+              "sort_order": 0
+            },
+            "infants": {
+              "description": "Number of infants",
+              "required": false,
+              "sort_order": 0
+            },
+            "origin": {
+              "description": "HAN / PEK / Beijing (origin IATA code or city name)",
+              "required": false,
+              "sort_order": 0
+            },
+            "return_date": {
+              "description": "25/06/2026 (return date, empty = one-way)",
+              "required": false,
+              "sort_order": 0
+            },
+            "type": {
+              "description": "FlightSearch (flight ticket search)",
+              "required": false,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "domain": "film",
+      "description": "Film and music torrent search",
+      "sub_domains": [
+        {
+          "sub_domain": "film.torrent",
+          "description": "Search film and music BT torrent resources with magnet links, file size, and seeder count"
+        }
+      ]
+    },
+    {
+      "domain": "gaming",
+      "description": "Steam game prices, esports player stats and rankings",
+      "sub_domains": [
+        {
+          "sub_domain": "gaming.store",
+          "description": "Steam game real-time prices, discounts, user ratings, online player count, achievements with China region pricing"
+        },
+        {
+          "sub_domain": "gaming.esports",
+          "description": "Esports player stats, rankings, champion attributes and item data for League of Legends and other titles",
+          "params": {
+            "champion": {
+              "description": "Champion name substring filter. Matches any champion whose name contains the value, e.g., \"Lee\" matches Lee Sin, \"vi\" matches Vi and Sivir. If omitted, returns top count champions across all. Used with: mastery. E.g., \"Yasuo\"",
+              "required": false,
+              "sort_order": 5
+            },
+            "division": {
+              "description": "Subdivision within a tier. Only meaningful when tier is DIAMOND through IRON. Defaults to I if tier is set but division is omitted. Values: `I`, `II`, `III`, `IV`. Used with: leaderboard (requires tier). E.g., \"II\"",
+              "required": false,
+              "sort_order": 7
+            },
+            "game_name": {
+              "description": "Player's Game ID. Supports two formats: with tagLine embedded via \"#\" separator (e.g., \"Hide on Bush#KR1\", region is still required for API routing) or without tagLine (e.g., \"Tyler1\", default tagLine for that server is inferred automatically from region). Required for: player, ranked, mastery, live_game. E.g., \"Faker#KR1\"",
+              "required": false,
+              "sort_order": 2
+            },
+            "match_id": {
+              "description": "Fully-qualified match ID. Format: {REGION_PREFIX}_{numeric_id}. The region prefix determines the routing region automatically — no separate region param needed. Required for: match_detail. E.g., \"KR_7482819248\", \"NA1_4912837465\", \"EUW1_6723541890\"",
+              "required": false,
+              "sort_order": 3
+            },
+            "queue": {
+              "description": "Ranked queue type filter. Values: `RANKED_SOLO_5x5` (solo/duo ranked), `RANKED_FLEX_SR` (flex 5v5 ranked). If omitted for player/ranked, returns data across all queues. If omitted for leaderboard, defaults to RANKED_SOLO_5x5. Used with: player, ranked, leaderboard. E.g., \"RANKED_SOLO_5x5\"",
+              "required": false,
+              "sort_order": 4
+            },
+            "region": {
+              "description": "Server region for API routing. Values: `kr` (Korea), `na` (North America), `euw` (Europe West), `eune` (Europe Nordic & East), `jp` (Japan), `br` (Brazil), `la1` (Latin America North), `la2` (Latin America South), `oc` (Oceania), `tr` (Turkey), `ru` (Russia), `sg`/`sea` (Southeast Asia). Required for: player, ranked, mastery, live_game, leaderboard. Optional for champion_rotation (defaults to na if omitted). E.g., \"kr\"",
+              "required": false,
+              "sort_order": 1
+            },
+            "tier": {
+              "description": "Ranked tier filter. When omitted, auto-fetches Challenger, Grandmaster, Master by LP. When provided, division may also be specified. Values: `CHALLENGER`, `GRANDMASTER`, `MASTER`, `DIAMOND`, `EMERALD`, `PLATINUM`, `GOLD`, `SILVER`, `BRONZE`, `IRON`. Note: CHALLENGER/GRANDMASTER/MASTER have no divisions — omit division for these tiers. Used with: leaderboard. E.g., \"DIAMOND\"",
+              "required": false,
+              "sort_order": 6
+            },
+            "type": {
+              "description": "Query category. Determines which API chain is invoked and which other params are required. Values: `player` (match history of last N games + ranked summary), `ranked` (ranked stats only: tier, LP, W/L per queue, no match details), `mastery` (champion mastery list), `live_game` (whether a player is currently in a game; returns game state if so), `match_detail` (full participant breakdown for a single match by ID), `leaderboard` (top-ranked players for a region and queue), `champion` (champion static data: name, title — uses query field for fuzzy search), `item` (item static data: name, cost — uses query field for fuzzy search), `champion_rotation` (current free champion rotation for a platform). E.g., \"player\"",
+              "required": true,
+              "sort_order": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
