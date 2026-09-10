@@ -11,10 +11,10 @@ Maigret 按用户在网站上设置的账号用户名（username / handle，非�
 | 研究版本 | [578d603e8f1dd594b3e9295857dacc41e9a66595](https://github.com/soxoj/maigret/tree/578d603e8f1dd594b3e9295857dacc41e9a66595)；代码版本 0.6.5；提交时间 2026-09-09 17:18:05 UTC |
 | 上游许可证 | [MIT](https://github.com/soxoj/maigret/blob/578d603e8f1dd594b3e9295857dacc41e9a66595/LICENSE)，Copyright (c) 2020–2026 Soxoj |
 | 技术栈 | Python、asyncio、aiohttp、curl_cffi、JSON 站点规则、socid-extractor |
-| 研究状态 | 对话理解、文档及关键源码研究完成；未安装或运行上游扫描，未验证实时成功率 |
+| 研究状态 | 对话理解、文档、总览图与线上展示完成；未安装或运行上游扫描，未验证实时成功率 |
 | 收录日期 | 2026-09-10 |
 | 最近更新 | 2026-09-10 |
-| 在线演示 | —（未创建或部署） |
+| 在线展示 | [完整理解与总览图](https://yydshly.github.io/0910_codex_project/006-maigret/)；静态研究展示，不提供实际账号扫描 |
 
 ## 研究摘要
 

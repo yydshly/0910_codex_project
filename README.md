@@ -17,7 +17,7 @@
 | 002 | [Memmy Agent](projects/002-memmy-agent/README.md) | [MemTensor/memmy-agent](https://github.com/MemTensor/memmy-agent) | 为多个 AI Agent 提供共享长期记忆，支持历史采集、经验提炼与任务续接，并内置独立 Agent 执行环境 | 文档与远端展示完成；上游未实测 | [打开演示](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) |
 | 003 | [AnySearch Skill](projects/003-anysearch-skill/README.md) | [anysearch-ai/anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | AnySearch 云端搜索服务的开源客户端，为 Agent 接入通用与专业检索、并行查询和正文抽取；可参考其工具设计，并与 Tavily、Exa 等服务比较实际增量价值 | 研究与线上展示完成；基础接口已验证 | [打开展示](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/) |
 | 005 | [Caveman](projects/005-caveman/README.md) | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 模型调用前按类型精简上下文并支持原文恢复，价值在于专用规则与恢复设计；与 Codex 原生能力部分重合，不表示我们建议叠加使用，也不表示已经确认叠加有收益 | 文档与架构研究完成；叠加收益未实测 | — |
-| 006 | [Maigret](projects/006-maigret/README.md) | [soxoj/maigret](https://github.com/soxoj/maigret) | 按用户在网站设置的账号用户名（非实名），通过预设规则批量检查公开账号并提取资料；范围限规则库及所选站点，不覆盖全网，同名账号仍需核验 | 文档与总览图完成；上游未实测 | — |
+| 006 | [Maigret](projects/006-maigret/README.md) | [soxoj/maigret](https://github.com/soxoj/maigret) | 按用户在网站设置的账号用户名（非实名），通过预设规则批量检查公开账号并提取资料；范围限规则库及所选站点，不覆盖全网，同名账号仍需核验 | 文档与线上展示完成；上游未实测 | [在线阅读](https://yydshly.github.io/0910_codex_project/006-maigret/) |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
@@ -50,7 +50,7 @@
 
 [![Maigret 完整理解：站点适配、批量查询流程、搜索对比、价值边界与扩展方向](projects/006-maigret/assets/research-overview.png)](projects/006-maigret/notes/01-understanding.md)
 
-理解“维护网站规则 → 按用户设置的账号用户名（非实名）批量检查 → 提取与整理线索”。搜索范围限于规则库及所选站点，同名结果不证明属于同一人。图源：依据固定提交源码、官方文档及本次讨论原创绘制，非产品截图；未运行跨站扫描。[完整理解](projects/006-maigret/notes/01-understanding.md) · [放大总览图](projects/006-maigret/assets/research-overview.svg) · [项目资料](projects/006-maigret/README.md)
+理解“维护网站规则 → 按用户设置的账号用户名（非实名）批量检查 → 提取与整理线索”。搜索范围限于规则库及所选站点，同名结果不证明属于同一人。图源：依据固定提交源码、官方文档及本次讨论原创绘制，非产品截图；未运行跨站扫描。[在线阅读](https://yydshly.github.io/0910_codex_project/006-maigret/) · [完整理解](projects/006-maigret/notes/01-understanding.md) · [放大总览图](projects/006-maigret/assets/research-overview.svg) · [项目资料](projects/006-maigret/README.md)
 
 ## 仓库导航
 

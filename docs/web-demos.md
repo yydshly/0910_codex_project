@@ -10,6 +10,7 @@
 | 001 · Agent 解剖室 | [能力拆解](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
 | 002 · Memmy Agent | [记忆与执行的边界](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) · [外部接入整体架构](https://yydshly.github.io/0910_codex_project/002-memmy-agent/#external-guide) |
 | 003 · AnySearch Skill | [客户端背后的搜索服务](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/) · [完整理解文档](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/notes/05-complete-understanding.html) |
+| 006 · Maigret | [账号用户名跨站检查：完整理解与总览图](https://yydshly.github.io/0910_codex_project/006-maigret/) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -48,6 +49,15 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Maigret 研究展示追加发布
+
+- 日期：2026-09-10，平台：现有 GitHub Pages 统一站点。
+- 首次上线源码：`94c5f27a30e54b9b9e1b0ce86c77a7a6d2113119`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34443124332)。
+- 对外摘要明确能力、原理与范围：按网站上设置的账号用户名（非实名），基于预设站点规则检查公开账号并提取资料；只覆盖规则库与所选站点，同名结果不证明身份。
+- 干净导出后构建四个已登记项目，225 处站内引用通过检查；Maigret 的 10 个研究章节、来源引用、锚点、图片与下载入口检查通过。
+- 核对线上 `deployment.json` 与 10 个文件：全部 HTTP 200，文本统一换行后与验证构建一致，PNG 二进制一致，HTML、CSS、SVG、PNG MIME 正确；包含原有三个项目入口回归检查。
+- 发布的是静态研究文章与总览图，未部署或运行 Maigret 搜索服务；未执行浏览器视觉及真实点击测试。
 
 ### AnySearch 展示追加发布
 
