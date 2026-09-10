@@ -3,6 +3,8 @@ import {readFile,readdir} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {agents,scenarios,reuseCases,commit,sourceUrl,getAgent,getCapability} from '../public/catalog.js';
 import {fileURLToPath} from 'node:url';
+// Reports are generated and absent in a fresh checkout.
+await import('./render-report.mjs');
 const root=new URL('../public/',import.meta.url);
 const inventory=JSON.parse((await readFile(new URL('inventory.json',root),'utf8')).replace(/^\uFEFF/,''));
 assert.equal(inventory.commit,commit);
