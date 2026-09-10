@@ -17,9 +17,9 @@ DeepTutor 是可自行部署和修改的 AI 教学工作台：接入教材、文
 | 研究版本 | v1.6.6 · `7a96bba1ae03401644c17763a2411c28aff3dcc9` |
 | 上游许可证 | [Apache-2.0](https://github.com/HKUDS/DeepTutor/blob/7a96bba1ae03401644c17763a2411c28aff3dcc9/LICENSE) |
 | 技术栈 | Python / FastAPI、Next.js / React、模型与检索服务 |
-| 研究状态 | 官方文档与核心源码研究；上游未部署，教学效果未实测 |
+| 研究状态 | 完整理解、产品对照与静态网页已上线；上游未部署，教学效果未实测 |
 | 收录及更新日期 | 2026-09-10 |
-| 在线演示 | —（静态研究网页已编写，尚未发布） |
+| 在线演示 | [完整理解与架构图](https://yydshly.github.io/0910_codex_project/007-deeptutor/) · [来源与验证](https://yydshly.github.io/0910_codex_project/007-deeptutor/sources.html) |
 
 ## 研究摘要
 

@@ -33,6 +33,6 @@ python -m http.server 8787 --bind 127.0.0.1 --directory dist
 
 已接入 [统一演示清单](../../../docs/web-demos.json)。仓库根目录可运行 `node scripts/build-pages.mjs` 和 `node scripts/check-pages.mjs` 验证整体站点。
 
-当前仅本地构建，尚未发布。Sites 原生托管工具在本会话不可用；保留既有 GitHub Pages 架构，不新增未经验证的线上链接。发布规则见 [Web 演示约定](../../../docs/web-demos.md)。
+已发布并验证：[在线阅读](https://yydshly.github.io/0910_codex_project/007-deeptutor/) · [完整架构图](https://yydshly.github.io/0910_codex_project/007-deeptutor/full-architecture.svg) · [来源与验证](https://yydshly.github.io/0910_codex_project/007-deeptutor/sources.html)。沿用既有 GitHub Pages 架构；发布的是静态研究展示。发布规则见 [Web 演示约定](../../../docs/web-demos.md)，首发记录见 [验证文档](../notes/02-sources-and-verification.md)。
 
 验证不涵盖上游产品运行、真实模型质量、浏览器点击或视觉测试。
