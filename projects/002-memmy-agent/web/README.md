@@ -43,11 +43,12 @@ npm run check
 
 ## 部署与验证
 
-- 已接入仓库现有 GitHub Pages 统一发布流程；上线结果和地址在验证后记录。
+- **已上线 GitHub Pages：**[研究页面](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) · [外部接入整体架构](https://yydshly.github.io/0910_codex_project/002-memmy-agent/#external-guide)。
+- 首次发布验证：2026-09-10，源码 `cb4817490c2755c7bc84ffd26e0fbc28d094f524`，[发布成功记录](https://github.com/yydshly/0910_codex_project/actions/runs/34439195041)。站点 33 个线上文件与验证构建一致，模块 MIME 检查通过；后续版本见站点 [deployment.json](https://yydshly.github.io/0910_codex_project/deployment.json)。
 - 已完成构建、资源 / 语法 / 文档链接和 HTTP 检查，以及浏览器模式切换、刷新恢复、窄屏交互与截图复核。详细范围见[验证记录](../notes/05-validation.md)。
 - 未运行上游功能和性能对测；未覆盖所有浏览器与真实设备。
 - 发布时将 `dist/` 汇总到统一站点的 `002-memmy-agent/`，遵循[部署约定](../../../docs/web-demos.md)，不能覆盖其他演示。
-- 真实上线并验证后记录平台、地址、源码版本与日期，再更新首页。
+- 更新后继续检查统一构建、子路径链接和实际线上版本。
 
 ## 来源
 

@@ -38,8 +38,8 @@ Memmy 将跨 Agent 共享记忆、工具适配、后台经验提炼与自带 Age
 | 上游许可证 | [MIT](https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/LICENSE) |
 | 技术栈 | TypeScript / Node.js、SQLite / FTS5 / sqlite-vec、模型 API、Electron / React / Vite；本地管理后端使用 Fastify |
 | 收录与研究日期 | 2026-09-10 |
-| 研究状态 | 文档与核心源码阅读完成；研究页面已制作；上游运行效果未验证 |
-| 在线演示 | —（尚未部署） |
+| 研究状态 | 文档、源码研究与远端研究页面完成；上游运行效果未验证 |
+| 在线演示 | [打开研究页面](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) · [外部接入总览](https://yydshly.github.io/0910_codex_project/002-memmy-agent/#external-guide) |
 
 ## 研究结论与边界
 

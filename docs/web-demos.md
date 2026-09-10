@@ -8,6 +8,7 @@
 | :--- | :--- |
 | 演示导航首页 | [开源项目研究集](https://yydshly.github.io/0910_codex_project/) |
 | 001 · Agent 解剖室 | [能力拆解](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
+| 002 · Memmy Agent | [记忆与执行的边界](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) · [外部接入整体架构](https://yydshly.github.io/0910_codex_project/002-memmy-agent/#external-guide) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -46,6 +47,16 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Memmy 演示追加发布
+
+- 日期：2026-09-10，平台：现有 GitHub Pages 统一站点。
+- 首次上线源码：`cb4817490c2755c7bc84ffd26e0fbc28d094f524`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34439195041)。
+- 在干净导出目录构建两个演示，156 处站内引用通过子路径检查；支持检查 `.mjs` 模块引用。
+- 实际核对部署版本；33 个线上文件均返回 HTTP 200，文本统一换行后及图片二进制与验证构建一致，模块 MIME 正确。
+- 研究网页属于静态展示，未将 Memmy Memory 后端部署为服务。
+
+### 原有 001 演示首次发布
 
 - 日期：2026-09-10。
 - 首次成功部署源码：[`6624b3023c43a3c0a19ea4bda31d9af558bd1131`](https://github.com/yydshly/0910_codex_project/commit/6624b3023c43a3c0a19ea4bda31d9af558bd1131)。
