@@ -1,0 +1,91 @@
+{
+  "upstream_commit": "28d9d80d9d00f308244adfcf3be8b17ca0cb6465",
+  "files": [
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/README.md",
+      "sha256": "ecb012bbb25f919aaa9703af39dc3879be389db234087f6609dbc8376f64e2dc",
+      "bytes": 62190
+    },
+    {
+      "path": "DOCUMENTATION.md",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/DOCUMENTATION.md",
+      "sha256": "0801168d0e3b0f6e65ec3112d2e9042b205b3e87cc7b3adcf85a6814b4af39d6",
+      "bytes": 83254
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/requirements.txt",
+      "sha256": "2d14596223492bc519f2001cfa84df4c8abb26fb862932dc224bfae43bb68d5f",
+      "bytes": 698
+    },
+    {
+      "path": "docs/installation.md",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/docs/installation.md",
+      "sha256": "38b5b57b1969be6c5175796e807b8e633694dd17f6700028a50a4629fd555c3e",
+      "bytes": 2827
+    },
+    {
+      "path": "configs/dreamfusion-sd.yaml",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/configs/dreamfusion-sd.yaml",
+      "sha256": "c9140b5a2bb52791c83e064e470b8b16690651656e4f7af8262bc86240fd7a5d",
+      "bytes": 2712
+    },
+    {
+      "path": "configs/stable-zero123.yaml",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/configs/stable-zero123.yaml",
+      "sha256": "ec7ac7f5e98e7d20aa132908526ee92616de98b66166c9379569c3d6bfcac4d6",
+      "bytes": 4427
+    },
+    {
+      "path": "configs/magic123-coarse-sd.yaml",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/configs/magic123-coarse-sd.yaml",
+      "sha256": "fb794ff1b1d75a58954cc1a6a4b90c14e15bf56c3cc9b730a223663011e207c0",
+      "bytes": 3611
+    },
+    {
+      "path": "threestudio/systems/base.py",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/threestudio/systems/base.py",
+      "sha256": "bec26f5b22c23f817ad5736d7701ba9391123ecdd84bd79dc7eda77b2f711d32",
+      "bytes": 14820
+    },
+    {
+      "path": "threestudio/systems/dreamfusion.py",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/threestudio/systems/dreamfusion.py",
+      "sha256": "8d44c7e741800eeb96fd68d359c38a2092fcd17dd61887d6022d41ff5ebb8750",
+      "bytes": 5509
+    },
+    {
+      "path": "threestudio/models/guidance/stable_diffusion_guidance.py",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/threestudio/models/guidance/stable_diffusion_guidance.py",
+      "sha256": "5f510232ebdf090dbd6a22075a1e800db577e9d43f49cf9e8f618f19c992e0b3",
+      "bytes": 24398
+    },
+    {
+      "path": "threestudio/models/guidance/zero123_guidance.py",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/threestudio/models/guidance/zero123_guidance.py",
+      "sha256": "10d8ec1fc57e12ef5348abf69007d43248744ac43fd3bbc831785fefc028079d",
+      "bytes": 17233
+    },
+    {
+      "path": "threestudio/models/exporters/mesh_exporter.py",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/threestudio/models/exporters/mesh_exporter.py",
+      "sha256": "0397251f56a6ba792d2f7ca53b4a9cc6c470a8da32cd68667dfabfad02a6ea21",
+      "bytes": 6526
+    },
+    {
+      "path": "launch.py",
+      "url": "https://raw.githubusercontent.com/threestudio-project/threestudio/28d9d80d9d00f308244adfcf3be8b17ca0cb6465/launch.py",
+      "sha256": "a3a8dcc06df2f2f8b781b922f9611826b22bd839d74c0ccb4693b325b81cb09e",
+      "bytes": 10108
+    }
+  ],
+  "review_date": "2026-09-10",
+  "scope": "Selected upstream files read for static research; raw files are not vendored."
+}

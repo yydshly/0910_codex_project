@@ -26,6 +26,7 @@
 | 011 | [Luvus](projects/011-luvus/README.md) | [RizRiyz/luvus](https://github.com/RizRiyz/luvus) | Luvus 是多 Agent 终端工作台，统一接入 Claude Code、Codex、Pi 等编程助手，支持任务下发与依赖管理、会话恢复、状态跟踪、并行工作目录协调、检查命令和分支整合，并提供远程接入、定时任务与模块扩展 | 中文研究与线上展示完成；上游未运行 | [在线阅读](https://yydshly.github.io/0910_codex_project/011-luvus/) |
 | 012 | [Crypto 101](projects/012-crypto101-book/README.md) | [crypto101/book](https://github.com/crypto101/book) | 面向程序员的密码学入门书源码，通过加密、认证、密钥与漏洞案例解释完整安全系统，并提供多格式书稿构建流程；适合基础学习、中文知识整理与教学参考 | 关键知识清单与线上导读完成；上游未实测 | [开始学习](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [关键知识清单](https://yydshly.github.io/0910_codex_project/012-crypto101-book/knowledge.html) |
 | 013 | [Plinkopinball](projects/013-plinkopinball/README.md) | [andrewwoan/codrops-demo-for-threejs-conference](https://github.com/andrewwoan/codrops-demo-for-threejs-conference) | 将 Blender 三维场景、钉板落球与弹珠台玩法结合，支持物理碰撞、挡板、轨道和动态声音，可用于创意活动、小游戏及 Three.js 教学，借鉴烘焙视觉、低维物理与实例化渲染的组合 | 中文研究与展示已制作；发布待验证 | — |
+| 014 | [threestudio](projects/014-threestudio/README.md) | [threestudio-project/threestudio](https://github.com/threestudio-project/threestudio) | 依赖 NVIDIA GPU/CUDA、Python/PyTorch、三维计算组件及预训练权重的 AI 三维生成框架；接收文字、参考图或场景数据，支持生成、指令编辑与几何纹理优化，输出三维表示、纹理网格和环绕预览 | 文档与模块总览完成；上游安装和生成未实测 | — |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
@@ -109,6 +110,12 @@ Pi Web 提供可自托管的浏览器 AI 编程工作台，把代码操作、任
 [![Plinkopinball 的能力流程：模型与烘焙、碰撞提取、运动求解、画面与声音](projects/013-plinkopinball/assets/capability-overview.svg)](projects/013-plinkopinball/README.md)
 
 把钉板落球、弹珠台和动态声音放进精细三维场景，借鉴 Blender 资源流程、二维物理与三维画面的组合。展示包含作者原版入口、独立中文物理实验及源码拆解。图源：本研究依据固定源码原创绘制，非产品截图；实验不代表上游性能。[项目资料](projects/013-plinkopinball/README.md) · [完整理解](projects/013-plinkopinball/notes/01-understanding.md) · [放大流程图](projects/013-plinkopinball/assets/capability-overview.svg) · [网页运行说明](projects/013-plinkopinball/web/README.md)
+
+### 014 · threestudio
+
+[![threestudio 完整总览：GPU 与安装依赖、预训练模型、文字和图片输入、核心能力、优化流程、八类模块与输出](projects/014-threestudio/assets/complete-overview.png)](projects/014-threestudio/README.md)
+
+需要 NVIDIA GPU、CUDA、Python/PyTorch、项目依赖与预训练模型权重；输入文字、图片或对应场景数据，通过大模型指导和三维优化生成或编辑对象，导出三维表示、带纹理网格及多角度预览。图源：依据固定上游文档、配置和关键源码原创绘制，非运行截图；上游安装和生成未实测。[完整理解](projects/014-threestudio/notes/01-understanding.md) · [安装准备与模块职责](projects/014-threestudio/notes/02-setup-and-modules.md) · [高清 PNG](projects/014-threestudio/assets/complete-overview.png) · [可缩放 SVG](projects/014-threestudio/assets/complete-overview.svg) · [研究详情](projects/014-threestudio/README.md)
 
 ## 仓库导航
 
