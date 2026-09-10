@@ -38,6 +38,10 @@ PBKDF2、bcrypt、scrypt 只有标题，Password strength 为 TODO；TLS 的自�
 
 ## 发布记录
 
-待发布并核对线上版本后补充。
+- 2026-09-10 发布至[中文学习指南](https://yydshly.github.io/0910_codex_project/012-crypto101-book/)。
+- 首发源码 ed70c8a0cf3bba85dfa545d76e8b809f797cb3dc；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34458026217)。
+- 核对线上 deployment.json 与首发源码一致；本项目 34 个文件全部 HTTP 200，换行规范化后与本地内容一致，HTML、模块、SVG、JSON 类型正确。
+- 11 个研究展示入口均 HTTP 200。未做浏览器真实点击、截图或视觉回归。
+- 本地一次追加全站构建因预览进程占用输出目录而停止；关闭该进程后重新构建。首次完整构建和远端发布均成功。
 
 [返回研究首页](../README.md) · [运行说明](../web/README.md)

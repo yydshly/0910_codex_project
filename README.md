@@ -24,7 +24,7 @@
 | 009 | [YC AI Research](projects/009-yc-ai-research/README.md) | [原始文章（非代码仓库）](https://www.empirical.health/blog/yc-startups-publishing-ai-research) | AI 研究资讯汇总博客，整理 YC 创业公司、研究方向和论文链接；对我当前寻找可用工具、研究 GitHub 项目的直接价值有限，主要作为信息来源与候选项目线索保留，按需查阅，不列为重点研究 | 参考资料归档；按需查阅 | [在线阅读](https://yydshly.github.io/0910_codex_project/009-yc-ai-research/) |
 | 010 | [Awesome OSINT Arsenal](projects/010-awesome-osint-arsenal/README.md) | [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | 以工具查找为主的工具合集，按用途整理情报与安全工具、网站及学习资料，并提供获取方式和批量安装脚本，帮助找到并准备所需工具。 | 完整理解与工具查找展示完成；按要求未安装工具 | [打开工具导航](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 | 011 | [Luvus](projects/011-luvus/README.md) | [RizRiyz/luvus](https://github.com/RizRiyz/luvus) | Luvus 是多 Agent 终端工作台，统一接入 Claude Code、Codex、Pi 等编程助手，支持任务下发与依赖管理、会话恢复、状态跟踪、并行工作目录协调、检查命令和分支整合，并提供远程接入、定时任务与模块扩展 | 中文研究与线上展示完成；上游未运行 | [在线阅读](https://yydshly.github.io/0910_codex_project/011-luvus/) |
-| 012 | [Crypto 101](projects/012-crypto101-book/README.md) | [crypto101/book](https://github.com/crypto101/book) | 面向程序员的密码学入门书源码，通过加密、认证、密钥与漏洞案例解释完整安全系统，并提供多格式书稿构建流程；适合基础学习、中文知识整理与教学参考 | 中文导读与学习网页完成；待上线核验 | — |
+| 012 | [Crypto 101](projects/012-crypto101-book/README.md) | [crypto101/book](https://github.com/crypto101/book) | 面向程序员的密码学入门书源码，通过加密、认证、密钥与漏洞案例解释完整安全系统，并提供多格式书稿构建流程；适合基础学习、中文知识整理与教学参考 | 中文导读与线上学习网页完成；上游未实测 | [开始学习](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
@@ -101,7 +101,7 @@ Pi Web 提供可自托管的浏览器 AI 编程工作台，把代码操作、任
 
 [![Crypto 101 能力概览：基础组件、漏洞案例、完整系统与书稿构建，明确未完成内容和验证边界](projects/012-crypto101-book/assets/capability-overview.svg)](projects/012-crypto101-book/README.md)
 
-沿“基础组件 → 漏洞案例 → 完整系统”理解密码学，借鉴章节、插图和多格式构建的组织方式。来源：依据固定书稿原创绘制，非运行截图；部分章节有 TODO，上游构建与实验未实测。[项目资料](projects/012-crypto101-book/README.md) · [能力详解](projects/012-crypto101-book/notes/01-capabilities.md) · [放大概览图](projects/012-crypto101-book/assets/capability-overview.svg) · [学习路线](projects/012-crypto101-book/notes/03-learning-path.md)
+沿“基础组件 → 漏洞案例 → 完整系统”理解密码学，网页提供章节目标、细节导读、自检与个人进度。来源：依据固定书稿原创绘制，非运行截图；部分章节有 TODO，上游构建与实验未实测。[项目资料](projects/012-crypto101-book/README.md) · [能力详解](projects/012-crypto101-book/notes/01-capabilities.md) · [放大概览图](projects/012-crypto101-book/assets/capability-overview.svg) · [学习路线](projects/012-crypto101-book/notes/03-learning-path.md) · [开始在线学习](https://yydshly.github.io/0910_codex_project/012-crypto101-book/)
 
 ## 仓库导航
 

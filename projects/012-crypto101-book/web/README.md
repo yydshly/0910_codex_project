@@ -45,6 +45,6 @@ node --check projects/012-crypto101-book/web/public/app.mjs
 
 ## 发布
 
-已接入演示清单，待上线核验后补充真实地址。遵循[仓库 Web 约定](../../../docs/web-demos.md)。
+已于 2026-09-10 发布并核验：[打开中文学习指南](https://yydshly.github.io/0910_codex_project/012-crypto101-book/)。遵循[仓库 Web 约定](../../../docs/web-demos.md)。
 
 [研究首页](../README.md) · [网页验证](../notes/04-web-learning-guide.md)

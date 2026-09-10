@@ -17,6 +17,7 @@
 | 009 · YC AI Research | [网页能力、更新情况与研究价值](https://yydshly.github.io/0910_codex_project/009-yc-ai-research/) |
 | 010 · Awesome OSINT Arsenal | [工具查找、安装说明与完整理解](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 | 011 · Luvus | [任务管理与 Agent 适配](https://yydshly.github.io/0910_codex_project/011-luvus/) · [完整理解](https://yydshly.github.io/0910_codex_project/011-luvus/understanding.html) · [详细架构](https://yydshly.github.io/0910_codex_project/011-luvus/architecture.html) |
+| 012 · Crypto 101 | [中文学习地图](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [从目标开始](https://yydshly.github.io/0910_codex_project/012-crypto101-book/foreword.html) · [来源与内容缺口](https://yydshly.github.io/0910_codex_project/012-crypto101-book/sources.html) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -57,6 +58,16 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Crypto 101 中文学习指南
+
+- 日期：2026-09-10；沿用 GitHub Pages。
+- 首发源码：ed70c8a0cf3bba85dfa545d76e8b809f797cb3dc；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34458026217)。
+- 20 个页面、18 个单元；覆盖原书 204 个标题、187 条细节导读、57 个术语和 47 条书目入口。提供自检、浏览器本地进度与笔记、复制学习引导语，以及 XOR / 小整数密钥交换教学演算。
+- 本项目 714 处页面本地引用检查通过；统一构建 11 个展示、1226 处站内引用检查通过。
+- 线上版本一致，本项目 34 个文件 HTTP 200，换行规范化后内容一致，关键类型正确；11 个展示入口回归通过。
+- 未做浏览器截图、真实点击或视觉回归；未构建上游书籍、复现攻击或验证教学效果。详见 [学习网页记录](../projects/012-crypto101-book/notes/04-web-learning-guide.md)。
+
 
 ### Awesome OSINT Arsenal 完整理解与摘要更新
 

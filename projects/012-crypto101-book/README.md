@@ -4,7 +4,7 @@ Crypto 101 是面向程序员的密码学入门书源码：从加密、哈希、
 
 ## 中文学习网页
 
-18 个单元覆盖原书全部标题入口，按学习目标、核心概念、细节导读、案例和自检组织；支持本浏览器记录进度与疑问，并复制引导语回到助手对话逐步学习。网页已构建，线上入口在发布核验后补充。
+18 个单元覆盖原书全部标题入口，按学习目标、核心概念、细节导读、案例和自检组织；支持本浏览器记录进度与疑问，并复制引导语回到助手对话逐步学习。[打开学习地图](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [从学习目标开始](https://yydshly.github.io/0910_codex_project/012-crypto101-book/foreword.html)。
 
 [网页运行说明](web/README.md) · [覆盖范围与验证](notes/04-web-learning-guide.md)
 
@@ -26,7 +26,7 @@ Crypto 101 是面向程序员的密码学入门书源码：从加密、哈希、
 | 技术栈 | reStructuredText、Sphinx、Python 扩展、Make、LaTeX 与插图工具；提供 Docker 构建环境 |
 | 研究状态 | 中文导读与学习网页完成；上游书籍构建与漏洞实验未实测 |
 | 收录日期 / 最近更新 | 2026-09-10 / 2026-09-10 |
-| 在线演示 | 中文学习网页已构建，待上线核验 |
+| 在线演示 | [Crypto 101 中文学习指南](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) |
 
 ## 能力与用途
 
