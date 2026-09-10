@@ -11,9 +11,9 @@
 按编号升序排列，编号与子项目目录保持一致。
 
 <!-- PROJECT_INDEX_START -->
-| 编号 | 研究项目 | 摘要 | 状态 | 在线演示 |
-| :--- | :--- | :--- | :--- | :--- |
-| 001 | [System Prompts Leaks](projects/001-system-prompts-leaks/README.md) | 理解总稿、任务逻辑汇总图；Web 含 24 项解读与四条任务推进路径 | 研究与线上展示完成 | [打开演示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
+| 编号 | 研究项目 | 原始仓库 | 摘要 | 状态 | 在线演示 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 001 | [System Prompts Leaks](projects/001-system-prompts-leaks/README.md) | [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 理解总稿、任务逻辑汇总图；Web 含 24 项解读与四条任务推进路径 | 研究与线上展示完成 | [打开演示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
