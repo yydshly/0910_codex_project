@@ -25,6 +25,7 @@
 | 010 | [Awesome OSINT Arsenal](projects/010-awesome-osint-arsenal/README.md) | [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | 以工具查找为主的工具合集，按用途整理情报与安全工具、网站及学习资料，并提供获取方式和批量安装脚本，帮助找到并准备所需工具。 | 完整理解与工具查找展示完成；按要求未安装工具 | [打开工具导航](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 | 011 | [Luvus](projects/011-luvus/README.md) | [RizRiyz/luvus](https://github.com/RizRiyz/luvus) | Luvus 是多 Agent 终端工作台，统一接入 Claude Code、Codex、Pi 等编程助手，支持任务下发与依赖管理、会话恢复、状态跟踪、并行工作目录协调、检查命令和分支整合，并提供远程接入、定时任务与模块扩展 | 中文研究与线上展示完成；上游未运行 | [在线阅读](https://yydshly.github.io/0910_codex_project/011-luvus/) |
 | 012 | [Crypto 101](projects/012-crypto101-book/README.md) | [crypto101/book](https://github.com/crypto101/book) | 面向程序员的密码学入门书源码，通过加密、认证、密钥与漏洞案例解释完整安全系统，并提供多格式书稿构建流程；适合基础学习、中文知识整理与教学参考 | 关键知识清单与线上导读完成；上游未实测 | [开始学习](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [关键知识清单](https://yydshly.github.io/0910_codex_project/012-crypto101-book/knowledge.html) |
+| 013 | [Plinkopinball](projects/013-plinkopinball/README.md) | [andrewwoan/codrops-demo-for-threejs-conference](https://github.com/andrewwoan/codrops-demo-for-threejs-conference) | 将 Blender 三维场景、钉板落球与弹珠台玩法结合，支持物理碰撞、挡板、轨道和动态声音，可用于创意活动、小游戏及 Three.js 教学，借鉴烘焙视觉、低维物理与实例化渲染的组合 | 中文研究与展示已制作；发布待验证 | — |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
@@ -102,6 +103,12 @@ Pi Web 提供可自托管的浏览器 AI 编程工作台，把代码操作、任
 [![Crypto 101 能力概览：基础组件、漏洞案例、完整系统与书稿构建，明确未完成内容和验证边界](projects/012-crypto101-book/assets/capability-overview.svg)](projects/012-crypto101-book/README.md)
 
 沿“基础组件 → 漏洞案例 → 完整系统”理解密码学，网页提供章节目标、细节导读、自检与个人进度；52 项关键知识清单帮助逐点查漏，明确区分原书提炼与外部补学。来源：依据固定书稿原创绘制，非运行截图；部分章节有 TODO，上游构建与实验未实测。[项目资料](projects/012-crypto101-book/README.md) · [能力详解](projects/012-crypto101-book/notes/01-capabilities.md) · [放大概览图](projects/012-crypto101-book/assets/capability-overview.svg) · [学习路线](projects/012-crypto101-book/notes/03-learning-path.md) · [开始在线学习](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [关键知识清单](https://yydshly.github.io/0910_codex_project/012-crypto101-book/knowledge.html)
+
+### 013 · Plinkopinball
+
+[![Plinkopinball 的能力流程：模型与烘焙、碰撞提取、运动求解、画面与声音](projects/013-plinkopinball/assets/capability-overview.svg)](projects/013-plinkopinball/README.md)
+
+把钉板落球、弹珠台和动态声音放进精细三维场景，借鉴 Blender 资源流程、二维物理与三维画面的组合。展示包含作者原版入口、独立中文物理实验及源码拆解。图源：本研究依据固定源码原创绘制，非产品截图；实验不代表上游性能。[项目资料](projects/013-plinkopinball/README.md) · [完整理解](projects/013-plinkopinball/notes/01-understanding.md) · [放大流程图](projects/013-plinkopinball/assets/capability-overview.svg) · [网页运行说明](projects/013-plinkopinball/web/README.md)
 
 ## 仓库导航
 

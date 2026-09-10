@@ -63,5 +63,12 @@
     "description": "面向程序员的密码学入门书导读，覆盖全部章节标题、术语与参考入口，按目标、概念、案例和自检逐步学习，记录疑问并继续引导。",
     "preview": "assets/capability-overview.svg",
     "previewAlt": "从基础组件和漏洞案例走向完整系统，区分书稿构建与实际验证"
+  },
+  {
+    "directory": "013-plinkopinball",
+    "title": "Plinkopinball · 可玩的 Three.js 研究",
+    "description": "把 Blender 三维场景、钉板落球、弹珠台和动态声音组合为浏览器互动体验。提供作者原版入口、独立中文物理实验与技术拆解。",
+    "preview": "assets/capability-overview.svg",
+    "previewAlt": "模型烘焙、碰撞提取、物理计算、三维画面与声音的能力流程"
   }
 ]

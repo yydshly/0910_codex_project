@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="体验 Plinkopinball 原版 3D 弹珠台，通过中文物理实验理解碰撞、挡板、烘焙光照与实例化渲染。">
+  <title>Plinkopinball · 可玩的 Three.js 研究</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#guide">跳到演示</a>
+<header class="topbar"><a class="brand" href="./"><span class="mark">013</span> PLINKOPINBALL</a><nav aria-label="主导航"><a href="#mechanism">技术拆解</a><a href="#uses">场景与扩展</a><a href="./sources.html">来源与验证</a><a href="../">研究集 ↗</a></nav></header>
+<main>
+<section class="intro" id="guide"><div><p class="eyebrow">BLENDER × THREE.JS × PHYSICS</p><h1>把三维场景，变成可玩的体验。</h1></div><p>先玩作者的弹珠台，再打开原理实验。<br>观察小球如何从一次点击，变成碰撞、运动与声音。</p></section>
+<section class="experience" aria-label="弹珠互动展示">
+  <div class="stage-column">
+    <div class="stage-toolbar"><div class="tabs" role="tablist" aria-label="演示模式"><button id="original-tab" role="tab" aria-selected="true" aria-controls="original-panel">原版 3D 体验 <span>↗ LIVE</span></button><button id="lab-tab" role="tab" aria-selected="false" aria-controls="lab-panel" tabindex="-1">原理实验 <span>2D LAB</span></button></div><a class="external" href="https://codrops-demo-for-threejs-conference-ten.vercel.app/" target="_blank" rel="noopener noreferrer">独立窗口 ↗</a></div>
+    <div id="original-panel" class="original-panel" role="tabpanel" aria-labelledby="original-tab"><iframe title="作者的 Plinko 与 Pinball 原版 Three.js 演示" src="https://codrops-demo-for-threejs-conference-ten.vercel.app/" allow="fullscreen" loading="eager"></iframe></div>
+    <div id="lab-panel" role="tabpanel" aria-labelledby="lab-tab" hidden>
+      <div class="canvas-wrap"><canvas id="board" width="760" height="660" aria-label="二维碰撞原理实验，可使用下方按钮投球并控制左右挡板">浏览器无法显示画布。你仍可阅读下方技术拆解和研究文档。</canvas><div class="board-caption"><span>二维碰撞示意</span><span id="ball-count">0 / 80 球</span></div></div>
+      <div class="play-controls"><button class="accent" id="drop">投一球</button><button id="burst">投 10 球</button><button id="left-flipper" aria-label="按住抬起左挡板">← 左挡板</button><button id="right-flipper" aria-label="按住抬起右挡板">右挡板 →</button><button id="pause" aria-pressed="false">暂停</button><button id="reset">重置</button></div>
+      <p class="interaction-hint" id="lab-status" role="status">点击钉板选择落点；A / D 或方向键控制挡板，空格投球。</p>
+    </div>
+    <div class="stage-footer"><span id="mode-note">外部原站实时加载，首次进入请选择有声或静音；若空白或加载较慢，可使用“独立窗口”。</span><span class="edition">研究版本 64a896e</span></div>
+  </div>
+  <aside class="side-panel">
+    <div id="original-guide"><p class="eyebrow">PLAY THE ORIGINAL</p><h2>一张桌面，<br>两种玩法。</h2><ol class="steps"><li><span>01</span><div><strong>点击上方钉板</strong><p>小球穿过钉阵，掉入下方弹珠台。</p></div></li><li><span>02</span><div><strong>用挡板把球打回去</strong><p>按 ← / → 或 A / D；触摸设备提供屏幕按钮。</p></div></li><li><span>03</span><div><strong>蓄力，再发射</strong><p>按住空格后松开。右上角可重置和切换声音。</p></div></li></ol><div class="side-note"><strong>留意这些细节</strong><p>木纹随小球滚动、球下的柔和阴影、拱形轨道，以及植物的轻微摆动。</p></div></div>
+    <div id="lab-guide" hidden><p class="eyebrow">CHANGE ONE THING</p><h2>动一个参数，<br>看结果怎么变。</h2><label class="range-label" for="gravity">重力强度 <output id="gravity-value" for="gravity">1.0×</output></label><input id="gravity" type="range" min="0.2" max="2" step="0.1" value="1"><label class="range-label" for="bounce">碰撞弹性 <output id="bounce-value" for="bounce">0.55</output></label><input id="bounce" type="range" min="0.1" max="0.95" step="0.05" value="0.55"><label class="toggle"><input id="colliders" type="checkbox"> 显示碰撞边界</label><div class="reading-value"><span>已回收小球</span><strong id="drained">0</strong></div><div class="side-note"><strong id="experiment-title">试试降低弹性</strong><p id="experiment-copy">球碰撞后保留的速度更少，更快沿钉阵下落。逐次改变参数，更容易比较。</p></div><p class="fineprint">本研究原创的简化二维教学实验。参数只影响此实验；未复用上游物理代码，也不代表原版性能。</p></div>
+  </aside>
+</section>
+<section class="capabilities" aria-label="原库核心能力"><article><span>01 / 场景</span><h3>精细的实时 3D</h3><p>Blender 场景与烘焙贴图进入浏览器，配合动态小球材质和植物风动。</p></article><article><span>02 / 互动</span><h3>碰撞、挡板与轨道</h3><p>桌面和钉板使用二维物理，拱形轨道使用沿曲线的运动计算。</p></article><article><span>03 / 反馈</span><h3>让动作被听见</h3><p>碰撞音量随运动变化；限频与阈值避免大量小球的声音堆叠。</p></article><article><span>04 / 效率</span><h3>批量绘制小球</h3><p>实例化绘制与固定容量管理，代码上限 1,000 球，非流畅度保证。</p></article></section>
+<section id="mechanism" class="section-block"><div class="section-heading"><p class="eyebrow">UNDER THE SURFACE</p><h2>画面是三维的，计算可以更简单。</h2><p>点选一个环节，沿着资源、输入和反馈理解整个系统。</p></div><div class="mechanism-layout"><div class="pipeline" role="group" aria-label="技术环节"><button data-topic="assets" aria-pressed="true"><span>01</span><strong>模型与烘焙</strong><small>Blender → GLB / 贴图</small></button><div class="connector">↓</div><button data-topic="geometry" aria-pressed="false"><span>02</span><strong>提取碰撞边界</strong><small>模型截面 → 圆与折线</small></button><div class="connector">↓</div><button data-topic="physics" aria-pressed="false"><span>03</span><strong>计算小球运动</strong><small>二维世界 + 曲线轨道</small></button><div class="connector">↓</div><button data-topic="render" aria-pressed="false"><span>04</span><strong>还原画面与声音</strong><small>Three.js + Howler</small></button></div><article class="mechanism-detail" aria-live="polite"><span class="topic-tag" id="topic-tag">01 / 离线准备</span><h3 id="topic-title">把复杂光照先画进贴图。</h3><p id="topic-body">静态场景的明暗已经在 Blender 中烘焙好。浏览器用不受场景灯光影响的材质显示贴图，减少实时计算；移动的小球单独使用受光照影响的材质。</p><div class="tradeoff"><span>适用条件</span><p id="topic-limit">适合光照和场景大体固定的体验。大幅改变灯光或昼夜状态时，需要重新烘焙或增加实时光照。</p></div><a id="topic-source" href="https://github.com/andrewwoan/codrops-demo-for-threejs-conference/blob/64a896ef3ff6b1dac9d6f5d63601f0bc1f43e354/src/Experience/World/Baked.js" target="_blank" rel="noopener noreferrer">查看对应源码 ↗</a></article></div><p class="footnote">开发流程还提供资源变更自动刷新与浏览器物体变换保存。作者文章中的 Blender MCP 建议范围更广，配套 Blender 插件与完整双向流程未在本次验证。</p></section>
+<section id="uses" class="section-block"><div class="section-heading"><p class="eyebrow">WHERE IT FITS</p><h2>从一个小玩具，走向具体用途。</h2></div><div class="use-grid"><article><span>品牌与活动</span><h3>可玩的主题场景</h3><p>替换桌面、装饰、声音与活动主题，让用户在交互中认识内容。</p><p class="effort">扩展工作：主题美术与内容替换</p></article><article><span>游戏开发</span><h3>一局真正的小游戏</h3><p>沿用玩法思路，增加目标区域、计分、生命值和关卡进度。</p><p class="effort">扩展工作：规则与状态管理</p></article><article><span>学习与科普</span><h3>看得见的技术原理</h3><p>展示碰撞边界、改变弹性和重力，理解视觉效果背后的取舍。</p><p class="effort">扩展工作：实验与讲解内容</p></article></div><p class="footnote">以上为可扩展方向。原库未提供完整关卡、排行榜、账号或多人联机；自由三维飞行需要改造物理架构。</p></section>
+<section class="reading-strip"><div><p class="eyebrow">KEEP EXPLORING</p><h2>把体验与源码对起来。</h2></div><a href="./understanding.html">完整中文研究 →</a><a href="./sources.html">来源、许可与验证 →</a><a href="./notes/01-understanding.md" download>下载研究笔记 ↓</a></section>
+</main><footer><span>013 / Plinkopinball · 中文研究与教学实验</span><a href="https://github.com/andrewwoan/codrops-demo-for-threejs-conference">Andrew Woan 的上游仓库 ↗</a><a href="https://github.com/yydshly/0910_codex_project/tree/main/projects/013-plinkopinball">本项目研究目录 ↗</a></footer>
+</body></html>
