@@ -1,4 +1,5 @@
-import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, rm, writeFile, lstat, realpath } from 'node:fs/promises';
+import { resolve, dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
@@ -12,12 +13,19 @@ for (const demo of demos) {
   seen.add(demo.directory);
 }
 // Only the fixed, generated root dist directory is cleaned.
+const rootPath = await realpath(fileURLToPath(root));
+const outputPath = resolve(rootPath, 'dist');
+if (dirname(outputPath) !== rootPath) throw new Error('Build output escaped repository');
+try {
+  const existing = await lstat(outputPath);
+  if (existing.isSymbolicLink() || await realpath(outputPath) !== outputPath) throw new Error('Refusing redirected Pages output');
+} catch (error) { if (error.code !== 'ENOENT') throw error; }
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const demo of demos.sort((a, b) => a.directory.localeCompare(b.directory))) {
   const cwd = fileURLToPath(new URL(`projects/${demo.directory}/web/`, root));
-  execFileSync(process.execPath, ['scripts/check.mjs'], { cwd, stdio: 'inherit' });
   execFileSync(process.execPath, ['scripts/build.mjs'], { cwd, stdio: 'inherit' });
+  execFileSync(process.execPath, ['scripts/check.mjs'], { cwd, stdio: 'inherit' });
   await cp(new URL(`projects/${demo.directory}/web/dist/`, root), new URL(`${demo.directory}/`, output), { recursive: true });
 }
 const repository = 'https://github.com/yydshly/0910_codex_project';

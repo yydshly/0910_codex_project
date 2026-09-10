@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1120" viewBox="0 0 1440 1120" role="img" aria-labelledby="title desc">
+<title id="title">外部 Agent 与独立记忆服务：整体架构引导</title>
+<desc id="desc">用户向外部 Agent 发起任务。Agent 保留模型与工具执行循环，通过 Hook、插件或 Skill 适配层查询记忆、接收历史上下文并回写真实结果。独立 Memory 服务负责召回、保存与后台更新，可以在同一台电脑上运行。箭头为数据流，不是统一调度权。</desc>
+<defs><marker id="blue" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#2761bf"/></marker><marker id="green" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#197961"/></marker><marker id="gray" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#6b7890"/></marker></defs>
+<style>text{font-family:'Microsoft YaHei','PingFang SC','Segoe UI',sans-serif;fill:#183049}.heading{font-size:25px;font-weight:700}.body{font-size:20px}.small{font-size:17px;fill:#52667e}.label{font-size:19px;font-weight:700}.blue{fill:#2761bf}.green{fill:#197961}.muted{fill:#52667e}.box{fill:white;stroke:#d5dfeb;stroke-width:1.5}.line{fill:none;stroke-width:2.5}.dash{stroke-dasharray:7 5}</style>
+<rect width="1440" height="1120" fill="#f5f7fb"/>
+<text x="48" y="61" font-size="35" font-weight="700">外部 Agent × 独立记忆服务</text>
+<text x="48" y="99" class="body muted">独立出来的是记忆管理；当前任务仍由对应 Agent 的模型与 Runtime 推进。</text>
+<rect x="48" y="130" width="1344" height="54" rx="9" fill="#e8eef8"/>
+<text x="72" y="164" class="body">阅读顺序：左侧看执行，中央看接入，右侧看记忆；① 查询 → ② 返回参考 → ③ 写回结果</text>
+
+<rect x="48" y="214" width="370" height="600" rx="15" fill="#fff5e8" stroke="#e5c697"/>
+<text x="73" y="254" class="heading">外部 Agent / Runtime</text>
+<text x="73" y="286" class="small">如已接入的 Claude Code、Codex 等</text>
+<rect x="73" y="307" width="320" height="56" rx="8" class="box"/>
+<text x="233" y="342" text-anchor="middle" class="label">用户发起当前任务</text>
+<path d="M233 365V391" class="line" stroke="#6b7890" marker-end="url(#gray)"/>
+<rect x="73" y="402" width="320" height="242" rx="10" fill="white" stroke="#e2c38e"/>
+<text x="94" y="438" class="label">自己的任务执行循环</text>
+<text x="94" y="479" class="body">模型理解上下文、提出行动</text>
+<path d="M233 490V518" class="line" stroke="#6b7890" marker-end="url(#gray)"/>
+<text x="94" y="550" class="body">Runtime 执行工具、读取结果</text>
+<text x="94" y="586" class="small">文件 / Shell / MCP 等宿主工具</text>
+<path d="M366 553V466H346" class="line" stroke="#6b7890" marker-end="url(#gray)"/>
+<text x="94" y="620" class="small">核对当前事实，继续或结束任务</text>
+<rect x="73" y="676" width="320" height="102" rx="8" fill="#fffaf2" stroke="#e5c697"/>
+<text x="94" y="710" class="label">执行权留在宿主</text>
+<text x="94" y="743" class="small">历史影响判断；不等于直接控制工具</text>
+
+<rect x="478" y="214" width="226" height="600" rx="15" fill="#eef3ff" stroke="#c6d4ee"/>
+<text x="501" y="254" class="heading">适配接入层</text>
+<text x="501" y="287" class="small">Hook / 插件 / Skill</text>
+<text x="501" y="315" class="small">HTTP / CLI 接口</text>
+<rect x="495" y="352" width="192" height="73" rx="8" class="box"/>
+<text x="515" y="381" class="label blue">① 查询记忆</text>
+<text x="515" y="408" class="small">问题 · 会话 · 范围</text>
+<rect x="495" y="454" width="192" height="73" rx="8" class="box"/>
+<text x="515" y="483" class="label blue">② 返回上下文</text>
+<text x="515" y="510" class="small">筛选后的历史参考</text>
+<rect x="495" y="566" width="192" height="73" rx="8" class="box"/>
+<text x="515" y="595" class="label green">③ 写回真实结果</text>
+<text x="515" y="622" class="small">回答 · 轨迹 · 状态</text>
+<text x="501" y="696" class="label">转换格式与事件</text>
+<text x="501" y="730" class="small">接入深度因宿主而异</text>
+<text x="501" y="759" class="small">并非每轮自动调用</text>
+
+<rect x="764" y="214" width="628" height="600" rx="15" fill="#edf8f3" stroke="#b4dccc"/>
+<text x="790" y="254" class="heading">独立 Memory 服务</text>
+<text x="790" y="286" class="small">可以与 Agent 在同一台电脑上运行；共享范围取决于配置</text>
+<rect x="790" y="313" width="576" height="186" rx="10" class="box"/>
+<text x="813" y="348" class="label blue">召回与上下文组织</text>
+<text x="813" y="385" class="body">意图 / 范围 → 向量 + 全文 + 结构线索</text>
+<text x="813" y="422" class="body">RRF 融合 → 阈值 / 去重 / MMR → 可选模型过滤</text>
+<text x="813" y="463" class="small">输出有关历史；可能无命中，仍需结合当前事实复核</text>
+<rect x="790" y="528" width="576" height="108" rx="10" class="box"/>
+<text x="813" y="561" class="label green">采集与持久化</text>
+<text x="813" y="594" class="body">SQLite · 正文 / 来源 / 状态 · FTS5 / sqlite-vec</text>
+<text x="813" y="621" class="small">轮次关联、稳定 ID 与哈希去重，保留可追溯记录</text>
+<path d="M1078 528V501" class="line" stroke="#197961" marker-end="url(#green)"/>
+<rect x="790" y="669" width="576" height="119" rx="10" fill="#f9fcfa" stroke="#94beab" stroke-dasharray="7 5"/>
+<text x="813" y="703" class="label green">后台加工与更新</text>
+<text x="813" y="737" class="body">Worker · 摘要 / Embedding / 评分 / 经验提炼</text>
+<text x="813" y="766" class="small">合格 L1 → L2；L2 可形成 L3 或 Skill，再更新索引</text>
+<path d="M1048 638V667" class="line dash" stroke="#197961" marker-end="url(#green)"/>
+<path d="M1108 669V640" class="line dash" stroke="#197961" marker-end="url(#green)"/>
+
+<path d="M418 388H492" class="line" stroke="#2761bf" marker-end="url(#blue)"/><path d="M704 388H785" class="line" stroke="#2761bf" marker-end="url(#blue)"/>
+<path d="M764 490H690" class="line" stroke="#2761bf" marker-end="url(#blue)"/><path d="M478 490H422" class="line" stroke="#2761bf" marker-end="url(#blue)"/>
+<path d="M418 602H492" class="line" stroke="#197961" marker-end="url(#green)"/><path d="M704 602H785" class="line" stroke="#197961" marker-end="url(#green)"/>
+
+<rect x="48" y="842" width="1344" height="65" rx="10" fill="#e8eef8"/>
+<text x="72" y="869" class="label">模型调用 ≠ 每个模块都是自主 Agent</text>
+<text x="72" y="894" class="small">数据库、检索排序与 Worker 是工程流程；模型参与摘要和归纳。只有任务执行端负责推进当前用户任务。</text>
+<rect x="48" y="929" width="426" height="100" rx="10" class="box"/>
+<text x="70" y="961" class="label">外部化的意义</text>
+<text x="70" y="993" class="small">跨会话保留 · 跨工具复用 · 独立管理</text>
+<rect x="489" y="929" width="430" height="100" rx="10" class="box"/>
+<text x="511" y="961" class="label">独立服务不等于全程离线</text>
+<text x="511" y="993" class="small">模型是否远程调用，由 Provider 配置决定</text>
+<rect x="934" y="929" width="458" height="100" rx="10" class="box"/>
+<text x="956" y="961" class="label">Memmy 自带 Runtime 是另一种用法</text>
+<text x="956" y="993" class="small">外部接入无需经过它；记忆不训练模型参数</text>
+<text x="48" y="1064" class="small">图例：实线 = 接口数据流；虚线 = 后台加工。箭头不表示 Memmy 统一调度外部 Agent。</text>
+<text x="48" y="1094" class="small">依据 Memmy 9814671 固定版本源码原创归纳 · 2026-09-10 · 原理引导图，非运行截图；上游集成未实测</text>
+</svg>

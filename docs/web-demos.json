@@ -3,5 +3,10 @@
     "directory": "001-system-prompts-leaks",
     "title": "Agent 解剖室",
     "description": "从提示词档案理解 Agent：24 项能力解读、四条任务路径、六篇研究文档与三张汇总图。"
+  },
+  {
+    "directory": "002-memmy-agent",
+    "title": "Memmy · 记忆与执行的边界",
+    "description": "外部接入整体架构、记忆写入与召回原理、Agent 职责边界，以及与 Mnemosyne 的对照。"
   }
 ]

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Memmy Agent 研究：架构、内部技术、记忆与执行的边界，以及与 Mnemosyne 的对比。">
+  <meta name="color-scheme" content="light">
+  <title>Memmy · 记忆与执行的边界 | 开源项目研究 002</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23152c49'/%3E%3Ctext x='24' y='34' text-anchor='middle' font-size='32' fill='white' font-family='sans-serif'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<aside class="rail">
+  <a class="brand" href="#architecture"><span class="brand-symbol" aria-hidden="true">M</span><span>开源项目研究<br><small>PROJECT / 002</small></span></a>
+  <nav aria-label="研究内容">
+    <a href="#architecture"><span>01</span>架构与职责</a>
+    <a href="#external-guide"><span>01B</span>外部接入总览</a>
+    <a href="#technology"><span>02</span>内部技术</a>
+    <a href="#memory-mechanism"><span>03</span>记忆实现原理</a>
+    <a href="#comparison"><span>04</span>Mnemosyne 对照</a>
+    <a href="#meaning"><span>05</span>意义与场景</a>
+    <a href="#boundaries"><span>06</span>边界与扩展</a>
+    <a href="#sources"><span>07</span>版本与来源</a>
+  </nav>
+  <div class="rail-note"><b>研究讲解页面</b><p>依据文档与源码归纳。<br>未运行上游 Agent，<br>未连接真实记忆服务。</p><span>2026.09.10 · MIT 上游</span></div>
+</aside>
+<main id="main">
+  <header class="page-header"><span>MEMTENSOR / MEMMY-AGENT</span><a href="https://github.com/MemTensor/memmy-agent/tree/98146714aad8569a298cf8692946da8bb28bf7cb" target="_blank" rel="noopener noreferrer">查看研究版本 ↗</a></header>
+  <section id="architecture" aria-labelledby="architecture-title">
+    <div class="section-kicker">01 / ARCHITECTURE</div>
+    <h1 id="architecture-title">记忆归谁，<em>任务谁做？</em></h1>
+    <p class="lead">Memmy 提供共享记忆与配套服务，也带有自己的 Agent。<br class="desktop-break">外部接入时，实际执行仍由原 Agent 负责。</p>
+    <div class="mode-controls" role="group" aria-label="选择架构使用方式">
+      <button type="button" data-mode="external" aria-pressed="true">A · 接入外部 Agent</button>
+      <button type="button" data-mode="native" aria-pressed="false">B · 使用 Memmy Agent</button>
+    </div>
+    <div class="architecture-layout">
+      <div class="architecture-canvas" aria-label="交互式逻辑架构，选择编号查看技术">
+        <div class="flow-caption">执行端 <span id="mode-caption">原 Agent 保留自己的执行机制</span></div>
+        <button type="button" class="node runtime" data-layer="6" aria-pressed="false" aria-controls="layer-detail"><span class="node-number">06</span><span><b id="executor-title">外部 Agent Runtime</b><small id="executor-subtitle">Claude Code / Codex 等 · 使用宿主模型与工具</small></span></button>
+        <div class="bridge"><span aria-hidden="true">↕</span><span>查询与回写 / 返回历史上下文</span></div>
+        <button type="button" class="node adapter" data-layer="1" aria-pressed="true" aria-controls="layer-detail"><span class="node-number">01</span><span><b>适配接入</b><small>Hook · 插件 · Skill · 内置记忆接口</small></span></button>
+        <div class="bridge compact"><span aria-hidden="true">↕</span><span>统一请求与记录</span></div>
+        <div class="memory-area">
+          <div class="flow-caption">共享 Memory 服务 <span>提供经验</span></div>
+          <div class="memory-flow">
+            <button type="button" class="node" data-layer="2" aria-pressed="false" aria-controls="layer-detail"><span class="node-number">02</span><b>采集与写入</b><small>记录 / 去重 / 来源</small></button>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <button type="button" class="node storage" data-layer="3" aria-pressed="false" aria-controls="layer-detail"><span class="node-number">03</span><b>存储与索引</b><small>SQLite / 全文 / 向量</small></button>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <button type="button" class="node" data-layer="5" aria-pressed="false" aria-controls="layer-detail"><span class="node-number">05</span><b>记忆召回</b><small>检索 / 排序 / 过滤</small></button>
+          </div>
+          <div class="async-bridge"><span>存储 ↔ 后台处理</span><span>异步更新记忆与索引</span></div>
+          <button type="button" class="node worker" data-layer="4" aria-pressed="false" aria-controls="layer-detail"><span class="node-number">04</span><span><b>后台加工与提炼</b><small>摘要 / 向量化 / 评分 / 经验 / 技能</small></span></button>
+        </div>
+        <p class="diagram-note">逻辑图：召回结果经适配接口返回执行端；不同宿主的自动化深度不同。</p>
+      </div>
+      <aside class="layer-detail" id="layer-detail" aria-labelledby="detail-title">
+        <div class="detail-index" id="detail-index">LAYER 01</div>
+        <h2 id="detail-title" tabindex="-1">适配接入</h2>
+        <p id="detail-summary">把不同工具的历史格式和事件，转换成 Memory 服务能处理的请求。</p>
+        <div class="tech-tags" id="detail-tags"><span>Hook</span><span>插件</span><span>Skill</span><span>HTTP / CLI</span></div>
+        <dl><dt>输入</dt><dd id="detail-input">本地历史、用户请求、任务结束事件。</dd><dt>如何处理</dt><dd id="detail-process">扫描 JSONL / SQLite；在宿主事件中查询或写回，也支持按需工具调用。</dd><dt>输出</dt><dd id="detail-output">统一的会话与任务记录；返回给宿主的历史上下文。</dd></dl>
+        <div class="boundary"><b>职责边界</b><p id="detail-boundary">负责连接，不统一调度外部 Agent。安装集成不代表所有工具每轮都自动召回。</p></div>
+        <a id="detail-source" class="source-link" href="https://memmy.bot/docs/memory/sources/" target="_blank" rel="noopener noreferrer">查看实现依据 ↗</a>
+        <button type="button" id="back-to-layer" class="back-to-layer">↑ 返回所选架构层</button>
+      </aside>
+    </div>
+    <p id="selection-status" class="sr-only" role="status"></p>
+    <p class="mode-explanation" id="mode-explanation" role="status">当前：外部 Agent 执行任务，Memmy 提供记忆。上面的查询与回写箭头不表示 Memmy 指挥外部 Agent。</p>
+    <details class="full-diagram"><summary>查看完整架构引导图</summary><figure><a href="./architecture.svg" target="_blank" rel="noopener"><img src="./architecture.svg" width="1200" height="850" loading="lazy" alt="完整架构：两种 Runtime 分别调用模型与工具，经过适配层共享写入、SQLite、后台加工与召回服务。"></a><figcaption>本研究依据固定版本原创绘制，非上游产品截图。选择图片可打开可缩放原图。</figcaption></figure></details>
+  </section>
+
+  <section id="external-guide" aria-labelledby="external-guide-title">
+    <div class="section-kicker">01B / EXTERNAL MEMORY GUIDE</div>
+    <h2 id="external-guide-title">Agent 继续做任务，记忆独立成服务</h2>
+    <p class="section-intro">“还是 Agent 那套机制，只是提取到外部”抓住了能力独立的方向。更准确地说，独立出来的是记忆管理：采集、保存、整理、检索与更新。当前任务的模型与工具循环，仍由对应 Agent Runtime 负责。</p>
+    <figure class="external-guide-figure"><a href="./external-memory-architecture.svg" target="_blank" rel="noopener"><img src="./external-memory-architecture.svg" width="1440" height="1120" loading="lazy" alt="外部 Agent 保留任务执行循环，通过适配层查询记忆、接收上下文和回写结果；独立 Memory 服务提供存储、召回和后台提炼。"></a><figcaption>依据 Memmy 固定版本源码原创绘制的整体架构引导图，非产品截图。箭头表示数据交互，点击可放大。</figcaption></figure>
+    <div class="tech-columns">
+      <article><span class="mini-index">AGENT</span><h3>推进当前任务</h3><p>模型结合上下文提出行动，Runtime 执行工具并读取结果。历史会影响判断，但当前仓库、环境与真实结果仍需核对。</p></article>
+      <article><span class="mini-index">ADAPTER</span><h3>连接不同宿主</h3><p>Hook、插件或 Skill 转换事件与格式，传递问题、上下文和完成记录。接入方式决定何时查询或写回，不保证所有宿主每轮自动调用。</p></article>
+      <article><span class="mini-index">MEMORY</span><h3>管理长期经验</h3><p>保存可追溯记录，多路检索并筛选上下文，后台总结、索引、评分和提炼。它提供参考，不直接取得外部 Agent 的工具执行权。</p></article>
+    </div>
+    <div class="subheading"><h3>三个容易混淆的地方</h3><span>职责边界比“是否用了模型”更重要</span></div>
+    <dl class="mechanism-tech">
+      <div><dt>“外部”不一定是另一台服务器</dt><dd>它独立于 Agent 的临时会话状态，可以仍运行在同一台电脑。模型是否远程调用是另一项配置。</dd></div>
+      <div><dt>使用 LLM 不等于整个模块都是 Agent</dt><dd>摘要和归纳会使用模型；存储、检索排序和排队重试主要是程序流程。是否承担目标推进与行动闭环，需要另看职责。</dd></div>
+      <div><dt>服务化也不只是外接数据库</dt><dd>适配、数据组织、检索筛选和更新机制共同形成记忆能力。仅保存聊天文本不足以保证有效召回或正确使用。</dd></div>
+      <div><dt>结构独立不代表从某个 Agent 搬出代码</dt><dd>这里描述的是架构边界，没有据此推断项目的代码演变历史。Memmy 也不是 Mnemosyne 的二次封装。</dd></div>
+    </dl>
+    <details><summary>按一次任务理解：查询 → 使用 → 回写 → 更新</summary><div class="details-body"><ol><li>用户向原 Agent 提问，宿主按自己的集成策略发起记忆查询。</li><li>适配层提交问题与会话信息，Memory 返回筛选后的历史上下文，也可能无命中。</li><li>原 Agent 将参考材料用于自己的模型与工具循环，结合当前事实继续任务。</li><li>完成后采集真实结果；支持生命周期的入口可使用 turn.complete。开始召回本身不等于已经保存最终对话。</li><li>Worker 异步加工，符合就绪和筛选条件的材料供后续任务使用。</li></ol></div></details>
+    <div class="distinction"><b>独立记忆的意义</b><p>跨会话保留、跨工具复用、独立管理和后台加工。前提是采集完整、记录可靠、召回相关、宿主正确使用；不能以写入成功代替整条链路成功。</p></div>
+    <p class="aside-text">本图聚焦外部接入。Memmy 自带 Runtime 是另一种任务执行端，不是外部 Agent 接入必须经过的中间节点。Mnemosyne 也提供服务与集成能力；“更多封装”描述产品范围，不代表已验证效果更优。</p>
+    <div class="source-grid"><a href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/docs/en/memory/sources.mdx" target="_blank" rel="noopener noreferrer">宿主接入差异 ↗</a><a href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/Memory/src/service/worker/job-handlers.ts" target="_blank" rel="noopener noreferrer">记忆后台流程 ↗</a></div>
+  </section>
+
+  <section id="technology" aria-labelledby="technology-title">
+    <div class="section-kicker">02 / INSIDE THE SYSTEM</div><h2 id="technology-title">从一次执行，到下一次经验</h2>
+    <p class="section-intro">技术的作用，是让历史可保存、可组织、可找回，再成为当前任务的参考。</p>
+    <div class="tech-columns">
+      <article><span class="mini-index">A</span><h3>先记录，再后台加工</h3><p>用会话、轮次、稳定 ID 和检查点整理历史、去重并保留来源。原始记录保存后，Worker 再做摘要、向量化和提炼；失败任务可以重试。</p><p class="aside-text">写入成功不等于完整索引已经就绪。历史导入会等待处理条件满足后进入召回。</p></article>
+      <article><span class="mini-index">B</span><h3>语义与精确线索一起查</h3><p>SQLite 保存正文与元数据；FTS5 查关键词；sqlite-vec 查语义相近的向量。短片段和结构线索补充中文短词、路径和错误码匹配。</p><p class="aside-text">本地 Embedding 使用 Transformers.js，也可以配置远程向量服务。</p></article>
+      <article><span class="mini-index">C</span><h3>选出值得带入的内容</h3><p>RRF 综合不同通道排名；质量与时间权重考虑经验价值和新旧；MMR 减少重复；模型按配置进一步过滤候选。</p><p class="aside-text">返回的是历史上下文。当前请求和实际仓库状态仍需优先核对。</p></article>
+    </div>
+    <div class="subheading"><h3>四类记忆分别保存什么</h3><span>以下部署排错例子仅为示意</span></div>
+    <div class="memory-levels">
+      <article><span>L1 / TRACE</span><h4>发生了什么</h4><p>请求、回答、工具轨迹、错误、结果与反思。</p><blockquote>一次部署失败，补齐配置后恢复。</blockquote></article>
+      <article><span>L2 / POLICY</span><h4>遇到同类问题怎么做</h4><p>触发条件、处理步骤、边界与验证方式。</p><blockquote>遇到这类启动失败，检查必需配置。</blockquote></article>
+      <article><span>L3 / WORLD MODEL</span><h4>环境有哪些约束</h4><p>关于项目、环境和稳定条件的知识。</p><blockquote>这个项目依赖哪些环境变量。</blockquote></article>
+      <article><span>SKILL / GUIDE</span><h4>可以复用什么流程</h4><p>有名称、步骤、适用条件和验证方法的指南。</p><blockquote>一套可供 Agent 参考的部署排错流程。</blockquote></article>
+    </div>
+    <div class="distinction"><b>“自进化”发生在经验层</b><p>所研究管线更新记忆评分、规则和操作指南，不训练大模型参数。不是每条记录都会变成技能；生成指南也不意味着已通过真实任务验证。</p></div>
+    <details><summary>补充：两种调度与整体技术栈</summary><div class="details-body"><p><b>Worker 调度</b>安排摘要、索引、评分与提炼。<b>Agent Runtime 调度</b>组织用户任务，调用模型、执行工具并处理结果。两者可以配合，但不是同一条循环。</p><p>Memmy 主体使用 TypeScript / Node.js。桌面使用 Electron、React、Vite；本地管理后端使用 Fastify、SSE 管理配置、集成与进度。Memory 服务、管理后端与 Agent Runtime 是不同模块。</p></div></details>
+    <div class="subheading"><h3 id="lifecycle">一次请求具体如何流转</h3><span>支持回合生命周期的接入路径；不是所有宿主的统一行为</span></div>
+    <ol class="lifecycle-list">
+      <li><b>准备会话与请求</b><p>宿主打开或复用会话，以当前问题调用 <code>turn.start</code>。会话标识用于关联上下文，来源标识用于追溯工具。</p></li>
+      <li><b>判断是否需要历史</b><p>记忆服务结合任务意图、检索模式和范围选择候选。闲聊等请求可跳过召回；没有结果不应编造历史。</p></li>
+      <li><b>返回经过筛选的上下文</b><p>检索和过滤后返回 <code>turnId</code>、命中及可用的 <code>injectedContext</code>。当前请求与历史参考分开传入宿主。</p></li>
+      <li><b>由对应 Agent 实际执行</b><p>宿主或 Memmy Runtime 调用模型、执行工具、接收结果；记忆服务不会因此取得外部 Agent 的统一调度权。</p></li>
+      <li><b>结束后保存真实结果</b><p><code>turn.complete</code> 关联轮次、请求、回答及结果，确定最终 episode 归属并持久化。开始召回并不等于已经保存最终对话。</p></li>
+      <li><b>后台加工，为后续任务准备</b><p>Worker 按配置总结、评分、索引和提炼。导入记录须满足就绪条件；并非本次结束后所有高层经验立即可用。</p></li>
+    </ol>
+    <details><summary>查看接口职责和最容易混淆的细节</summary><div class="details-body"><p><code>turn.start</code> 需要已有会话和查询；它返回轮次标识，可包含历史上下文。在该版本的接口说明中，开始阶段不创建 RawTurn、L1 或演化任务；这些在完成时处理。</p><p><code>turn.complete</code> 使用返回的轮次标识关联实际请求与回答。手动 CLI 和宿主插件对失败、取消的支持不完全一致，不能把某个接口的状态规则套到所有适配器。</p><p><code>memory.search</code> / <code>memory.add</code> 是按需查询与写入，不要求调用方一定经历完整的 turn 生命周期。Session、Turn、Episode 分别表示会话、单轮交互和相关任务过程，不能当作同一个 ID。</p><a class="source-link" href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/Memory/src/cli/skills/memmy-memory/references/turn-start.md" target="_blank" rel="noopener noreferrer">固定版本接口说明 ↗</a></div></details>
+  </section>
+
+  <section id="memory-mechanism" aria-labelledby="memory-mechanism-title">
+    <div class="section-kicker">03 / HOW MEMORY WORKS</div>
+    <h2 id="memory-mechanism-title">记忆如何保存、找回，再变成经验</h2>
+    <p class="section-intro">核心原理：把执行过程保存在模型之外，整理并建立索引；新任务到来时检索有关记录，作为上下文交给 Agent。后台再根据结果和反馈更新经验。</p>
+    <figure class="memory-poster"><a href="./memory-mechanism.png" target="_blank" rel="noopener"><img src="./memory-mechanism.png" width="1536" height="1024" loading="lazy" alt="Memmy 记忆实现原理：写入保存正文与索引，召回经 RRF、MMR 和可选模型过滤交给 Agent，反馈推动经验更新。"></a><figcaption>依据固定版本研究内容，通过 AI 图像生成制作的原理示意，非产品截图。点击图片可放大或保存。</figcaption></figure>
+    <figure class="mechanism-map" aria-label="记忆模块内部的写入、召回和更新流程">
+      <div class="mechanism-lane"><h3>写入</h3><ol><li>完成的请求与工具结果</li><li>关联轮次、来源与去重</li><li>保存 RawTurn / L1</li><li>后台摘要与向量索引</li></ol></div>
+      <div class="mechanism-lane"><h3>召回</h3><ol><li>当前问题与检索范围</li><li>多路检索历史候选</li><li>融合、去重与筛选</li><li>历史上下文交给 Agent</li></ol></div>
+      <div class="mechanism-lane"><h3>更新</h3><ol><li>结果与用户反馈</li><li>调整价值与证据关联</li><li>合格 L1 归纳为 L2</li><li>形成 L3 或 Skill，再索引</li></ol></div>
+      <figcaption>本研究依据固定版本源码原创归纳。写入产生召回材料，更新产物再次参与检索；高层提炼有条件与分支，不要求每条记录依次升级。</figcaption>
+    </figure>
+    <div class="subheading"><h3>三个东西共同构成一条可用记忆</h3><span>向量帮助找内容，正文保留实际含义</span></div>
+    <div class="tech-columns">
+      <article><span class="mini-index">CONTENT</span><h3>正文与执行记录</h3><p>保存请求、回答、工具结果、摘要或规则。SQLite 中的 <code>raw_turns</code>、<code>memories</code> 等表承载这些材料。</p></article>
+      <article><span class="mini-index">CONTEXT</span><h3>来源、状态与关联</h3><p>会话、episode、层级、标签、版本与时间解释“这条记忆从哪来，何时适用”。哈希与稳定 ID 帮助去重。</p></article>
+      <article><span class="mini-index">INDEX</span><h3>全文与语义索引</h3><p>FTS5 按词查找；Embedding 将文字编码成数字向量，再由 sqlite-vec 等实现寻找相近内容。向量不能代替原始证据。</p></article>
+    </div>
+    <div class="subheading"><h3>关键技术，各自解决什么问题</h3><span>Memory 子包 2.1.2 · 固定研究提交</span></div>
+    <dl class="mechanism-tech">
+      <div><dt>SQLite + better-sqlite3</dt><dd>保存正文、关系与处理状态，通过 SQL 和索引查询。本地持久化解决跨会话保存。</dd></div>
+      <div><dt>Embedding + Transformers.js</dt><dd>把查询和记忆编码为可比较的向量，连接措辞不同但语义相近的问题。模型可配置为本地或远程。</dd></div>
+      <div><dt>FTS5 + 短片段 / 结构匹配</dt><dd>用关键词、中文短词、路径和错误线索补充向量召回，避免只看大致语义而遗漏精确信息。</dd></div>
+      <div><dt>RRF + 质量与时间权重</dt><dd>综合各通道排名，再考虑经验价值、层级与新旧程度。原始相似度、关键词得分无需直接相加。</dd></div>
+      <div><dt>MMR + 可选 LLM 过滤</dt><dd>MMR 平衡相关性和重复度；模型过滤再结合当前问题筛选。结果可以为空，相似并不代表正确。</dd></div>
+      <div><dt>Worker + 持久化队列</dt><dd>异步摘要、评分、向量化和经验提炼；记录任务状态并支持重试。保存成功不等于全部索引就绪。</dd></div>
+      <div><dt>LLM 结构化生成</dt><dd>从记录生成摘要、反思、L2 规则，以及符合条件的 L3 知识或 Skill。生成结构与证据检查不等于真实任务验证。</dd></div>
+      <div><dt>TypeScript / Node.js + tiktoken</dt><dd>前者组织服务与管线；后者参与部分摘要和向量输入的 token 估算。桌面界面技术不构成记忆机制本身。</dd></div>
+    </dl>
+    <details><summary>展开算法：RRF 与 MMR 到底做了什么？</summary><div class="details-body">
+      <p><b>RRF 按名次融合。</b>基础项为 <code>Σ 1 / (k + rank)</code>，这里名次从 1 开始。某条记录在多个通道靠前，就得到多份贡献。实际实现还结合层级、质量和衰减等因素，这不是完整的最终评分公式。</p>
+      <p><b>MMR 逐条选择。</b>计算 <code>λ × 相关性 − (1 − λ) × 重复度</code>。重复度参考候选与已选向量的最大余弦相似度，让有限上下文包含更多互补信息。</p>
+      <p><b>先筛范围，再排顺序。</b>意图、来源范围、层级与就绪状态会影响候选资格；阈值、去重和可选模型过滤继续缩小结果。当前向量路径的 2,000 条候选窗口也会影响检索范围。</p>
+    </div></details>
+    <div class="use-case"><div class="section-kicker">EXAMPLE / 仅为原理示意</div><h3>“项目又因为配置缺失启动失败了”</h3><p>语义检索找到“缺少环境变量”的相近经历，全文找到精确配置名，结构线索补充错误码；融合和去重后，保留有关的历史修复步骤与适用条件。</p><p>Agent 收到这些参考，仍需检查本次配置。任务结束后，真实结果成为新记录；合格证据可以推动规则更新。这里没有运行真实检索，也没有编造命中分数。</p></div>
+    <div class="distinction"><b>记忆能力来自整条链路</b><p>从架构上可理解为面向执行经验的检索增强与生命周期管理。反馈更新的是记录、价值和指南，不是底层模型参数；分数衰减也不等于自动物理删除。</p></div>
+    <div class="source-grid">
+      <a href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/Memory/src/storage/schema.ts" target="_blank" rel="noopener noreferrer">数据表与状态结构 ↗</a>
+      <a href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/Memory/src/model/embedder.ts" target="_blank" rel="noopener noreferrer">向量编码实现 ↗</a>
+      <a href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/Memory/src/algorithm/plugin-algorithms.ts" target="_blank" rel="noopener noreferrer">检索融合与 MMR 算法 ↗</a>
+      <a href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/Memory/src/service/evolution/reward-pipeline.ts" target="_blank" rel="noopener noreferrer">结果反馈与价值更新 ↗</a>
+    </div>
+  </section>
+
+  <section id="comparison" aria-labelledby="comparison-title">
+    <div class="section-kicker">04 / MNEMOSYNE × MEMMY</div><h2 id="comparison-title">相似的记忆思路，不同的产品范围</h2>
+    <p class="section-intro">Mnemosyne 提供可接入应用的记忆组件。Memmy 增加了更多适配、后台服务与自带 Agent。<strong>两者独立，Memmy 不是对 Mnemosyne 的二次封装。</strong></p>
+    <div class="comparison-table" role="region" aria-label="两个项目的架构对比"><table><thead><tr><th scope="col">对比维度</th><th scope="col">Mnemosyne<small>记忆组件与服务</small></th><th scope="col">Memmy Agent<small>共享记忆与 Agent 应用</small></th></tr></thead><tbody>
+      <tr><th scope="row">接入方式</th><td>Python SDK、MCP、专用插件</td><td>Hook、插件、Skill、HTTP API、CLI</td></tr>
+      <tr><th scope="row">写入触发</th><td>宿主程序、工具调用或集成事件</td><td>历史扫描、适配采集与按需写入</td></tr>
+      <tr><th scope="row">记忆组织</th><td>工作记忆、长期摘要；事实与时间关系</td><td>L1 执行记录、L2 经验、L3 环境知识、Skill</td></tr>
+      <tr><th scope="row">整理方式</th><td>核心 sleep() 同步执行，自动调度由集成提供</td><td>后台任务、重试与经验管线；另有 Dream 整理</td></tr>
+      <tr><th scope="row">真实执行</th><td>由宿主 Agent 负责</td><td>外部模式由宿主执行；自带模式由 Memmy 执行</td></tr>
+      <tr><th scope="row">工程形态</th><td>Python，可嵌入同一进程或作为服务</td><td>TypeScript / Node.js，包含桌面和本地服务</td></tr>
+    </tbody></table></div>
+    <div class="comparison-footnotes"><p><b>不能简单理解为“一个手动，一个自动”。</b>Mnemosyne 的 Hermes 集成也有自动采集、注入与整理；Memmy 各宿主的自动化程度也不同。</p><p><b>功能范围更广，不代表效果更好。</b>这里比较职责和结构，没有对测检索质量、执行成功率或性能。</p></div>
+    <details><summary>不同宿主的自动化深度</summary><div class="details-body"><ul><li><b>Claude Code / Codex：</b>该研究版本提供 Hook 接入，支持普通请求前的召回与完成后的采集。</li><li><b>OpenCode / OpenClaw / Hermes：</b>通过各自插件或 Provider 接口接入，采集字段与生命周期事件因宿主而异。</li><li><b>Cursor：</b>Hook 重点是自动采集和任务续接，普通请求额外查询主要依靠 Skill。</li><li><b>WorkBuddy / Pi / qwenwork：</b>所列方案主要通过 Skill 按需读写。安装成功仍需要在实际宿主版本中验证。</li></ul><p>这是 Memmy 固定版本中的适配说明，不是对这些宿主当前所有版本的兼容性保证。</p></div></details>
+    <a class="source-link" href="https://github.com/yydshly/0908_codex_project/tree/main/projects/002-mnemosyne" target="_blank" rel="noopener noreferrer">回看此前的 Mnemosyne 研究 ↗</a>
+  </section>
+
+  <section id="meaning" aria-labelledby="meaning-title">
+    <div class="section-kicker">05 / WHY IT MATTERS</div><h2 id="meaning-title">一次工作，留下结果，也留下经验</h2>
+    <div class="meaning-grid"><article><h3>记忆不再绑定一个工具</h3><p>不同 Agent 访问共享服务，切换工具后仍有机会找回项目背景和历史决策。</p></article><article><h3>连接差异留在适配层</h3><p>历史格式与宿主事件各不相同，接入层承担转换，核心记忆逻辑可以复用。</p></article><article><h3>将旧过程变成新参考</h3><p>摘要帮助找回过去，规则和指南帮助组织下一次任务。后台加工减少对当前执行的等待。</p></article></div>
+    <div class="use-case"><span class="section-kicker">对我们的 GitHub 研究库</span><h3>带着已有研究，理解下一个项目</h3><p>保存研究版本、已验证能力、采用条件和比较方法。遇到相似项目时取回相关结论，辅助分析；正式文档仍保留来源，旧结论仍需复核。</p><div class="use-case-flow"><span>研究项目 A</span><span aria-hidden="true">→</span><span>沉淀结论与方法</span><span aria-hidden="true">→</span><span>辅助比较项目 B</span></div><p class="aside-text">这是应用设想，不是已经接通的功能。也适用于多工具编程、长期项目、重复排错与个人知识积累。</p></div>
+    <div class="subheading"><h3>以后实现类似能力时，分别借鉴什么</h3></div>
+    <ul class="reference-list"><li><b>保存、整理、检索接口</b><span>参考 Mnemosyne 的接口与数据组织。</span></li><li><b>多工具采集与任务续接</b><span>参考 Memmy 的适配和任务生命周期。</span></li><li><b>经验转化为操作指南</b><span>参考 Memmy 的证据、评分与技能提炼。</span></li></ul>
+    <p>保留架构与源码入口，开发类似能力时再深入。先验证是否减少重复解释，再决定是否增加向量、摘要和跨工具自动化。</p>
+  </section>
+
+  <section id="boundaries" aria-labelledby="boundaries-title">
+    <div class="section-kicker">06 / LIMITS & NEXT STEPS</div><h2 id="boundaries-title">理解边界，才能判断价值</h2>
+    <div class="boundary-grid"><article><h3>本地存储 ≠ 全程离线</h3><p>摘要、Embedding、过滤和提炼可以调用远程模型。实际数据流取决于配置。</p></article><article><h3>共享上下文 ≠ 迁移执行环境</h3><p>任务续接提供历史，不自动迁移代码、依赖或运行中的进程。</p></article><article><h3>旧经验必须重新核对</h3><p>来源、项目版本、环境和有效时间决定是否适用。错误记忆可能反复影响后续任务。</p></article><article><h3>规模增长需要重新评测</h3><p>当前 SQLite 向量路径使用最近 2,000 条匹配向量的候选窗口。这不是存储上限，但可能影响旧记录召回。</p></article></div>
+    <div class="roadmap"><div><h3>官方规划</h3><p>扩展浏览器活动、本地文档及更多设备来源；探索带隐私保护的团队 Agent 协作。</p><span class="status-label">路线图，不视为已验证能力</span></div><div><h3>我们的扩展建议</h3><p>记忆效果对测、版本与证据管理、更多知识来源、技能任务回放、团队权限，以及大规模检索优化。</p><span class="status-label">研究建议，不是上游承诺</span></div></div>
+    <div class="subheading"><h3>失败时，会发生什么</h3><span>行为依赖配置与调用入口</span></div>
+    <div class="failure-grid"><article><h4>记忆服务暂时不可用</h4><p>官方适配说明采用 fail-open：记录错误，让宿主继续当前任务。继续执行不等于历史已成功加载或本轮已保存。</p></article><article><h4>查询向量生成失败</h4><p>全文、短片段和结构线索可继续提供候选；召回质量仍可能变化。写入后的向量生成失败则进入重试路径。</p></article><article><h4>模型过滤失败或无命中</h4><p>无模型、调用失败或返回格式无效时，可退回机械排序候选；模型合法地筛掉全部候选时，可以没有历史上下文。</p></article><article><h4>旧经验不适合新环境</h4><p>查看来源和版本，验证当前事实，再修正或停用经验。这是使用与评测要求，不能把现有评分当作真实性证明。</p></article></div>
+    <details><summary>哪些内容可能离开本机，以及如何评测收益</summary><div class="details-body"><p><b>本地：</b>历史文件读取、SQLite 记录和索引管理。<b>按配置调用模型：</b>当前任务上下文、摘要材料、Embedding 文本、候选过滤片段和经验提炼证据。使用远程 Provider 时，相应材料会成为模型请求的一部分。</p><p>Memory HTTP 的 token 鉴权依配置启用；命名空间和 source 标识本身不能当作完整团队权限系统。</p><p><b>建议评测：</b>固定同一任务、代码版本、模型和工具环境，对比不启用记忆与启用记忆两组。记录任务成功率、错误历史引用、来源可追溯性、总耗时和模型费用。先观察真实收益，再加更复杂的索引与提炼。</p></div></details>
+    <p class="evaluation">最终看三件事：<b>记忆是否可靠 · 召回是否相关 · 执行是否依据当前事实</b></p>
+  </section>
+
+  <section id="sources" aria-labelledby="sources-title">
+    <div class="section-kicker">07 / EVIDENCE</div><h2 id="sources-title">版本与源码依据</h2>
+    <p>研究日期：2026-09-10。Memmy 主项目 v1.1.4，提交 <code>9814671</code>；Mnemosyne 代码版本 v4.0.0b1，提交 <code>3d8c51a</code>。两者上游均为 MIT 许可。</p>
+    <div class="source-grid">
+      <a href="https://github.com/MemTensor/memmy-agent/tree/98146714aad8569a298cf8692946da8bb28bf7cb" target="_blank" rel="noopener noreferrer">Memmy 固定研究版本 ↗</a>
+      <a href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/docs/en/memory/overview.mdx" target="_blank" rel="noopener noreferrer">记忆分层与检索说明 ↗</a>
+      <a href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/Memory/src/service/evolution/skill-pipeline.ts" target="_blank" rel="noopener noreferrer">经验到技能的实现 ↗</a>
+      <a href="https://github.com/MemTensor/memmy-agent/blob/98146714aad8569a298cf8692946da8bb28bf7cb/App/memmy-agent/src/core/agent-runtime/loop.ts" target="_blank" rel="noopener noreferrer">Agent 执行循环 ↗</a>
+      <a href="https://github.com/mnemosyne-oss/mnemosyne/blob/3d8c51a865bc304d541bcfe561771ee676a92fcc/docs/architecture.md" target="_blank" rel="noopener noreferrer">Mnemosyne 固定版本架构 ↗</a>
+      <a href="https://memmy.bot/docs/memory/sources/" target="_blank" rel="noopener noreferrer">Memmy 宿主接入说明（在线）↗</a>
+    </div>
+    <p class="research-status">已阅读文档与核心源码；未运行上游功能、未导入真实对话、未进行性能与效果对测。架构图、比较和示意均为本研究原创归纳；在线文档可能随上游更新。</p>
+  </section>
+  <footer><span>开源项目研究 / 002 · Memmy Agent</span><a href="https://yydshly.github.io/0910_codex_project/">全部演示</a><a href="https://github.com/yydshly/0910_codex_project/tree/main/projects/002-memmy-agent">完整研究文档 ↗</a><a href="#architecture">回到架构 ↑</a></footer>
+</main>
+<noscript><div class="no-script">当前未启用 JavaScript。架构默认展示外部接入方式，其余技术说明与对照内容仍可阅读。</div></noscript>
+</body>
+</html>

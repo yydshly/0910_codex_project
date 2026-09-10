@@ -9,10 +9,10 @@ async function walk(directory, prefix = '') {
     const relative = prefix + entry.name;
     const file = new URL(entry.name, directory);
     if (entry.isDirectory()) { await walk(new URL(entry.name + '/', directory), relative + '/'); continue; }
-    if (!/\.(html|js|css)$/.test(entry.name)) continue;
+    if (!/\.(html|m?js|css)$/.test(entry.name)) continue;
     const source = await readFile(file, 'utf8');
     const references = [...source.matchAll(/(?:href|src)=["']([^"']+)["']/g)].map(match => match[1]);
-    if (entry.name.endsWith('.js')) {
+    if (/\.m?js$/.test(entry.name)) {
       references.push(...[...source.matchAll(/(?:from\s*|fetch\(\s*)["'](\.[^"']+)["']/g)].map(match => match[1]));
     }
     for (const reference of references) {

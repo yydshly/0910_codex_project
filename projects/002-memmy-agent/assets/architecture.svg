@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
+<title id="title">Memmy 实现架构：记忆服务与任务执行的边界</title>
+<desc id="desc">外部 Agent 和 Memmy 自带 Runtime 分别调用自己的模型与工具。二者通过适配器读取和写入共享 Memory 服务。采集的数据先存入 SQLite，后台提炼更新索引，再由混合检索返回历史上下文。没有 Memmy 指挥外部 Agent 的调度箭头。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#54677e"/></marker></defs>
+<style>text{font-family:'Microsoft YaHei','PingFang SC',sans-serif;fill:#18283c} .title{font-size:29px;font-weight:700}.label{font-size:21px;font-weight:600}.body{font-size:18px}.small{font-size:16px;fill:#53657b}.node{fill:#fff;stroke:#c6d2e0;stroke-width:1.5}.memory{fill:#eaf8f5;stroke:#61b4a5;stroke-width:1.5}.runtime{fill:#fff4e7;stroke:#d8a15c;stroke-width:1.5}.edge{fill:none;stroke:#54677e;stroke-width:2;marker-end:url(#arrow)}.both{marker-start:url(#arrow)}.async{stroke-dasharray:7 5}</style>
+<rect width="1200" height="850" fill="#f4f7fb"/>
+<text x="40" y="49" class="title">Memmy · 记忆提供经验，Agent 执行任务</text>
+<text x="40" y="80" class="small">逻辑架构 / 研究版本 9814671 / 原创源码归纳，非上游产品截图</text>
+<rect x="30" y="106" width="555" height="203" rx="12" fill="#fff" stroke="#d6dfeb"/>
+<rect x="615" y="106" width="555" height="203" rx="12" fill="#fff" stroke="#d6dfeb"/>
+<text x="50" y="139" class="label">方式 A · 接入外部 Agent</text>
+<text x="635" y="139" class="label">方式 B · 使用 Memmy 自带 Agent</text>
+<rect x="55" y="164" width="235" height="74" rx="8" class="runtime"/>
+<text x="172" y="194" text-anchor="middle" class="label">外部 Agent Runtime</text><text x="172" y="220" text-anchor="middle" class="small">Claude Code / Codex 等</text>
+<rect x="355" y="164" width="205" height="74" rx="8" class="node"/>
+<text x="457" y="194" text-anchor="middle" class="label">宿主模型与工具</text><text x="457" y="220" text-anchor="middle" class="small">原 Agent 负责实际执行</text>
+<path d="M294 201H350" class="edge both"/>
+<rect x="640" y="164" width="235" height="74" rx="8" class="runtime"/>
+<text x="757" y="194" text-anchor="middle" class="label">Memmy Runtime</text><text x="757" y="220" text-anchor="middle" class="small">桌面 / CLI / API 发起任务</text>
+<rect x="940" y="164" width="205" height="74" rx="8" class="node"/>
+<text x="1042" y="194" text-anchor="middle" class="label">模型 API 与工具</text><text x="1042" y="220" text-anchor="middle" class="small">文件 / Shell / MCP</text>
+<path d="M879 201H935" class="edge both"/>
+<text x="55" y="276" class="small">记忆共享 ≠ Memmy 统一调度外部 Agent</text>
+<text x="640" y="276" class="small">Runtime 调用模型、执行工具、反馈结果</text>
+<path d="M173 239V344" class="edge both"/><path d="M758 239V344" class="edge both"/>
+<rect x="30" y="347" width="1140" height="72" rx="10" class="memory"/>
+<text x="55" y="377" class="label">① 适配接入 · Hook / 插件 / Skill / 内置记忆接口</text>
+<text x="55" y="402" class="body">历史扫描与增量导入 · 请求前召回 / 按需查询 · 任务结束写回（按宿主支持情况）</text>
+<text x="40" y="459" class="label">共享 Memory 服务</text>
+<text x="765" y="459" class="small">实线：主要数据流　虚线：异步加工</text>
+<rect x="40" y="489" width="280" height="88" rx="9" class="node"/>
+<text x="60" y="522" class="label">② 采集与写入</text><text x="60" y="552" class="body">统一记录、去重、保留来源</text>
+<rect x="455" y="489" width="300" height="88" rx="9" class="memory"/>
+<text x="475" y="522" class="label">③ SQLite + 索引</text><text x="475" y="552" class="body">FTS5 全文 / sqlite-vec 向量</text>
+<rect x="880" y="489" width="280" height="88" rx="9" class="node"/>
+<text x="900" y="522" class="label">⑤ 记忆召回</text><text x="900" y="552" class="body">多路检索、融合、去重过滤</text>
+<path d="M180 420V484" class="edge"/>
+<path d="M323 533H450" class="edge"/><text x="356" y="520" class="small">写入</text>
+<path d="M758 533H875" class="edge"/><text x="785" y="520" class="small">候选</text>
+<path d="M967 420V484" class="edge"/><path d="M1086 486V424" class="edge"/>
+<text x="893" y="477" class="small">查询</text><text x="1024" y="442" class="small">历史上下文</text>
+<rect x="270" y="660" width="680" height="105" rx="9" class="node"/>
+<text x="292" y="694" class="label">④ 后台 Worker · 摘要 / 向量化 / 评分 / 提炼</text>
+<text x="292" y="724" class="body">L1 执行记录 → L2 经验规则 → L3 环境知识 / Skill</text>
+<text x="292" y="749" class="small">更新的是记忆和操作指南；这些流程不训练大模型参数。</text>
+<path d="M530 580V654" class="edge async"/><text x="426" y="617" class="small">待处理记录</text>
+<path d="M680 656V582" class="edge async"/><text x="697" y="617" class="small">更新与索引</text>
+<text x="40" y="808" class="small">来源：MemTensor/memmy-agent @ 98146714aad8569a298cf8692946da8bb28bf7cb · MIT</text>
+<text x="40" y="833" class="small">本图省略配置、鉴权与 UI 管理链路；后台加工可按配置调用本地或远程模型。研究日期：2026-09-10</text>
+</svg>

@@ -14,6 +14,7 @@
 | 编号 | 研究项目 | 原始仓库 | 摘要 | 状态 | 在线演示 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 001 | [System Prompts Leaks](projects/001-system-prompts-leaks/README.md) | [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 理解总稿、任务逻辑汇总图；Web 含 24 项解读与四条任务推进路径 | 研究与线上展示完成 | [打开演示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
+| 002 | [Memmy Agent](projects/002-memmy-agent/README.md) | [MemTensor/memmy-agent](https://github.com/MemTensor/memmy-agent) | 外部接入整体架构、记忆实现原理、Agent 职责边界与 Mnemosyne 对照 | 文档与本地展示完成；上游未实测 | — |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
@@ -23,6 +24,12 @@
 [![System Prompts Leaks 完整概述：来源、整理方式、ChatGPT 5.6 内容与研究意义](projects/001-system-prompts-leaks/assets/research-overview.png)](projects/001-system-prompts-leaks/README.md)
 
 研究 AI 产品如何用提示词组织行为、工具和任务流程，附可交互的「Agent 解剖室」。图源：本研究原创总览，依据固定研究版本、PR #166 与公开源码绘制，非产品截图。[放大查看](projects/001-system-prompts-leaks/assets/research-overview.svg) · [研究详情](projects/001-system-prompts-leaks/README.md) · [打开在线展示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) · [展示运行说明](projects/001-system-prompts-leaks/web/README.md)
+
+### 002 · Memmy Agent
+
+[![Memmy 架构：外部 Agent 与自带 Runtime 各自执行任务，共享适配、采集、存储、后台提炼与召回服务。](projects/002-memmy-agent/assets/architecture.svg)](projects/002-memmy-agent/README.md)
+
+理解“请求接入 → 历史召回 → Agent 执行 → 结果写回 → 后台加工”，并与此前的 Mnemosyne 对照，细化失败回退和数据流。图源：依据固定版本源码原创绘制，非产品截图。[完整研究](projects/002-memmy-agent/README.md) · [放大架构图](projects/002-memmy-agent/assets/architecture.svg) · [Web 页面运行说明](projects/002-memmy-agent/web/README.md)
 
 ## 仓库导航
 
