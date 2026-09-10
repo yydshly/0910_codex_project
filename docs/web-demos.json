@@ -38,9 +38,9 @@
   },
   {
     "directory": "009-yc-ai-research",
-    "title": "YC AI Research · 研究导航与价值",
-    "description": "整理 Empirical Health 文章的网页能力、更新情况和代表 AI 研究，帮助发现值得进一步验证的项目。",
+    "title": "YC AI Research · AI 研究资讯参考",
+    "description": "AI 研究资讯汇总博客，整理 YC 创业公司、研究方向和论文链接；对我当前寻找可用工具、研究 GitHub 项目的直接价值有限，主要作为信息来源与候选项目线索保留，按需查阅，不列为重点研究。",
     "preview": "assets/research-overview.svg",
-    "previewAlt": "从文章入口到可验证研究的四个步骤"
+    "previewAlt": "当前作为信息来源归档，有相关需求时再查论文、代码与验证条件"
   }
 ]
