@@ -16,6 +16,7 @@
 | 001 | [System Prompts Leaks](projects/001-system-prompts-leaks/README.md) | [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 汇集多款 AI 产品的系统提示词与工具说明，帮助我们理解 Agent 的行为规则、比较产品设计，并为自建助手的指令与工作流程提供参考 | 研究与线上展示完成 | [打开演示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
 | 002 | [Memmy Agent](projects/002-memmy-agent/README.md) | [MemTensor/memmy-agent](https://github.com/MemTensor/memmy-agent) | 为多个 AI Agent 提供共享长期记忆，支持历史采集、经验提炼与任务续接，并内置独立 Agent 执行环境 | 文档与远端展示完成；上游未实测 | [打开演示](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) |
 | 003 | [AnySearch Skill](projects/003-anysearch-skill/README.md) | [anysearch-ai/anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | AnySearch 云端搜索服务的开源客户端，为 Agent 接入通用与专业检索、并行查询和正文抽取；可参考其工具设计，并与 Tavily、Exa 等服务比较实际增量价值 | 研究与线上展示完成；基础接口已验证 | [打开展示](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/) |
+| 004 | [Pi Agent Harness](projects/004-pi/README.md) | [earendil-works/pi](https://github.com/earendil-works/pi) | 统一多模型接入，提供文件读写、命令执行、多轮工具调用、会话与上下文管理，并支持 Skills、扩展和 SDK/RPC 集成，可用于编程任务与定制业务助手 | 理论分析与本地展示完成；上游未运行 | — |
 | 005 | [Caveman](projects/005-caveman/README.md) | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 模型调用前按类型精简上下文并支持原文恢复，价值在于专用规则与恢复设计；与 Codex 原生能力部分重合，不表示我们建议叠加使用，也不表示已经确认叠加有收益 | 文档与架构研究完成；叠加收益未实测 | — |
 | 006 | [Maigret](projects/006-maigret/README.md) | [soxoj/maigret](https://github.com/soxoj/maigret) | 按用户在网站设置的账号用户名（非实名），通过预设规则批量检查公开账号并提取资料；范围限规则库及所选站点，不覆盖全网，同名账号仍需核验 | 文档与线上展示完成；上游未实测 | [在线阅读](https://yydshly.github.io/0910_codex_project/006-maigret/) |
 | 008 | [Pi Web](projects/008-pi-web/README.md) | [agegr/pi-web](https://github.com/agegr/pi-web) | 基于 Pi 的自托管浏览器编程工作台，支持读写代码、执行命令、会话与文件管理、模型和技能配置；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具，可用于研究 GitHub 项目、组织个人开发，并为自建领域助手提供工作台与扩展设计参考 | 完整理解与线上展示完成；上游未实测 | [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/) |
@@ -40,6 +41,14 @@
 [![AnySearch 完整理解：客户端与云端边界、能力、收费、同类产品和开源 Agent 搜索来源](projects/003-anysearch-skill/assets/research-overview.png)](projects/003-anysearch-skill/notes/05-complete-understanding.md)
 
 理解开源接入层与远端检索服务的职责，以及已有搜索工具的 Agent 是否需要额外 Skill。图源：依据固定源码、2026-09-10 能力目录及官方文档原创整理，非产品截图；未公开实现与未实测能力已标注。[打开在线展示](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/) · [完整理解总稿](projects/003-anysearch-skill/notes/05-complete-understanding.md) · [放大总览图](projects/003-anysearch-skill/assets/research-overview.svg) · [验证记录](projects/003-anysearch-skill/notes/02-verification.md)
+
+### 004 · Pi Agent Harness
+
+[![Pi 完整架构：接入、会话协调、Agent 循环、模型与工具、实验性服务及技术能力](projects/004-pi/assets/architecture.png)](projects/004-pi/notes/02-architecture-and-scheduling.md)
+
+研究可扩展编程助手如何组织模型、工具与会话。图源：依据固定提交文档与源码原创整理，非实际运行记录；明确区分常用路径与实验性服务。[完整理论分析](projects/004-pi/notes/02-architecture-and-scheduling.md) · [架构原图](projects/004-pi/assets/architecture.svg) · [业务调度流程图](projects/004-pi/assets/scheduling-flow.svg) · [研究详情](projects/004-pi/README.md)
+
+新增 [Pi 能力实验室](projects/004-pi/web/README.md)：逐步查看任务执行，切换会话分支，组合扩展能力。全部交互为教学模拟；本地展示已完成，尚未发布。
 
 ### 005 · Caveman
 

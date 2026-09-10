@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Pi 完整架构与业务调度双图：覆盖 11 个组件包、常用与实验性路线、工具循环、输入队列、上下文压缩和异常恢复。"><meta name="theme-color" content="#f5f7fb"><title>Pi 理论图谱 · 完整架构与业务调度</title><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./theory.css"><script type="module" src="./theory.mjs"></script></head>
+<body>
+<a class="skip" href="#diagrams">跳到双图</a>
+<header class="topbar"><a class="brand" href="./index.html"><span class="pi-mark">π</span><span>PI <b>LAB</b><small>理论图谱</small></span></a><nav aria-label="页面导航"><a href="./understanding.html">完整理解</a><a href="#diagrams">架构与流程</a><a href="#reading">读图说明</a><a href="#evidence">来源索引</a></nav><a class="upstream" href="./index.html">返回能力实验室 ↗</a></header>
+<main>
+  <section class="theory-intro"><p class="eyebrow">PI / THEORY ATLAS</p><h1>从整体架构，看到每一次调度。</h1><p class="lead">先看模块如何协作，再沿一个任务追踪模型、工具与上下文的循环。</p><div class="theory-meta"><span>11 个组件包</span><span>14 个调度节点</span><span>18 组固定版本来源</span><span>源码分析 · 未运行上游</span></div></section>
+  <section id="diagrams" class="diagram-workspace" aria-label="Pi 架构与流程双图">
+    <div class="diagram-toolbar"><div class="diagram-tabs" role="tablist" aria-label="选择图谱"><button type="button" id="architecture-tab" role="tab" aria-selected="true" aria-controls="architecture-panel" tabindex="0" data-diagram="architecture">01 完整架构</button><button type="button" id="flow-tab" role="tab" aria-selected="false" aria-controls="flow-panel" tabindex="-1" data-diagram="flow">02 业务调度</button></div><div class="zoom-controls" aria-label="图谱缩放"><button type="button" id="zoom-out" aria-label="缩小图谱">−</button><output id="zoom-value" aria-live="polite">1×</output><button type="button" id="zoom-in" aria-label="放大图谱">＋</button><button type="button" id="zoom-fit">适应宽度</button></div></div>
+    <p class="diagram-help">可放大后滚动查看。架构图中的箭头表达功能与执行关系，流程图的泳道表达职责；它们不是进程数量或完整依赖锁定图。</p>
+    <div id="architecture-panel" role="tabpanel" aria-labelledby="architecture-tab"><div class="diagram-viewport" tabindex="0" aria-label="可滚动的架构图，使用上方按钮缩放"><img class="theory-diagram" src="./assets/architecture.svg" width="2000" height="2380" alt="Pi 完整架构：常用接入、AgentSession、Agent 循环、模型适配、工具执行、实验性服务路线及 Chord、遥测、评测等横切能力"></div><div class="diagram-caption"><p>图 1 · 完整架构与技术能力。按固定提交原创整理，区分常用主线、实验性服务与外部环境。</p><div><a href="./assets/architecture.svg" target="_blank" rel="noopener">打开矢量原图 ↗</a><a href="./assets/architecture.png" download>下载 PNG ↓</a><a href="./assets/architecture.svg" download>下载 SVG ↓</a></div></div></div>
+    <div id="flow-panel" role="tabpanel" aria-labelledby="flow-tab" hidden><div class="diagram-viewport" tabindex="0" aria-label="可滚动的业务调度图，使用上方按钮缩放"><img class="theory-diagram" src="./assets/scheduling-flow.svg" width="2000" height="2670" alt="Pi 业务调度：初始化和输入、上下文组装、模型调用、响应分流、工具校验执行、结果回传、轮末判断、后续队列、恢复与结算"></div><div class="diagram-caption"><p>图 2 · 业务调度流程。覆盖正常回环、工具拒绝与失败、追加输入、显式停止、模型错误和恢复。</p><div><a href="./assets/scheduling-flow.svg" target="_blank" rel="noopener">打开矢量原图 ↗</a><a href="./assets/scheduling-flow.png" download>下载 PNG ↓</a><a href="./assets/scheduling-flow.svg" download>下载 SVG ↓</a></div></div></div>
+  </section>
+  <section id="reading" class="section-block"><div class="section-header"><div><p class="eyebrow">READ THE SYSTEM</p><h2>读图时，把这几层分开。</h2></div><a class="source-link" href="./notes/02-architecture-and-scheduling.md" download>下载完整理论分析 ↓</a></div><div class="reading-grid">
+    <article><span class="reading-number">01</span><h3>人定义目标，模型选择动作</h3><p>模型根据上下文生成工具名称与参数。Pi 负责校验、执行、保存与回传。测试或业务验收负责判断结果是否正确。</p></article>
+    <article><span class="reading-number">02</span><h3>AgentSession 包住 Agent 循环</h3><p>Agent 循环推进模型与工具。AgentSession 在外层处理输入、资源、压缩、重试和收尾，因此一次 agent_end 之后仍可能恢复并继续。</p></article>
+    <article><span class="reading-number">03</span><h3>两种输入队列有不同时间点</h3><p>steer 在工具批次之后、下一次模型响应之前送入；followUp 在内循环准备结束时读取。它们不会强行抢占正在执行的工具。</p></article>
+    <article><span class="reading-number">04</span><h3>常用接入与实验服务分开读</h3><p>CLI RPC 用 JSONL。实验性的 client / protocol / server 使用路由信封与 CBOR 分帧，Session/Harness 留在拥有它们的进程中。</p></article>
+    <article><span class="reading-number">05</span><h3>历史保存、上下文与记忆不同</h3><p>会话文件保留历史；模型只看到本轮整理后的上下文。压缩是有损摘要，切换会话分支也不会自动回滚工作区文件。</p></article>
+    <article><span class="reading-number">06</span><h3>工作流和安全边界需要定制</h3><p>Skill 提供方法，扩展提供工具和钩子。业务审批、任务调度、系统隔离与授权，需要由具体应用及执行环境负责。</p></article>
+  </div></section>
+  <section id="evidence" class="section-block"><div class="section-header"><div><p class="eyebrow">SOURCE INDEX</p><h2>图上的每组编号，都有来源。</h2></div><p>固定提交 400d6905 · 研究日期 2026-09-10。图为理论分析，未执行上游程序。</p></div><div id="source-index" class="source-index"><!-- THEORY_SOURCES --></div></section>
+  <p class="theory-footnote">两图由同一绘图源导出 SVG 与 PNG，已检查图内排版。覆盖组件职责与关键调度分支，未穷举每个函数、供应商网络实现和斜杠命令。</p>
+</main>
+<footer><a class="brand" href="./index.html"><span class="pi-mark small">π</span><span>PI <b>LAB</b></span></a><span>开源项目研究集 / 004</span><div><a href="./index.html">能力实验室</a><a href="./notes/02-architecture-and-scheduling.md" download>完整理论分析 ↓</a><a href="https://github.com/earendil-works/pi">上游仓库 ↗</a></div></footer>
+<noscript><p class="noscript">完整架构可直接阅读。<a href="./assets/scheduling-flow.svg">打开业务调度原图</a>；页面缩放与标签切换需要 JavaScript。</p></noscript>
+</body></html>

@@ -1,0 +1,31 @@
+import {cp,mkdir,rm,realpath,lstat,readFile,writeFile} from 'node:fs/promises';
+import {resolve,dirname,join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {renderUnderstanding} from './render-understanding.mjs';
+const web=await realpath(fileURLToPath(new URL('../',import.meta.url)));
+const output=resolve(web,'dist');
+if(dirname(output)!==web)throw new Error('Build output escaped project');
+try{const info=await lstat(output);if(info.isSymbolicLink()||await realpath(output)!==output)throw new Error('Refusing redirected output');}catch(error){if(error.code!=='ENOENT')throw error;}
+await rm(output,{recursive:true,force:true});
+await mkdir(output,{recursive:true});
+await cp(join(web,'public'),output,{recursive:true});
+await mkdir(join(output,'notes'),{recursive:true});
+await cp(resolve(web,'../notes/01-analysis.md'),join(output,'notes/01-analysis.md'));
+await cp(resolve(web,'../notes/02-architecture-and-scheduling.md'),join(output,'notes/02-architecture-and-scheduling.md'));
+const understanding=await readFile(resolve(web,'../notes/03-understanding.md'),'utf8');
+await writeFile(join(output,'notes/03-understanding.md'),understanding);
+const articleTemplate=await readFile(join(output,'understanding.html'),'utf8');
+await writeFile(join(output,'understanding.html'),articleTemplate.replace('<!-- UNDERSTANDING_ARTICLE -->',renderUnderstanding(understanding)));
+await mkdir(join(output,'assets'),{recursive:true});
+for(const name of ['architecture.svg','architecture.png','scheduling-flow.svg','scheduling-flow.png'])await cp(resolve(web,'../assets',name),join(output,'assets',name));
+const note=await readFile(resolve(web,'../notes/02-architecture-and-scheduling.md'),'utf8');
+const escape=text=>text.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const sources=[...note.matchAll(/^\| (S\d+) \| (.+) \| (.+) \|$/gm)];
+if(sources.length!==18)throw new Error('Expected 18 theory source groups');
+const sourceHtml=sources.map(([,id,links,detail])=>{
+  const anchors=[...links.matchAll(/\[([^\]]+)\]\((https:\/\/github\.com\/[^)]+)\)/g)].map(([,label,url])=>`<a href="${escape(url)}">${escape(label)}</a>`).join(' · ');
+  return `<article class="source-item" id="${id.toLowerCase()}"><strong>${id}</strong><div>${anchors}<p>${escape(detail)}</p></div></article>`;
+}).join('\n');
+const theory=await readFile(join(output,'theory.html'),'utf8');
+await writeFile(join(output,'theory.html'),theory.replace('<!-- THEORY_SOURCES -->',sourceHtml));
+console.log('Pi Lab built: capability showcase, complete understanding article, theory viewer, 2 diagrams in SVG/PNG and 18 source groups.');

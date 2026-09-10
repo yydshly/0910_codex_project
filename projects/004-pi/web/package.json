@@ -1,0 +1,11 @@
+{
+  "name": "pi-capability-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node --test scripts/lab.test.mjs"
+  }
+}

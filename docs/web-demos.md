@@ -40,6 +40,12 @@ node scripts/check-pages.mjs
 
 ## 新增演示
 
+### 本地完成、尚未发布
+
+- **004 · Pi 能力实验室**：见 [运行说明](../projects/004-pi/web/README.md)。已加入演示清单；提供任务回放、能力地图、会话分支、上下文压缩和扩展组合。全部为教学模拟，不调用模型或运行上游代码。没有登记在线网址，待实际发布并验证后补充。
+
+### 接入步骤
+
 1. 在 `projects/<编号>-<英文名称>/web/` 独立维护页面及运行说明。
 2. 为演示提供 `scripts/check.mjs` 和 `scripts/build.mjs`；后者输出静态文件到该演示的 `dist/`。有独立依赖的项目须同时在工作流中增加对应安装步骤。
 3. 在 `docs/web-demos.json` 添加 `directory`、`title`、`description`；目录名使用正式项目完整名称。

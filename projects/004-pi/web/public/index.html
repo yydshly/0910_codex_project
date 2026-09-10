@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Pi 统一多模型接入，提供文件读写、命令执行、多轮工具调用、会话与上下文管理，并支持 Skills、扩展和 SDK/RPC 集成。">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Pi 能力实验室 · 从模型回答到任务执行</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./theory.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+<header class="topbar">
+  <a class="brand" href="#lab" aria-label="Pi 能力实验室首页"><span class="pi-mark">π</span><span>PI <b>LAB</b><small>能力实验室</small></span></a>
+  <nav aria-label="页面导航"><a href="./understanding.html">完整理解</a><a href="#lab">执行实验室</a><a href="#capabilities">能力地图</a><a href="#sessions">会话与记忆</a><a href="#extensions">扩展工坊</a></nav>
+  <a class="upstream" href="https://github.com/earendil-works/pi">上游仓库 <span aria-hidden="true">↗</span></a>
+</header>
+<main id="main">
+  <a class="theory-banner" href="./theory.html"><div><strong>先理解整体：Pi 完整架构与业务调度双图</strong><p>11 个组件包、14 个调度节点，以及输入队列、工具循环与异常恢复。</p></div><span>打开理论图谱 →</span></a>
+  <section id="lab" class="lab-section" aria-labelledby="lab-title">
+    <div class="section-intro"><div><p class="eyebrow">004 / PI AGENT HARNESS</p><h1 id="lab-title">看一个任务，<br class="mobile-break">如何被执行<span class="blue">。</span></h1><p class="lead">Pi 统一模型接入，执行文件与命令工具，管理多轮任务、会话和上下文。模型选择下一步，Pi 组织执行与反馈。</p></div><div class="intro-note"><span class="label-pill">交互式原理演示</span><p>本地模拟 · 不调用模型<br>不读写你的文件</p></div></div>
+    <div class="lab-shell">
+      <aside class="mission-panel" aria-label="任务设置">
+        <p class="eyebrow">01 / 选择任务</p>
+        <label for="scenario">想看 Pi 做什么？</label>
+        <select id="scenario"><option value="repair">修复一个代码错误</option><option value="research">研究一个开源项目</option><option value="extension">调用知识检索扩展</option></select>
+        <div class="mission-brief"><span class="mini-label">用户任务</span><p id="mission-text">修复购物车总价计算：数量为 0 时，应返回 0。</p></div>
+        <p class="mini-label">本次会用到</p><div id="mission-tools" class="tool-chips"></div>
+        <div class="mission-bottom"><p id="scenario-note" class="muted"></p><a id="scenario-source" class="source-link" href="https://github.com/earendil-works/pi/blob/400d6905ce46ec46e79da8a7701b1b48850192df/packages/agent/src/agent-loop.ts">查看对应实现 ↗</a></div>
+      </aside>
+      <div class="execution-panel">
+        <div class="execution-heading"><div><p class="eyebrow">02 / 跟随执行</p><h2 id="step-title">任务进入上下文</h2></div><span id="step-count" class="step-count">01 <span>/ 06</span></span></div>
+        <ol id="step-track" class="step-track" aria-label="任务阶段"></ol>
+        <div class="terminal" aria-label="模拟执行轨迹"><div class="terminal-bar"><span class="terminal-symbol" aria-hidden="true">&gt;_</span><span id="terminal-name">pi / 修复任务</span><span class="terminal-label">模拟回放</span></div><div id="terminal-log" class="terminal-log" role="log" aria-label="当前执行记录" aria-live="off"></div></div>
+        <div class="playback"><div class="playback-actions"><button id="play" class="button primary" type="button">▶ 自动演示</button><button id="next" class="button" type="button">下一步 →</button><button id="reset" class="text-button" type="button">重置</button></div><p id="playback-state" role="status" aria-live="polite">已就绪，可以逐步查看</p></div>
+      </div>
+    </div>
+    <div class="insight-row"><div class="insight"><span class="insight-index">WHY</span><div><h3 id="why-title">先理解任务，再选择工具</h3><p id="why-text"></p></div></div><div class="artifact"><div class="artifact-heading"><span id="artifact-name">cart.js · 工作区示意</span><span id="artifact-state">尚未修改</span></div><pre id="artifact-code" tabindex="0"></pre></div></div>
+  </section>
+
+  <section id="capabilities" class="section-block" aria-labelledby="cap-title">
+    <div class="section-header"><div><p class="eyebrow">CAPABILITY ATLAS</p><h2 id="cap-title">从一个工具，到一套 Agent。</h2></div><p>选择能力，查看作用、实现与适用场景。</p></div>
+    <div class="atlas"><div id="capability-list" class="capability-list" role="group" aria-label="选择能力"></div><article id="capability-detail" class="capability-detail" aria-live="polite"></article></div>
+    <div class="architecture-strip" aria-label="核心架构分层"><div><span>接入与交互</span><strong>CLI · SDK · RPC</strong></div><span class="flow-arrow" aria-hidden="true">→</span><div><span>会话与扩展</span><strong>pi-coding-agent</strong></div><span class="flow-arrow" aria-hidden="true">→</span><div><span>执行循环</span><strong>pi-agent-core</strong></div><span class="flow-arrow" aria-hidden="true">→</span><div><span>模型适配</span><strong>pi-ai</strong></div></div>
+  </section>
+
+  <section id="sessions" class="section-block" aria-labelledby="session-title">
+    <div class="section-header"><div><p class="eyebrow">SESSION & CONTEXT</p><h2 id="session-title">换一条思路，保留来时的路。</h2></div><p>会话树保存探索历史，压缩控制模型看到的内容。</p></div>
+    <div class="session-grid">
+      <article class="branch-card"><div class="card-heading"><h3>从同一个节点，继续两种方案</h3><span class="label-pill">会话分支</span></div><div class="tree-root"><span class="node-icon">01</span><div><strong>修复购物车计算</strong><span>共同任务</span></div></div><div class="tree-trunk"></div><div class="tree-root"><span class="node-icon">02</span><div><strong>已读取 cart.js</strong><span>共同上下文</span></div></div><div class="tree-fork" aria-hidden="true"></div><div class="branch-choices" role="group" aria-label="选择会话分支"><button type="button" data-branch="a" aria-pressed="true"><small>方案 A</small><strong>精确替换</strong><span>最小修改，修复默认值</span></button><button type="button" data-branch="b" aria-pressed="false"><small>方案 B</small><strong>增加输入校验</strong><span>补充参数检查，再修复</span></button></div><div id="branch-result" class="branch-result" aria-live="polite"></div><p class="boundary">切换的是对话路径。文件不会自动回滚，需要另配工作区快照。</p></article>
+      <article class="context-card"><div class="card-heading"><h3>长对话，怎样继续？</h3><button type="button" id="compact" class="button compact-button" aria-pressed="false">压缩上下文</button></div><div class="context-stat"><strong id="context-number">72<span>k</span></strong><div>本轮输入示意<small>教学数值，非性能或压缩率实测</small></div></div><div id="context-blocks" class="context-blocks" aria-label="上下文构成"></div><div class="context-legend"><span><i class="old-swatch"></i>较早消息</span><span><i class="summary-swatch"></i>历史摘要</span><span><i class="recent-swatch"></i>近期消息</span></div><p id="context-description" aria-live="polite"></p><p class="boundary">原始历史仍在会话文件中。摘要有损，不等于永久准确记忆。</p></article>
+    </div>
+  </section>
+
+  <section id="extensions" class="section-block" aria-labelledby="extension-title">
+    <div class="section-header"><div><p class="eyebrow">EXTENSION WORKSHOP</p><h2 id="extension-title">把 Pi，组合成你的工作方式。</h2></div><p>勾选扩展层，观察它们各自增加了什么。</p></div>
+    <div class="workshop"><div class="extension-options" id="extension-options"></div><div class="recipe-panel"><p class="eyebrow">你的研究助手 / 组合预览</p><h3 id="recipe-title">基础编程助手</h3><div id="recipe-stack" class="recipe-stack"></div><p id="recipe-description"></p><div class="recipe-divider"></div><p class="mini-label">还有哪些扩展空间？</p><div class="extension-boundaries"><span>子 Agent <b>官方示例</b></span><span>计划模式 <b>官方示例</b></span><span>MCP <b>需扩展接入</b></span><span>安全隔离 <b>需外部环境</b></span></div><p class="muted">这里只展示组合关系，不会安装扩展或启动真实 Agent。</p></div></div>
+  </section>
+
+  <section id="sources" class="sources section-block" aria-labelledby="sources-title"><div><p class="eyebrow">RESEARCH NOTES</p><h2 id="sources-title">每项能力，都能回到来源。</h2><p>依据固定提交 <code>400d6905</code> · 包声明版本 0.85.1 · 研究日期 2026-09-10</p><p class="muted">本页是研究者制作的交互教学展示，不是 Pi 官方界面。模型结果、任务记录与上下文数值均为预设示例；上游未实际运行。</p></div><div class="source-grid"><a href="https://github.com/earendil-works/pi/blob/400d6905ce46ec46e79da8a7701b1b48850192df/packages/coding-agent/README.md">产品能力与边界 ↗</a><a href="https://github.com/earendil-works/pi/blob/400d6905ce46ec46e79da8a7701b1b48850192df/packages/agent/src/agent-loop.ts">Agent 循环源码 ↗</a><a href="https://github.com/earendil-works/pi/blob/400d6905ce46ec46e79da8a7701b1b48850192df/packages/coding-agent/docs/session-format.md">会话格式 ↗</a><a href="https://github.com/earendil-works/pi/blob/400d6905ce46ec46e79da8a7701b1b48850192df/packages/coding-agent/docs/compaction.md">上下文压缩 ↗</a><a href="https://github.com/earendil-works/pi/blob/400d6905ce46ec46e79da8a7701b1b48850192df/packages/coding-agent/docs/extensions.md">扩展接口 ↗</a><a href="./notes/01-analysis.md">下载完整中文研究 ↓</a></div></section>
+</main>
+<footer><a class="brand" href="#lab"><span class="pi-mark small">π</span><span>PI <b>LAB</b></span></a><span>开源项目研究集 / 004</span><div><a href="https://github.com/yydshly/0910_codex_project">研究仓库 ↗</a><a href="https://yydshly.github.io/0910_codex_project/">更多项目 ↗</a><a href="https://github.com/earendil-works/pi/blob/400d6905ce46ec46e79da8a7701b1b48850192df/LICENSE">上游 MIT 许可 ↗</a></div></footer>
+<noscript><p class="noscript">交互展示需要 JavaScript。你仍可查看上面的来源，或下载完整中文研究。</p></noscript>
+</body>
+</html>

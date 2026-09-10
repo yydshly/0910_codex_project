@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2670" viewBox="0 0 2000 2670" role="img" aria-labelledby="title desc"><title id="title">Pi 业务调度流程：一个任务怎样推进</title><desc id="desc">主线：常用 AgentSession / Agent 路线  ·  框内写明责任模块  ·  回环代表再次调用模型，不代表重复整个初始化</desc><rect width="100%" height="100%" fill="#f5f7fc"/>
+<text x="60" y="62.239999999999995" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700">PI / THEORY ATLAS</text>
+<text x="60" y="124.84" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="43" font-weight="700">Pi 业务调度流程：一个任务怎样推进</text>
+<text x="60" y="170.24" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400">主线：常用 AgentSession / Agent 路线  ·  框内写明责任模块  ·  回环代表再次调用模型，不代表重复整个初始化</text>
+<text x="60" y="2607.48" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400">研究版本：400d6905 · 2026-09-10 · 原创源码分析图，非实际运行记录</text>
+<text x="60" y="2641.72" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400">来源索引与完整说明：projects/004-pi/notes/02-architecture-and-scheduling.md</text>
+<rect x="60" y="220" width="590" height="2080" rx="18" fill="#edf2fc" stroke="#d5deed" stroke-width="2"/>
+<text x="84" y="261.12" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">A / 人与应用协调</text>
+<rect x="720" y="220" width="590" height="2080" rx="18" fill="#edf2fc" stroke="#d5deed" stroke-width="2"/>
+<text x="744" y="261.12" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">B / Agent 与模型</text>
+<rect x="1380" y="220" width="560" height="2080" rx="18" fill="#edf2fc" stroke="#d5deed" stroke-width="2"/>
+<text x="1404" y="261.12" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">C / 工具与反馈</text>
+<rect x="84" y="295" width="542" height="170" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="106" y="336.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">01  创建或恢复运行环境</text>
+<text x="106" y="372.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">入口：CLI / SDK / RPC</text>
+<text x="106" y="399.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">加载配置、资源与信任决策</text>
+<text x="106" y="426.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">装配 AgentSession、模型、工具、会话</text>
+<text x="106" y="456.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S1, S2]</text>
+<rect x="84" y="510" width="542" height="180" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="106" y="551.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">02  接收输入与预处理</text>
+<text x="106" y="587.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">扩展命令可直接处理并返回</text>
+<text x="106" y="614.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">input 钩子可接管或变换输入</text>
+<text x="106" y="641.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">Skill / 模板展开；普通 prompt 继续</text>
+<text x="106" y="681.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5, S8]</text>
+<polyline points="355,465 355,510" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="355,510 349.78041359066526,499.1946347717679 360.21958640933474,499.1946347717679" fill="#2454ef"/>
+<rect x="84" y="745" width="542" height="205" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="106" y="786.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">03  输入如何进入运行？</text>
+<text x="106" y="822.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">空闲：校验模型 / 认证，准备消息</text>
+<text x="106" y="849.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">运行中：steer 或 followUp 排队</text>
+<text x="106" y="876.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">steer：工具批次后、下轮响应前</text>
+<text x="106" y="903.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">followUp：内循环准备结束时</text>
+<text x="106" y="941.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5] 队列不强行中断正在执行的工具</text>
+<polyline points="355,690 355,745" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="355,745 349.78041359066526,734.1946347717678 360.21958640933474,734.1946347717678" fill="#2454ef"/>
+<rect x="744" y="295" width="542" height="185" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="766" y="336.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">04  组装本轮上下文</text>
+<text x="766" y="372.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">AgentSession / Agent</text>
+<text x="766" y="399.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">起始及轮间按条件压缩 / 刷新</text>
+<text x="766" y="426.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">注入 steering；读取当前模型与工具</text>
+<text x="766" y="471.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5, S7]</text>
+<polyline points="626,855 690,855 690,380 744,380" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="744,380 733.1946347717678,385.21958640933474 733.1946347717678,374.78041359066526" fill="#2454ef"/>
+<rect x="744" y="535" width="542" height="170" rx="14" fill="#ffffff" stroke="#08786b" stroke-width="2"/>
+<text x="766" y="576.88" fill="#08786b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">05  转换并调用模型</text>
+<text x="766" y="612.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">transformContext → convertToLlm</text>
+<text x="766" y="639.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">ModelRuntime → pi-ai → provider</text>
+<text x="766" y="666.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">流式响应持续产生消息事件</text>
+<text x="766" y="696.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S2, S4, S5]</text>
+<polyline points="1015,480 1015,535" fill="none" stroke="#08786b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1015,535 1009.7804135906653,524.1946347717678 1020.2195864093347,524.1946347717678" fill="#08786b"/>
+<rect x="744" y="760" width="542" height="175" rx="14" fill="#ffffff" stroke="#08786b" stroke-width="2"/>
+<text x="766" y="801.88" fill="#08786b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">06  检查模型结果</text>
+<text x="766" y="837.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">error / aborted → 结束本轮循环</text>
+<text x="766" y="864.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">有 toolCall：准备工具批次</text>
+<text x="766" y="891.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">无 toolCall：进入轮末继续条件</text>
+<text x="766" y="926.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5]</text>
+<polyline points="1015,705 1015,760" fill="none" stroke="#08786b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1015,760 1009.7804135906653,749.1946347717678 1020.2195864093347,749.1946347717678" fill="#08786b"/>
+<rect x="1404" y="760" width="512" height="180" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="1426" y="801.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">07  参数完整吗？</text>
+<text x="1426" y="837.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">输出因 length 截断：不执行该批调用</text>
+<text x="1426" y="864.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">记录错误结果 → 10，再反馈给模型</text>
+<text x="1426" y="891.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">否则查找工具并进入参数校验</text>
+<text x="1426" y="931.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5] 不把残缺参数当成可执行动作</text>
+<polyline points="1286,840 1404,840" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1404,840 1393.1946347717678,845.2195864093347 1393.1946347717678,834.7804135906653" fill="#2454ef"/>
+<rect x="1299" y="800" width="74.0" height="30" rx="3" fill="#f5f7fc" stroke="#f5f7fc" stroke-width="2"/>
+<text x="1304" y="820.6" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400">有调用</text>
+<rect x="1404" y="995" width="512" height="180" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="1426" y="1036.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">08  工具执行前检查</text>
+<text x="1426" y="1072.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">TypeBox 参数校验</text>
+<text x="1426" y="1099.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">beforeToolCall / tool_call 钩子</text>
+<text x="1426" y="1126.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">允许 → 09；阻止或校验失败 → 10</text>
+<text x="1426" y="1166.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5, S8] 钩子不是操作系统沙箱</text>
+<polyline points="1660,940 1660,995" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1660,995 1654.7804135906651,984.1946347717678 1665.2195864093349,984.1946347717678" fill="#2454ef"/>
+<rect x="1404" y="1230" width="512" height="185" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="1426" y="1271.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">09  执行工具批次</text>
+<text x="1426" y="1304.72" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400">并行默认：依次预检，再并发执行</text>
+<text x="1426" y="1328.72" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400">全局或任一工具要求顺序则串行</text>
+<text x="1426" y="1352.72" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400">访问文件 / 命令 / 业务 API</text>
+<text x="1426" y="1376.72" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400">异常作为失败结果回传</text>
+<text x="1426" y="1406.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5, S11] 实际能力来自工具实现</text>
+<polyline points="1660,1175 1660,1230" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1660,1230 1654.7804135906651,1219.1946347717678 1665.2195864093349,1219.1946347717678" fill="#2454ef"/>
+<rect x="1404" y="1470" width="512" height="185" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="1426" y="1511.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">10  收集并整理结果</text>
+<text x="1426" y="1544.72" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400">afterToolCall / tool_result 钩子</text>
+<text x="1426" y="1568.72" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400">toolResult 追加到消息上下文</text>
+<text x="1426" y="1592.72" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400">完成事件可按完成顺序发出</text>
+<text x="1426" y="1616.72" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400">结果消息保持模型调用的原始顺序</text>
+<text x="1426" y="1646.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5, S8]</text>
+<polyline points="1660,1415 1660,1470" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1660,1470 1654.7804135906651,1459.1946347717678 1665.2195864093349,1459.1946347717678" fill="#2454ef"/>
+<polyline points="1916,850 1962,850 1962,1510 1916,1510" fill="none" stroke="#996216" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="1916,1510 1926.8053652282322,1504.7804135906651 1926.8053652282322,1515.2195864093349" fill="#996216"/>
+<polyline points="1916,1080 1940,1080 1940,1545 1916,1545" fill="none" stroke="#996216" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="1916,1545 1926.8053652282322,1539.7804135906651 1926.8053652282322,1550.2195864093349" fill="#996216"/>
+<rect x="744" y="1055" width="542" height="250" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="766" y="1096.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">11  本轮结束，是否继续？</text>
+<text x="766" y="1132.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">发出 turn_end</text>
+<text x="766" y="1159.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">shouldStopAfterTurn：停止则去 13</text>
+<text x="766" y="1186.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">否则读取 steering 队列</text>
+<text x="766" y="1213.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">有 steering 或未终止的工具批次：</text>
+<text x="766" y="1240.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">回到 04，准备下一轮模型响应</text>
+<text x="766" y="1296.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5] 全部工具结果 terminate 才终止批次</text>
+<polyline points="1015,935 1015,1055" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1015,1055 1009.7804135906653,1044.1946347717678 1020.2195864093347,1044.1946347717678" fill="#2454ef"/>
+<rect x="1030" y="985" width="114.0" height="30" rx="3" fill="#f5f7fc" stroke="#f5f7fc" stroke-width="2"/>
+<text x="1035" y="1005.6" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400">无工具调用</text>
+<polyline points="1404,1560 1350,1560 1350,1190 1286,1190" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1286,1190 1296.8053652282322,1184.7804135906651 1296.8053652282322,1195.2195864093349" fill="#2454ef"/>
+<rect x="1313" y="1333" width="54.0" height="30" rx="3" fill="#f5f7fc" stroke="#f5f7fc" stroke-width="2"/>
+<text x="1318" y="1353.6" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400">结果</text>
+<polyline points="744,1190 674,1190 674,425 744,425" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="744,425 733.1946347717678,430.21958640933474 733.1946347717678,419.78041359066526" fill="#2454ef"/>
+<rect x="650" y="1007" width="54.0" height="30" rx="3" fill="#f5f7fc" stroke="#f5f7fc" stroke-width="2"/>
+<text x="655" y="1027.6" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400">继续</text>
+<rect x="744" y="1370" width="542" height="190" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="766" y="1411.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">12  还有后续输入吗？</text>
+<text x="766" y="1446.48" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400">内循环没有继续条件时</text>
+<text x="766" y="1472.48" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400">读取 followUp 队列</text>
+<text x="766" y="1498.48" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400">有：注入为待处理消息，回到 04</text>
+<text x="766" y="1524.48" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400">无：发出 agent_end，进入应用收尾</text>
+<text x="766" y="1551.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5] 显式停止 / 错误可直接跳到 13</text>
+<polyline points="1015,1305 1015,1370" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1015,1370 1009.7804135906653,1359.1946347717678 1020.2195864093347,1359.1946347717678" fill="#2454ef"/>
+<rect x="1030" y="1320" width="94.0" height="30" rx="3" fill="#f5f7fc" stroke="#f5f7fc" stroke-width="2"/>
+<text x="1035" y="1340.6" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400">不再继续</text>
+<polyline points="744,1450 660,1450 660,435 744,435" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="744,435 733.1946347717678,440.21958640933474 733.1946347717678,429.78041359066526" fill="#2454ef"/>
+<rect x="665" y="1419" width="115.1875" height="28" rx="3" fill="#f5f7fc" stroke="#f5f7fc" stroke-width="2"/>
+<text x="670" y="1437.84" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">有 followUp</text>
+<rect x="744" y="1650" width="542" height="235" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="766" y="1691.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">13  AgentSession 后处理</text>
+<text x="766" y="1727.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">可重试错误：按配置退避后 continue</text>
+<text x="766" y="1754.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">可恢复上下文溢出：压缩后有限重试</text>
+<text x="766" y="1781.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">还有收尾钩子追加的队列：继续</text>
+<text x="766" y="1808.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">否则：结算事件、清理与交付结果</text>
+<text x="766" y="1876.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5, S7] agent_end 不总等于整个任务已结算</text>
+<polyline points="1015,1560 1015,1650" fill="none" stroke="#2454ef" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1015,1650 1009.7804135906653,1639.1946347717678 1020.2195864093347,1639.1946347717678" fill="#2454ef"/>
+<polyline points="1286,1815 1330,1815 1330,430 1286,430" fill="none" stroke="#996216" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="1286,430 1296.8053652282322,424.78041359066526 1296.8053652282322,435.21958640933474" fill="#996216"/>
+<rect x="1285" y="652" width="54.0" height="30" rx="3" fill="#f5f7fc" stroke="#f5f7fc" stroke-width="2"/>
+<text x="1290" y="672.6" fill="#996216" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400">恢复</text>
+<rect x="744" y="1970" width="542" height="160" rx="14" fill="#ffffff" stroke="#08786b" stroke-width="2"/>
+<text x="766" y="2011.88" fill="#08786b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">14  等待下一次用户输入</text>
+<text x="766" y="2047.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">返回结果或明确失败 / 中止状态</text>
+<text x="766" y="2074.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">历史保留在会话中，可恢复或分支</text>
+<text x="766" y="2101.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">这次运行结束；进程可继续等待</text>
+<polyline points="1015,1885 1015,1970" fill="none" stroke="#08786b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1015,1970 1009.7804135906653,1959.1946347717678 1020.2195864093347,1959.1946347717678" fill="#08786b"/>
+<rect x="1030" y="1913" width="194.0" height="30" rx="3" fill="#f5f7fc" stroke="#f5f7fc" stroke-width="2"/>
+<text x="1035" y="1933.6" fill="#08786b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400">没有恢复或继续工作</text>
+<polyline points="1286,892 1360,892 1360,1735 1286,1735" fill="none" stroke="#996216" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="1286,1735 1296.8053652282322,1729.7804135906651 1296.8053652282322,1740.2195864093349" fill="#996216"/>
+<rect x="1264" y="948" width="104.34375" height="28" rx="3" fill="#f5f7fc" stroke="#f5f7fc" stroke-width="2"/>
+<text x="1269" y="966.84" fill="#996216" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">错误 / 中止</text>
+<rect x="84" y="1035" width="542" height="285" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="106" y="1076.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">旁路  正在运行时的人类控制</text>
+<text x="106" y="1112.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">追加要求 → steer / followUp</text>
+<text x="106" y="1139.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">取消 → AbortSignal，工具需配合取消</text>
+<text x="106" y="1166.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">切换模型与工具 → 轮间刷新生效</text>
+<text x="106" y="1193.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">扩展命令可管理自己的模型交互</text>
+<text x="106" y="1220.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">“有新输入”不等于并行启动新循环</text>
+<text x="106" y="1247.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">普通任务未配置队列方式时可报错</text>
+<text x="106" y="1311.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5, S8]</text>
+<rect x="84" y="1380" width="542" height="265" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="106" y="1421.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">旁路  上下文与会话管理</text>
+<text x="106" y="1457.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">压缩发生在起始 / 轮间 / 收尾检查</text>
+<text x="106" y="1484.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">旧消息摘要 + 保留近期消息</text>
+<text x="106" y="1511.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">会话 JSONL 记录完整历史与分支</text>
+<text x="106" y="1538.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">/tree 与 /fork 改变对话路径</text>
+<text x="106" y="1565.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">文件回滚需要另配快照机制</text>
+<text x="106" y="1636.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S6, S7] 压缩不是无损长期记忆</text>
+<rect x="84" y="1705" width="542" height="220" rx="14" fill="#ffffff" stroke="#2454ef" stroke-width="2"/>
+<text x="106" y="1746.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">旁路  流式事件与持久化</text>
+<text x="106" y="1782.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">message / tool / turn / agent 事件</text>
+<text x="106" y="1809.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">UI 或调用者订阅进度</text>
+<text x="106" y="1836.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">完成的消息进入 SessionManager</text>
+<text x="106" y="1863.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">落盘与展示贯穿执行，不只在最后</text>
+<text x="106" y="1916.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S3, S5, S6]</text>
+<rect x="84" y="1985" width="542" height="260" rx="14" fill="#ffffff" stroke="#996216" stroke-width="2"/>
+<text x="106" y="2026.88" fill="#996216" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">边界  业务调度 ≠ 固定业务引擎</text>
+<text x="106" y="2062.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">模型决定是否调用工具以及参数</text>
+<text x="106" y="2089.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">Pi 管理回环、队列、状态与事件</text>
+<text x="106" y="2116.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">Skill 定义方法，扩展可改变行为</text>
+<text x="106" y="2143.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">审批、业务状态机、调度器可另建</text>
+<text x="106" y="2170.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">多 Agent 协作需示例或自定义扩展</text>
+<text x="106" y="2236.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S1, S8]</text>
+<rect x="1404" y="1725" width="512" height="240" rx="14" fill="#ffffff" stroke="#996216" stroke-width="2"/>
+<text x="1426" y="1766.88" fill="#996216" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">异常  工具失败与模型失败分开</text>
+<text x="1426" y="1802.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">工具失败 → toolResult.isError</text>
+<text x="1426" y="1829.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">通常反馈给模型，让它调整动作</text>
+<text x="1426" y="1856.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">模型请求失败 → 结束当前内循环</text>
+<text x="1426" y="1883.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">由 AgentSession 判断是否可恢复</text>
+<text x="1426" y="1910.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">用户中止不按普通错误自动重试</text>
+<text x="1426" y="1956.84" fill="#53647b" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400">[S5] 受配置与具体错误类型约束</text>
+<rect x="1404" y="2025" width="512" height="215" rx="14" fill="#ffffff" stroke="#996216" stroke-width="2"/>
+<text x="1426" y="2066.88" fill="#996216" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">验证  如何理解“任务完成”</text>
+<text x="1426" y="2102.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">Pi 的循环结束是运行时判断</text>
+<text x="1426" y="2129.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">测试、业务验收由工具或人提供</text>
+<text x="1426" y="2156.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">没有工具调用不保证答案正确</text>
+<text x="1426" y="2183.36" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">源码分析不代表成功率已经验证</text>
+<rect x="60" y="2355" width="1880" height="175" rx="14" fill="#e8eeff" stroke="#2454ef" stroke-width="2"/>
+<text x="82" y="2396.88" fill="#2454ef" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700">调度要点：一个外层协调循环，包住模型与工具的内层闭环</text>
+<text x="82" y="2435.0" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">优先读主线 01–14，再看旁路。工具批次结果必须先回到消息上下文，下一轮模型才有新的观察依据。</text>
+<text x="82" y="2465.0" fill="#19283e" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">省略了供应商各自的底层网络重试、每个斜杠命令和实验性服务协议内部细节；它们的职责见完整架构图与配套分析。</text>
+</svg>

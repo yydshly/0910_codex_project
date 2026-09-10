@@ -15,6 +15,11 @@
     "description": "AnySearch 云端搜索服务的开源客户端，为 Agent 接入通用与专业检索、并行查询和正文抽取；帮助理解工具接入，并与 Tavily、Exa 等服务比较增量价值。"
   },
   {
+    "directory": "004-pi",
+    "title": "Pi 能力实验室",
+    "description": "Pi 是可扩展的 AI Agent 工具包，统一多模型接入，提供文件读写、命令执行、多轮工具调用、会话分支与上下文管理，并支持 Skills、扩展及 SDK/RPC 集成，可直接用于编程任务或构建定制业务助手。"
+  },
+  {
     "directory": "006-maigret",
     "title": "Maigret · 跨站账号检查",
     "description": "按用户在网站设置的账号用户名（非实名），通过预设规则批量检查公开账号并提取资料；范围限规则库及所选站点，不覆盖全网，同名账号仍需核验。"
