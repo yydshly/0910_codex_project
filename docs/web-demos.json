@@ -45,10 +45,10 @@
   },
   {
     "directory": "010-awesome-osint-arsenal",
-    "title": "OSINT Arsenal · 工具与能力导航",
-    "description": "提供工具分类目录、结构化数据和批量安装脚本，帮助发现与准备第三方工具；中文展示可搜索753条记录并按六个场景理解工具用途，暂不安装或执行调查。",
-    "preview": "assets/research-overview.svg",
-    "previewAlt": "合集提供目录和安装入口，第三方工具执行查询或分析，使用者核验结果"
+    "title": "OSINT Arsenal · 工具查找与安装指南",
+    "description": "以工具查找为主的工具合集，按用途整理情报与安全工具、网站及学习资料，并提供获取方式和批量安装脚本，帮助找到并准备所需工具。",
+    "preview": "assets/complete-understanding.png",
+    "previewAlt": "工具查找与安装为主的完整理解：核心能力、代表工具、目录搜索、人工更新和使用意义"
   },
   {
     "directory": "011-luvus",

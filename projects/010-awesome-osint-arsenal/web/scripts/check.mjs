@@ -22,7 +22,9 @@ assert.equal(filterTools(tools,{query:'THIS_STRING_HAS_NO_MATCH_0193123'}).lengt
 assert.equal(safeUrl('javascript:alert(1)'),null);assert.equal(safeUrl('file:///etc/passwd'),null);assert.equal(safeUrl(''),null);assert.equal(safeUrl('https://example.org/'),'https://example.org/');
 const html=await readFile(resolve(out,'index.html'),'utf8');const base=new URL('https://local.invalid/0910_codex_project/010-awesome-osint-arsenal/');
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
-for(const id of ['guide','scenarios','catalog','core','meaning','sources'])assert.ok(ids.includes(id));
+for(const id of ['guide','scenarios','catalog','core','overview','updates','meaning','sources'])assert.ok(ids.includes(id));
+assert.ok(html.indexOf('id="catalog"')<html.indexOf('id="scenarios"'));
+assert.deepEqual(await readFile(resolve(out,'assets/complete-understanding.png')),await readFile(resolve(out,'../../assets/complete-understanding.png')));
 let count=0;
 for(const file of ['index.html','app.mjs','catalog.mjs','style.css']){
  const source=await readFile(resolve(out,file),'utf8');
