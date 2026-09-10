@@ -25,6 +25,11 @@
     "description": "按用户在网站设置的账号用户名（非实名），通过预设规则批量检查公开账号并提取资料；范围限规则库及所选站点，不覆盖全网，同名账号仍需核验。"
   },
   {
+    "directory": "007-deeptutor",
+    "title": "DeepTutor · AI 教学工作台",
+    "description": "可自部署的 AI 教学工作台，支持资料问答、解题、出题、学习路径与复习；与 NotebookLM、Open Notebook、SurfSense 共用许多底层方法，更侧重可修改的教学流程与学习状态，可为我们的开源项目学习导师提供设计参考。"
+  },
+  {
     "directory": "008-pi-web",
     "title": "Pi Web · 浏览器智能体工作台",
     "description": "基于 Pi 的自托管浏览器编程工作台，支持读写代码、执行命令、会话与文件管理、模型和技能配置；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具，可用于研究 GitHub 项目、组织个人开发，并为自建领域助手提供工作台与扩展设计参考。",

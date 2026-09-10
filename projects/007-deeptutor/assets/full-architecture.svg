@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="3510" viewBox="0 0 2400 3510" role="img" aria-labelledby="title desc">
+<title id="title">DeepTutor 完整理解架构图</title>
+<desc id="desc">展示用户输入与产物、教学状态闭环、模型工具运行循环、知识接入检索、三层记忆、基础模型、同类产品实质差异及扩展验证边界。概念架构，非实际部署拓扑。</desc>
+<rect width="2400" height="3510" fill="#f5f4ef"/>
+<text x="65" y="38" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">007 / DEEPTUTOR · 完整理解架构图</text>
+<text x="65" y="92" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="65" font-weight="700" fill="#1c3d33" dominant-baseline="text-before-edge">通用 AI 底座之上，组织可持续的教学过程</text>
+<text x="65" y="181" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">底层方法有共性；特色主要在教学业务与工程编排。功能相似，不代表证据、状态与执行方式相同。</text>
+<text x="65" y="237" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">阅读顺序：输入与产物 → 教学层 → 运行与知识层 → 模型层 → 产品对照 → 扩展与边界</text>
+<rect x="55" y="295" width="2290" height="225" rx="20" fill="#e8eee7" stroke="#c6d2c7" stroke-width="2"/>
+<text x="85" y="317" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">A</text>
+<text x="160" y="313" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="39" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">用户输入与学习产物</text>
+<text x="160" y="367" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">Web（Next.js / React）→ 后端（FastAPI / Python）；具体能力取决于模型与可选服务。[S1–S4]</text>
+<rect x="85" y="407" width="1080" height="88" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="110" y="427" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">输入：资料 + 目标 + 问题 + 作答</text>
+<rect x="1235" y="407" width="1080" height="88" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1260" y="427" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">产物：解释 / 习题 / 报告 / 图表 / 笔记 / 互动书</text>
+<polyline points="1169,451 1230,451" fill="none" stroke="#17634b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1230.0,451.0 1219.5,456.8 1219.5,445.2" fill="#17634b"/>
+<polyline points="1198,526 1198,550" fill="none" stroke="#17634b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1198.0,550.0 1192.2,539.5 1203.8,539.5" fill="#17634b"/>
+<rect x="55" y="555" width="2290" height="620" rx="20" fill="#e1eee4" stroke="#c6d2c7" stroke-width="2"/>
+<text x="85" y="577" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">03</text>
+<text x="160" y="573" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="39" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">教学业务逻辑 · DeepTutor 的特色重点</text>
+<text x="160" y="627" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">按目标组织教学活动，记录学习状态并决定如何推进；以下主闭环对应 Mastery Path。[S3、S5–S8]</text>
+<rect x="85" y="678" width="420" height="165" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="110" y="698" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">目标拆解</text>
+<text x="110" y="750" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">模块与知识点</text>
+<text x="110" y="793" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">绑定教材和学习目标</text>
+<polyline points="509,760 532,760" fill="none" stroke="#17634b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="532.0,760.0 521.5,765.8 521.5,754.2" fill="#17634b"/>
+<rect x="537" y="678" width="420" height="165" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="562" y="698" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">讲解与练习</text>
+<text x="562" y="750" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">解释、例题、提问</text>
+<text x="562" y="793" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">按知识点组织活动</text>
+<polyline points="961,760 984,760" fill="none" stroke="#17634b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="984.0,760.0 973.5,765.8 973.5,754.2" fill="#17634b"/>
+<rect x="989" y="678" width="420" height="165" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1014" y="698" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">学习者作答</text>
+<text x="1014" y="750" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">提交答案与过程</text>
+<text x="1014" y="793" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">形成作答记录</text>
+<polyline points="1413,760 1436,760" fill="none" stroke="#17634b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1436.0,760.0 1425.5,765.8 1425.5,754.2" fill="#17634b"/>
+<rect x="1441" y="678" width="420" height="165" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1466" y="698" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">判断并更新状态</text>
+<text x="1466" y="750" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">模型可辅助判题</text>
+<text x="1466" y="793" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">程序计算并保存掌握度</text>
+<polyline points="1865,760 1888,760" fill="none" stroke="#17634b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1888.0,760.0 1877.5,765.8 1877.5,754.2" fill="#17634b"/>
+<rect x="1893" y="678" width="420" height="165" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1918" y="698" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">推进或复习</text>
+<text x="1918" y="750" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">达到门槛才能继续</text>
+<text x="1918" y="793" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">已完成知识点到期复习</text>
+<polyline points="1891,850 1891,874 747,874 747,851" fill="none" stroke="#17634b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="747.0,851.0 752.8,861.5 741.2,861.5" fill="#17634b"/>
+<text x="880" y="886" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#17634b" dominant-baseline="text-before-edge">未达到门槛：继续讲解与练习</text>
+<rect x="85" y="938" width="720" height="209" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="110" y="958" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">模型负责</text>
+<text x="110" y="1010" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">生成讲解、题目与反馈；辅助判断回答。</text>
+<text x="110" y="1053" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">模型输出仍需程序检查和实际验证。</text>
+<text x="110" y="1096" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">能生成学习计划 ≠ 已管理学习进度。</text>
+<rect x="840" y="938" width="720" height="209" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="865" y="958" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">程序负责</text>
+<text x="865" y="1010" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">保存作答、计算掌握度、执行推进规则。</text>
+<text x="865" y="1053" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">基础评分：最近最多 5 次加权正确率；</text>
+<text x="865" y="1096" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">1 次记录上限 0.5，2 次上限 0.8。[S5]</text>
+<rect x="1595" y="938" width="720" height="209" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1620" y="958" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">不同任务有不同流程</text>
+<text x="1620" y="1010" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">Solve：计划 → 逐步完成 → 有限重规划</text>
+<text x="1620" y="1053" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">Research：澄清 → 拆分 → 研究 → 报告</text>
+<text x="1620" y="1096" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">其他：问答、Quiz、阅读与可视化。</text>
+<polyline points="1198,1180 1198,1209" fill="none" stroke="#17634b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1198.0,1209.0 1192.2,1198.5 1203.8,1198.5" fill="#17634b"/>
+<rect x="55" y="1215" width="2290" height="440" rx="20" fill="#e8eef3" stroke="#c6d2c7" stroke-width="2"/>
+<text x="85" y="1237" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#24557b" dominant-baseline="text-before-edge">02</text>
+<text x="160" y="1233" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="39" font-weight="700" fill="#24557b" dominant-baseline="text-before-edge">通用 AI 工程 · 运行与编排</text>
+<text x="160" y="1287" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">共享会话和能力接口；部分任务复用聊天循环，部分采用专门流水线，并非所有模式内部相同。[S2、S6–S8]</text>
+<rect x="85" y="1340" width="530" height="170" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="110" y="1360" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#24557b" dominant-baseline="text-before-edge">组装上下文</text>
+<text x="110" y="1412" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">问题、证据、会话</text>
+<text x="110" y="1455" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">学习状态、选定记忆</text>
+<polyline points="620,1420 644,1420" fill="none" stroke="#24557b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="644.0,1420.0 633.5,1425.8 633.5,1414.2" fill="#24557b"/>
+<rect x="650" y="1340" width="530" height="170" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="675" y="1360" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#24557b" dominant-baseline="text-before-edge">调用大模型</text>
+<text x="675" y="1412" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">读取已组装的信息</text>
+<text x="675" y="1455" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">直接回答或请求工具</text>
+<polyline points="1185,1420 1209,1420" fill="none" stroke="#24557b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1209.0,1420.0 1198.5,1425.8 1198.5,1414.2" fill="#24557b"/>
+<rect x="1215" y="1340" width="530" height="170" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1240" y="1360" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#24557b" dominant-baseline="text-before-edge">工具分派与执行</text>
+<text x="1240" y="1412" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">检索、搜索、代码等</text>
+<text x="1240" y="1455" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">依据能力与配置开放</text>
+<polyline points="1750,1420 1774,1420" fill="none" stroke="#24557b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1774.0,1420.0 1763.5,1425.8 1763.5,1414.2" fill="#24557b"/>
+<rect x="1780" y="1340" width="530" height="170" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1805" y="1360" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#24557b" dominant-baseline="text-before-edge">读取工具结果</text>
+<text x="1805" y="1412" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">把观察写回上下文</text>
+<text x="1805" y="1455" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">继续循环或完成回答</text>
+<polyline points="2045,1516 2045,1542 345,1542 345,1516" fill="none" stroke="#24557b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="345.0,1516.0 350.8,1526.5 339.2,1526.5" fill="#24557b"/>
+<text x="550" y="1555" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#24557b" dominant-baseline="text-before-edge">工具结果 → 更新上下文 → 再次调用；需要用户回答时可暂停并恢复</text>
+<text x="85" y="1610" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">工具扩展：内置工具 / MCP / Skills / 外部 Agent；Skills 提供步骤与约束，不等于新增模型能力。</text>
+<polyline points="595,1691 595,1662" fill="none" stroke="#24557b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="595.0,1662.0 600.8,1672.5 589.2,1672.5" fill="#24557b"/>
+<polyline points="1775,1691 1775,1662" fill="none" stroke="#665482" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1775.0,1662.0 1780.8,1672.5 1769.2,1672.5" fill="#665482"/>
+<rect x="55" y="1695" width="2290" height="625" rx="20" fill="#e8eef3" stroke="#c6d2c7" stroke-width="2"/>
+<text x="85" y="1717" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#24557b" dominant-baseline="text-before-edge">02</text>
+<text x="160" y="1713" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="39" font-weight="700" fill="#24557b" dominant-baseline="text-before-edge">通用 AI 工程 · 知识与长期状态</text>
+<text x="160" y="1767" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">知识层向运行层提供来源证据；状态与记忆供后续任务复用，更新也来自任务和用户活动。[S4、S9、S20]</text>
+<rect x="85" y="1810" width="1360" height="470" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="110" y="1830" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#24557b" dominant-baseline="text-before-edge">资料接入与三种读取方式</text>
+<text x="110" y="1882" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">资料入口：教材、PDF / Office、网页与 GitHub、笔记及媒体内容。</text>
+<text x="110" y="1925" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">① 建立知识库：解析 → 切分 → Embedding / 索引 → 查询相关原文。</text>
+<text x="110" y="1968" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">    默认 LlamaIndex（向量 + BM25）；可选图检索等集成。</text>
+<text x="110" y="2011" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">② 文档树检索：PageIndex 沿结构寻找所需页面；不强制向量化。</text>
+<text x="110" y="2054" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">③ 沉浸式阅读：按页 / 章节搜索与读取，保留位置；无需向量索引。</text>
+<text x="110" y="2097" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">接入现有库：远端服务或 Obsidian 等实时资料有各自访问方式。</text>
+<text x="110" y="2140" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">每个知识库绑定一种集成，不是所有引擎同时运行。</text>
+<text x="110" y="2183" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">交给生成模型的是相关内容与来源；向量用于查找，不替代原文。</text>
+<text x="110" y="2226" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">引用可追溯 ≠ 解释一定正确；检索遗漏会影响回答依据。</text>
+<rect x="1480" y="1810" width="835" height="470" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1505" y="1830" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#665482" dominant-baseline="text-before-edge">学习状态与三层 Memory</text>
+<text x="1505" y="1882" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">学习状态：知识点、作答、掌握度与复习。</text>
+<text x="1505" y="1925" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">会话状态：消息、当前材料、任务绑定等。</text>
+<text x="1505" y="1968" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">L1：工作区实体与变化记录。</text>
+<text x="1505" y="2011" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">L2：各类活动的摘要与事实。</text>
+<text x="1505" y="2054" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">L3：跨活动综合信息及偏好。</text>
+<text x="1505" y="2097" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">任务和活动 → 保存 → 提炼 / 更新 → 复用。</text>
+<text x="1505" y="2140" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">记忆可查看与整理；各层引用精度不同。</text>
+<text x="1505" y="2183" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">保存记忆 ≠ 重新训练模型参数。</text>
+<text x="1505" y="2226" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">持久化状态 ≠ 已证明个性化教学有效。</text>
+<polyline points="1198,2355 1198,2326" fill="none" stroke="#24557b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1198.0,2326.0 1203.8,2336.5 1192.2,2336.5" fill="#24557b"/>
+<rect x="55" y="2360" width="2290" height="215" rx="20" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="85" y="2382" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">01</text>
+<text x="160" y="2378" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="39" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">基础 AI 能力 · 主要接入现成模型</text>
+<text x="160" y="2432" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">生成模型负责理解与生成；Embedding 服务于需要向量的路径；媒体模型按配置接入。</text>
+<text x="85" y="2478" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="35" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">语言 / 推理模型</text>
+<text x="620" y="2478" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="35" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">Embedding 模型</text>
+<text x="1220" y="2478" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="35" font-weight="700" fill="#17634b" dominant-baseline="text-before-edge">视觉 / 语音 / 媒体能力</text>
+<text x="85" y="2535" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">由运行层和资料处理流程调用。可选模型与服务不等于默认全部启用；自部署的数据流向取决于实际配置。</text>
+<rect x="55" y="2615" width="2290" height="390" rx="20" fill="#eeebf3" stroke="#c6d2c7" stroke-width="2"/>
+<text x="85" y="2637" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#665482" dominant-baseline="text-before-edge">B</text>
+<text x="160" y="2633" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="39" font-weight="700" fill="#665482" dominant-baseline="text-before-edge">同类产品对照 · 共用方法，不同工程组合</text>
+<text x="160" y="2687" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">下列是产品侧重点和已核对的代码路径，不是互斥边界或效果排名；商业产品内部架构未完全公开。</text>
+<rect x="85" y="2730" width="535" height="210" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="110" y="2750" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#665482" dominant-baseline="text-before-edge">Open Notebook</text>
+<text x="110" y="2802" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">笔记本、资料、笔记、内容与播客。</text>
+<text x="110" y="2845" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">Ask：策略 → 分路向量检索 → 汇总。</text>
+<text x="110" y="2888" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">SurrealDB；另有全文搜索。[S14–15]</text>
+<rect x="650" y="2730" width="535" height="210" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="675" y="2750" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#665482" dominant-baseline="text-before-edge">SurfSense</text>
+<text x="675" y="2802" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">多来源研究、连接器、协作与自动化。</text>
+<text x="675" y="2845" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">已核对：向量 + 全文排名融合。</text>
+<text x="675" y="2888" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">PostgreSQL / pgvector。[S13、S16]</text>
+<rect x="1215" y="2730" width="535" height="210" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1240" y="2750" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#665482" dominant-baseline="text-before-edge">DeepTutor</text>
+<text x="1240" y="2802" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">资料、工具 + 教学活动与学习状态。</text>
+<text x="1240" y="2845" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">可自部署、替换集成、修改教学规则。</text>
+<text x="1240" y="2888" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">当前研究重点：业务流程的实际增量。</text>
+<rect x="1780" y="2730" width="535" height="210" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1805" y="2750" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#665482" dominant-baseline="text-before-edge">NotebookLM / Gemini</text>
+<text x="1805" y="2802" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">来源问答、学习卡片、测验与概览。</text>
+<text x="1805" y="2845" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">配合学习功能；已宣布代码执行。</text>
+<text x="1805" y="2888" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">在线成品，按账号开放。[S10–12]</text>
+<text x="85" y="2963" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">其他参照：RemNote → 笔记与复习；Khanmigo → 引导式辅导；StudyFetch → 课件与备考。[S17–S19]</text>
+<rect x="55" y="3045" width="2290" height="300" rx="20" fill="#f3eddf" stroke="#c6d2c7" stroke-width="2"/>
+<text x="85" y="3067" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#8a611c" dominant-baseline="text-before-edge">C</text>
+<text x="160" y="3063" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="39" font-weight="700" fill="#8a611c" dominant-baseline="text-before-edge">研究判断、扩展方向与验证边界</text>
+<text x="160" y="3117" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">共性是理解起点；差异要落实到数据、规则、证据与执行步骤。</text>
+<rect x="85" y="3160" width="720" height="155" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="110" y="3180" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#8a611c" dominant-baseline="text-before-edge">较浅的变化 / 实质的变化</text>
+<text x="110" y="3232" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">摘要换卡片：可能主要是提示词与渲染。</text>
+<text x="110" y="3275" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">检索、评分、复习：需要数据和后端逻辑。</text>
+<rect x="840" y="3160" width="720" height="155" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="865" y="3180" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#8a611c" dominant-baseline="text-before-edge">建议扩展 · 尚未实现</text>
+<text x="865" y="3232" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">开源项目导师：代码阅读 → 练习 → 反馈。</text>
+<text x="865" y="3275" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">垂直题库、实践评测、班级与企业培训。</text>
+<rect x="1595" y="3160" width="720" height="155" rx="16" fill="#fffefa" stroke="#c6d2c7" stroke-width="2"/>
+<text x="1620" y="3180" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700" fill="#8a611c" dominant-baseline="text-before-edge">未实测 · 不作效果保证</text>
+<text x="1620" y="3232" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">上游部署、判题准确率、学习收益未验证。</text>
+<text x="1620" y="3275" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">检索质量、权限、延迟与成本需单独评测。</text>
+<text x="65" y="3382" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">图例：箭头表示概念信息流或循环；分层表示职责，不对应独立服务或部署拓扑。</text>
+<text x="65" y="3423" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">依据：DeepTutor v1.6.6 / 7a96bba · Open Notebook 2d2df8a · SurfSense 3448772 · 2026-09-10</text>
+<text x="65" y="3463" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#53675e" dominant-baseline="text-before-edge">S1–S20 对应完整理解文档的来源索引。本研究原创整理；源码事实、比较判断与建议扩展已分别标注。</text>
+</svg>

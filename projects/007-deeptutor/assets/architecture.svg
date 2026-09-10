@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="790" viewBox="0 0 1280 790" role="img" aria-labelledby="title desc">
+<title id="title">DeepTutor：通用 AI 能力之上的教学流程</title><desc id="desc">三层职责：基础 AI 模型提供理解与生成；通用工程连接资料检索、上下文、工具与记忆；教学业务保存知识点、作答与掌握状态，控制推进及复习。示意图不是运行结果。</desc>
+<rect width="1280" height="790" rx="20" fill="#f5f4ef"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="56" y="61" font-size="18" fill="#526861">007 / DEEPTUTOR · 研究理解</text>
+<text x="56" y="112" font-size="36" font-weight="700" fill="#173c34">共用 AI 底座，重点组织教学过程</text>
+<text x="56" y="151" font-size="20" fill="#526861">同类产品有技术共性；实际增量要看数据、规则和执行步骤。</text>
+<rect x="56" y="192" width="1168" height="137" rx="12" fill="#173c34"/>
+<text x="84" y="227" font-size="16" fill="#b6e5d6">03 / 教学业务逻辑</text>
+<text x="84" y="271" font-size="27" font-weight="700" fill="#fff">学什么 · 怎么教 · 何时继续</text>
+<text x="84" y="307" font-size="18" fill="#d6e7e0">DeepTutor 的特色重点</text>
+<text x="668" y="249" font-size="22" fill="#fff">知识点 → 练习 → 掌握门槛 → 复习</text>
+<text x="668" y="291" font-size="19" fill="#d6e7e0">保存记录，执行规则，更新学习状态</text>
+<path d="M640 336v24m-7-7 7 7 7-7" fill="none" stroke="#54766a" stroke-width="2"/>
+<rect x="56" y="369" width="1168" height="123" rx="12" fill="#e5ece6" stroke="#c1d0c4"/>
+<text x="84" y="406" font-size="16" fill="#456355">02 / 通用 AI 工程</text>
+<text x="84" y="450" font-size="27" font-weight="700" fill="#173c34">把资料和工具交给模型</text>
+<text x="668" y="418" font-size="22" fill="#173c34">解析与检索 · 上下文 · 工具调用</text>
+<text x="668" y="461" font-size="19" fill="#456355">会话与记忆 · 循环与专用流程</text>
+<path d="M640 499v24m-7-7 7 7 7-7" fill="none" stroke="#54766a" stroke-width="2"/>
+<rect x="56" y="532" width="1168" height="112" rx="12" fill="#fff" stroke="#d9dcd3"/>
+<text x="84" y="568" font-size="16" fill="#657268">01 / 基础 AI 能力</text>
+<text x="84" y="609" font-size="27" font-weight="700" fill="#173c34">主要接入现成模型</text>
+<text x="668" y="578" font-size="22" fill="#173c34">理解与生成 · Embedding · 语音等</text>
+<text x="668" y="616" font-size="19" fill="#657268">按配置提供能力；不等于重新训练模型</text>
+<text x="56" y="697" font-size="22" font-weight="700" fill="#785315">模型生成与辅助判断；程序保存状态、检查条件。</text>
+<text x="56" y="743" font-size="16" fill="#657268">来源：DeepTutor v1.6.6 源码、官方文档与本次讨论。原创职责示意；非部署截图，教学效果未实测。</text>
+</g></svg>

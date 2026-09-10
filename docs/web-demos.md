@@ -18,6 +18,12 @@
 
 关联方式：仓库首页 → 演示导航或具体项目；演示导航 → 项目网页与 GitHub 研究目录；项目网页 → 对应研究文档、研究仓库与上游来源；在线文档 → 项目网页及相关章节。GitHub 仓库 About 的网站地址指向演示导航首页。
 
+## 本地新增：007 · DeepTutor
+
+- [研究说明](../projects/007-deeptutor/README.md)与[网页运行方式](../projects/007-deeptutor/web/README.md)已加入仓库；正文从同一份 Markdown 生成。
+- 提供技术分层示意、同类产品对照、来源与验证页及文档下载，已登记到统一构建清单。
+- 当前尚未发布，不属于上方已上线入口。未部署 DeepTutor 后端，也未进行真实教学效果测试。
+
 ## 自动发布
 
 配置见 [deploy-pages.yml](../.github/workflows/deploy-pages.yml)，[查看发布记录](https://github.com/yydshly/0910_codex_project/actions/workflows/deploy-pages.yml)。

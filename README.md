@@ -19,6 +19,7 @@
 | 004 | [Pi Agent Harness](projects/004-pi/README.md) | [earendil-works/pi](https://github.com/earendil-works/pi) | 统一多模型接入，提供文件读写、命令执行、多轮工具调用、会话与上下文管理，并支持 Skills、扩展和 SDK/RPC 集成，可用于编程任务与定制业务助手 | 完整理解与线上展示完成；上游未运行 | [在线展示](https://yydshly.github.io/0910_codex_project/004-pi/) |
 | 005 | [Caveman](projects/005-caveman/README.md) | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 模型调用前按类型精简上下文并支持原文恢复，价值在于专用规则与恢复设计；与 Codex 原生能力部分重合，不表示我们建议叠加使用，也不表示已经确认叠加有收益 | 文档与架构研究完成；叠加收益未实测 | — |
 | 006 | [Maigret](projects/006-maigret/README.md) | [soxoj/maigret](https://github.com/soxoj/maigret) | 按用户在网站设置的账号用户名（非实名），通过预设规则批量检查公开账号并提取资料；范围限规则库及所选站点，不覆盖全网，同名账号仍需核验 | 文档与线上展示完成；上游未实测 | [在线阅读](https://yydshly.github.io/0910_codex_project/006-maigret/) |
+| 007 | [DeepTutor](projects/007-deeptutor/README.md) | [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) | 可自部署的 AI 教学工作台，支持资料问答、解题、出题、学习路径与复习；与 NotebookLM、Open Notebook、SurfSense 共用许多底层方法，更侧重可修改的教学流程与学习状态，可为我们的开源项目学习导师提供设计参考 | 文档与本地网页完成；上游未实测 | — |
 | 008 | [Pi Web](projects/008-pi-web/README.md) | [agegr/pi-web](https://github.com/agegr/pi-web) | 基于 Pi 的自托管浏览器编程工作台，支持读写代码、执行命令、会话与文件管理、模型和技能配置；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具，可用于研究 GitHub 项目、组织个人开发，并为自建领域助手提供工作台与扩展设计参考 | 完整理解与线上展示完成；上游未实测 | [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/) |
 <!-- PROJECT_INDEX_END -->
 
@@ -61,6 +62,12 @@
 [![Maigret 完整理解：站点适配、批量查询流程、搜索对比、价值边界与扩展方向](projects/006-maigret/assets/research-overview.png)](projects/006-maigret/notes/01-understanding.md)
 
 理解“维护网站规则 → 按用户设置的账号用户名（非实名）批量检查 → 提取与整理线索”。搜索范围限于规则库及所选站点，同名结果不证明属于同一人。图源：依据固定提交源码、官方文档及本次讨论原创绘制，非产品截图；未运行跨站扫描。[在线阅读](https://yydshly.github.io/0910_codex_project/006-maigret/) · [完整理解](projects/006-maigret/notes/01-understanding.md) · [放大总览图](projects/006-maigret/assets/research-overview.svg) · [项目资料](projects/006-maigret/README.md)
+
+### 007 · DeepTutor
+
+[![DeepTutor 完整架构：教学闭环、模型工具调用、知识检索与记忆、产品对照及扩展边界](projects/007-deeptutor/assets/full-architecture.png)](projects/007-deeptutor/notes/01-understanding.md)
+
+从资料问答、解题与出题延伸到学习路径和复习。对照 NotebookLM 的成品学习体验、Open Notebook 的笔记研究和 SurfSense 的多来源研究，重点借鉴 DeepTutor 可修改的教学规则与学习状态，探索“项目讲解 → 练习 → 验证 → 反馈”。图源：依据固定源码、官方文档及本次讨论原创整理，非产品截图；扩展尚未实现，教学效果未实测。[完整理解](projects/007-deeptutor/notes/01-understanding.md) · [放大完整架构图](projects/007-deeptutor/assets/full-architecture.svg) · [网页运行说明](projects/007-deeptutor/web/README.md)
 
 ### 008 · Pi Web
 
