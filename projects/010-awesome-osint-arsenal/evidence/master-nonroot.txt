@@ -1,0 +1,2 @@
+[0;31m[✗] error:[0m This master orchestrator requires elevated privileges.
+Please run as root: sudo bash /mnt/f/codex_project/0910_codex_project/.cache/010-arsenal/upstream/install.sh
