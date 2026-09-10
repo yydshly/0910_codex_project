@@ -19,7 +19,7 @@ node scripts/serve.mjs
 - index.html：直接加载作者原站，并提供“原理实验”模式。
 - understanding.html：完整中文能力与技术研究。
 - sources.html：固定版本、来源、许可与验证范围。
-- games.html：八种可切换游戏方向，含自动演示和亲自试玩；支持 #puzzle、#maze、#breakout、#track、#chain、#sorting、#rhythm、#race 定位。
+- games.html：八种可切换游戏方向，含三档难度、自动演示、亲自试玩、三星评级与本机最佳成绩；支持 #puzzle、#maze、#breakout、#track、#chain、#sorting、#rhythm、#race 定位。
 - games-notes.html：玩法操作、使用算法、原型边界和测试记录。
 - notes/：与研究文档一致的 Markdown 下载。
 - assets/：原创流程图。
