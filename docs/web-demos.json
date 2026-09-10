@@ -22,6 +22,8 @@
   {
     "directory": "008-pi-web",
     "title": "Pi Web · 浏览器智能体工作台",
-    "description": "把 Pi 智能体封装为可自托管的浏览器编程工作台，支持读写代码、执行命令、会话分支、文件与模型管理；与 Codex 桌面体验的比较说明界面与执行引擎的分工，可借鉴其产品组织与扩展设计，不能据此认定能力或效果等同。"
+    "description": "基于 Pi 的自托管浏览器编程工作台，支持读写代码、执行命令、会话与文件管理、模型和技能配置；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具，可用于研究 GitHub 项目、组织个人开发，并为自建领域助手提供工作台与扩展设计参考。",
+    "preview": "assets/entry-guide.png",
+    "previewAlt": "Pi Web 引导图：能力、同类产品与开源项目研究、个人开发、自建助手的用途"
   }
 ]

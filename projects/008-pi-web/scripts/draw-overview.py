@@ -90,3 +90,32 @@ OUT.mkdir(parents=True,exist_ok=True)
 (OUT/'research-overview.svg').write_text('\n'.join(svg),encoding='utf-8')
 im.save(OUT/'research-overview.png',optimize=True)
 print(f'Overview generated: {W} x {H}, SVG and PNG')
+
+# A compact entrance graphic for readers arriving from the repository or site index.
+W, H = 1800, 1370
+im = Image.new('RGB',(W,H),paper); d = ImageDraw.Draw(im)
+svg = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="title desc"><title id="title">Pi Web 阅读引导：能力、同类产品与使用价值</title><desc id="desc">基于 Pi 的自托管浏览器编程工作台。提供项目操作、工作区与扩展管理；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具。可用于开源项目研究、个人开发和领域助手二次开发。</desc><rect width="{W}" height="{H}" fill="{paper}"/>']
+text(70,40,'008 / PROJECT GUIDE',23,muted,True)
+text(70,88,'Pi Web：浏览器里的 AI 编程工作台',54,ink,True)
+text(70,172,'基于 Pi SDK，可自托管；把任务执行、项目文件与模型配置放在一起。',29,accent)
+text(70,252,'01  这个库能做什么',31,ink,True)
+guide_cards=[('操作项目','阅读与修改代码、执行命令','查看工具输出，继续调整任务'),('管理工作区','会话恢复与分支、文件预览','Git 差异、worktree 与网页终端'),('配置与扩展','模型、插件包与 Skills 管理','可选子智能体委派（默认关闭）')]
+for i,(title,a,b) in enumerate(guide_cards):
+    x=70+i*565;box(x,310,530,175);text(x+25,330,title,30,ink,True);text(x+25,385,a,24);text(x+25,429,b,23,muted)
+box(70,514,1660,85,green)
+text(101,536,'运行关系：浏览器界面  →  Pi Web 服务端（内嵌 Pi 引擎）  →  模型与项目工具',28,ink,True)
+text(70,637,'02  同类产品：Codex · Claude Code · Cursor Agent',31,ink,True)
+text(90,695,'共同使用方式：描述需求，让智能体读取、修改项目并执行命令，再检查结果。',27)
+text(90,742,'Pi Web 的可研究特点：基于 Pi 的开源 Web 应用，可复用其工作台与扩展组织方式。',26)
+text(90,788,'界面形态与运行体系各有差异；同属一类工具，不表示同一后端或效果相等。',23,muted)
+text(70,859,'03  对当前研究与开发工作的意义',31,ink,True)
+values=[('研究 GitHub 项目','在项目上下文中读源码、整理笔记','复查来源、文件和研究结论'),('组织个人开发','集中查看多个项目的对话与产物','比较方案，检查代码差异'),('自建领域助手','借鉴会话、事件展示与配置设计','用 Skills 和工具接入自己的流程')]
+for i,(title,a,b) in enumerate(values):
+    x=70+i*565;box(x,925,530,180);text(x+25,946,title,29,ink,True);text(x+25,1000,a,23);text(x+25,1048,b,23,muted)
+text(90,1139,'使用判断：需要自托管、浏览器操作或二次开发时值得进一步验证；已有工具满足需求时不必迁移。',24,ink,True)
+text(90,1190,'继续阅读：项目资料 → 完整理解 → 技术总览 → 三个任务流程演示',27,accent,True)
+text(70,1260,'原创引导图，非产品截图。依据 Pi Web b1a7296 与同类产品官方文档，核对日期 2026-09-10。',21,muted)
+text(70,1303,'用途为基于能力的研究判断；未运行上游、未进行跨产品效果对测。完整来源见子项目研究笔记。',21,muted)
+svg.append('</svg>')
+(OUT/'entry-guide.svg').write_text('\n'.join(svg),encoding='utf-8');im.save(OUT/'entry-guide.png',optimize=True)
+print(f'Entry guide generated: {W} x {H}, SVG and PNG')

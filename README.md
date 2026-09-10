@@ -18,7 +18,7 @@
 | 003 | [AnySearch Skill](projects/003-anysearch-skill/README.md) | [anysearch-ai/anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | AnySearch 云端搜索服务的开源客户端，为 Agent 接入通用与专业检索、并行查询和正文抽取；可参考其工具设计，并与 Tavily、Exa 等服务比较实际增量价值 | 研究与线上展示完成；基础接口已验证 | [打开展示](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/) |
 | 005 | [Caveman](projects/005-caveman/README.md) | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 模型调用前按类型精简上下文并支持原文恢复，价值在于专用规则与恢复设计；与 Codex 原生能力部分重合，不表示我们建议叠加使用，也不表示已经确认叠加有收益 | 文档与架构研究完成；叠加收益未实测 | — |
 | 006 | [Maigret](projects/006-maigret/README.md) | [soxoj/maigret](https://github.com/soxoj/maigret) | 按用户在网站设置的账号用户名（非实名），通过预设规则批量检查公开账号并提取资料；范围限规则库及所选站点，不覆盖全网，同名账号仍需核验 | 文档与线上展示完成；上游未实测 | [在线阅读](https://yydshly.github.io/0910_codex_project/006-maigret/) |
-| 008 | [Pi Web](projects/008-pi-web/README.md) | [agegr/pi-web](https://github.com/agegr/pi-web) | 把 Pi 智能体封装为可自托管的浏览器编程工作台，支持读写代码、执行命令、会话分支、文件与模型管理；与 Codex 桌面体验的比较说明界面与执行引擎的分工，可借鉴其产品组织与扩展设计，不能据此认定能力或效果等同 | 完整理解与线上展示完成；上游未实测 | [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/) |
+| 008 | [Pi Web](projects/008-pi-web/README.md) | [agegr/pi-web](https://github.com/agegr/pi-web) | 基于 Pi 的自托管浏览器编程工作台，支持读写代码、执行命令、会话与文件管理、模型和技能配置；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具，可用于研究 GitHub 项目、组织个人开发，并为自建领域助手提供工作台与扩展设计参考 | 完整理解与线上展示完成；上游未实测 | [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/) |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
@@ -55,9 +55,9 @@
 
 ### 008 · Pi Web
 
-[![Pi Web 完整理解：浏览器与 Pi 引擎的分工、Codex 对比意义、六类能力与扩展边界](projects/008-pi-web/assets/research-overview.png)](projects/008-pi-web/notes/01-understanding.md)
+[![Pi Web 外部引导：编程与工作区能力、Codex等同类产品、开源研究与个人开发用途](projects/008-pi-web/assets/entry-guide.png)](projects/008-pi-web/README.md)
 
-理解浏览器编程工作台如何把 Pi 引擎、模型与工具组织在一起，并通过 Codex 桌面体验的类比分清界面与执行能力；相似工作方式不代表同一后端或效果等同。图源：依据固定源码、OpenAI 官方资料与本次讨论原创整理，非产品截图；上游运行与效果对比未实测。[完整理解](projects/008-pi-web/notes/01-understanding.md) · [放大总览图](projects/008-pi-web/assets/research-overview.svg) · [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/) · [展示说明](projects/008-pi-web/web/README.md)
+Pi Web 提供可自托管的浏览器 AI 编程工作台，把代码操作、任务会话、文件预览与模型配置放在一起。同类参照为 Codex、Claude Code、Cursor Agent；对当前工作可用于研究 GitHub 项目、组织个人开发，并借鉴其工作台与扩展设计自建领域助手。图源：依据固定源码与同类产品官方文档原创整理，非产品截图；用途为研究判断，未做效果对测。[项目资料](projects/008-pi-web/README.md) · [放大引导图](projects/008-pi-web/assets/entry-guide.svg) · [完整理解](projects/008-pi-web/notes/01-understanding.md) · [技术总览](projects/008-pi-web/assets/research-overview.svg) · [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/)
 
 ## 仓库导航
 

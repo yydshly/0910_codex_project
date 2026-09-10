@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1370" viewBox="0 0 1800 1370" role="img" aria-labelledby="title desc"><title id="title">Pi Web 阅读引导：能力、同类产品与使用价值</title><desc id="desc">基于 Pi 的自托管浏览器编程工作台。提供项目操作、工作区与扩展管理；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具。可用于开源项目研究、个人开发和领域助手二次开发。</desc><rect width="1800" height="1370" fill="#f5f3ed"/>
+<text x="70" y="63" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#61675e">008 / PROJECT GUIDE</text>
+<text x="70" y="142" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="54" font-weight="700" fill="#232820">Pi Web：浏览器里的 AI 编程工作台</text>
+<text x="70" y="201" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#b54425">基于 Pi SDK，可自托管；把任务执行、项目文件与模型配置放在一起。</text>
+<text x="70" y="283" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700" fill="#232820">01  这个库能做什么</text>
+<rect x="70" y="310" width="530" height="175" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="95" y="360" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#232820">操作项目</text>
+<text x="95" y="409" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#232820">阅读与修改代码、执行命令</text>
+<text x="95" y="452" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#61675e">查看工具输出，继续调整任务</text>
+<rect x="635" y="310" width="530" height="175" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="660" y="360" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#232820">管理工作区</text>
+<text x="660" y="409" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#232820">会话恢复与分支、文件预览</text>
+<text x="660" y="452" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#61675e">Git 差异、worktree 与网页终端</text>
+<rect x="1200" y="310" width="530" height="175" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="1225" y="360" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#232820">配置与扩展</text>
+<text x="1225" y="409" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#232820">模型、插件包与 Skills 管理</text>
+<text x="1225" y="452" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#61675e">可选子智能体委派（默认关闭）</text>
+<rect x="70" y="514" width="1660" height="85" rx="16" fill="#dfe7d8" stroke="#d6d9ce" stroke-width="2"/>
+<text x="101" y="564" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#232820">运行关系：浏览器界面  →  Pi Web 服务端（内嵌 Pi 引擎）  →  模型与项目工具</text>
+<text x="70" y="668" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700" fill="#232820">02  同类产品：Codex · Claude Code · Cursor Agent</text>
+<text x="90" y="722" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#232820">共同使用方式：描述需求，让智能体读取、修改项目并执行命令，再检查结果。</text>
+<text x="90" y="768" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#232820">Pi Web 的可研究特点：基于 Pi 的开源 Web 应用，可复用其工作台与扩展组织方式。</text>
+<text x="90" y="811" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#61675e">界面形态与运行体系各有差异；同属一类工具，不表示同一后端或效果相等。</text>
+<text x="70" y="890" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700" fill="#232820">03  对当前研究与开发工作的意义</text>
+<rect x="70" y="925" width="530" height="180" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="95" y="975" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#232820">研究 GitHub 项目</text>
+<text x="95" y="1023" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#232820">在项目上下文中读源码、整理笔记</text>
+<text x="95" y="1071" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#61675e">复查来源、文件和研究结论</text>
+<rect x="635" y="925" width="530" height="180" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="660" y="975" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#232820">组织个人开发</text>
+<text x="660" y="1023" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#232820">集中查看多个项目的对话与产物</text>
+<text x="660" y="1071" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#61675e">比较方案，检查代码差异</text>
+<rect x="1200" y="925" width="530" height="180" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="1225" y="975" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#232820">自建领域助手</text>
+<text x="1225" y="1023" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#232820">借鉴会话、事件展示与配置设计</text>
+<text x="1225" y="1071" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#61675e">用 Skills 和工具接入自己的流程</text>
+<text x="90" y="1163" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#232820">使用判断：需要自托管、浏览器操作或二次开发时值得进一步验证；已有工具满足需求时不必迁移。</text>
+<text x="90" y="1217" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#b54425">继续阅读：项目资料 → 完整理解 → 技术总览 → 三个任务流程演示</text>
+<text x="70" y="1281" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#61675e">原创引导图，非产品截图。依据 Pi Web b1a7296 与同类产品官方文档，核对日期 2026-09-10。</text>
+<text x="70" y="1324" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#61675e">用途为基于能力的研究判断；未运行上游、未进行跨产品效果对测。完整来源见子项目研究笔记。</text>
+</svg>

@@ -22,7 +22,8 @@ for(const image of page.matchAll(/<img\b[^>]*>/g)) assert.match(image[0],/alt="[
 }
 const report = await readFile(join(output,'understanding.html'),'utf8');
 for(const claim of ['我们最终确认的理解与 Codex 对比','比较的意义','证据索引','https://learn.chatgpt.com/docs/codex/cli']) assert.ok(report.includes(claim),`Missing research content: ${claim}`);
-for(const asset of ['research-overview.png','research-overview.svg','upstream-workspace.png']) await access(join(output,'assets',asset));
+for(const asset of ['entry-guide.png','entry-guide.svg','research-overview.png','research-overview.svg','upstream-workspace.png']) await access(join(output,'assets',asset));
+for(const phrase of ['同类产品与对我的意义','Claude Code','Cursor Agent','个人开发管理']) assert.ok(report.includes(phrase),`Missing product positioning: ${phrase}`);
 for(const id of ['coding','research','agents']) { assert.ok(scenarios[id]); assert.equal(scenarios[id].steps.length,5); for(const step of scenarios[id].steps) assert.ok(step.length===5 && step.every(value=>typeof value==='string' && value.length>0)); }
 for(const file of ['public/app.mjs','dist/app.mjs','scripts/build.mjs','scripts/serve.mjs','scripts/render-report.mjs']) execFileSync(process.execPath,['--check',join(web,file)]);
 async function checkDocs(dir) { for(const item of await readdir(dir,{withFileTypes:true})) { if(['dist','public'].includes(item.name)) continue;const path=join(dir,item.name);if(item.isDirectory()) {await checkDocs(path);continue;}if(!path.endsWith('.md')) continue;for(const m of (await readFile(path,'utf8')).matchAll(/\]\(([^)]+)\)/g)){if(/^(https?:|#)/.test(m[1])) continue;await access(resolve(dirname(path),m[1].split('#')[0]));} } }
