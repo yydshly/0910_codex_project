@@ -17,7 +17,7 @@
 | 009 · YC AI Research | [网页能力、更新情况与研究价值](https://yydshly.github.io/0910_codex_project/009-yc-ai-research/) |
 | 010 · Awesome OSINT Arsenal | [工具查找、安装说明与完整理解](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 | 011 · Luvus | [任务管理与 Agent 适配](https://yydshly.github.io/0910_codex_project/011-luvus/) · [完整理解](https://yydshly.github.io/0910_codex_project/011-luvus/understanding.html) · [详细架构](https://yydshly.github.io/0910_codex_project/011-luvus/architecture.html) |
-| 012 · Crypto 101 | [中文学习地图](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [从目标开始](https://yydshly.github.io/0910_codex_project/012-crypto101-book/foreword.html) · [来源与内容缺口](https://yydshly.github.io/0910_codex_project/012-crypto101-book/sources.html) |
+| 012 · Crypto 101 | [中文学习地图](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [关键知识清单](https://yydshly.github.io/0910_codex_project/012-crypto101-book/knowledge.html) · [从目标开始](https://yydshly.github.io/0910_codex_project/012-crypto101-book/foreword.html) · [来源与内容缺口](https://yydshly.github.io/0910_codex_project/012-crypto101-book/sources.html) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -58,6 +58,16 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Crypto 101 关键知识查漏更新
+
+- 日期：2026-09-10；沿用 GitHub Pages。
+- 发布源码：`6bcfa51e8b5d01308080851ed5f8c848685e20fd`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34460455886)。
+- 21 个页面，新增 52 项关键点：44 项必会、8 项进阶；42 项原书提炼、10 项外部补学。逐点提供核心结论、误区、掌握标准、检查题和来源；包含五个串联场景。
+- 支持个人状态、待学筛选、复习记录导出与待学引导语；保留原章节笔记和进度。清单帮助发现应用密码学主线缺口，不代表完整覆盖整个领域。
+- 数据、来源行号、章节对应、跨章状态保留、筛选与旧进度隔离检查通过；本项目 967 处引用、全站 1481 处引用检查通过。
+- 线上源码版本一致；40 个项目文件全部 HTTP 200，换行规范化后内容一致，关键内容类型正确；11 个展示入口访问通过。
+- 未执行浏览器真实点击、截图或视觉回归，未验证教学效果或复现上游实验。详见[关键知识整理记录](../projects/012-crypto101-book/notes/05-key-knowledge.md)。
 
 ### Crypto 101 中文学习指南
 
