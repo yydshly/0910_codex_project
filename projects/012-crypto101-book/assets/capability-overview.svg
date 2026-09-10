@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="880" viewBox="0 0 1280 880" role="img" aria-labelledby="title desc">
+<title id="title">Crypto 101 能力概览</title><desc id="desc">基础组件、漏洞案例、完整系统组成学习路径。书稿可编辑并提供 HTML、PDF、EPUB 构建目标；部分内容未完成，上游构建和实验未实测。</desc>
+<rect width="1280" height="880" fill="#101d32"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="56" y="58" fill="#7dd3fc" font-size="18" letter-spacing="2">012 / CRYPTO 101</text>
+<text x="56" y="120" fill="#ffffff" font-size="42" font-weight="700">理解密码学组件，读懂完整系统</text>
+<text x="56" y="166" fill="#c7d5e8" font-size="22">面向程序员的入门书源码 · 从失败案例理解安全设计为什么必要</text>
+<rect x="56" y="212" width="364" height="306" rx="12" fill="#1d304c" stroke="#40536d"/>
+<text x="80" y="252" fill="#7dd3fc" font-size="18">01</text>
+<text x="80" y="294" fill="#fff" font-size="29" font-weight="700">基础组件</text>
+<text x="80" y="331" fill="#b9cae2" font-size="19">认识每一种工具的职责</text>
+<text x="80" y="379" fill="#fff" font-size="19">加密：XOR / AES / 流密码</text><text x="80" y="415" fill="#fff" font-size="19">摘要与认证：哈希 / MAC / 签名</text><text x="80" y="451" fill="#fff" font-size="19">密钥：交换 / 派生 / 随机数</text>
+<text x="80" y="491" fill="#7dd3fc" font-size="18">回答：各组件解决什么问题？</text><rect x="458" y="212" width="364" height="306" rx="12" fill="#1d304c" stroke="#40536d"/>
+<text x="482" y="252" fill="#7dd3fc" font-size="18">02</text>
+<text x="482" y="294" fill="#fff" font-size="29" font-weight="700">漏洞案例</text>
+<text x="482" y="331" fill="#b9cae2" font-size="19">观察错误设计怎样失效</text>
+<text x="482" y="379" fill="#fff" font-size="19">ECB：重复结构泄漏</text><text x="482" y="415" fill="#fff" font-size="19">位翻转：密文能被篡改</text><text x="482" y="451" fill="#fff" font-size="19">长度扩展与随机数问题</text>
+<text x="482" y="491" fill="#7dd3fc" font-size="18">回答：方案还缺哪种保护？</text><rect x="860" y="212" width="364" height="306" rx="12" fill="#1d304c" stroke="#40536d"/>
+<text x="884" y="252" fill="#7dd3fc" font-size="18">03</text>
+<text x="884" y="294" fill="#fff" font-size="29" font-weight="700">完整系统</text>
+<text x="884" y="331" fill="#b9cae2" font-size="19">把组件放回实际协议</text>
+<text x="884" y="379" fill="#fff" font-size="19">SSL / TLS：连接与信任</text><text x="884" y="415" fill="#fff" font-size="19">OpenPGP / GPG：信任网</text><text x="884" y="451" fill="#fff" font-size="19">OTR：消息系统案例</text>
+<text x="884" y="491" fill="#7dd3fc" font-size="18">回答：组件怎样协作？</text><g fill="#7dd3fc"><path d="M430 350h15l-5-5 3-3 10 10-10 10-3-3 5-5h-15z"/><path d="M832 350h15l-5-5 3-3 10 10-10 10-3-3 5-5h-15z"/></g>
+<rect x="56" y="548" width="1168" height="108" rx="12" fill="#173d4d" stroke="#32697a"/>
+<text x="80" y="587" fill="#8ee4df" font-size="24" font-weight="700">书稿工程</text>
+<text x="80" y="627" fill="#fff" font-size="21">章节 / 插图 / 引用 → Sphinx + Make → HTML / PDF / EPUB 构建目标</text>
+<text x="56" y="708" fill="#f6c875" font-size="22" font-weight="700">使用边界</text>
+<text x="56" y="746" fill="#d1ddec" font-size="20">部分章节仍有 TODO；语言参数不代表已有中文译本；构建与漏洞实验未实测。</text>
+<text x="56" y="787" fill="#d1ddec" font-size="20">适合基础学习与教学参考；实际工程使用需另外核对当前实现与规范。</text>
+<text x="56" y="844" fill="#a6bad4" font-size="16">来源：Crypto 101 / Laurens Van Houtven 及贡献者 · fdd5dbb · 研究原创图 · 2026-09-10</text>
+</g></svg>

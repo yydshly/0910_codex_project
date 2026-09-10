@@ -56,5 +56,12 @@
     "description": "Luvus 是多 Agent 终端工作台，统一接入 Claude Code、Codex、Pi 等编程助手，支持任务下发与依赖管理、会话恢复、状态跟踪、并行工作目录协调、检查命令和分支整合，并提供远程接入、定时任务与模块扩展。",
     "preview": "assets/entry-guide.svg",
     "previewAlt": "Luvus 的任务管理与 Agent 适配连接已有助手，具体工作由助手自己的模型与工具完成"
+  },
+  {
+    "directory": "012-crypto101-book",
+    "title": "Crypto 101 · 密码学学习指南",
+    "description": "面向程序员的密码学入门书导读，覆盖全部章节标题、术语与参考入口，按目标、概念、案例和自检逐步学习，记录疑问并继续引导。",
+    "preview": "assets/capability-overview.svg",
+    "previewAlt": "从基础组件和漏洞案例走向完整系统，区分书稿构建与实际验证"
   }
 ]

@@ -1,0 +1,6 @@
+export const storageKey='crypto101-guide-v1';
+export function normalize(value,ids){const valid=new Set(ids),v=value&&typeof value==='object'?value:{};return {done:[...new Set(Array.isArray(v.done)?v.done.filter(x=>valid.has(x)):[])],notes:Object.fromEntries(Object.entries(v.notes&&typeof v.notes==='object'?v.notes:{}).filter(([k,val])=>valid.has(k)&&typeof val==='string').map(([k,val])=>[k,val.slice(0,12000)]))};}
+export function toggleDone(state,id){return {...state,done:state.done.includes(id)?state.done.filter(x=>x!==id):[...state.done,id]};}
+export function xorDemo(a,k){if(!/^[01]{8}$/.test(a)||!/^[01]{8}$/.test(k))throw new Error('请分别输入 8 位二进制数。');const enc=(parseInt(a,2)^parseInt(k,2)).toString(2).padStart(8,'0');return {enc,back:(parseInt(enc,2)^parseInt(k,2)).toString(2).padStart(8,'0')};}
+export function modPow(base,exp,mod){let b=BigInt(base),e=BigInt(exp),m=BigInt(mod),r=1n;while(e>0n){if(e&1n)r=r*b%m;b=b*b%m;e>>=1n;}return r%m;}
+export function dhDemo(a,b){if(!Number.isInteger(a)||!Number.isInteger(b)||a<1||b<1||a>20||b>20)throw new Error('秘密数请填 1 到 20 的整数。');const A=modPow(5,a,23),B=modPow(5,b,23);return {A:String(A),B:String(B),alice:String(modPow(B,a,23)),bob:String(modPow(A,b,23))};}

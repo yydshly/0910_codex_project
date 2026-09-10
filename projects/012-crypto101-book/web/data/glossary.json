@@ -1,0 +1,230 @@
+[
+  {
+    "term": "AEAD",
+    "guide": "认证加密并保护关联数据；可见头部也可纳入认证。"
+  },
+  {
+    "term": "AES",
+    "guide": "高级加密标准，处理固定长度的数据块。"
+  },
+  {
+    "term": "AKE",
+    "guide": "认证密钥交换，将建立秘密与身份认证结合。"
+  },
+  {
+    "term": "ARX",
+    "guide": "加法、旋转、异或组成的一类运算结构。"
+  },
+  {
+    "term": "BEAST",
+    "guide": "针对历史 SSL/TLS 使用情境的攻击名称。"
+  },
+  {
+    "term": "CBC",
+    "guide": "密码块链接模式，用前一密文块参与当前块处理。"
+  },
+  {
+    "term": "CDN",
+    "guide": "内容分发网络，与密码算法本身属于不同层次。"
+  },
+  {
+    "term": "CSPRNG",
+    "guide": "密码学安全伪随机数生成器，关注不可预测性。"
+  },
+  {
+    "term": "CSRF",
+    "guide": "跨站请求伪造，与密码学攻击不是同一分类。"
+  },
+  {
+    "term": "DES",
+    "guide": "数据加密标准，原书作为历史分组密码介绍。"
+  },
+  {
+    "term": "FIPS",
+    "guide": "美国联邦信息处理标准系列。"
+  },
+  {
+    "term": "GCM",
+    "guide": "结合计数器加密与认证机制的模式。"
+  },
+  {
+    "term": "HKDF",
+    "guide": "基于 HMAC 的提取与扩展型密钥派生。"
+  },
+  {
+    "term": "HMAC",
+    "guide": "通过规定的内外两层构造生成消息认证码。"
+  },
+  {
+    "term": "HSTS",
+    "guide": "HTTP 严格传输安全策略，约束浏览器使用 HTTPS。"
+  },
+  {
+    "term": "IV",
+    "guide": "初始化向量；要求依赖具体模式，不能与 nonce 通用互换。"
+  },
+  {
+    "term": "KDF",
+    "guide": "密钥派生函数，具体任务依输入和用途而不同。"
+  },
+  {
+    "term": "MAC",
+    "guide": "消息认证码，依靠共享秘密检测消息伪造或修改。"
+  },
+  {
+    "term": "MITM",
+    "guide": "中间人，在通信路径上分别与双方交互或干扰。"
+  },
+  {
+    "term": "OCB",
+    "guide": "一种认证加密模式；历史许可描述需要另行核对。"
+  },
+  {
+    "term": "OTR",
+    "guide": "Off-the-Record 消息协议相关缩写。"
+  },
+  {
+    "term": "PRF",
+    "guide": "伪随机函数，用密钥选择一个难以和随机函数区分的函数。"
+  },
+  {
+    "term": "PRNG",
+    "guide": "伪随机数生成器；并非都适合密码学用途。"
+  },
+  {
+    "term": "PRP",
+    "guide": "伪随机置换，兼有可逆映射结构与相应不可区分目标。"
+  },
+  {
+    "term": "RSA",
+    "guide": "公钥机制相关算法体系，数学原语仍需合适编码方案。"
+  },
+  {
+    "term": "SMP",
+    "guide": "社会主义百万富翁协议，用于比较秘密等相关任务；本书术语入口。"
+  },
+  {
+    "term": "secret-key encryption",
+    "guide": "秘密密钥加密，也称对称加密，加解密依赖共享秘密。"
+  },
+  {
+    "term": "symmetric-key encryption",
+    "guide": "对称密钥加密，与 secret-key encryption 为同义入口。"
+  },
+  {
+    "term": "keyspace",
+    "guide": "密钥空间，即算法允许的所有可能密钥。"
+  },
+  {
+    "term": "block cipher",
+    "guide": "分组密码，在固定密钥下处理固定大小的数据块。"
+  },
+  {
+    "term": "substitution-permutation network",
+    "guide": "替换—置换网络，通过替换和混合多轮组织分组密码。"
+  },
+  {
+    "term": "stream cipher",
+    "guide": "流密码，生成密钥流等材料来处理连续消息。"
+  },
+  {
+    "term": "mode of operation",
+    "guide": "工作模式，定义如何用分组密码处理更长消息。"
+  },
+  {
+    "term": "modes of operation",
+    "guide": "工作模式的复数入口。"
+  },
+  {
+    "term": "ECB mode",
+    "guide": "各块独立加密，相同明文块对应相同密文块。"
+  },
+  {
+    "term": "CBC mode",
+    "guide": "当前块与前一密文块关联，首块使用 IV。"
+  },
+  {
+    "term": "initialization vector",
+    "guide": "初始化向量；例如 CBC 需要满足相应不可预测性要求。"
+  },
+  {
+    "term": "CTR mode",
+    "guide": "计数器模式，通过 nonce 与计数器生成密钥流。"
+  },
+  {
+    "term": "nonce",
+    "guide": "一次性使用值；唯一性要求需要结合密钥和协议范围。"
+  },
+  {
+    "term": "AEAD mode",
+    "guide": "同时提供认证加密并绑定关联数据的模式类别。"
+  },
+  {
+    "term": "OCB mode",
+    "guide": "OCB 认证加密模式，参考对应章节。"
+  },
+  {
+    "term": "GCM mode",
+    "guide": "GCM 认证加密模式，参考对应章节。"
+  },
+  {
+    "term": "message authentication code",
+    "guide": "消息认证码，也指用于校验的标签。"
+  },
+  {
+    "term": "one-time MAC",
+    "guide": "安全使用受单次条件约束的消息认证机制。"
+  },
+  {
+    "term": "Carter-Wegman MAC",
+    "guide": "把快速一次性认证等构造组合为可复用机制的一类方法。"
+  },
+  {
+    "term": "GMAC",
+    "guide": "GCM 中可独立用于消息认证的相关机制。"
+  },
+  {
+    "term": "salt",
+    "guide": "盐，区分不同记录或派生调用；通常不依赖保密来发挥作用，也不阻止所有猜测。"
+  },
+  {
+    "term": "public-key algorithm",
+    "guide": "使用相关但不同的一对密钥的算法。"
+  },
+  {
+    "term": "asymmetric-key algorithm",
+    "guide": "非对称密钥算法，同 public-key algorithm。"
+  },
+  {
+    "term": "public-key encryption",
+    "guide": "使用公钥加密、对应私钥解密的机制。"
+  },
+  {
+    "term": "asymmetric-key encryption",
+    "guide": "非对称加密，同 public-key encryption。"
+  },
+  {
+    "term": "key exchange",
+    "guide": "密钥交换，双方建立或获得共享密钥的过程。"
+  },
+  {
+    "term": "key agreement",
+    "guide": "密钥协商，各方共同参与建立共享秘密。"
+  },
+  {
+    "term": "oracle",
+    "guide": "提供某类结果或判断的可查询接口。"
+  },
+  {
+    "term": "encryption oracle",
+    "guide": "对输入返回加密结果的可查询接口，用于分析特定攻击条件。"
+  },
+  {
+    "term": "OTR messaging",
+    "guide": "讨论保密、认证与可否认性目标的消息系统。"
+  },
+  {
+    "term": "cross-site request forgery",
+    "guide": "利用用户既有身份状态诱发非预期网站请求的攻击类别。"
+  }
+]

@@ -1,0 +1,2051 @@
+{
+  "sha": "fdd5dbbb02ebf3ed316f66db2af62dbad4e39455",
+  "chapters": [
+    {
+      "id": "foreword",
+      "sections": [
+        {
+          "title": "Foreword",
+          "line": 1,
+          "level": "=",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "About this book",
+          "line": 4,
+          "level": "-",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Advanced sections",
+          "line": 55,
+          "level": "-",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Development",
+          "line": 79,
+          "level": "-",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Acknowledgments",
+          "line": 95,
+          "level": "-",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "exclusive-or",
+      "sections": [
+        {
+          "title": "Exclusive or",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 4,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "A few properties of XOR",
+          "line": 42,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Bitwise XOR",
+          "line": 83,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "One-time pads",
+          "line": 117,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Attacks on “one-time pads”",
+          "line": 165,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Not using truly random data",
+          "line": 180,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Reusing the “one-time” pad",
+          "line": 191,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Crib-dragging",
+          "line": 262,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Remaining problems",
+          "line": 370,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "block-ciphers",
+      "sections": [
+        {
+          "title": "Block ciphers",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 12,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "AES",
+          "line": 157,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "A closer look at Rijndael",
+          "line": 212,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Key schedule",
+          "line": 221,
+          "level": "'",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "SubBytes",
+          "line": 236,
+          "level": "'",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "ShiftRows",
+          "line": 258,
+          "level": "'",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "MixColumns",
+          "line": 267,
+          "level": "'",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "AddRoundKey",
+          "line": 277,
+          "level": "'",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "DES and 3DES",
+          "line": 286,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Remaining problems",
+          "line": 361,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "stream-ciphers",
+      "sections": [
+        {
+          "title": "Stream ciphers",
+          "line": 3,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 8,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "A naive attempt with block ciphers",
+          "line": 18,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Visual inspection of an encrypted stream",
+          "line": 60,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Encryption oracle attack",
+          "line": 144,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Decrypting a block using the oracle",
+          "line": 195,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Conclusion",
+          "line": 252,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Block cipher modes of operation",
+          "line": 270,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "CBC mode",
+          "line": 287,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Attacks on CBC mode with predictable IVs",
+          "line": 324,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Attacks on CBC mode with the key as the IV",
+          "line": 384,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "CBC bit flipping attacks",
+          "line": 454,
+          "level": "~",
+          "todoLines": [
+            504
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Padding",
+          "line": 560,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Padding with zeroes (or some other pad byte)",
+          "line": 570,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "PKCS#5/PKCS#7 padding",
+          "line": 579,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "CBC padding attacks",
+          "line": 603,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Decrypting the first byte",
+          "line": 645,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Discovering the padding length",
+          "line": 675,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Decrypting one byte",
+          "line": 780,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Decrypting subsequent bytes",
+          "line": 804,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Native stream ciphers",
+          "line": 883,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "RC4",
+          "line": 927,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "An in-depth look at RC4",
+          "line": 949,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "The key scheduling algorithm",
+          "line": 982,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "The pseudorandom generator",
+          "line": 1028,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Attacks",
+          "line": 1060,
+          "level": "^",
+          "todoLines": [
+            1162,
+            1209
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Salsa20",
+          "line": 1225,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Native stream ciphers versus modes of operation",
+          "line": 1318,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "CTR mode",
+          "line": 1334,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Stream cipher bit flipping attacks",
+          "line": 1385,
+          "level": "~",
+          "todoLines": [
+            1404
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Authenticating modes of operation",
+          "line": 1410,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Remaining problems",
+          "line": 1419,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "key-exchange",
+      "sections": [
+        {
+          "title": "Key exchange",
+          "line": 3,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 8,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Abstract Diffie-Hellman",
+          "line": 39,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Diffie-Hellman with discrete logarithms",
+          "line": 125,
+          "level": "~",
+          "todoLines": [
+            188
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Diffie-Hellman with elliptic curves",
+          "line": 191,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Remaining problems",
+          "line": 246,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "public-key-encryption",
+      "sections": [
+        {
+          "title": "Public-key encryption",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 6,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Why not use public-key encryption for everything?",
+          "line": 40,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "RSA",
+          "line": 71,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Encryption and decryption",
+          "line": 78,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Breaking RSA",
+          "line": 120,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Implementation pitfalls",
+          "line": 152,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "PKCSv1.5 padding",
+          "line": 164,
+          "level": "'",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "Salt",
+          "line": 167,
+          "level": "'",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "OAEP",
+          "line": 190,
+          "level": "^",
+          "todoLines": [
+            232
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Elliptic curve cryptography",
+          "line": 254,
+          "level": "~",
+          "todoLines": [
+            257
+          ],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "Remaining problem: unauthenticated encryption",
+          "line": 259,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "hash-functions",
+      "sections": [
+        {
+          "title": "Hash functions",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 6,
+          "level": "~",
+          "todoLines": [
+            69
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "MD5",
+          "line": 73,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "SHA-1",
+          "line": 122,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "SHA-2",
+          "line": 146,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Attacks on SHA-2",
+          "line": 193,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Keccak and SHA-3",
+          "line": 203,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Password storage",
+          "line": 231,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Hash functions to the rescue",
+          "line": 250,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Rainbow tables",
+          "line": 264,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Salts",
+          "line": 294,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Modern attacks on weak password systems",
+          "line": 347,
+          "level": "^",
+          "todoLines": [
+            355
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "So where do we go from here?",
+          "line": 367,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Length extension attacks",
+          "line": 383,
+          "level": "~",
+          "todoLines": [
+            448
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Hash trees",
+          "line": 450,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Remaining issues",
+          "line": 475,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "message-authentication-codes",
+      "sections": [
+        {
+          "title": "Message authentication codes",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 6,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Secure MACs",
+          "line": 35,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Why does a MAC take a secret key?",
+          "line": 55,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Combining MAC and message",
+          "line": 89,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Authenticate-then-encrypt",
+          "line": 126,
+          "level": "^",
+          "todoLines": [
+            147
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Authenticate-and-encrypt",
+          "line": 150,
+          "level": "^",
+          "todoLines": [
+            161
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "A naive attempt with hash functions",
+          "line": 163,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Breaking prefix-MAC",
+          "line": 200,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Variants",
+          "line": 282,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "HMAC",
+          "line": 300,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "One-time MACs",
+          "line": 342,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Re-using :math:`a` and :math:`b`",
+          "line": 402,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Carter-Wegman MAC",
+          "line": 455,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Authenticated encryption modes",
+          "line": 506,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "AEAD",
+          "line": 528,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "OCB mode",
+          "line": 564,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "GCM mode",
+          "line": 616,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Authentication",
+          "line": 631,
+          "level": "^",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        }
+      ]
+    },
+    {
+      "id": "signature-algorithms",
+      "sections": [
+        {
+          "title": "Signature algorithms",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 6,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "RSA-based signatures",
+          "line": 30,
+          "level": "~",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "PKCS#1 v1.5",
+          "line": 33,
+          "level": "^",
+          "todoLines": [
+            36
+          ],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "PSS",
+          "line": 38,
+          "level": "^",
+          "todoLines": [
+            41
+          ],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "DSA",
+          "line": 43,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Parameter generation",
+          "line": 56,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Key generation",
+          "line": 79,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Signing a message",
+          "line": 88,
+          "level": "^",
+          "todoLines": [
+            109
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Verifying a signature",
+          "line": 111,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "The trouble with :math:`k`",
+          "line": 136,
+          "level": "^",
+          "todoLines": [
+            268
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "ECDSA",
+          "line": 271,
+          "level": "~",
+          "todoLines": [
+            274
+          ],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "Repudiable authenticators",
+          "line": 281,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "key-derivation-functions",
+      "sections": [
+        {
+          "title": "Key derivation functions",
+          "line": 3,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 8,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Password strength",
+          "line": 60,
+          "level": "~",
+          "todoLines": [
+            63
+          ],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "PBKDF2",
+          "line": 65,
+          "level": "~",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "bcrypt",
+          "line": 68,
+          "level": "~",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "scrypt",
+          "line": 71,
+          "level": "~",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "HKDF",
+          "line": 74,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "A closer look at HKDF",
+          "line": 95,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "The extraction phase",
+          "line": 106,
+          "level": "'",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "The expansion phase",
+          "line": 147,
+          "level": "'",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "random-number-generators",
+      "sections": [
+        {
+          "title": "Random number generators",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Introduction",
+          "line": 8,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "True random number generators",
+          "line": 27,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Radioactive decay",
+          "line": 59,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Shot noise",
+          "line": 69,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Nyquist noise",
+          "line": 77,
+          "level": "^",
+          "todoLines": [
+            121,
+            124
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Cryptographically secure pseudorandom generators",
+          "line": 126,
+          "level": "~",
+          "todoLines": [
+            149
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Yarrow",
+          "line": 158,
+          "level": "~",
+          "todoLines": [
+            167
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Blum Blum Shub",
+          "line": 174,
+          "level": "~",
+          "todoLines": [
+            177
+          ],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "``Dual_EC_DRBG``",
+          "line": 180,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Background",
+          "line": 202,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "A quick overview of the algorithm",
+          "line": 264,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Issues and question marks",
+          "line": 310,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Aftermath",
+          "line": 442,
+          "level": "^",
+          "todoLines": [
+            445
+          ],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "Mersenne Twister",
+          "line": 447,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "An in-depth look at the Mersenne Twister",
+          "line": 460,
+          "level": "^",
+          "todoLines": [
+            492
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "The initialization function",
+          "line": 499,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "The state regeneration function",
+          "line": 538,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "The tempering function",
+          "line": 573,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Cryptographic security",
+          "line": 649,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "ssl-and-tls",
+      "sections": [
+        {
+          "title": "SSL and TLS",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 6,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Handshakes",
+          "line": 43,
+          "level": "~",
+          "todoLines": [
+            46
+          ],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "Downgrade attacks",
+          "line": 48,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Certificate authorities",
+          "line": 68,
+          "level": "~",
+          "todoLines": [
+            103
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Self-signed certificates",
+          "line": 105,
+          "level": "~",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "Client certificates",
+          "line": 108,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Perfect forward secrecy",
+          "line": 135,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Attacks",
+          "line": 179,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "CRIME and BREACH",
+          "line": 193,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "HSTS",
+          "line": 317,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Certificate pinning",
+          "line": 367,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Secure configurations",
+          "line": 384,
+          "level": "~",
+          "todoLines": [
+            421,
+            423
+          ],
+          "status": "原文含待补项"
+        }
+      ]
+    },
+    {
+      "id": "openpgp-and-gpg",
+      "sections": [
+        {
+          "title": "OpenPGP and GPG",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 6,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "The web of trust",
+          "line": 32,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        }
+      ]
+    },
+    {
+      "id": "off-the-record-messaging",
+      "sections": [
+        {
+          "title": "Off-The-Record Messaging (OTR)",
+          "line": 1,
+          "level": "-",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Description",
+          "line": 6,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Key exchange",
+          "line": 58,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Commit message",
+          "line": 80,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Key message",
+          "line": 96,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Reveal Signature Message",
+          "line": 104,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Signature Message",
+          "line": 139,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Authenticating Alice",
+          "line": 168,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "What have we accomplished?",
+          "line": 182,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Data exchange",
+          "line": 196,
+          "level": "~",
+          "todoLines": [
+            199
+          ],
+          "status": "仅标题、引用或待补说明"
+        }
+      ]
+    },
+    {
+      "id": "appendices",
+      "sections": [
+        {
+          "title": "Appendices",
+          "line": 1,
+          "level": "=",
+          "todoLines": [],
+          "status": "章节入口"
+        },
+        {
+          "title": "Modular arithmetic",
+          "line": 10,
+          "level": "-",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Addition and subtraction",
+          "line": 34,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Prime numbers",
+          "line": 106,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Multiplication",
+          "line": 153,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Division and modular inverses",
+          "line": 168,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "The extended Euclidean algorithm",
+          "line": 191,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Using Euler's theorem",
+          "line": 235,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Exponentiation",
+          "line": 280,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Exponentiation by squaring",
+          "line": 320,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Montgomery ladder exponentiation",
+          "line": 397,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Deriving the ladder",
+          "line": 413,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Implementing the Montgomery ladder in Python",
+          "line": 573,
+          "level": "^",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Discrete logarithm",
+          "line": 608,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Multiplicative order",
+          "line": 671,
+          "level": "~",
+          "todoLines": [],
+          "status": "原文有讲解"
+        },
+        {
+          "title": "Elliptic curves",
+          "line": 681,
+          "level": "-",
+          "todoLines": [
+            706,
+            752
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "The elliptic curve discrete log problem",
+          "line": 756,
+          "level": "~",
+          "todoLines": [
+            759
+          ],
+          "status": "原文含待补项"
+        },
+        {
+          "title": "Side-channel attacks",
+          "line": 771,
+          "level": "-",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "Timing attacks",
+          "line": 774,
+          "level": "~",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "AES cache timing",
+          "line": 777,
+          "level": "^",
+          "todoLines": [],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "Elliptic curve timing attacks",
+          "line": 782,
+          "level": "^",
+          "todoLines": [
+            785
+          ],
+          "status": "仅标题、引用或待补说明"
+        },
+        {
+          "title": "Power measurement attacks",
+          "line": 787,
+          "level": "~",
+          "todoLines": [
+            790
+          ],
+          "status": "仅标题、引用或待补说明"
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "sections": [
+        {
+          "title": "Glossary",
+          "line": 1,
+          "level": "=",
+          "todoLines": [],
+          "status": "章节入口"
+        }
+      ]
+    },
+    {
+      "id": "zreferences",
+      "sections": [
+        {
+          "title": "References",
+          "line": 1,
+          "level": "=",
+          "todoLines": [],
+          "status": "章节入口"
+        }
+      ]
+    }
+  ],
+  "terms": [
+    {
+      "term": "AEAD",
+      "line": 7
+    },
+    {
+      "term": "AES",
+      "line": 10
+    },
+    {
+      "term": "AKE",
+      "line": 13
+    },
+    {
+      "term": "ARX",
+      "line": 16
+    },
+    {
+      "term": "BEAST",
+      "line": 19
+    },
+    {
+      "term": "CBC",
+      "line": 22
+    },
+    {
+      "term": "CDN",
+      "line": 25
+    },
+    {
+      "term": "CSPRNG",
+      "line": 28
+    },
+    {
+      "term": "CSRF",
+      "line": 31
+    },
+    {
+      "term": "DES",
+      "line": 34
+    },
+    {
+      "term": "FIPS",
+      "line": 37
+    },
+    {
+      "term": "GCM",
+      "line": 40
+    },
+    {
+      "term": "HKDF",
+      "line": 43
+    },
+    {
+      "term": "HMAC",
+      "line": 46
+    },
+    {
+      "term": "HSTS",
+      "line": 49
+    },
+    {
+      "term": "IV",
+      "line": 52
+    },
+    {
+      "term": "KDF",
+      "line": 55
+    },
+    {
+      "term": "MAC",
+      "line": 58
+    },
+    {
+      "term": "MITM",
+      "line": 61
+    },
+    {
+      "term": "OCB",
+      "line": 64
+    },
+    {
+      "term": "OTR",
+      "line": 67
+    },
+    {
+      "term": "PRF",
+      "line": 70
+    },
+    {
+      "term": "PRNG",
+      "line": 73
+    },
+    {
+      "term": "PRP",
+      "line": 76
+    },
+    {
+      "term": "RSA",
+      "line": 79
+    },
+    {
+      "term": "SMP",
+      "line": 82
+    },
+    {
+      "term": "secret-key encryption",
+      "line": 85
+    },
+    {
+      "term": "symmetric-key encryption",
+      "line": 89
+    },
+    {
+      "term": "keyspace",
+      "line": 92
+    },
+    {
+      "term": "block cipher",
+      "line": 95
+    },
+    {
+      "term": "substitution-permutation network",
+      "line": 98
+    },
+    {
+      "term": "stream cipher",
+      "line": 102
+    },
+    {
+      "term": "mode of operation",
+      "line": 105
+    },
+    {
+      "term": "modes of operation",
+      "line": 106
+    },
+    {
+      "term": "ECB mode",
+      "line": 110
+    },
+    {
+      "term": "CBC mode",
+      "line": 116
+    },
+    {
+      "term": "initialization vector",
+      "line": 122
+    },
+    {
+      "term": "CTR mode",
+      "line": 127
+    },
+    {
+      "term": "nonce",
+      "line": 131
+    },
+    {
+      "term": "AEAD mode",
+      "line": 136
+    },
+    {
+      "term": "OCB mode",
+      "line": 141
+    },
+    {
+      "term": "GCM mode",
+      "line": 145
+    },
+    {
+      "term": "message authentication code",
+      "line": 149
+    },
+    {
+      "term": "one-time MAC",
+      "line": 153
+    },
+    {
+      "term": "Carter-Wegman MAC",
+      "line": 157
+    },
+    {
+      "term": "GMAC",
+      "line": 161
+    },
+    {
+      "term": "salt",
+      "line": 164
+    },
+    {
+      "term": "public-key algorithm",
+      "line": 172
+    },
+    {
+      "term": "asymmetric-key algorithm",
+      "line": 178
+    },
+    {
+      "term": "public-key encryption",
+      "line": 181
+    },
+    {
+      "term": "asymmetric-key encryption",
+      "line": 186
+    },
+    {
+      "term": "key exchange",
+      "line": 190
+    },
+    {
+      "term": "key agreement",
+      "line": 195
+    },
+    {
+      "term": "oracle",
+      "line": 198
+    },
+    {
+      "term": "encryption oracle",
+      "line": 201
+    },
+    {
+      "term": "OTR messaging",
+      "line": 204
+    },
+    {
+      "term": "cross-site request forgery",
+      "line": 209
+    }
+  ],
+  "references": [
+    {
+      "kind": "misc",
+      "key": "cryptoeprint:2009:317",
+      "line": 1
+    },
+    {
+      "kind": "misc",
+      "key": "cryptoeprint:2009:374",
+      "line": 8
+    },
+    {
+      "kind": "misc",
+      "key": "salsa20:speed",
+      "line": 15
+    },
+    {
+      "kind": "misc",
+      "key": "cryptopp:bench",
+      "line": 20
+    },
+    {
+      "kind": "misc",
+      "key": "krawczyk:order",
+      "line": 25
+    },
+    {
+      "kind": "misc",
+      "key": "moxie:doom",
+      "line": 32
+    },
+    {
+      "kind": "misc",
+      "key": "vaudenay:cbcpadding",
+      "line": 41
+    },
+    {
+      "kind": "misc",
+      "key": "cms:padding",
+      "line": 55
+    },
+    {
+      "kind": "misc",
+      "key": "turner:prohibitssl20",
+      "line": 60
+    },
+    {
+      "kind": "misc",
+      "key": "tls12",
+      "line": 65
+    },
+    {
+      "kind": "misc",
+      "key": "rfc3749:tlscompression",
+      "line": 70
+    },
+    {
+      "kind": "article",
+      "key": "boneh:twentyyears",
+      "line": 75
+    },
+    {
+      "kind": "inproceedings",
+      "key": "anderson:mindingyourpsandqs",
+      "line": 84
+    },
+    {
+      "kind": "misc",
+      "key": "rsa:keysizes",
+      "line": 93
+    },
+    {
+      "kind": "misc",
+      "key": "nist:keymanagement",
+      "line": 99
+    },
+    {
+      "kind": "inproceedings",
+      "key": "mason:nltwotimepads",
+      "line": 104
+    },
+    {
+      "kind": "misc",
+      "key": "ecdrbg1",
+      "line": 127
+    },
+    {
+      "kind": "misc",
+      "key": "ecdrbg2",
+      "line": 133
+    },
+    {
+      "kind": "misc",
+      "key": "sciengines:breakdes",
+      "line": 140
+    },
+    {
+      "kind": "INPROCEEDINGS",
+      "key": "fms:rc4",
+      "line": 146
+    },
+    {
+      "kind": "article",
+      "key": "klein:rc4",
+      "line": 156
+    },
+    {
+      "kind": "article",
+      "key": "rhul:rc4",
+      "line": 174
+    },
+    {
+      "kind": "article",
+      "key": "bellarerogaway:oaep",
+      "line": 181
+    },
+    {
+      "kind": "article",
+      "key": "nguyen:dsa",
+      "line": 190
+    },
+    {
+      "kind": "misc",
+      "key": "demulder:ecdsa",
+      "line": 199
+    },
+    {
+      "kind": "article",
+      "key": "borisov:otr",
+      "line": 206
+    },
+    {
+      "kind": "Book",
+      "key": "daemen:aes",
+      "line": 213
+    },
+    {
+      "kind": "misc",
+      "key": "fips:aes",
+      "line": 221
+    },
+    {
+      "kind": "misc",
+      "key": "hsts",
+      "line": 227
+    },
+    {
+      "kind": "misc",
+      "key": "rfc5869",
+      "line": 232
+    },
+    {
+      "kind": "misc",
+      "key": "hkdf",
+      "line": 237
+    },
+    {
+      "kind": "misc",
+      "key": "rfc4418",
+      "line": 244
+    },
+    {
+      "kind": "misc",
+      "key": "umac",
+      "line": 249
+    },
+    {
+      "kind": "misc",
+      "key": "ocb:license",
+      "line": 255
+    },
+    {
+      "kind": "misc",
+      "key": "gcm",
+      "line": 260
+    },
+    {
+      "kind": "misc",
+      "key": "hmac:proof2",
+      "line": 266
+    },
+    {
+      "kind": "misc",
+      "key": "montgomerypowerladder",
+      "line": 272
+    },
+    {
+      "kind": "misc",
+      "key": "bellare:maccomposition",
+      "line": 278
+    },
+    {
+      "kind": "misc",
+      "key": "schneier:ipsec",
+      "line": 284
+    },
+    {
+      "kind": "INPROCEEDINGS",
+      "key": "denboer:md5",
+      "line": 297
+    },
+    {
+      "kind": "misc",
+      "key": "cryptoeprint:2005:067",
+      "line": 311
+    },
+    {
+      "kind": "inproceedings",
+      "key": "eurocrypt-2009-23793",
+      "line": 318
+    },
+    {
+      "kind": "misc",
+      "key": "cryptoeprint:2015:967",
+      "line": 329
+    },
+    {
+      "kind": "misc",
+      "key": "eprint-2008-18172",
+      "line": 336
+    },
+    {
+      "kind": "misc",
+      "key": "SHA-3-finalists",
+      "line": 344
+    },
+    {
+      "kind": "misc",
+      "key": "SHA-3-hardware",
+      "line": 349
+    },
+    {
+      "kind": "misc",
+      "key": "Shattered",
+      "line": 354
+    }
+  ]
+}
