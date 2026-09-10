@@ -13,7 +13,7 @@
 <!-- PROJECT_INDEX_START -->
 | 编号 | 研究项目 | 原始仓库 | 摘要 | 状态 | 在线演示 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 001 | [System Prompts Leaks](projects/001-system-prompts-leaks/README.md) | [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 理解总稿、任务逻辑汇总图；Web 含 24 项解读与四条任务推进路径 | 研究与线上展示完成 | [打开演示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
+| 001 | [System Prompts Leaks](projects/001-system-prompts-leaks/README.md) | [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 汇集多款 AI 产品的系统提示词与工具说明，帮助我们理解 Agent 的行为规则、比较产品设计，并为自建助手的指令与工作流程提供参考 | 研究与线上展示完成 | [打开演示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
 | 002 | [Memmy Agent](projects/002-memmy-agent/README.md) | [MemTensor/memmy-agent](https://github.com/MemTensor/memmy-agent) | 为多个 AI Agent 提供共享长期记忆，支持历史采集、经验提炼与任务续接，并内置独立 Agent 执行环境 | 文档与远端展示完成；上游未实测 | [打开演示](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) |
 <!-- PROJECT_INDEX_END -->
 

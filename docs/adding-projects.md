@@ -25,10 +25,12 @@ Copy-Item -LiteralPath templates/project -Destination projects/001-example -Recu
 在根 README 的 `PROJECT_INDEX_START` 与 `PROJECT_INDEX_END` 之间添加一行，首次添加时移除“暂无项目”行：
 
 ```markdown
-| 001 | [项目名称](projects/001-example/README.md) | [owner/repository](https://github.com/owner/repository) | 一句话说明用途与研究重点 | 待研究 | — |
+| 001 | [项目名称](projects/001-example/README.md) | [owner/repository](https://github.com/owner/repository) | 原库提供什么能力，帮助我们解决什么问题或获得什么价值 | 待研究 | — |
 ```
 
 列顺序为：编号、研究项目、原始仓库、摘要、状态、在线演示。项目名称链接到本地研究说明，原始仓库列直接链接到上游仓库，并将示例中的 `owner/repository` 替换为真实地址。按编号升序排列。首页只放摘要，避免重复完整研究内容。
+
+摘要应介绍原库本身的核心能力、意义与对我们的使用价值，不用研究文档章节、图表数量或演示功能代替项目介绍。研究完成情况写入“状态”列，展示入口写入“在线演示”列；未经验证的效果不写成已实现的收益。
 
 ## 5. 添加图片与演示
 
