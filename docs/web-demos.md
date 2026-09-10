@@ -1,35 +1,56 @@
-# Web 演示约定
+# Web 演示部署与关联
 
-当前仅规划演示结构，尚未配置部署工作流或发布任何站点。各项目可以独立选用技术栈，并在自己的 `web/README.md` 中记录运行和部署方法。
+本仓库通过 GitHub Actions 统一构建并发布到 GitHub Pages。多个演示共享一个站点，各自保留独立子路径。
 
-## GitHub Pages 地址规划
+## 已上线入口
 
-GitHub Pages 托管静态 HTML、CSS 和 JavaScript，每个仓库最多对应一个 Pages 站点。多个静态演示可以组织在同一个站点的不同子路径中。
+| 入口 | 地址 |
+| :--- | :--- |
+| 演示导航首页 | [开源项目研究集](https://yydshly.github.io/0910_codex_project/) |
+| 001 · Agent 解剖室 | [能力拆解](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
+| Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
+| 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
-本仓库未来可采用以下路径，**这些是规划地址，尚未上线**：
+关联方式：仓库首页 → 演示导航或具体项目；演示导航 → 项目网页与 GitHub 研究目录；项目网页 → 六篇在线文档、研究仓库与上游来源；在线文档 → 项目网页及相关章节。GitHub 仓库 About 的网站地址指向演示导航首页。
 
-```text
-https://yydshly.github.io/0910_codex_project/
-├── 001-example/
-└── 002-another-project/
+## 自动发布
+
+配置见 [deploy-pages.yml](../.github/workflows/deploy-pages.yml)，[查看发布记录](https://github.com/yydshly/0910_codex_project/actions/workflows/deploy-pages.yml)。
+
+- Pages 发布源为 **GitHub Actions**；目标环境为 `github-pages`。
+- 主分支 `main` 的项目文件、构建脚本、演示清单或发布工作流变化会触发发布，也可以在 Actions 页面手动运行。
+- Node.js 24 构建，当前演示零第三方依赖，无需 API 密钥。
+- [演示清单](web-demos.json) 显式登记要上线的项目；未登记的目录不进入发布产物。
+- [统一构建脚本](../scripts/build-pages.mjs) 按编号构建已登记演示，汇总到根 `dist/`，生成导航首页及 `deployment.json` 版本记录。
+- [子路径检查](../scripts/check-pages.mjs) 检查链接、资源与文档返回入口，再上传单一产物整体发布，避免不同演示互相覆盖。
+- 根 `dist/`、各演示 `dist/` 和生成的文档副本均不提交到 Git。
+
+本地在仓库根目录运行：
+
+```powershell
+node scripts/build-pages.mjs
+node scripts/check-pages.mjs
 ```
 
-每个子路径沿用研究项目完整目录名。根路径将来可用作演示导航页，GitHub 仓库 README 继续作为研究总入口。
+这两个命令只构建和检查；推送相关更改到 `main` 后由 GitHub 发布。若构建或检查失败，工作流停止，既有线上站点保留。
 
-## 构建与发布原则
+## 新增演示
 
-1. 每个项目独立构建，记录其命令和产物目录。
-2. 发布时将所有已启用演示的静态产物汇总至一个发布目录，再整体部署到 Pages。
-3. 不让多个项目的部署各自覆盖同一个 Pages 站点；项目增多时维护统一发布流程。
-4. 静态资源及前端路由需适配 `/0910_codex_project/<项目目录>/` 前缀；验证图片、脚本、页面跳转与直接刷新。
-5. 首个真实演示完成后，再选定构建工具、创建发布工作流并启用 Pages。
+1. 在 `projects/<编号>-<英文名称>/web/` 独立维护页面及运行说明。
+2. 为演示提供 `scripts/check.mjs` 和 `scripts/build.mjs`；后者输出静态文件到该演示的 `dist/`。有独立依赖的项目须同时在工作流中增加对应安装步骤。
+3. 在 `docs/web-demos.json` 添加 `directory`、`title`、`description`；目录名使用正式项目完整名称。
+4. 资源使用相对路径。路由使用 hash，或提供实际 HTML 文件；不能假设 Pages 会将任意路径重写到首页。
+5. 运行统一构建与子路径检查，提交并推送，等待对应发布成功。
+6. 核对 `deployment.json` 的源码版本，实际访问演示、脚本、文档、下载与图片，验证后才在首页、项目说明及部署记录中加入真实网址。
 
-## 需要后端的项目
+GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
-GitHub Pages 不能运行常驻后端进程。此类项目需单独部署后端或整体部署到其他平台，在子项目文档记录服务依赖与访问地址；首页索引仍保留统一入口。
+## 首次上线记录
 
-## 上线记录
+- 日期：2026-09-10。
+- 首次成功部署源码：[`6624b3023c43a3c0a19ea4bda31d9af558bd1131`](https://github.com/yydshly/0910_codex_project/commit/6624b3023c43a3c0a19ea4bda31d9af558bd1131)。
+- [成功的发布运行](https://github.com/yydshly/0910_codex_project/actions/runs/34435739964)。后续版本以 Actions 和站点 [deployment.json](https://yydshly.github.io/0910_codex_project/deployment.json) 为准。
+- 验证：27 个线上文件均返回 HTTP 200；文本在统一换行后与本地构建一致，PNG 内容一致；135 处站内引用通过子路径检查。
+- 交互渲染检查覆盖 24 项能力及四条任务路径的 29 个阶段；未执行浏览器视觉及真实点击测试。
 
-各项目 `web/README.md` 记录实际部署平台、线上地址、源码版本、部署日期及验证结果。尚未上线的项目不在首页放置预计地址。
-
-参考：[GitHub Pages 概述](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)、[创建 GitHub Pages 站点](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)。
+配置依据：[GitHub 官方自定义 Pages 工作流文档](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。

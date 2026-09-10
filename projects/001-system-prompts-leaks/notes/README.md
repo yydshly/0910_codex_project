@@ -1,5 +1,7 @@
 # 研究笔记
 
+[在线交互展示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) · [完整理解阅读版](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) · [任务逻辑与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic)
+
 ## 当前理解
 
 在已核对的材料范围内，我们形成了以下认识：

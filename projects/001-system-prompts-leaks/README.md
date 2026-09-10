@@ -14,7 +14,7 @@
 | 研究状态 | 已完成文本研究与交互展示；未复现提取过程或执行上游配套代码 |
 | 收录日期 | 2026-09-10 |
 | 最近更新 | 2026-09-10 |
-| 在线演示 | — |
+| 在线演示 | [Agent 解剖室](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) · [任务逻辑与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 
 ## 研究摘要
 
@@ -46,9 +46,11 @@
 - [ ] 提示词捕获结果是否与原产品实际运行环境一致？
 - [ ] 配套 Skills、脚本和组件能否在独立环境复现？
 
-## 本地使用
+## 在线与本地使用
 
-已新增独立 Web 展示「Agent 解剖室」：5 个代表性产品、24 项能力解读、3 个逐步执行示例、17 个目录的收录全景，以及“意义与用法”中的 3 个迁移示例。“任务逻辑”提供四条路径（共 29 个路径阶段）、消息流说明和汇总图，六篇研究文档均提供网页阅读版。进入 [Web 子项目](web/README.md) 查看运行说明。教学示例不调用真实模型；尚未上线。
+独立 Web 展示「Agent 解剖室」已部署到 GitHub Pages：[立即打开](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/)。包含 5 个代表性产品、24 项能力解读、3 个逐步执行示例、17 个目录的收录全景，以及“意义与用法”中的 3 个迁移示例。“任务逻辑”提供四条路径（共 29 个路径阶段）、消息流说明和汇总图，六篇研究文档均提供网页阅读版。进入 [Web 子项目](web/README.md) 查看运行与部署记录。教学示例不调用真实模型。
+
+[在线阅读完整理解](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) · [直接探索任务逻辑](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) · [研究集演示导航](https://yydshly.github.io/0910_codex_project/)
 
 上游主要用于阅读和分析，没有在其根目录提供统一应用启动入口。直接打开上游固定版本链接即可研究；本地展示使用零第三方依赖的静态页面。
 

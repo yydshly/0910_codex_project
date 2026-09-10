@@ -2,6 +2,10 @@
 
 通过公开仓库材料，解释 Agent 的指令、工具和工作流程。属于研究项目 001，源码独立放在本目录。
 
+[打开在线展示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) · [任务逻辑与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) · [完整理解文档](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) · [演示导航首页](https://yydshly.github.io/0910_codex_project/)
+
+以下以 `/` 开头的页面入口均相对于本演示根目录；线上应保留 `/0910_codex_project/001-system-prompts-leaks/` 前缀。
+
 ## 展示内容
 
 - **能力拆解：** Codex、Claude Code、Cursor、Gemini CLI、Claude Design，共 24 项精选中文解读。每项提供指令要求、任务影响、程序依赖、研究边界与固定版本的原始链接。
@@ -77,15 +81,17 @@ npm run build
 | 项目 | 状态 |
 | :--- | :--- |
 | 本地展示 | 已实现 |
-| 线上地址 | — |
-| Sites 发布 | 当前会话没有可调用的注册、保存或发布接口，未注册或部署 |
-| GitHub Pages | 保留仓库的统一发布规划，未启用发布工作流 |
+| 线上地址 | [Agent 解剖室](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
+| 部署平台与日期 | GitHub Pages，2026-09-10；`.openai/hosting.json` 仅保留静态目录声明，不参与本次发布 |
+| GitHub Pages | 统一工作流已启用，主分支相关项目或构建文件更新后自动发布；[发布记录](https://github.com/yydshly/0910_codex_project/actions/workflows/deploy-pages.yml) |
+| 首次成功部署源码 | [`6624b3023c43a3c0a19ea4bda31d9af558bd1131`](https://github.com/yydshly/0910_codex_project/commit/6624b3023c43a3c0a19ea4bda31d9af558bd1131)；当前版本见 [deployment.json](https://yydshly.github.io/0910_codex_project/deployment.json) |
 | 数据、资源、语法及交互渲染校验 | 已通过 |
 | 任务逻辑专项检查 | 四条路径的 29 个阶段、模型调用计数、审批前未执行修改、失败后调整顺序、路径切换重置、前后导航、非法步骤、消息展示与图文入口已校验；不是浏览器实测 |
-| HTTP 访问 | 已验证主页、脚本、样式与目录数据可访问 |
+| HTTP 访问 | 27 个线上文件返回 HTTP 200，包括导航首页、演示页面、脚本、样式、目录数据、六篇文档及下载、研究图；文本统一换行后与本地构建一致，PNG 内容一致 |
+| 子路径与关联 | 135 处站内引用通过检查；修正文档返回路径，关联仓库首页、项目说明、研究笔记和网页入口 |
 | 浏览器视觉与真实点击测试 | 未执行；已实现响应式规则与键盘焦点处理，但未声明完成浏览器实测 |
 | 真实 Agent 能力复现 | 未执行；页面展示教学过程 |
 
-按[仓库部署约定](../../../docs/web-demos.md)，只有上线并验证后才填写线上链接。本项目没有为上游产品建立真实执行环境。
+部署由根 [演示清单](../../../docs/web-demos.json) 和 [统一工作流](../../../.github/workflows/deploy-pages.yml) 管理，构建与维护步骤见[仓库部署说明](../../../docs/web-demos.md)。本项目没有为上游产品建立真实执行环境。
 
 [返回项目介绍](../README.md)

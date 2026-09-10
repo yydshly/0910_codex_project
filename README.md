@@ -4,6 +4,8 @@
 
 这里是研究总入口：每个子项目使用独立编号，包含项目介绍、研究笔记、效果截图，以及可选的 Web 演示。
 
+[在线演示导航](https://yydshly.github.io/0910_codex_project/) · [Agent 任务逻辑与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic)
+
 ## 项目索引
 
 按编号升序排列，编号与子项目目录保持一致。
@@ -11,7 +13,7 @@
 <!-- PROJECT_INDEX_START -->
 | 编号 | 研究项目 | 摘要 | 状态 | 在线演示 |
 | :--- | :--- | :--- | :--- | :--- |
-| 001 | [System Prompts Leaks](projects/001-system-prompts-leaks/README.md) | 理解总稿、任务逻辑汇总图；Web 含 24 项解读与四条任务推进路径 | 研究与本地展示完成 | — |
+| 001 | [System Prompts Leaks](projects/001-system-prompts-leaks/README.md) | 理解总稿、任务逻辑汇总图；Web 含 24 项解读与四条任务推进路径 | 研究与线上展示完成 | [打开演示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
@@ -20,7 +22,7 @@
 
 [![System Prompts Leaks 完整概述：来源、整理方式、ChatGPT 5.6 内容与研究意义](projects/001-system-prompts-leaks/assets/research-overview.png)](projects/001-system-prompts-leaks/README.md)
 
-研究 AI 产品如何用提示词组织行为、工具和任务流程，附可交互的「Agent 解剖室」。图源：本研究原创总览，依据固定研究版本、PR #166 与公开源码绘制，非产品截图。[放大查看](projects/001-system-prompts-leaks/assets/research-overview.svg) · [研究详情](projects/001-system-prompts-leaks/README.md) · [展示运行说明](projects/001-system-prompts-leaks/web/README.md)
+研究 AI 产品如何用提示词组织行为、工具和任务流程，附可交互的「Agent 解剖室」。图源：本研究原创总览，依据固定研究版本、PR #166 与公开源码绘制，非产品截图。[放大查看](projects/001-system-prompts-leaks/assets/research-overview.svg) · [研究详情](projects/001-system-prompts-leaks/README.md) · [打开在线展示](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) · [展示运行说明](projects/001-system-prompts-leaks/web/README.md)
 
 ## 仓库导航
 
