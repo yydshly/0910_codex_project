@@ -18,6 +18,7 @@
 | 010 · Awesome OSINT Arsenal | [工具查找、安装说明与完整理解](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 | 011 · Luvus | [任务管理与 Agent 适配](https://yydshly.github.io/0910_codex_project/011-luvus/) · [完整理解](https://yydshly.github.io/0910_codex_project/011-luvus/understanding.html) · [详细架构](https://yydshly.github.io/0910_codex_project/011-luvus/architecture.html) |
 | 012 · Crypto 101 | [中文学习地图](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [关键知识清单](https://yydshly.github.io/0910_codex_project/012-crypto101-book/knowledge.html) · [从目标开始](https://yydshly.github.io/0910_codex_project/012-crypto101-book/foreword.html) · [来源与内容缺口](https://yydshly.github.io/0910_codex_project/012-crypto101-book/sources.html) |
+| 013 · Plinkopinball | [原版体验与中文实验](https://yydshly.github.io/0910_codex_project/013-plinkopinball/) · [完整研究](https://yydshly.github.io/0910_codex_project/013-plinkopinball/understanding.html) · [来源与验证](https://yydshly.github.io/0910_codex_project/013-plinkopinball/sources.html) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -58,6 +59,16 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Plinkopinball 原版体验与中文原理实验
+
+- 日期：2026-09-10；沿用仓库 GitHub Pages。
+- 上线源码：`dfaa80f58d4df236126525d8ddc5c3ff910f45c0`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34461875194)。
+- 三个页面：作者原站嵌入与独立窗口、原创二维物理实验、四环节技术拆解、完整中文研究及来源页；提供两份 Markdown 下载和原创 SVG 流程图。
+- 独立导出待提交内容后构建 12 个展示，1,529 处站内资源引用检查通过；本项目三页、40 处本地链接及锚点、下载一致性、JavaScript 语法和物理逻辑测试通过。物理测试覆盖重力、弹性、球间碰撞、挡板、80 球容量、回收、重置及 60 秒模拟数值稳定性。
+- 核对线上 deployment.json 与源码版本一致，本项目 10 个文件 HTTP 200，换行规范化后内容一致，模块及图片内容类型正确；根导航含新增项目，12 个展示入口均 HTTP 200。
+- 作者原站此前已验证静音进入、三维场景显示、投三球与重置。新展示页没有执行真实浏览器点击、截图、移动端或视觉回归；原理实验独立实现，不代表上游效果与性能。可选 WebMCP 模块单元检查通过，真实浏览器接口未验证。
+- 此后的文档登记仅补充已验证入口，不改变以上已发布网页内容。
 
 ### Crypto 101 关键知识查漏更新
 

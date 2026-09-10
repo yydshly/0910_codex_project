@@ -11,10 +11,10 @@
 | 研究版本 | `64a896ef3ff6b1dac9d6f5d63601f0bc1f43e354`，提交时间 2026-08-25 UTC |
 | 上游许可证 | 本次文件树检查未发现仓库级 LICENSE；README 对第三方资产分别署名，不能据此认定整体许可 |
 | 技术栈 | Three.js / WebGPURenderer / TSL、Rapier 2D、GSAP、Howler、Vite；Blender 资源制作 |
-| 研究状态 | 中文研究与独立展示已制作；作者原站基础交互已验证；具体范围见验证记录 |
+| 研究状态 | 中文研究与线上展示完成；作者原站基础交互已验证；教学实验通过逻辑测试，未做新页面浏览器交互回归 |
 | 收录日期 | 2026-09-10 |
 | 最近更新 | 2026-09-10 |
-| 本项目在线展示 | —（上线并验证后填写） |
+| 本项目在线展示 | [原版体验与中文原理实验](https://yydshly.github.io/0910_codex_project/013-plinkopinball/) |
 | 作者原版演示 | [打开作者原站](https://codrops-demo-for-threejs-conference-ten.vercel.app/) |
 
 ## 研究摘要
