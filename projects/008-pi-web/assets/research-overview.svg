@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2210" viewBox="0 0 1800 2210" role="img" aria-labelledby="title desc"><title id="title">Pi Web 完整理解：能力、本质与 Codex 对比的意义</title><desc id="desc">Pi Web 包含浏览器前端与内嵌 Pi 引擎的服务端。模型推理、引擎执行、界面展示；与 Codex 桌面体验的工作方式相似，但底层引擎和具体能力不同。图中包含六类能力、任务循环、适用场景和扩展边界。</desc>
+<rect width="1800" height="2210" fill="#f5f3ed"/>
+<text x="70" y="64" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#61675e">OPEN SOURCE FIELD NOTES   /   008</text>
+<text x="70" y="142" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="52" font-weight="700" fill="#232820">Pi Web：在浏览器中使用 Pi 编程智能体</text>
+<text x="70" y="200" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#b54425">能力在背后的智能体系统中运行，浏览器负责交互、展示与管理。</text>
+<rect x="70" y="235" width="1660" height="135" rx="16" fill="#dfe7d8" stroke="#d6d9ce" stroke-width="2"/>
+<text x="100" y="278" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#61675e">我们的共同理解</text>
+<text x="100" y="326" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#232820">使用体验可类比 Codex 桌面工作台；Pi Web 是基于 Pi SDK 的完整 Web 应用。</text>
+<text x="70" y="446" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#232820">01 / 本质：一个工作台，三层职责</text>
+<rect x="70" y="482" width="355" height="310" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="98" y="530" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#232820">浏览器 · Pi Web 前端</text>
+<text x="98" y="584" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#232820">输入需求、切换会话</text>
+<text x="98" y="629" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#232820">查看文件、差异与结果</text>
+<text x="98" y="674" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#232820">配置模型、技能和插件</text>
+<text x="98" y="748" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#61675e">HTTP 操作 / SSE 事件</text>
+<rect x="490" y="482" width="710" height="310" rx="16" fill="#dfe7d8" stroke="#d6d9ce" stroke-width="2"/>
+<text x="520" y="530" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#232820">运行 Pi Web 的电脑 / 服务器</text>
+<text x="520" y="575" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#232820">Pi Web 服务端：会话、接口、事件转发</text>
+<rect x="520" y="608" width="650" height="151" rx="10" fill="#fffcf6" stroke="#bac7af" stroke-width="2"/>
+<text x="547" y="652" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#232820">内嵌 Pi 智能体引擎（同一进程）</text>
+<text x="547" y="697" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#232820">组织任务循环 → 调用工具 → 读写文件 / 命令</text>
+<text x="547" y="733" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#61675e">共用 Pi 本地配置与 JSONL 会话记录</text>
+<rect x="1265" y="482" width="465" height="310" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="1295" y="530" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#232820">配置的模型服务</text>
+<text x="1295" y="585" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#232820">理解需求、推理、生成代码</text>
+<text x="1295" y="630" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#232820">决定下一步工具调用</text>
+<text x="1295" y="691" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#61675e">计算位置取决于模型配置</text>
+<text x="1295" y="736" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#b54425">本地工作台 ≠ 模型必定离线</text>
+<path d="M435 622 L480 622" fill="none" stroke="#b54425" stroke-width="4"/><polygon points="480,622 468,615 468,629" fill="#b54425"/>
+<path d="M1210 622 L1255 622" fill="none" stroke="#b54425" stroke-width="4"/><polygon points="1255,622 1243,615 1243,629" fill="#b54425"/>
+<text x="90" y="837" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#61675e">启动 Pi Web 即包含网页与服务端，无需先启动独立 Pi 服务；纯静态网页无法运行这些执行能力。</text>
+<text x="70" y="917" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#232820">02 / 与 Codex 比较：相似的是工作方式，差异不止界面</text>
+<rect x="70" y="949" width="805" height="235" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="100" y="1000" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#b54425">Pi Web</text>
+<text x="100" y="1043" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#232820">浏览器 → Pi Web 服务端 → Pi 引擎与所配模型</text>
+<text x="100" y="1092" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#232820">研究价值：理解怎样把 SDK 组织成可扩展工作台。</text>
+<text x="100" y="1141" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#61675e">复用价值：会话、工具展示、文件预览与资源管理。</text>
+<rect x="905" y="949" width="825" height="235" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="935" y="999" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#232820">Codex（以桌面使用体验作参照）</text>
+<text x="935" y="1043" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#232820">桌面界面 → Codex 智能体运行体系</text>
+<text x="935" y="1092" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#232820">同样围绕需求、代码操作与结果检查推进任务。</text>
+<text x="935" y="1141" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#61675e">Codex 也有 CLI、IDE 等入口，不只是一款 App。</text>
+<text x="90" y="1228" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#b54425">不能推导：Pi Web 是 Codex 网页版 / 只换了皮肤 / 效果和权限完全相同。两者未做同任务效果对测。</text>
+<text x="70" y="1306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#232820">03 / 已有能力：把一次开发任务组织起来</text>
+<rect x="70" y="1335" width="530" height="163" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="94" y="1379" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#232820">01  编程与工具</text>
+<text x="94" y="1428" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#232820">读 / 搜 / 改 / 写文件，运行命令</text>
+<text x="94" y="1470" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#61675e">Pi 执行，网页显示过程与结果</text>
+<rect x="635" y="1335" width="530" height="163" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="659" y="1379" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#232820">02  会话与分支</text>
+<text x="659" y="1428" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#232820">恢复、导出、分叉和上下文查看</text>
+<text x="659" y="1470" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#61675e">对话分支不自动回滚代码</text>
+<rect x="1200" y="1335" width="530" height="163" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="1224" y="1379" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#232820">03  文件与 Git</text>
+<text x="1224" y="1428" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#232820">多格式预览、差异与 worktree</text>
+<text x="1224" y="1470" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#61675e">预览格式不等于模型原生理解</text>
+<rect x="70" y="1523" width="530" height="163" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="94" y="1567" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#232820">04  模型与扩展</text>
+<text x="94" y="1616" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#232820">配置模型、插件包与 Skills</text>
+<text x="94" y="1658" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#61675e">复用 Pi 资源与配置体系</text>
+<rect x="635" y="1523" width="530" height="163" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="659" y="1567" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#232820">05  网页终端</text>
+<text x="659" y="1616" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#232820">真实 Shell、多标签与重连</text>
+<text x="659" y="1658" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#61675e">命令在服务端电脑执行</text>
+<rect x="1200" y="1523" width="530" height="163" rx="16" fill="#fffcf6" stroke="#d6d9ce" stroke-width="2"/>
+<text x="1224" y="1567" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#232820">06  子智能体</text>
+<text x="1224" y="1616" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#232820">委派、后台运行、结果与指导</text>
+<text x="1224" y="1658" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#61675e">默认关闭；启用后重载会话</text>
+<text x="70" y="1781" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#232820">04 / 任务闭环与可扩展方向</text>
+<rect x="70" y="1812" width="1660" height="90" rx="16" fill="#dfe7d8" stroke="#d6d9ce" stroke-width="2"/>
+<text x="101" y="1864" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#232820">提出需求  →  读取上下文  →  模型判断  →  工具执行  →  检查结果  →  继续调整</text>
+<text x="90" y="1954" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#232820">适用：个人编程、开源项目研究、可信环境远程工作、领域助手。</text>
+<text x="90" y="1999" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#232820">扩展建议：研究 Skills、知识检索、任务验收、子智能体调度、团队权限与执行隔离。</text>
+<text x="90" y="2044" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#b54425">边界：文件浏览限制不是命令沙箱；子会话不自动隔离文件；当前网页展示不运行 Pi。</text>
+<text x="70" y="2111" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#61675e">依据：agegr/pi-web · b1a7296 · v0.9.0；OpenAI 官方桌面与 Codex CLI 文档（2026-09-10）。</text>
+<text x="70" y="2151" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#61675e">本研究原创示意图，非产品截图。源码能力已核对；上游运行、效果对比与浏览器实测未完成。</text>
+<text x="70" y="2188" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#61675e">完整来源与证据：projects/008-pi-web/notes/01-understanding.md</text>
+</svg>
