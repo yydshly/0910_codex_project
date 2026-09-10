@@ -15,6 +15,7 @@
 | 007 · DeepTutor | [能力、产品对照与实践意义](https://yydshly.github.io/0910_codex_project/007-deeptutor/) · [完整架构图](https://yydshly.github.io/0910_codex_project/007-deeptutor/full-architecture.svg) · [来源与验证](https://yydshly.github.io/0910_codex_project/007-deeptutor/sources.html) |
 | 008 · Pi Web | [能力、本质与 Codex 对比](https://yydshly.github.io/0910_codex_project/008-pi-web/) · [完整理解](https://yydshly.github.io/0910_codex_project/008-pi-web/understanding.html) · [总览图](https://yydshly.github.io/0910_codex_project/008-pi-web/assets/research-overview.svg) |
 | 009 · YC AI Research | [网页能力、更新情况与研究价值](https://yydshly.github.io/0910_codex_project/009-yc-ai-research/) |
+| 010 · Awesome OSINT Arsenal | [工具目录、场景与核心能力](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -55,6 +56,16 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Awesome OSINT Arsenal 工具与能力展示
+
+- 日期：2026-09-10；平台：仓库现有 GitHub Pages。
+- 首发源码：`af0c257940df852351f4be5f328940d708336ac2`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34454132468)。
+- 提供 753 条真实目录记录的搜索、26 个方向与七种获取方式筛选，20 条重点中文说明和六个用途场景。区分合集的目录与安装能力、第三方工具的查询能力、本研究新增的中文交互功能。
+- 本项目检查通过：数据一致性、场景引用、搜索与组合筛选、空结果、网址协议约束、16 处本地引用、模块语法和 SVG XML。统一构建九个展示通过，414 处本地引用通过子路径检查。
+- 核对线上部署版本及本项目十个文件，均 HTTP 200，文本统一换行后与本地构建一致，模块、JSON、SVG 内容类型正确；九个展示入口均 HTTP 200。
+- 未继续安装工具，未查询目标或生成调查结果；未执行浏览器截图、真实点击与视觉回归。此前安装尝试因权限停止，已在研究笔记如实记录。
+
 
 ### YC AI Research 网页能力与研究价值展示
 

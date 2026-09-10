@@ -13,7 +13,7 @@
 | 技术栈 | 上游 Markdown、JSON、Bash；展示 HTML、CSS、JavaScript，零第三方应用依赖 |
 | 研究状态 | 目录与源码整理完成；按要求暂不安装，第三方工具效果未实测 |
 | 收录日期 / 最近更新 | 2026-09-10 |
-| 在线演示 | —（部署并验证后补充） |
+| 在线演示 | [打开工具与能力导航](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 
 ## 核心能力与展示
 
