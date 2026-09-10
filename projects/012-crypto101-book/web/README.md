@@ -12,6 +12,14 @@
 
 中文是本研究新增导读，不是整本译文；原书空白与 TODO 单独标明。
 
+## 关键知识与查漏
+
+新增知识页与逐章检查点：52 点、44 必会/8 进阶、42 原书提炼/10 外部补学。每点有结论、误区、掌握标准、自检和来源。支持三态记录、只看未掌握、范围筛选、导出 Markdown 复习记录与复制待学引导语。
+
+知识点存储键独立，不改原有章节进度和笔记。关闭 JavaScript 时仍可阅读、展开答案和下载完整清单。现共 21 个静态页面。
+
+[数据来源与验证](../notes/05-key-knowledge.md)。
+
 ## 本地运行
 
 环境：Node.js 22+（统一发布为 24），预览可用 Python 3。无需安装应用依赖。在仓库根目录执行：
@@ -40,6 +48,9 @@ node --check projects/012-crypto101-book/web/public/app.mjs
 - data/source-inventory.json：固定标题、行号、TODO、术语与书目索引，不含完整书稿。
 - data/section-guides.json：187 条中文细节导读，顺序与原书一致。
 - data/glossary.json：57 个术语入口的中文提示。
+- data/knowledge.json：52 个稳定 ID 的关键点，含优先级、来源、结论、误区与掌握标准。
+- public/knowledge-state.mjs、knowledge.mjs：独立知识点记录、筛选、导出和待学引导。
+- scripts/knowledge-render.mjs、check-knowledge.mjs：知识总页、逐章卡片、下载与覆盖/状态验证。
 - public/：样式、进度与笔记行为、教学演算。
 - scripts/：静态生成与覆盖、链接、数据及演算检查。
 

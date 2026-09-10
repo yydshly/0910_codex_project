@@ -1,0 +1,1041 @@
+{
+  "version": 1,
+  "reviewed": "2026-09-10",
+  "scope": "面向程序员的应用密码学学习检查表，帮助发现主线知识缺口；不是密码学全部领域或生产安全认证。",
+  "points": [
+    {
+      "id": "k01",
+      "chapter": "foreword",
+      "line": 4,
+      "group": "目标与边界",
+      "priority": "必会",
+      "title": "保密、完整性、认证是三种要求",
+      "core": "保密限制谁能读；完整性关注内容是否改变；认证关注消息或对方与预期密钥/身份的关系。一个机制可能只满足其中部分要求。",
+      "pitfall": "密文看不懂，就一定没有被改，也一定来自正确的人。",
+      "mastery": "能给一条订单分别写出三种保护要求，并指出哪个组件承担哪项职责。",
+      "question": "加密后的金额被改了，是否一定能被系统发现？",
+      "answer": "不一定；需要合适的完整性与认证保护，仅能解密不够。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/foreword.rst#L4"
+        }
+      ]
+    },
+    {
+      "id": "k02",
+      "chapter": "foreword",
+      "line": 4,
+      "group": "目标与边界",
+      "priority": "必会",
+      "title": "先写攻击者能做什么",
+      "core": "窃听者只能观察；主动攻击者还能替换、重放、选择输入或观察错误。安全结论必须连同攻击者能力和系统假设一起阅读。",
+      "pitfall": "同一个算法名，在任何输入、接口和攻击条件下都有同一保证。",
+      "mastery": "能为一个案例列出受保护资产、攻击者能力、可信部分和泄漏通道。",
+      "question": "为什么允许查询加密结果，会改变分析方式？",
+      "answer": "攻击者多了可控输入与输出之间的关系，案例中的推断可能依赖这些额外信息。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/foreword.rst#L4"
+        }
+      ]
+    },
+    {
+      "id": "k03",
+      "chapter": "foreword",
+      "line": 4,
+      "group": "目标与边界",
+      "priority": "必会",
+      "title": "区分原语、构造、协议与实现",
+      "core": "AES 是原语；工作模式组织消息；协议结合身份、协商与密钥；实现把协议变成程序。每一层都有自己的假设和失误方式。",
+      "pitfall": "某个底层算法没有被破解，所以整个产品必然安全。",
+      "mastery": "能把算法、模式、证书和应用错误放在不同层，并解释层间依赖。",
+      "question": "某系统用 AES 却泄露重复图案，能否据此说 AES 被攻破？",
+      "answer": "不能；可能是 ECB 等使用方式泄露结构，应定位问题所属层。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/foreword.rst#L4"
+        }
+      ]
+    },
+    {
+      "id": "k04",
+      "chapter": "exclusive-or",
+      "line": 42,
+      "group": "加密与工作模式",
+      "priority": "必会",
+      "title": "XOR 的抵消关系",
+      "core": "逐位异或不进位，相同位输出 0。X XOR K XOR K = X，是密钥流加解密的基本关系，但公式本身没有规定怎样安全生成和使用 K。",
+      "pitfall": "能可逆恢复数据，就等于安全加密。",
+      "mastery": "能手算两组 8 位异或，并说明可逆性与安全性的区别。",
+      "question": "固定公开的 K 能否靠 XOR 保密？",
+      "answer": "不能；任何人都能用同一个公开 K 恢复输入。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/exclusive-or.rst#L42"
+        }
+      ]
+    },
+    {
+      "id": "k05",
+      "chapter": "exclusive-or",
+      "line": 117,
+      "group": "加密与工作模式",
+      "priority": "必会",
+      "title": "一次一密的全部前提",
+      "core": "密钥应均匀随机、独立于消息、与消息等长、保持秘密且不复用。它的强保密性质依赖整组前提，而不是仅依赖 XOR 运算。",
+      "pitfall": "把短口令重复扩展，就得到一次一密。",
+      "mastery": "能逐项检查一次一密的前提，并说明密钥分发和保存的成本。",
+      "question": "为什么很长但可预测的密钥仍不满足条件？",
+      "answer": "长度不能补偿不可预测性不足；攻击者仍可能推断密钥材料。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/exclusive-or.rst#L117"
+        }
+      ]
+    },
+    {
+      "id": "k06",
+      "chapter": "exclusive-or",
+      "line": 191,
+      "group": "加密与工作模式",
+      "priority": "必会",
+      "title": "密钥流复用泄漏明文关系",
+      "core": "相同密钥流用于两条消息时，C1 XOR C2 = P1 XOR P2。攻击者首先得到关系，已知片段或文本规律可能帮助继续推断。",
+      "pitfall": "重复使用只会泄露相同消息，不影响不同消息。",
+      "mastery": "能消去等式中的密钥，并解释已知一个明文片段会带来什么。",
+      "question": "得到 P1 XOR P2 是否立即唯一确定两份原文？",
+      "answer": "不一定；先得到关系，再结合其他信息，不能把条件性推断说成必然全解密。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/exclusive-or.rst#L191"
+        }
+      ]
+    },
+    {
+      "id": "k07",
+      "chapter": "block-ciphers",
+      "line": 157,
+      "group": "加密与工作模式",
+      "priority": "必会",
+      "title": "块长度、密钥长度、安全强度不同",
+      "core": "AES 的块长度为 128 位，密钥可为 128、192、256 位。块长度规定一次处理多少数据，密钥长度与搜索空间有关，系统安全还依赖其他条件。",
+      "pitfall": "AES-256 表示每次处理 256 位数据，或意味着所有系统风险消失。",
+      "mastery": "能区分消息长度、块长度和密钥长度，并说明为何不能只看一个数字。",
+      "question": "换成更长密钥会自动修复 ECB 的重复结构吗？",
+      "answer": "不会；模式的确定性结构仍然存在。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/block-ciphers.rst#L157"
+        }
+      ]
+    },
+    {
+      "id": "k08",
+      "chapter": "block-ciphers",
+      "line": 212,
+      "group": "加密与工作模式",
+      "priority": "进阶",
+      "title": "AES 的非线性、扩散与轮密钥",
+      "core": "SubBytes 引入非线性，ShiftRows 和 MixColumns 帮助扩散，AddRoundKey 混入轮密钥，Key schedule 生成各轮材料。先理解职责，再看内部推导。",
+      "pitfall": "AES 只是把数据与密钥做一次 XOR。",
+      "mastery": "能按顺序描述一轮各变换的作用，不要求第一次就背全部有限域运算。",
+      "question": "行移位与字节替换解决的是同一个问题吗？",
+      "answer": "不是；前者改变位置，后者提供非线性替换。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/block-ciphers.rst#L212"
+        }
+      ]
+    },
+    {
+      "id": "k09",
+      "chapter": "stream-ciphers",
+      "line": 18,
+      "group": "加密与工作模式",
+      "priority": "必会",
+      "title": "ECB 会泄露重复结构",
+      "core": "相同密钥下，ECB 将相同明文块映射为相同密文块。攻击者即便不知道每块具体内容，也可能识别重复或轮廓。",
+      "pitfall": "只要所有字节都改变了，图案或结构就不会泄露。",
+      "mastery": "能用重复数据块画出输入和输出的对应关系。",
+      "question": "为什么加密图像可能仍看出轮廓？",
+      "answer": "块之间的重复关系保留下来，泄露了结构而非必然泄露每个像素。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/stream-ciphers.rst#L18"
+        }
+      ]
+    },
+    {
+      "id": "k10",
+      "chapter": "stream-ciphers",
+      "line": 287,
+      "group": "加密与工作模式",
+      "priority": "必会",
+      "title": "CBC 的 IV 不能随意选",
+      "core": "CBC 把前一密文块参与当前块处理，首块由 IV 初始化。对应安全要求包括 IV 的不可预测性；把密钥当作 IV 又会把不同用途混在一起。",
+      "pitfall": "IV 只要长度够，固定值或密钥本身都可以。",
+      "mastery": "能画出 CBC 首块与后续块，并解释 IV 与密钥各自职责。",
+      "question": "IV 通常可公开，为什么仍不能随便固定？",
+      "answer": "公开与不可预测是不同属性；公开不免除该模式对生成方式的要求。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/stream-ciphers.rst#L287"
+        }
+      ]
+    },
+    {
+      "id": "k11",
+      "chapter": "stream-ciphers",
+      "line": 560,
+      "group": "加密与工作模式",
+      "priority": "必会",
+      "title": "填充正确也可能泄露信息",
+      "core": "填充解决块边界和长度还原。若解密接口把填充是否合法暴露为可区分反馈，攻击者可能反复查询并积累信息。",
+      "pitfall": "错误消息不包含明文，因此不会泄露秘密。",
+      "mastery": "能说明填充预言机需要什么反馈条件，并区分填充规则与认证。",
+      "question": "为什么两种不同错误可能比统一失败更危险？",
+      "answer": "它们可能透露内部处理到哪一步，为攻击者提供判断信号。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/stream-ciphers.rst#L560"
+        }
+      ]
+    },
+    {
+      "id": "k12",
+      "chapter": "stream-ciphers",
+      "line": 1334,
+      "group": "加密与工作模式",
+      "priority": "必会",
+      "title": "CTR 唯一性要限定到同一密钥",
+      "core": "nonce 与计数器组成分组输入，再生成密钥流。在同一密钥下重复输入序列会重复密钥流；数值可预测与是否复用是不同问题。",
+      "pitfall": "随机选过一次 nonce，以后就不用考虑冲突或重启。",
+      "mastery": "能写出 nonce、计数器、密钥的作用范围，并解释重复如何影响输出。",
+      "question": "两个进程共享密钥却从同一个计数器起点开始，会怎样？",
+      "answer": "可能重复生成密钥流；单个进程内不重复还不够。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/stream-ciphers.rst#L1334"
+        }
+      ]
+    },
+    {
+      "id": "k13",
+      "chapter": "stream-ciphers",
+      "line": 1385,
+      "group": "加密与工作模式",
+      "priority": "必会",
+      "title": "可篡改性与保密性分开判断",
+      "core": "单独的流密码/CTR 加密不保证完整性。某些密文位的变化可导致对应明文位变化，攻击者不必知道全部明文就能影响结果。",
+      "pitfall": "攻击者不能完整解密，就无法修改业务含义。",
+      "mastery": "能举出保密仍在但完整性失败的例子，并指出缺失的保护。",
+      "question": "解密成功是否可以作为接受订单的依据？",
+      "answer": "不能；还需要按完整协议校验认证结果及业务条件。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/stream-ciphers.rst#L1385"
+        }
+      ]
+    },
+    {
+      "id": "k14",
+      "chapter": "hash-functions",
+      "line": 6,
+      "group": "哈希与认证",
+      "priority": "必会",
+      "title": "原像、第二原像、碰撞不是同一目标",
+      "core": "原像从摘要找输入；第二原像针对给定输入找另一输入；碰撞允许寻找任意一对同摘要输入。不同攻击结果不能直接互换。",
+      "pitfall": "找到任意碰撞，就能解出任意指定密码。",
+      "mastery": "能用三个不同提问分别描述三类问题。",
+      "question": "碰撞攻击与密码猜测的对象有何差别？",
+      "answer": "前者找任意同摘要输入对，后者通常尝试指定账户对应的候选密码。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/hash-functions.rst#L6"
+        }
+      ]
+    },
+    {
+      "id": "k15",
+      "chapter": "hash-functions",
+      "line": 231,
+      "group": "哈希与认证",
+      "priority": "必会",
+      "title": "密码可猜，不因哈希不可逆而变强",
+      "core": "用户密码分布通常很不均匀。数据库泄漏后，攻击者可离线对候选密码计算结果并比较，绕过在线登录的限速。",
+      "pitfall": "哈希没有解密函数，所以密码无法被恢复。",
+      "mastery": "能区分逆运算与候选猜测，以及在线和离线攻击。",
+      "question": "网站限制每分钟登录次数，能否直接阻止泄漏后的离线猜测？",
+      "answer": "不能；离线攻击通常不再经过网站登录接口。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/hash-functions.rst#L231"
+        }
+      ]
+    },
+    {
+      "id": "k16",
+      "chapter": "hash-functions",
+      "line": 294,
+      "group": "哈希与认证",
+      "priority": "必会",
+      "title": "盐减少复用预计算，不代替密码强度",
+      "core": "每条记录的盐区分派生计算，使相同密码不必产生相同存储值。攻击者仍可针对一个已知盐逐个尝试候选密码。",
+      "pitfall": "盐必须保密才有用，或者加盐后弱密码就不怕猜测。",
+      "mastery": "能比较多用户无盐与独立盐的情形，并说清盐没有解决什么。",
+      "question": "盐随摘要一起泄漏，是不是盐完全失效？",
+      "answer": "不是；区分不同记录和降低跨记录预计算复用的作用仍存在。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/hash-functions.rst#L294"
+        }
+      ]
+    },
+    {
+      "id": "k17",
+      "chapter": "hash-functions",
+      "line": 383,
+      "group": "哈希与认证",
+      "priority": "进阶",
+      "title": "哈希结构影响长度扩展风险",
+      "core": "某些迭代哈希结构允许已知摘要参与扩展结果的构造。这会影响错误的前缀 MAC 用法，但并不是所有哈希或所有认证构造都有同一问题。",
+      "pitfall": "更换摘要位数或随意调整拼接顺序就一定安全。",
+      "mastery": "能说明长度扩展依赖的结构与消息解析条件，并与 HMAC 区别。",
+      "question": "看到长度扩展案例，能否断言所有 SHA-2 用法都失效？",
+      "answer": "不能；需要看具体构造和用途，HMAC 等不能当作裸前缀哈希处理。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/hash-functions.rst#L383"
+        }
+      ]
+    },
+    {
+      "id": "k18",
+      "chapter": "message-authentication-codes",
+      "line": 55,
+      "group": "哈希与认证",
+      "priority": "必会",
+      "title": "摘要没有自带可信来源",
+      "core": "裸哈希可被任何人计算。如果摘要与消息都由攻击者提供，攻击者可以把两者一起替换；可信摘要、共享秘密或签名才提供额外依据。",
+      "pitfall": "文件和旁边的哈希对得上，就证明来自可信发布者。",
+      "mastery": "能说明摘要通过什么可信途径获得，并区分校验传输错误与抗恶意替换。",
+      "question": "从同一被替换网页下载文件和摘要，会缺少什么？",
+      "answer": "缺少可信锚点，匹配只能证明两者相互一致。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/message-authentication-codes.rst#L55"
+        }
+      ]
+    },
+    {
+      "id": "k19",
+      "chapter": "message-authentication-codes",
+      "line": 300,
+      "group": "哈希与认证",
+      "priority": "必会",
+      "title": "HMAC 是规定的构造",
+      "core": "HMAC 使用特定内外两层哈希与密钥混合，不等于 hash(secret + message)。它的保证应与具体哈希构造、密钥和标签处理一起理解。",
+      "pitfall": "只要把秘密放到哈希输入里，就自动得到安全认证码。",
+      "mastery": "能画出两层关系，并说明为什么不自行发明拼接方案。",
+      "question": "将密钥改放在消息末尾，可以直接宣称和 HMAC 一样安全吗？",
+      "answer": "不能；形式相似不代表拥有同样的分析与保证。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/message-authentication-codes.rst#L300"
+        }
+      ]
+    },
+    {
+      "id": "k20",
+      "chapter": "message-authentication-codes",
+      "line": 6,
+      "group": "哈希与认证",
+      "priority": "必会",
+      "title": "MAC 与数字签名的信任关系不同",
+      "core": "共享 MAC 密钥的人都可生成标签；签名依赖私钥生成和公钥验证。选择时要考虑谁能够伪造，以及是否需要向第三方验证。",
+      "pitfall": "有效 MAC 能唯一证明共享密钥的两人中是谁发送。",
+      "mastery": "能分别画出 MAC 与签名中各方持有什么密钥。",
+      "question": "接收方也有 MAC 密钥，为什么影响对第三方归责？",
+      "answer": "因为接收方自己也能产生相同类型的有效标签。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/message-authentication-codes.rst#L6"
+        }
+      ]
+    },
+    {
+      "id": "k21",
+      "chapter": "message-authentication-codes",
+      "line": 528,
+      "group": "哈希与认证",
+      "priority": "必会",
+      "title": "AEAD 把正文与关联数据绑定",
+      "core": "AEAD 为正文提供认证加密，并认证不加密的关联数据。可见字段如协议头、对象标识需要按协议纳入正确的输入范围。",
+      "pitfall": "关联数据经过认证，就一定也被隐藏。",
+      "mastery": "能把一个消息的密钥、nonce、正文、关联数据与标签分别标出。",
+      "question": "一个必须公开但不能被替换的头字段，可以怎样理解其角色？",
+      "answer": "可作为需要认证的关联数据；它本身不因此获得保密性。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/message-authentication-codes.rst#L528"
+        }
+      ]
+    },
+    {
+      "id": "k22",
+      "chapter": "message-authentication-codes",
+      "line": 89,
+      "group": "哈希与认证",
+      "priority": "必会",
+      "title": "组合顺序和失败处理也是安全设计",
+      "core": "加密什么、认证什么、何时接受结果都属于协议规则。应使用经过分析的整体方案，避免让未验证数据触发可观察的敏感处理。",
+      "pitfall": "加密库和 MAC 库各自可靠，随便组合也可靠。",
+      "mastery": "能说明接收方什么时候允许使用解密结果，以及失败会暴露什么。",
+      "question": "为什么不能只测试正常情况下是否能加解密？",
+      "answer": "正常成功不覆盖篡改、错误反馈和其他主动攻击条件。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/message-authentication-codes.rst#L89"
+        }
+      ]
+    },
+    {
+      "id": "k23",
+      "chapter": "key-exchange",
+      "line": 39,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "密钥交换区分公开量与秘密量",
+      "core": "Diffie–Hellman 双方发送各自公开值，使用自己的秘密量和对方公开值计算共享结果；安全分析与所用群和参数有关。",
+      "pitfall": "双方必须把自己的秘密指数直接发送给对方。",
+      "mastery": "能手算教学小例子，画出公开网络中出现哪些量，并说明小参数不安全。",
+      "question": "公开值能被观察，为什么不等于秘密指数也公开？",
+      "answer": "从结果逆求秘密指数与正向计算是不同问题；真实参数必须使逆问题足够困难。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/key-exchange.rst#L39"
+        }
+      ]
+    },
+    {
+      "id": "k24",
+      "chapter": "key-exchange",
+      "line": 246,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "共享秘密不等于对方身份已确认",
+      "core": "未经认证的密钥交换可能让中间人分别与双方建立秘密。需要把当前交换与预期身份、相应密钥及协议上下文绑定。",
+      "pitfall": "计算完成或双方都有一个秘密，就等于连接到了正确的人。",
+      "mastery": "能画出中间人两条交换关系，并指出缺少的认证绑定。",
+      "question": "看到一次成功的 DH 计算，为什么不能结束身份核验？",
+      "answer": "计算关系本身没有证明收到的公开值来自预期对象。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/key-exchange.rst#L246"
+        }
+      ]
+    },
+    {
+      "id": "k25",
+      "chapter": "public-key-encryption",
+      "line": 78,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "textbook RSA 不可当成完整加密方案",
+      "core": "模幂关系解释 RSA 数学，但实际加密需要合适编码、填充和协议约束。书中的教学公式与生产接口有明确边界。",
+      "pitfall": "只实现公钥幂运算和私钥幂运算，就可以安全加密任意文件。",
+      "mastery": "能分清数学原语、编码方案、接口错误和混合加密四个层次。",
+      "question": "为什么填充或错误反馈可能比数学求逆更容易出问题？",
+      "answer": "攻击可能利用实现与接口信息，而不必直接解决抽象数学难题。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/public-key-encryption.rst#L78"
+        }
+      ]
+    },
+    {
+      "id": "k26",
+      "chapter": "public-key-encryption",
+      "line": 40,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "公钥机制与对称机制各有职责",
+      "core": "公钥机制通常处理较短材料或密钥建立，对称机制处理主体消息。完整混合方案还要规定身份、上下文和认证关系。",
+      "pitfall": "把 RSA 与 AES 连续调用一次，就自然成为安全协议。",
+      "mastery": "能画出秘密建立、数据加密和身份验证的分工。",
+      "question": "用错接收者的公钥但算法全部正确，会发生什么？",
+      "answer": "数据可能被保护给错误的一方；数学正确不解决公钥归属。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/public-key-encryption.rst#L40"
+        }
+      ]
+    },
+    {
+      "id": "k27",
+      "chapter": "signature-algorithms",
+      "line": 6,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "验签验证关系，不保证内容真实",
+      "core": "签名检查消息与相应密钥的关系，不保证消息中的事实真实、程序没有漏洞或签名公钥属于你以为的主体。",
+      "pitfall": "签名通过，就可以不核验公钥归属和内容风险。",
+      "mastery": "能列出验签通过后仍然不能推出的三件事。",
+      "question": "有签名的软件是否必然安全无害？",
+      "answer": "不是；签名与软件行为质量是不同问题。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/signature-algorithms.rst#L6"
+        }
+      ]
+    },
+    {
+      "id": "k28",
+      "chapter": "signature-algorithms",
+      "line": 136,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "签名随机参数可能暴露长期密钥",
+      "core": "DSA 一类方案的每次签名秘密参数如果复用、偏差严重或泄漏，可能危及长期私钥。不能只保护私钥文件而忽略生成过程。",
+      "pitfall": "每次产生不同签名就证明随机参数没有问题。",
+      "mastery": "能区分长期私钥和每次签名材料，并解释复用为何需要单独分析。",
+      "question": "签名运算是本地完成的，随机数质量就不重要了吗？",
+      "answer": "仍然重要；公开签名中可能体现出这些秘密材料之间的关系。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/signature-algorithms.rst#L136"
+        }
+      ]
+    },
+    {
+      "id": "k29",
+      "chapter": "signature-algorithms",
+      "line": 30,
+      "group": "密钥、签名与随机数",
+      "priority": "进阶",
+      "title": "签名算法与编码方案不能混读",
+      "core": "RSA 签名的编码方案、DSA 与 ECDSA 各有规则；原书的 PKCS#1 v1.5、PSS 和 ECDSA 有待补内容。知道名称不等于掌握验证条件。",
+      "pitfall": "因为加密与签名都出现 RSA，就把签名称为“私钥加密”并直接复用接口。",
+      "mastery": "能指出原书具体缺口，并在学习计划中保留补学任务，而非勾成已掌握。",
+      "question": "本书 PSS 小节为 TODO，可以据目录认定自己已经学过吗？",
+      "answer": "不能，应明确列为待补；需要实际阅读相应规范和验证流程。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/signature-algorithms.rst#L30"
+        }
+      ]
+    },
+    {
+      "id": "k30",
+      "chapter": "key-derivation-functions",
+      "line": 8,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "密码派生与秘密扩展是不同任务",
+      "core": "密码输入常可猜，需要关注猜测成本；已有秘密材料可能需要提取、扩展或区分用途。KDF 的名字不能代替对输入分布的判断。",
+      "pitfall": "任何标为 KDF 的函数都适合保存用户密码。",
+      "mastery": "能分别为用户短密码和会话共享秘密说明派生目标。",
+      "question": "HKDF 输出很长，是否等于短密码变得不可猜？",
+      "answer": "不等于；输出长度不会凭空增加输入的秘密信息。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/key-derivation-functions.rst#L8"
+        }
+      ]
+    },
+    {
+      "id": "k31",
+      "chapter": "key-derivation-functions",
+      "line": 95,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "HKDF 的提取与扩展",
+      "core": "Extract 产生中间密钥材料，Expand 结合上下文和计数信息输出所需字节。salt 与 info 有不同职责，不能当成随意附加的字符串。",
+      "pitfall": "把所有参数留空或混用，不影响不同用途之间的区分。",
+      "mastery": "能画出两阶段输入输出，并指出哪个字段表达用途上下文。",
+      "question": "两个用途从相同秘密派生材料，为什么需要区分上下文？",
+      "answer": "帮助把不同用途的结果分离；实际协议还需规定明确的标签和编码。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/key-derivation-functions.rst#L95"
+        }
+      ]
+    },
+    {
+      "id": "k32",
+      "chapter": "key-derivation-functions",
+      "line": 60,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "空白的密码存储章节必须补学",
+      "core": "本版本 Password strength 为 TODO，PBKDF2、bcrypt、scrypt 仅标题。它们是学习缺口，不能让目录覆盖把工作因子、内存成本和迁移策略掩盖掉。",
+      "pitfall": "知道三个算法的名字，就足以设计密码存储。",
+      "mastery": "能列出至少需要继续核查的输入、盐、成本参数和升级问题。",
+      "question": "只凭当前书稿能否比较三种方案的具体参数？",
+      "answer": "不能；该部分未展开，需阅读补充资料并结合环境验证。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/key-derivation-functions.rst#L60"
+        }
+      ]
+    },
+    {
+      "id": "k33",
+      "chapter": "random-number-generators",
+      "line": 126,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "统计随机与密码学不可预测不同",
+      "core": "输出分布看似均匀，不证明观察者无法从部分输出预测未来。生成器设计、种子质量和内部状态都影响密码学用途。",
+      "pitfall": "通过统计测试或常用于模拟的 PRNG 就适合产生密钥。",
+      "mastery": "能解释 PRNG 与 CSPRNG 的用途差别，并说明选择依据。",
+      "question": "为什么 Mersenne Twister 的统计用途不能证明其密码学安全？",
+      "answer": "统计特征不包含对状态恢复和未来预测困难性的充分保证。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/random-number-generators.rst#L126"
+        }
+      ]
+    },
+    {
+      "id": "k34",
+      "chapter": "random-number-generators",
+      "line": 499,
+      "group": "密钥、签名与随机数",
+      "priority": "必会",
+      "title": "种子、状态、输出要分别保护和分析",
+      "core": "复杂输出不弥补可猜种子；内部状态泄漏也可能改变后续输出的可预测性。应区分初始化问题和算法本身的问题。",
+      "pitfall": "只要生成器名字可靠，无论怎么播种都安全。",
+      "mastery": "能从种子到内部状态再到输出画出关系，指出泄漏可能发生在哪一步。",
+      "question": "固定种子让结果可复现，为何不适合生成新的秘密？",
+      "answer": "知道或猜到种子的人可能复现输出，失去相应秘密性。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/random-number-generators.rst#L499"
+        }
+      ]
+    },
+    {
+      "id": "k35",
+      "chapter": "ssl-and-tls",
+      "line": 68,
+      "group": "协议与信任",
+      "priority": "必会",
+      "title": "证书、公钥和目标身份需要绑定",
+      "core": "证书提供身份声明与公钥的关联材料，验证仍要结合信任链和预期对象。只看到证书或签名正确，不等于已确认连到正确服务。",
+      "pitfall": "任何证书只要能解析、签名正确就可以接受。",
+      "mastery": "能说明信任根、证书声明、公钥和预期服务之间的关系。",
+      "question": "攻击者拿自己合法证书来冒充另一服务，为什么仍应失败？",
+      "answer": "证书的真实归属与预期目标不匹配；不能只检验存在一条有效签名。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/ssl-and-tls.rst#L68"
+        }
+      ]
+    },
+    {
+      "id": "k36",
+      "chapter": "ssl-and-tls",
+      "line": 135,
+      "group": "协议与信任",
+      "priority": "必会",
+      "title": "前向保密保护的是过去会话",
+      "core": "这个目标关心长期密钥未来泄漏是否影响已结束会话。它依赖具体密钥建立和临时材料处理，并不意味着终端当前被入侵也无影响。",
+      "pitfall": "有前向保密，就永远不必保护会话密钥和终端。",
+      "mastery": "能区分长期密钥、会话材料、过去记录以及泄漏发生的时间。",
+      "question": "长期密钥未来泄漏，是否必然能解密所有历史会话？",
+      "answer": "取决于具体机制与材料处理，不能单凭使用 TLS 就下结论。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/ssl-and-tls.rst#L135"
+        }
+      ]
+    },
+    {
+      "id": "k37",
+      "chapter": "ssl-and-tls",
+      "line": 193,
+      "group": "协议与信任",
+      "priority": "进阶",
+      "title": "泄漏还可能来自长度、压缩和协商",
+      "core": "CRIME/BREACH 等案例强调消息长度与压缩关系；降级问题涉及协商保护。保护正文不自动隐藏所有元数据或保证最强选项被使用。",
+      "pitfall": "攻击只可能通过求出密钥或破解密码算法完成。",
+      "mastery": "能举出一个算法之外的泄漏通道，并说明它需要哪些条件。",
+      "question": "两份密文不可读，长度变化仍可能有用吗？",
+      "answer": "可能；在特定可控输入与压缩等条件下，长度会携带信息。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/ssl-and-tls.rst#L193"
+        }
+      ]
+    },
+    {
+      "id": "k38",
+      "chapter": "openpgp-and-gpg",
+      "line": 32,
+      "group": "协议与信任",
+      "priority": "必会",
+      "title": "信任网不是签名数量投票",
+      "core": "对公钥的签名表示某种身份核验判断。接受哪些签名和信任路径取决于自己的策略，不等于相信所有间接关联或所有消息内容。",
+      "pitfall": "被很多人签过的公钥可以无条件信任。",
+      "mastery": "能画出一条信任路径并逐段说明你接受它的理由。",
+      "question": "相信甲核验身份，是否意味着相信甲说的每句话？",
+      "answer": "不是；信任的对象和范围需要明确。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/openpgp-and-gpg.rst#L32"
+        }
+      ]
+    },
+    {
+      "id": "k39",
+      "chapter": "off-the-record-messaging",
+      "line": 6,
+      "group": "协议与信任",
+      "priority": "进阶",
+      "title": "对参与者认证与向第三方证明不同",
+      "core": "OTR 将保密、参与方认证与可否认性放在一起考虑；交互中确认对方，与事后给第三方提供持久签名证据并不是同一要求。",
+      "pitfall": "可否认性意味着双方交谈时没有身份认证。",
+      "mastery": "能用聊天与软件发布两个场景比较所需证据。",
+      "question": "为何聊天协议和软件签名可能选择不同认证目标？",
+      "answer": "它们对第三方证明和长期证据的需求不同。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/off-the-record-messaging.rst#L6"
+        }
+      ]
+    },
+    {
+      "id": "k40",
+      "chapter": "appendices",
+      "line": 168,
+      "group": "数学与实现",
+      "priority": "必会",
+      "title": "模除法要检查逆元存在条件",
+      "core": "模运算里的除法通过乘逆元完成，不是普通除法。逆元是否存在与元素和模数的关系有关，不能跳过条件。",
+      "pitfall": "任何非零数在任意模数下都能直接除。",
+      "mastery": "能算出模 7 下 3 的逆元，并说明模 6 下 2 为什么无逆元。",
+      "question": "3 在模 7 下的逆元是多少？",
+      "answer": "5，因为 3×5 与 1 模 7 同余；模 6 下 2 与模数不互素，无法得到逆元。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/appendices.rst#L168"
+        }
+      ]
+    },
+    {
+      "id": "k41",
+      "chapter": "appendices",
+      "line": 608,
+      "group": "数学与实现",
+      "priority": "进阶",
+      "title": "正向运算与逆问题的难度不对称",
+      "core": "模幂与点的标量乘法可以高效计算，逆求指数/标量是不同问题。困难性还依赖参数、群结构和攻击模型。",
+      "pitfall": "指数或密钥写得很大，就自动构成安全方案。",
+      "mastery": "能将 DH 的计算步骤与所依赖的逆问题对应，并区分教学小参数。",
+      "question": "为什么 p=23 的演算只适合教学？",
+      "answer": "数值范围很小，可以穷举；它只展示计算关系，不提供真实困难性。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/appendices.rst#L608"
+        }
+      ]
+    },
+    {
+      "id": "k42",
+      "chapter": "appendices",
+      "line": 573,
+      "group": "数学与实现",
+      "priority": "必会",
+      "title": "数学正确不证明实现不泄漏",
+      "core": "相同步数的高层算法，不自动保证底层大整数、分支、缓存和内存访问与秘密无关。常数时间是实现层需要专门分析的性质。",
+      "pitfall": "把 Python 循环次数固定，就完成了常数时间实现。",
+      "mastery": "能列出至少两个公式之外的泄漏通道，并区分教学实现与安全实现。",
+      "question": "为什么正常输入输出测试不能排除计时侧信道？",
+      "answer": "功能正确性没有测量秘密相关的执行表现。",
+      "origin": "原书提炼",
+      "sources": [
+        {
+          "title": "Crypto 101 固定章节",
+          "url": "https://github.com/crypto101/book/blob/fdd5dbbb02ebf3ed316f66db2af62dbad4e39455/src/appendices.rst#L573"
+        }
+      ]
+    },
+    {
+      "id": "k43",
+      "chapter": "foreword",
+      "group": "目标与边界",
+      "priority": "必会",
+      "title": "编码、压缩与加密不要混为一谈",
+      "core": "Base64 等编码让字节适配传输格式，不依赖秘密密钥来限制读取。压缩减少表示长度，加密服务于不同的保密目标。",
+      "pitfall": "看起来像随机字符，或者能被“解码”，就叫加密。",
+      "mastery": "能说明 Base64 为什么可被任何人还原，并分别列出编码与加密的用途。",
+      "question": "把密码转成 Base64 再保存，能提供保密吗？",
+      "answer": "不能，编码规则公开且不依赖秘密。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "RFC 4648 §12",
+          "url": "https://www.rfc-editor.org/rfc/rfc4648.html#section-12"
+        }
+      ]
+    },
+    {
+      "id": "k44",
+      "chapter": "message-authentication-codes",
+      "group": "哈希与认证",
+      "priority": "必会",
+      "title": "认证有效不代表消息是新的",
+      "core": "旧的有效消息可能被再次发送。序号、接收窗口或其他新鲜性机制要在协议中设计并与认证绑定。ESP 是使用序号和接收窗口处理重放的一个实例。",
+      "pitfall": "MAC 或 AEAD 校验通过，就能排除重放。",
+      "mastery": "能区分伪造新消息与重复旧消息，并提出需要维护的接收状态。",
+      "question": "原封不动重发一个有效付款请求，会自动被认证算法拒绝吗？",
+      "answer": "通常不会仅因它是旧消息而失败，协议和业务需要相应的重放与重复处理规则。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "RFC 4303 §3.4.3",
+          "url": "https://www.rfc-editor.org/rfc/rfc4303.html#section-3.4.3"
+        }
+      ]
+    },
+    {
+      "id": "k45",
+      "chapter": "foreword",
+      "group": "目标与边界",
+      "priority": "必会",
+      "title": "认证与授权分别回答不同问题",
+      "core": "认证确认主体关系，授权决定该主体能做什么。授权还需结合请求对象和操作逐次检查；仅有安全通道或签名不代表拥有业务权限。",
+      "pitfall": "用户已登录，或请求签名有效，就可以访问任意用户对象。",
+      "mastery": "能为“用户 A 读取用户 B 的文件”分别写出认证与授权检查。",
+      "question": "一个有效用户改了对象编号，系统还要判断什么？",
+      "answer": "判断该用户是否有权对这个具体对象执行该操作。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "OWASP Authorization Cheat Sheet",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html"
+        }
+      ]
+    },
+    {
+      "id": "k46",
+      "chapter": "book-engineering",
+      "group": "工程补学",
+      "priority": "必会",
+      "title": "密钥有完整生命周期",
+      "core": "要考虑生成、分发、存储、访问、轮换、备份恢复、撤销和销毁。选择算法并未回答密钥丢失或泄漏之后如何处理。",
+      "pitfall": "只要最初把密钥放进一个文件，后面就没有密码学工作。",
+      "mastery": "能画出密钥生命周期，分别说明丢失和泄漏时的处理目标。",
+      "question": "备份密钥解决可恢复性，会不会同时增加保护对象？",
+      "answer": "会，备份也必须受控；可用性与泄漏风险需要共同考虑。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "OWASP Key Management Cheat Sheet",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html"
+        }
+      ]
+    },
+    {
+      "id": "k47",
+      "chapter": "message-authentication-codes",
+      "group": "工程补学",
+      "priority": "必会",
+      "title": "认证输入必须无歧义地编码",
+      "core": "多个字段拼接后必须能唯一恢复原字段集合。RFC 5116 要求关联数据的构造避免不同字段组合得到相同输入；字段长度或明确结构是需要理解的问题。",
+      "pitfall": "直接把字符串相加后认证就能保护每个字段的含义。",
+      "mastery": "能解释 ('ab','c') 与 ('a','bc') 的直接拼接为何歧义，并说明需要什么编码属性。",
+      "question": "字节完全相同，为什么业务含义仍可能不同？",
+      "answer": "解析方式或字段边界不同；认证的是字节，字段含义必须由无歧义的格式约束。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "RFC 5116 §3.3",
+          "url": "https://www.rfc-editor.org/rfc/rfc5116.html#section-3.3"
+        }
+      ]
+    },
+    {
+      "id": "k48",
+      "chapter": "key-derivation-functions",
+      "group": "工程补学",
+      "priority": "必会",
+      "title": "补齐密码存储的成本与升级知识",
+      "core": "应学习工作因子、内存成本、盐、参数记录及升级流程。Argon2id 是补充阅读入口；PBKDF2、bcrypt、scrypt 的适用限制也需查证，不能只记一个算法名。",
+      "pitfall": "采用推荐算法后，任何默认参数都适合所有机器和服务。",
+      "mastery": "能说明参数如何影响猜测成本与服务负载，并列出实施前需要验证的条件。",
+      "question": "为什么应保留每条记录使用的方案和参数信息？",
+      "answer": "便于正确验证旧记录，并安排后续参数或方案迁移。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "OWASP Password Storage / RFC 9106",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
+        },
+        {
+          "title": "RFC 9106 Argon2",
+          "url": "https://www.rfc-editor.org/rfc/rfc9106.html"
+        }
+      ]
+    },
+    {
+      "id": "k49",
+      "chapter": "ssl-and-tls",
+      "group": "协议与信任",
+      "priority": "必会",
+      "title": "补齐 TLS 1.3 握手的职责图",
+      "core": "典型基于证书的 TLS 1.3 握手把密钥协商、证书身份材料、CertificateVerify 与 Finished 分开处理；PSK 等变体不同。要理解身份与握手记录的绑定。",
+      "pitfall": "把旧书的握手目录当成已经掌握 TLS 1.3，或认为所有握手消息完全相同。",
+      "mastery": "能画出一个典型流程，说明每阶段验证什么，并指出它不覆盖哪些变体。",
+      "question": "CertificateVerify 与 Finished 是否只是在重复发送证书？",
+      "answer": "不是；它们承担证明相应密钥关系和验证握手完整性等职责，需分别理解。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "RFC 8446 §2 / §4.4",
+          "url": "https://www.rfc-editor.org/rfc/rfc8446.html#section-2"
+        }
+      ]
+    },
+    {
+      "id": "k50",
+      "chapter": "ssl-and-tls",
+      "group": "协议与信任",
+      "priority": "进阶",
+      "title": "0-RTT 的早期数据有额外重放条件",
+      "core": "TLS 1.3 不为 0-RTT 数据天然提供完整重放保护；早期数据的应用语义及服务端状态需要专门分析，不能等同于普通握手后的发送。",
+      "pitfall": "协议版本新、数据已加密，就可把任何操作放进 0-RTT。",
+      "mastery": "能解释为什么有副作用的请求要特别谨慎，并识别重放与应用重试的区别。",
+      "question": "是否可以仅凭使用 TLS 1.3 就认定早期付款请求不会重复执行？",
+      "answer": "不可以；要分析早期数据的重放条件以及应用去重与状态。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "RFC 8446 §8",
+          "url": "https://www.rfc-editor.org/rfc/rfc8446.html#section-8"
+        }
+      ]
+    },
+    {
+      "id": "k51",
+      "chapter": "signature-algorithms",
+      "group": "工程补学",
+      "priority": "进阶",
+      "title": "补学 Ed25519，并区分算法用途",
+      "core": "RFC 8032 提供 EdDSA 与 Ed25519 等签名定义。它补充原书的签名知识；签名算法不等同于密钥交换算法，名称相近也不能互换。",
+      "pitfall": "看到椭圆曲线或 25519 就认为都是同一种加密操作。",
+      "mastery": "能说清私钥签名、公钥验签的接口职责，并给需要另行学习的密钥交换机制留出位置。",
+      "question": "Ed25519 可以直接当作加密文件的函数吗？",
+      "answer": "不能；它在此定义的是签名机制，任务与加密不同。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "RFC 8032 §5.1",
+          "url": "https://www.rfc-editor.org/rfc/rfc8032.html#section-5.1"
+        }
+      ]
+    },
+    {
+      "id": "k52",
+      "chapter": "stream-ciphers",
+      "group": "工程补学",
+      "priority": "必会",
+      "title": "nonce 唯一性要跨重启和多个发送者考虑",
+      "core": "规范中的 nonce 要求是整个同密钥使用范围内的要求。计数器回退、多个发送者冲突都需纳入设计；随机选择也需要分析冲突限制。",
+      "pitfall": "每次程序运行中不重复，就已经满足长期运行的 nonce 要求。",
+      "mastery": "能写出密钥范围、发送者范围、持久化与重启策略，并说明何时必须停止或换钥。",
+      "question": "计数器重启归零，但密钥没换，风险在哪？",
+      "answer": "可能重复同密钥下的 nonce，从而违反所用构造的前提。",
+      "origin": "补充学习",
+      "sources": [
+        {
+          "title": "RFC 8439 §2.8 / §4",
+          "url": "https://www.rfc-editor.org/rfc/rfc8439.html#section-4"
+        }
+      ]
+    }
+  ]
+}
