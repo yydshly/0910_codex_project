@@ -21,6 +21,7 @@
 | 006 | [Maigret](projects/006-maigret/README.md) | [soxoj/maigret](https://github.com/soxoj/maigret) | 按用户在网站设置的账号用户名（非实名），通过预设规则批量检查公开账号并提取资料；范围限规则库及所选站点，不覆盖全网，同名账号仍需核验 | 文档与线上展示完成；上游未实测 | [在线阅读](https://yydshly.github.io/0910_codex_project/006-maigret/) |
 | 007 | [DeepTutor](projects/007-deeptutor/README.md) | [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) | 可自部署的 AI 教学工作台，支持资料问答、解题、出题、学习路径与复习；与 NotebookLM、Open Notebook、SurfSense 共用许多底层方法，更侧重可修改的教学流程与学习状态，可为我们的开源项目学习导师提供设计参考 | 完整理解与线上展示完成；上游未实测 | [在线阅读](https://yydshly.github.io/0910_codex_project/007-deeptutor/) |
 | 008 | [Pi Web](projects/008-pi-web/README.md) | [agegr/pi-web](https://github.com/agegr/pi-web) | 基于 Pi 的自托管浏览器编程工作台，支持读写代码、执行命令、会话与文件管理、模型和技能配置；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具，可用于研究 GitHub 项目、组织个人开发，并为自建领域助手提供工作台与扩展设计参考 | 完整理解与线上展示完成；上游未实测 | [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/) |
+| 009 | [YC AI Research](projects/009-yc-ai-research/README.md) | [原始文章（非代码仓库）](https://www.empirical.health/blog/yc-startups-publishing-ai-research) | 汇总 AI 创业公司与研究论文，帮助发现项目与核查来源；博客已有新内容，但该清单未承诺持续更新，具体 AI 能力需进入对应项目验证 | 中文研究与网页完成；上游未实测 | — |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
@@ -74,6 +75,12 @@
 [![Pi Web 外部引导：编程与工作区能力、Codex等同类产品、开源研究与个人开发用途](projects/008-pi-web/assets/entry-guide.png)](projects/008-pi-web/README.md)
 
 Pi Web 提供可自托管的浏览器 AI 编程工作台，把代码操作、任务会话、文件预览与模型配置放在一起。同类参照为 Codex、Claude Code、Cursor Agent；对当前工作可用于研究 GitHub 项目、组织个人开发，并借鉴其工作台与扩展设计自建领域助手。图源：依据固定源码与同类产品官方文档原创整理，非产品截图；用途为研究判断，未做效果对测。[项目资料](projects/008-pi-web/README.md) · [放大引导图](projects/008-pi-web/assets/entry-guide.svg) · [完整理解](projects/008-pi-web/notes/01-understanding.md) · [技术总览](projects/008-pi-web/assets/research-overview.svg) · [在线展示](https://yydshly.github.io/0910_codex_project/008-pi-web/)
+
+### 009 · YC AI Research
+
+[![从文章导航到实际研究：找到线索、理解论文、核查代码与许可、完成实验](projects/009-yc-ai-research/assets/research-overview.svg)](projects/009-yc-ai-research/README.md)
+
+区分官网、汇总文章与背后的 AI 项目，说明网页能力、更新边界与研究价值。图源：本项目原创研究流程图，非原站截图；模型未实测。[研究详情](projects/009-yc-ai-research/README.md) · [网页运行说明](projects/009-yc-ai-research/web/README.md)
 
 ## 仓库导航
 

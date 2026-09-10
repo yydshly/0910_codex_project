@@ -35,5 +35,12 @@
     "description": "基于 Pi 的自托管浏览器编程工作台，支持读写代码、执行命令、会话与文件管理、模型和技能配置；与 Codex、Claude Code、Cursor Agent 同属 AI 编程工具，可用于研究 GitHub 项目、组织个人开发，并为自建领域助手提供工作台与扩展设计参考。",
     "preview": "assets/entry-guide.png",
     "previewAlt": "Pi Web 引导图：能力、同类产品与开源项目研究、个人开发、自建助手的用途"
+  },
+  {
+    "directory": "009-yc-ai-research",
+    "title": "YC AI Research · 研究导航与价值",
+    "description": "整理 Empirical Health 文章的网页能力、更新情况和代表 AI 研究，帮助发现值得进一步验证的项目。",
+    "preview": "assets/research-overview.svg",
+    "previewAlt": "从文章入口到可验证研究的四个步骤"
   }
 ]
