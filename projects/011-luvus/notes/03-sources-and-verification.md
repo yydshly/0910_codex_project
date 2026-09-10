@@ -36,7 +36,9 @@
 
 两张原创 PNG 已目视检查，修改了详细图中字体不支持的符号。网页已通过本地 HTTP 访问，预览请求提交到应用后返回 queued，未确认前台实际显示；未做浏览器截图、交互点击或手机视觉回归。详细图在小屏幕上可通过原图链接放大，正文表格允许横向滚动。
 
-线上发布与资源一致性核查尚未完成；完成后记录首发版本与结果。
+首发源码为 d6bbf00d670ff13de696367f41903a71db937905；[发布运行成功](https://github.com/yydshly/0910_codex_project/actions/runs/34455572268)。2026-09-10 实际核对线上 deployment.json 与该版本一致，13 个 Luvus 文件返回 HTTP 200，文本统一换行后与验证构建一致，PNG 字节一致；HTML、SVG、PNG 类型正确。原有九个演示入口及导航首页访问通过，首页包含 Luvus 入口。
+
+[在线引导](https://yydshly.github.io/0910_codex_project/011-luvus/) · [完整理解](https://yydshly.github.io/0910_codex_project/011-luvus/understanding.html) · [详细架构](https://yydshly.github.io/0910_codex_project/011-luvus/architecture.html)。此记录证明静态研究展示已发布，不证明上游 Agent 运行能力。
 
 ## 来源与许可
 

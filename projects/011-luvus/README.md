@@ -19,10 +19,10 @@ Luvus 是支持多 Agent 的终端工作台，通过任务管理和适配层连�
 | 研究版本 | [f3f3ae05e7e6ae6efe4501cca329774cf35715e1](https://github.com/RizRiyz/luvus/tree/f3f3ae05e7e6ae6efe4501cca329774cf35715e1)，2026-09-10；Cargo.toml 版本 0.13.4 |
 | 上游许可证 | [Apache-2.0](https://github.com/RizRiyz/luvus/blob/f3f3ae05e7e6ae6efe4501cca329774cf35715e1/LICENSE) |
 | 技术栈 | Rust、Ratatui、PTY、本地 IPC；本研究网页为无第三方运行依赖的静态页面 |
-| 研究状态 | 中文研究与模块图完成；上游未运行，Web 发布状态见验证记录 |
+| 研究状态 | 中文研究与线上展示完成；上游未运行，验证范围见来源记录 |
 | 收录日期 | 2026-09-10 |
 | 最近更新 | 2026-09-10 |
-| 在线演示 | —（上线并验证后补充） |
+| 在线演示 | [模块引导](https://yydshly.github.io/0910_codex_project/011-luvus/) · [完整理解](https://yydshly.github.io/0910_codex_project/011-luvus/understanding.html) · [详细架构](https://yydshly.github.io/0910_codex_project/011-luvus/architecture.html) |
 
 ## 我们形成的理解
 

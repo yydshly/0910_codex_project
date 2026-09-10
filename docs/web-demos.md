@@ -16,6 +16,7 @@
 | 008 · Pi Web | [能力、本质与 Codex 对比](https://yydshly.github.io/0910_codex_project/008-pi-web/) · [完整理解](https://yydshly.github.io/0910_codex_project/008-pi-web/understanding.html) · [总览图](https://yydshly.github.io/0910_codex_project/008-pi-web/assets/research-overview.svg) |
 | 009 · YC AI Research | [网页能力、更新情况与研究价值](https://yydshly.github.io/0910_codex_project/009-yc-ai-research/) |
 | 010 · Awesome OSINT Arsenal | [工具目录、场景与核心能力](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
+| 011 · Luvus | [任务管理与 Agent 适配](https://yydshly.github.io/0910_codex_project/011-luvus/) · [完整理解](https://yydshly.github.io/0910_codex_project/011-luvus/understanding.html) · [详细架构](https://yydshly.github.io/0910_codex_project/011-luvus/architecture.html) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -56,6 +57,15 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Luvus 模块引导与完整研究
+
+- 日期：2026-09-10；平台：仓库既有 GitHub Pages 统一站点。
+- 首发源码：`d6bbf00d670ff13de696367f41903a71db937905`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34455572268)。
+- 首页突出“任务管理＋Agent 适配 → 已有 Agent 执行”，完整理解保留任务下发、可选主 Agent、适配原理，以及 Multica、MetaGPT 等产品对照。详细架构和原始 Mermaid 源图在第二层阅读。
+- 独立导出待提交内容后构建十个展示通过，484 处站内引用检查通过；四个阅读页、九节正文、63 处项目引用与锚点，下载正文和图源一致。
+- 线上版本与首发源码一致；13 个文件均 HTTP 200，文本统一换行后与验证构建一致，PNG 字节一致；九个既有演示与首页访问通过。
+- 原创 PNG 已目视检查；未做浏览器截图、真实点击或手机视觉回归。未运行 Luvus 或调用模型。详见 [验证记录](../projects/011-luvus/notes/03-sources-and-verification.md)。
 
 ### Awesome OSINT Arsenal 工具与能力展示
 

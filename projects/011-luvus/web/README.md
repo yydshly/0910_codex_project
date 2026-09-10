@@ -1,5 +1,7 @@
 # Luvus 静态研究展示
 
+[在线模块引导](https://yydshly.github.io/0910_codex_project/011-luvus/) · [完整理解](https://yydshly.github.io/0910_codex_project/011-luvus/understanding.html) · [详细架构](https://yydshly.github.io/0910_codex_project/011-luvus/architecture.html)
+
 首页用“任务管理＋Agent 适配 → 已有 Agent 执行”的简图引导；完整理解、详细架构和来源分别提供阅读页与 Markdown 下载。详细架构保留静态 SVG 和可复制的原始 Mermaid 源，不依赖在线图表服务。
 
 ## 本地运行
@@ -16,7 +18,7 @@ python -m http.server 8123 --bind 127.0.0.1 --directory dist
 
 ## 整站接入
 
-仓库根目录执行 `node scripts/build-pages.mjs` 和 `node scripts/check-pages.mjs`。项目登记在 docs/web-demos.json，沿用现有 GitHub Pages 子路径发布。上线并验证后才补充真实地址。
+仓库根目录执行 `node scripts/build-pages.mjs` 和 `node scripts/check-pages.mjs`。项目登记在 docs/web-demos.json，沿用现有 GitHub Pages 子路径发布。2026-09-10 首发已验证，记录见 ../notes/03-sources-and-verification.md。
 
 ## 维护
 
