@@ -37,6 +37,7 @@ node scripts/serve.mjs
 
 ## 检查范围
 
+- 八节完整理解正文、文章目录、来源与下载链接。
 - JavaScript 语法、动态目标元素、页面锚点、相对资源、研究下载文件。
 - 理论页来源索引、18 组证据、图谱文件、标签关联与缩放控件目标；PNG 已目视检查，未进行浏览器视觉或真实点击测试。
 - 三条任务结束与重放、切换任务、跳转、暂停及重置的状态逻辑。
@@ -50,7 +51,11 @@ node scripts/serve.mjs
 
 已在 [演示清单](../../../docs/web-demos.json) 注册 `004-pi`，兼容仓库的 GitHub Pages 子路径。运行说明遵循 [部署约定](../../../docs/web-demos.md)。
 
-当前状态：**本地完成，尚未发布**。远端沿用本仓库 GitHub Pages 统一站点。在线地址仅在发布并实际验证后登记。
+当前状态：**已发布到远端 GitHub Pages，访问与内容一致性验证通过**。
+
+[完整理解](https://yydshly.github.io/0910_codex_project/004-pi/understanding.html) · [完整架构与业务调度](https://yydshly.github.io/0910_codex_project/004-pi/theory.html) · [能力实验室](https://yydshly.github.io/0910_codex_project/004-pi/)。
+
+已核对线上源码版本、全部 17 个 Pi 展示文件、导航首页和五个原有项目入口。详见 [发布验证记录](../notes/04-verification.md)。
 
 ## 来源与许可
 

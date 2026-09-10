@@ -10,6 +10,7 @@
 | 001 · Agent 解剖室 | [能力拆解](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
 | 002 · Memmy Agent | [记忆与执行的边界](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) · [外部接入整体架构](https://yydshly.github.io/0910_codex_project/002-memmy-agent/#external-guide) |
 | 003 · AnySearch Skill | [客户端背后的搜索服务](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/) · [完整理解文档](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/notes/05-complete-understanding.html) |
+| 004 · Pi Agent Harness | [完整理解](https://yydshly.github.io/0910_codex_project/004-pi/understanding.html) · [架构与业务调度](https://yydshly.github.io/0910_codex_project/004-pi/theory.html) · [能力实验室](https://yydshly.github.io/0910_codex_project/004-pi/) |
 | 006 · Maigret | [账号用户名跨站检查：完整理解与总览图](https://yydshly.github.io/0910_codex_project/006-maigret/) |
 | 008 · Pi Web | [能力、本质与 Codex 对比](https://yydshly.github.io/0910_codex_project/008-pi-web/) · [完整理解](https://yydshly.github.io/0910_codex_project/008-pi-web/understanding.html) · [总览图](https://yydshly.github.io/0910_codex_project/008-pi-web/assets/research-overview.svg) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
@@ -40,10 +41,6 @@ node scripts/check-pages.mjs
 
 ## 新增演示
 
-### 本地完成、尚未发布
-
-- **004 · Pi 能力实验室**：见 [运行说明](../projects/004-pi/web/README.md)。已加入演示清单；提供任务回放、能力地图、会话分支、上下文压缩和扩展组合。全部为教学模拟，不调用模型或运行上游代码。没有登记在线网址，待实际发布并验证后补充。
-
 ### 接入步骤
 
 1. 在 `projects/<编号>-<英文名称>/web/` 独立维护页面及运行说明。
@@ -56,6 +53,15 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Pi Agent Harness 完整理解与理论双图发布
+
+- 日期：2026-09-10；平台：现有 GitHub Pages 统一站点。
+- 首发源码：`47860d011e3e494f382ae61f78ef361a544f13ea`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34446893679)。
+- 摘要集中描述库的模型接入、文件与命令工具、多轮任务、会话及扩展能力；附八节理解总稿、完整架构、业务调度双图和交互教学展示。
+- 独立导出本次提交构建六个已登记项目，336 处站内引用检查通过；Pi 三场景 / 18 阶段、16 种扩展组合和文章来源检查通过。
+- 线上版本与首发提交一致；23 个文件全部 HTTP 200，文本统一换行后与验证构建一致，PNG 字节一致，页面与资源内容类型正确；包含五个原有项目入口回归。
+- 发布静态研究展示，未运行上游 Pi 或调用真实模型；PNG 已目视检查，未做浏览器视觉或真实点击测试。详细范围见 [Pi 验证记录](../projects/004-pi/notes/04-verification.md)。
 
 ### Pi Web 完整理解与能力展示发布
 

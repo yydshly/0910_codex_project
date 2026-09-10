@@ -11,10 +11,10 @@ Pi 是可扩展的 AI Agent 工具包，统一多模型接入，提供文件读�
 | 研究版本 | [400d6905ce46ec46e79da8a7701b1b48850192df](https://github.com/earendil-works/pi/commit/400d6905ce46ec46e79da8a7701b1b48850192df)，提交于 2026-09-09 21:29:53 UTC；coding-agent 包声明版本 0.85.1 |
 | 上游许可证 | [MIT](https://github.com/earendil-works/pi/blob/400d6905ce46ec46e79da8a7701b1b48850192df/LICENSE)，Copyright (c) 2025 Mario Zechner |
 | 技术栈 | TypeScript、Node.js、npm workspaces、TypeBox、自研终端 UI；Bun 用于独立可执行文件构建 |
-| 研究状态 | 文档、部分核心源码与本地交互展示完成；未运行上游或调用真实模型 |
+| 研究状态 | 完整理解、架构与调度双图、远端静态展示完成；未运行上游或调用真实模型 |
 | 收录日期 | 2026-09-10 |
 | 最近更新 | 2026-09-10 |
-| 在线演示 | — |
+| 在线演示 | [完整理解](https://yydshly.github.io/0910_codex_project/004-pi/understanding.html) · [架构与调度](https://yydshly.github.io/0910_codex_project/004-pi/theory.html) · [能力实验室](https://yydshly.github.io/0910_codex_project/004-pi/) |
 
 包内版本号不代表本研究验证了对应 npm 发布物；可复现依据为固定提交。
 
@@ -38,7 +38,7 @@ Pi 是可扩展的 AI Agent 工具包，统一多模型接入，提供文件读�
 
 ### 上游界面参考
 
-新增 **Pi 能力实验室**：三条任务路径、八项能力、会话分支、上下文压缩与扩展组合。见 [展示内容与运行说明](web/README.md)。所有交互为教学模拟，不执行上游 Pi 或真实工具；尚未发布在线版本。
+新增 **Pi 能力实验室**：三条任务路径、八项能力、会话分支、上下文压缩与扩展组合。见 [展示内容与运行说明](web/README.md)。所有交互为教学模拟，不执行上游 Pi 或真实工具。已发布到 GitHub Pages，见 [发布验证记录](notes/04-verification.md)。
 
 ![Pi 终端显示项目上下文、技能、扩展、读取文件结果和输入区](assets/interactive-mode.png)
 
@@ -59,10 +59,10 @@ Pi 是可扩展的 AI Agent 工具包，统一多模型接入，提供文件读�
 
 - [完整理解：能力、本质、工作流程、价值与验证边界](notes/03-understanding.md)
 - [完整架构与业务调度：双图与源码索引](notes/02-architecture-and-scheduling.md)
-
 - [能力、技术原理、使用场景与扩展方向](notes/01-analysis.md)
 - [研究范围与验证边界](notes/README.md)
 - [Web 演示说明](web/README.md)
+- [远端发布与验证记录](notes/04-verification.md)
 
 ## 结论
 
