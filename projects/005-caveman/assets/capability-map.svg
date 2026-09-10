@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1390" viewBox="0 0 1800 1390" role="img"><title>Caveman 能力范围</title><desc>以模型调用前的输入优化为中心，展示处理对象、核心能力、接入方式及独立输出风格技能。</desc>
+<rect width="1800" height="1390" fill="#F5F4EF"/>
+<text x="70" y="48" dominant-baseline="text-before-edge" fill="#147B74" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">CAVEMAN  /  01 / CAPABILITIES</text>
+<text x="70" y="97" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="58" font-weight="700">能力范围：模型调用前的输入优化</text>
+<text x="72" y="179" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400">核心对象是模型即将读取的上下文；工具的输出，会成为下一轮模型的输入。</text>
+<rect x="70" y="249" width="440" height="167" rx="20" fill="#FFFFFF" stroke="#D4DEDA" stroke-width="2"/>
+<text x="100" y="277" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700">输入来源</text>
+<text x="100" y="328" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">日志 / 文件 / 搜索 / 网页</text>
+<text x="100" y="368" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">工具结果 / 选定历史片段</text>
+<rect x="615" y="249" width="570" height="167" rx="20" fill="#182F3A" stroke="#182F3A" stroke-width="2"/>
+<text x="648" y="279" dominant-baseline="text-before-edge" fill="#FFFFFF" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700">Caveman Engine + Proxy</text>
+<text x="648" y="334" dominant-baseline="text-before-edge" fill="#D5EBE6" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">分类处理 · 精简内容 · 保留恢复入口</text>
+<rect x="1290" y="249" width="440" height="167" rx="20" fill="#FFFFFF" stroke="#D4DEDA" stroke-width="2"/>
+<text x="1320" y="277" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700">大模型</text>
+<text x="1320" y="328" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">接收精简后的上下文</text>
+<text x="1320" y="368" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">需要细节时，经 Agent 取回原文</text>
+<polyline points="510,331 615,331" fill="none" stroke="#147B74" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="615,331 603.5914266954252,337.2325320018546 603.5914266954252,324.7674679981454" fill="#147B74"/>
+<polyline points="1185,331 1290,331" fill="none" stroke="#147B74" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1290,331 1278.591426695425,337.2325320018546 1278.591426695425,324.7674679981454" fill="#147B74"/>
+<text x="70" y="462" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700">核心能力</text>
+<rect x="70" y="524" width="536" height="234" rx="20" fill="#FFFFFF" stroke="#D4DEDA" stroke-width="2"/>
+<text x="95" y="549" dominant-baseline="text-before-edge" fill="#147B74" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">01</text>
+<text x="151" y="547" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">识别与分流</text>
+<text x="95" y="612" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">识别内容形态，选择匹配策略</text>
+<text x="95" y="655" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">默认注册 15 类压缩器</text>
+<text x="95" y="698" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">部分类型需要调用方明确指定</text>
+<rect x="632" y="524" width="536" height="234" rx="20" fill="#FFFFFF" stroke="#D4DEDA" stroke-width="2"/>
+<text x="657" y="549" dominant-baseline="text-before-edge" fill="#147B74" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">02</text>
+<text x="713" y="547" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">按内容结构精简</text>
+<text x="657" y="612" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">日志、JSON、表格、差异等</text>
+<text x="657" y="655" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">代码可保留签名与类型概览</text>
+<text x="657" y="698" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">精简的是模型看到的表示</text>
+<rect x="1194" y="524" width="536" height="234" rx="20" fill="#FFFFFF" stroke="#D4DEDA" stroke-width="2"/>
+<text x="1219" y="549" dominant-baseline="text-before-edge" fill="#147B74" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">03</text>
+<text x="1275" y="547" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">原文恢复与回退</text>
+<text x="1219" y="612" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">有损替换前满足原文恢复条件</text>
+<text x="1219" y="655" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">保存原始字节，提供恢复引用</text>
+<text x="1219" y="698" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">解析失败或未变短则保留原文</text>
+<rect x="70" y="785" width="536" height="234" rx="20" fill="#FFFFFF" stroke="#D4DEDA" stroke-width="2"/>
+<text x="95" y="810" dominant-baseline="text-before-edge" fill="#147B74" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">04</text>
+<text x="151" y="808" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">上下文预算选择</text>
+<text x="95" y="873" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">BM25 相关性 + 时间 + 错误信号</text>
+<text x="95" y="916" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">在预算内选片段，再恢复原顺序</text>
+<text x="95" y="959" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">Pack 是可调用模块，接入依路径</text>
+<rect x="632" y="785" width="536" height="234" rx="20" fill="#FFFFFF" stroke="#D4DEDA" stroke-width="2"/>
+<text x="657" y="810" dominant-baseline="text-before-edge" fill="#147B74" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">05</text>
+<text x="713" y="808" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">接入现有工作流</text>
+<text x="657" y="873" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">本地代理 / CLI / MCP / SDK</text>
+<text x="657" y="916" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">可包装已有 Agent 或调整端点</text>
+<text x="657" y="959" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">兼容范围取决于协议与恢复能力</text>
+<rect x="1194" y="785" width="536" height="234" rx="20" fill="#FFFFFF" stroke="#D4DEDA" stroke-width="2"/>
+<text x="1219" y="810" dominant-baseline="text-before-edge" fill="#147B74" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">06</text>
+<text x="1275" y="808" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">专用工具与度量</text>
+<text x="1219" y="873" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">命令输出、网页、记忆处理入口</text>
+<text x="1219" y="916" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">本地 token 估算与使用记录</text>
+<text x="1219" y="959" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400">Pixel：可选的文字转图片路线</text>
+<rect x="70" y="1076" width="1660" height="120" rx="20" fill="#FAEEDB" stroke="#E9D3AD" stroke-width="2"/>
+<text x="98" y="1100" dominant-baseline="text-before-edge" fill="#A56721" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700">独立配套：输出精简 Skill</text>
+<text x="575" y="1100" dominant-baseline="text-before-edge" fill="#182F3A" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">用提示词控制回答风格，可单独启用；不等于输入压缩引擎。</text>
+<text x="98" y="1148" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">收益边界：上下文变短 ≠ 任务一定更省钱；需计入规则、恢复调用、缓存与实际任务质量。</text>
+<text x="70" y="1256" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">研究版本 15581d1 · 2026-09-10 · 依据文档与源码原创绘制；非运行截图，未实测节省率。</text>
+<text x="70" y="1291" dominant-baseline="text-before-edge" fill="#52666D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400">来源：github.com/JuliusBrussee/caveman · product-model / engine / contextwindow / skills/caveman</text>
+</svg>
