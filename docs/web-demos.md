@@ -18,7 +18,7 @@
 | 010 · Awesome OSINT Arsenal | [工具查找、安装说明与完整理解](https://yydshly.github.io/0910_codex_project/010-awesome-osint-arsenal/) |
 | 011 · Luvus | [任务管理与 Agent 适配](https://yydshly.github.io/0910_codex_project/011-luvus/) · [完整理解](https://yydshly.github.io/0910_codex_project/011-luvus/understanding.html) · [详细架构](https://yydshly.github.io/0910_codex_project/011-luvus/architecture.html) |
 | 012 · Crypto 101 | [中文学习地图](https://yydshly.github.io/0910_codex_project/012-crypto101-book/) · [关键知识清单](https://yydshly.github.io/0910_codex_project/012-crypto101-book/knowledge.html) · [从目标开始](https://yydshly.github.io/0910_codex_project/012-crypto101-book/foreword.html) · [来源与内容缺口](https://yydshly.github.io/0910_codex_project/012-crypto101-book/sources.html) |
-| 013 · Plinkopinball | [原版体验与中文实验](https://yydshly.github.io/0910_codex_project/013-plinkopinball/) · [完整研究](https://yydshly.github.io/0910_codex_project/013-plinkopinball/understanding.html) · [来源与验证](https://yydshly.github.io/0910_codex_project/013-plinkopinball/sources.html) |
+| 013 · Plinkopinball | [原版体验与中文实验](https://yydshly.github.io/0910_codex_project/013-plinkopinball/) · [八种游戏方向](https://yydshly.github.io/0910_codex_project/013-plinkopinball/games.html) · [完整研究](https://yydshly.github.io/0910_codex_project/013-plinkopinball/understanding.html) · [来源与验证](https://yydshly.github.io/0910_codex_project/013-plinkopinball/sources.html) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
@@ -59,6 +59,14 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### Plinkopinball 八种游戏方向原型
+
+- 日期：2026-09-10；发布源码：`faf28c93baec00b3fdfe804500dba4d67f5ac3ac`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34465254195)。
+- 新增 games.html 与 games-notes.html。八个独立二维原型覆盖物理解谜、弹珠迷宫、打砖块、轨道建造、连锁机关、颜色分类、节奏击球和弹珠竞速，提供自动演示、手动操作、参数、暂停、重来和胜负反馈。
+- 八条自动演示均通过实际玩法规则到达成功状态；额外检查失败、重试、输入响应、路口锁定、轨道连通、节拍防重复计分、能量边界与结束计时。五页、69 处项目链接及锚点、脚本语法、下载一致性检查通过；全站 12 个展示、1,564 处本地引用检查通过。
+- 核对线上版本一致，本项目全部 18 个文件 HTTP 200，统一换行后内容一致，模块内容类型正确；12 个展示入口均可访问。
+- 未执行新页面浏览器截图、真实点击、移动端、音频延迟或视觉回归；可选 WebMCP 模块检查不代表真实浏览器接口已经验证。概念原型独立实现，不代表上游新增了这些游戏或自由三维物理能力。
 
 ### Plinkopinball 原版体验与中文原理实验
 

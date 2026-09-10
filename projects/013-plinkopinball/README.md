@@ -14,7 +14,7 @@
 | 研究状态 | 中文研究与线上展示完成；作者原站基础交互已验证；教学实验通过逻辑测试，未做新页面浏览器交互回归 |
 | 收录日期 | 2026-09-10 |
 | 最近更新 | 2026-09-10 |
-| 本项目在线展示 | [原版体验与中文原理实验](https://yydshly.github.io/0910_codex_project/013-plinkopinball/) |
+| 本项目在线展示 | [原版体验与中文原理实验](https://yydshly.github.io/0910_codex_project/013-plinkopinball/) · [八种游戏方向试玩](https://yydshly.github.io/0910_codex_project/013-plinkopinball/games.html) |
 | 作者原版演示 | [打开作者原站](https://codrops-demo-for-threejs-conference-ten.vercel.app/) |
 
 ## 研究摘要
