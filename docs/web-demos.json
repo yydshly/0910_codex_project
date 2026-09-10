@@ -53,7 +53,7 @@
   {
     "directory": "011-luvus",
     "title": "Luvus · 多 Agent 任务工作台",
-    "description": "通过任务管理与适配层连接已有 Agent，提供任务下发、会话管理、并行协调、检查与结果整合；主 Agent 可选，可为我们的项目研究流程与验收规则提供参考。",
+    "description": "Luvus 是多 Agent 终端工作台，统一接入 Claude Code、Codex、Pi 等编程助手，支持任务下发与依赖管理、会话恢复、状态跟踪、并行工作目录协调、检查命令和分支整合，并提供远程接入、定时任务与模块扩展。",
     "preview": "assets/entry-guide.svg",
     "previewAlt": "Luvus 的任务管理与 Agent 适配连接已有助手，具体工作由助手自己的模型与工具完成"
   }
