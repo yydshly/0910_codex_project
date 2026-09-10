@@ -9,10 +9,11 @@
 | 演示导航首页 | [开源项目研究集](https://yydshly.github.io/0910_codex_project/) |
 | 001 · Agent 解剖室 | [能力拆解](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/) |
 | 002 · Memmy Agent | [记忆与执行的边界](https://yydshly.github.io/0910_codex_project/002-memmy-agent/) · [外部接入整体架构](https://yydshly.github.io/0910_codex_project/002-memmy-agent/#external-guide) |
+| 003 · AnySearch Skill | [客户端背后的搜索服务](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/) · [完整理解文档](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/notes/05-complete-understanding.html) |
 | Agent 如何推进任务 | [四条交互路径与汇总图](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/#logic) |
 | 完整理解文档 | [在线阅读与下载](https://yydshly.github.io/0910_codex_project/001-system-prompts-leaks/reports/complete-understanding.html) |
 
-关联方式：仓库首页 → 演示导航或具体项目；演示导航 → 项目网页与 GitHub 研究目录；项目网页 → 六篇在线文档、研究仓库与上游来源；在线文档 → 项目网页及相关章节。GitHub 仓库 About 的网站地址指向演示导航首页。
+关联方式：仓库首页 → 演示导航或具体项目；演示导航 → 项目网页与 GitHub 研究目录；项目网页 → 对应研究文档、研究仓库与上游来源；在线文档 → 项目网页及相关章节。GitHub 仓库 About 的网站地址指向演示导航首页。
 
 ## 自动发布
 
@@ -47,6 +48,14 @@ node scripts/check-pages.mjs
 GitHub Pages 只承载静态内容。需要常驻后端的项目须单独部署后端，在对应项目中说明依赖与地址。
 
 ## 首次上线记录
+
+### AnySearch 展示追加发布
+
+- 日期：2026-09-10，平台：现有 GitHub Pages 统一站点。
+- 首次上线源码：`de70158077ffb569fbba5a12db46fd5ffeb81ec2`；[成功运行](https://github.com/yydshly/0910_codex_project/actions/runs/34441279694)。
+- 从干净导出的待提交内容构建三个展示页，202 处站内引用通过子路径检查；AnySearch 完整文档的 11 个章节、来源与锚点检查通过。
+- 核对线上 `deployment.json` 版本；17 个线上文件返回 HTTP 200，文本统一换行后与验证构建一致，PNG 二进制一致，HTML、CSS、SVG、PNG MIME 正确。包含原有两个展示页的入口回归检查。
+- 展示页解释 AnySearch 客户端、云端服务与搜索生态，不部署 AnySearch 后端，不发起付费查询。未执行浏览器视觉与真实点击测试。
 
 ### Memmy 演示追加发布
 

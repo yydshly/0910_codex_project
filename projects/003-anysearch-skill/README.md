@@ -11,10 +11,10 @@ AnySearch 云端搜索服务的开源客户端与 Skill 规范，为已有 AI Ag
 | 研究版本 | `15b7ea5039983c9dee328be8c7c609f3eb86058e`；技能版本 3.1.1；提交日期 2026-09-02 |
 | 上游许可证 | [Apache-2.0](https://github.com/anysearch-ai/anysearch-skill/blob/15b7ea5039983c9dee328be8c7c609f3eb86058e/LICENSE)，适用于仓库代码，不代表远端服务可以自行部署 |
 | 技术栈 | Markdown、Python、Node.js、PowerShell、Bash、HTTP JSON API |
-| 研究状态 | 完整理解总稿与全景图完成；源码分析、三种运行时本地接口测试及少量在线验证完成 |
+| 研究状态 | 文档、完整图与线上展示完成；源码分析、三种运行时本地接口测试及少量在线验证完成 |
 | 收录日期 | 2026-09-10 |
 | 最近更新 | 2026-09-10 |
-| 在线演示 | — |
+| 在线演示 | [客户端背后的搜索服务](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/) · [完整研究在线阅读](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/notes/05-complete-understanding.html) |
 
 ## 研究摘要
 

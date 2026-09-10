@@ -18,7 +18,13 @@ python -m http.server 4173 --directory dist --bind 127.0.0.1
 
 ## 部署
 
-沿用仓库 [GitHub Pages 统一发布流程](../../../docs/web-demos.md)，在演示清单登记后构建到独立子路径 `003-anysearch-skill/`。首次发布验证完成后补充真实线上入口与记录。
+沿用仓库 [GitHub Pages 统一发布流程](../../../docs/web-demos.md)，在演示清单登记后构建到独立子路径 `003-anysearch-skill/`。
+
+- [在线展示](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/)
+- [完整研究在线阅读](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/notes/05-complete-understanding.html)
+- [完整总览图](https://yydshly.github.io/0910_codex_project/003-anysearch-skill/assets/research-overview.svg)
+
+首次上线于 2026-09-10，源码版本 `de70158077ffb569fbba5a12db46fd5ffeb81ec2`，[发布运行成功](https://github.com/yydshly/0910_codex_project/actions/runs/34441279694)。已核对线上部署版本，17 个文件返回 HTTP 200，内容与干净导出构建一致，页面、样式与图片 MIME 正确；包括原有两个展示页的入口回归检查。后续版本以站点 [deployment.json](https://yydshly.github.io/0910_codex_project/deployment.json) 为准。
 
 ## 验证范围
 
