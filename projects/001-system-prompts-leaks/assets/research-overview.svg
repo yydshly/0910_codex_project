@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2630" viewBox="0 0 1800 2630" role="img" aria-labelledby="title desc">
+<title id="title">一张图读懂 System Prompts Leaks</title>
+<desc id="desc">来源、持续归档、Codex 与 ChatGPT 5.6 样本内容、Agent 工作原理、研究价值及扩展方向。来源声明与未确认事项分别标注。</desc>
+<rect x="0" y="0" width="1800" height="2630" rx="0" fill="#edf2f8"/>
+<rect x="0" y="0" width="1800" height="272" rx="0" fill="#102642"/>
+<text x="75" y="39" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#9dbbdf" dominant-baseline="text-before-edge">AI 产品研究  /  001  /  2026.09.10</text>
+<text x="75" y="86" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="60" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">一张图读懂 System Prompts Leaks</text>
+<text x="77" y="173" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="400" fill="#d2e2f7" dominant-baseline="text-before-edge">研究 AI 产品如何组织指令、工具与上下文的持续档案</text>
+<text x="78" y="229" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#adcaed" dominant-baseline="text-before-edge">核心认识：它提供可研究的行为设计材料；材料本身不能替代模型与实际运行程序。</text>
+<rect x="70" y="300" width="1660" height="510" rx="25" fill="#ffffff"/>
+<rect x="101" y="327" width="56" height="49" rx="12" fill="#2158de"/>
+<text x="111" y="335" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">01</text>
+<text x="176" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">信息从哪里来？</text>
+<text x="176" y="378" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">获取方式因材料而异；Codex GPT-5.5 有可追溯的缓存提取案例。</text>
+<rect x="105" y="422" width="290" height="116" rx="14" fill="#eaf1ff"/>
+<text x="123" y="442" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">模型目录资料</text>
+<text x="123" y="488" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">客户端取得模型信息</text>
+<path d="M398 478 L424 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M415 471 L424 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M415 485 L424 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="429" y="422" width="290" height="116" rx="14" fill="#eaf1ff"/>
+<text x="447" y="442" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">客户端本地缓存</text>
+<text x="447" y="488" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">models_cache.json</text>
+<path d="M722 478 L748 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M739 471 L748 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M739 485 L748 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="753" y="422" width="290" height="116" rx="14" fill="#eaf1ff"/>
+<text x="771" y="442" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">读取模板字符串</text>
+<text x="771" y="488" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">instructions_template</text>
+<path d="M1046 478 L1072 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1063 471 L1072 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1063 485 L1072 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="1077" y="422" width="290" height="116" rx="14" fill="#eaf1ff"/>
+<text x="1095" y="442" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">贡献者提交 PR</text>
+<text x="1095" y="488" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">区分精简与运行时文本</text>
+<path d="M1370 478 L1396 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1387 471 L1396 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1387 485 L1396 478" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="1401" y="422" width="290" height="116" rx="14" fill="#eaf1ff"/>
+<text x="1419" y="442" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">维护者核对入库</text>
+<text x="1419" y="488" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">对照新缓存与公开源码</text>
+<text x="107" y="558" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#087d73" dominant-baseline="text-before-edge">证据强度：PR #166 的贡献者与维护者陈述 + 本研究核对公开源码；未复现当日提取环境。</text>
+<rect x="105" y="609" width="785" height="151" rx="16" fill="#f3f6fb"/>
+<rect x="105" y="609" width="6" height="151" rx="3" fill="#087d73"/>
+<text x="128" y="627" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">其他来源：分别记录、分别判断</text>
+<text x="128" y="674" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">官方公开文本归档；贡献者提交；部分运行时或技能材料附有作者</text>
+<text x="128" y="711" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">的获取说明。</text>
+<rect x="914" y="609" width="782" height="151" rx="16" fill="#f3f6fb"/>
+<rect x="914" y="609" width="6" height="151" rx="3" fill="#9a6010"/>
+<text x="937" y="627" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#9a6010" dominant-baseline="text-before-edge">仍未知：不能跨产品套用</text>
+<text x="937" y="674" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">Codex 完整运行时文本、ChatGPT 5.6 样本的具体导出步骤，在所</text>
+<text x="937" y="711" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">查证据中不足以复现。</text>
+<rect x="70" y="840" width="1660" height="290" rx="25" fill="#ffffff"/>
+<rect x="101" y="867" width="56" height="49" rx="12" fill="#2158de"/>
+<text x="111" y="875" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">02</text>
+<text x="176" y="870" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">仓库怎样整理？</text>
+<text x="176" y="918" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">持续维护的资料库：新增、纠错、重命名、保留历史；并非一次性收集。</text>
+<text x="108" y="966" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">收集材料</text>
+<path d="M248 985 L291 985" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M282 978 L291 985" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M282 992 L291 985" fill="none" stroke="#2158de" stroke-width="3"/>
+<text x="311" y="966" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">按产品归档</text>
+<path d="M480 985 L523 985" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M514 978 L523 985" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M514 992 L523 985" fill="none" stroke="#2158de" stroke-width="3"/>
+<text x="543" y="966" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">PR 校对</text>
+<path d="M668 985 L711 985" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M702 978 L711 985" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M702 992 L711 985" fill="none" stroke="#2158de" stroke-width="3"/>
+<text x="731" y="966" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">Git 追踪版本</text>
+<rect x="1054" y="875" width="641" height="164" rx="16" fill="#102642"/>
+<text x="1083" y="899" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="48" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">17</text>
+<text x="1083" y="965" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#b9cce4" dominant-baseline="text-before-edge">产品 / 类别目录</text>
+<text x="1288" y="899" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="48" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">430</text>
+<text x="1288" y="965" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#b9cce4" dominant-baseline="text-before-edge">Markdown 文件</text>
+<text x="1495" y="899" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="48" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">489</text>
+<text x="1495" y="965" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#b9cce4" dominant-baseline="text-before-edge">全部文件</text>
+<text x="108" y="1067" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">本次未发现统一的自动收集、解析流水线；部分 Skills 附带脚本和组件。文件数不等于已验证能力数。</text>
+<rect x="70" y="1160" width="1660" height="750" rx="25" fill="#ffffff"/>
+<rect x="101" y="1187" width="56" height="49" rx="12" fill="#2158de"/>
+<text x="111" y="1195" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">03</text>
+<text x="176" y="1190" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">它实际收集了什么？</text>
+<text x="176" y="1238" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">先区分产品与材料范围，再打开 ChatGPT 5.6 样本。</text>
+<rect x="105" y="1287" width="515" height="99" rx="14" fill="#eaf1ff"/>
+<text x="123" y="1303" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">Codex / gpt-5.6.md</text>
+<text x="123" y="1349" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">168 行 · 工作与交流规则</text>
+<rect x="643" y="1287" width="515" height="99" rx="14" fill="#eaf1ff"/>
+<text x="661" y="1303" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">Codex / codex-full.md</text>
+<text x="661" y="1349" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">11,104 行 · 指令、工具与环境</text>
+<rect x="1181" y="1287" width="515" height="99" rx="14" fill="#eaf1ff"/>
+<text x="1199" y="1303" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">ChatGPT / gpt-5.6-sol.md</text>
+<text x="1199" y="1349" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">1,845 行 · 产品侧混合上下文</text>
+<text x="107" y="1410" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">ChatGPT 5.6 文件内容地图</text>
+<text x="1060" y="1414" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#9a6010" dominant-baseline="text-before-edge">档案标签 · 并非所有用户的统一配置</text>
+<rect x="105" y="1462" width="515" height="141" rx="16" fill="#f3f6fb"/>
+<rect x="105" y="1462" width="6" height="141" rx="3" fill="#2158de"/>
+<text x="128" y="1480" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">身份与运行环境</text>
+<text x="128" y="1527" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">模型身份、日期、环境与产物约定；</text>
+<text x="128" y="1563" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">第 1–18 行</text>
+<rect x="643" y="1462" width="515" height="141" rx="16" fill="#f3f6fb"/>
+<rect x="643" y="1462" width="6" height="141" rx="3" fill="#2158de"/>
+<text x="666" y="1480" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">行为与产品规则</text>
+<text x="666" y="1527" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">表达风格、工具选择、部分政策、通道与开</text>
+<text x="666" y="1563" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">发者规则</text>
+<rect x="1181" y="1462" width="515" height="141" rx="16" fill="#f3f6fb"/>
+<rect x="1181" y="1462" width="6" height="141" rx="3" fill="#2158de"/>
+<text x="1204" y="1480" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">工具接口说明</text>
+<text x="1204" y="1527" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">调用格式、参数、使用约定；L117–1317，</text>
+<text x="1204" y="1563" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">共 16 个 Namespace 标题</text>
+<rect x="105" y="1622" width="515" height="141" rx="16" fill="#f3f6fb"/>
+<rect x="105" y="1622" width="6" height="141" rx="3" fill="#2158de"/>
+<text x="128" y="1640" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">文件与任务流程</text>
+<text x="128" y="1687" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">检索、读取、引用、文件库、附件和来源处</text>
+<text x="128" y="1723" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">理</text>
+<rect x="643" y="1622" width="515" height="141" rx="16" fill="#f3f6fb"/>
+<rect x="643" y="1622" width="6" height="141" rx="3" fill="#2158de"/>
+<text x="666" y="1640" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">用户与会话结构</text>
+<text x="666" y="1687" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">资料、指令、记忆、近期对话栏目；实际私</text>
+<text x="666" y="1723" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">有内容标为 [REDACTED]</text>
+<rect x="1181" y="1622" width="515" height="141" rx="16" fill="#f3f6fb"/>
+<rect x="1181" y="1622" width="6" height="141" rx="3" fill="#2158de"/>
+<text x="1204" y="1640" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">界面与输出格式</text>
+<text x="1204" y="1687" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">写作块、预取交互组件、模式提醒与时间字</text>
+<text x="1204" y="1723" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">段</text>
+<text x="108" y="1791" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">工具分组：计算 · 搜索 · 交互界面 · 定时任务 · 任务交接 · 记忆与个人上下文 · 外部资源 · 图像等</text>
+<rect x="105" y="1840" width="1591" height="43" rx="9" fill="#fff3df"/>
+<text x="120" y="1846" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#9a6010" dominant-baseline="text-before-edge">含明确禁用的 canmore；接口声明 ≠ 可用服务。上述文件均不是模型权重，“full”也不保证后端完整。</text>
+<rect x="70" y="1940" width="1660" height="450" rx="25" fill="#ffffff"/>
+<rect x="101" y="1967" width="56" height="49" rx="12" fill="#2158de"/>
+<text x="111" y="1975" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">04</text>
+<text x="176" y="1970" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">意义是什么？我们如何使用？</text>
+<text x="176" y="2018" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">从材料中提炼设计，再接入自己的运行环境，并用任务验证。</text>
+<rect x="105" y="2066" width="376" height="112" rx="14" fill="#102642"/>
+<text x="123" y="2084" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">指令与上下文</text>
+<text x="123" y="2132" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#b9cce4" dominant-baseline="text-before-edge">角色、规则、任务、工具定义</text>
+<path d="M484 2120 L505 2120" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M496 2113 L505 2120" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M496 2127 L505 2120" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="510" y="2066" width="376" height="112" rx="14" fill="#102642"/>
+<text x="528" y="2084" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">模型决定下一步</text>
+<text x="528" y="2132" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#b9cce4" dominant-baseline="text-before-edge">生成回答，或发出工具调用</text>
+<path d="M889 2120 L910 2120" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M901 2113 L910 2120" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M901 2127 L910 2120" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="915" y="2066" width="376" height="112" rx="14" fill="#102642"/>
+<text x="933" y="2084" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">运行程序执行</text>
+<text x="933" y="2132" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#b9cce4" dominant-baseline="text-before-edge">工具实现、权限、外部服务</text>
+<path d="M1294 2120 L1315 2120" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1306 2113 L1315 2120" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1306 2127 L1315 2120" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="1320" y="2066" width="376" height="112" rx="14" fill="#102642"/>
+<text x="1338" y="2084" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">结果反馈模型</text>
+<text x="1338" y="2132" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#b9cce4" dominant-baseline="text-before-edge">检查结果，继续或结束</text>
+<path d="M1574 2182 L1574 2194" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M1574 2194 L699 2194" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M699 2194 L699 2182" fill="none" stroke="#087d73" stroke-width="3"/>
+<text x="108" y="2223" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">核心价值</text>
+<text x="108" y="2268" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">观察产品行为设计与版本变化；为自己的助手</text>
+<text x="108" y="2305" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">提出可测试的设计假设。</text>
+<text x="646" y="2223" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">使用场景</text>
+<text x="646" y="2268" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">提示词工程、工具协议设计、编码流程研究、</text>
+<text x="646" y="2305" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">产品比较与教学。</text>
+<text x="1184" y="2223" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">可扩展方向</text>
+<text x="1184" y="2268" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">来源与可信度标注、中文检索、版本差异、模</text>
+<text x="1184" y="2305" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">块复用和受控评测。</text>
+<text x="80" y="2430" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">读图边界</text>
+<text x="232" y="2430" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">看到文本 → 理解设计线索；验证真实能力 → 还需模型、工具实现、权限与实际测试。</text>
+<text x="80" y="2481" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">研究版本  f475e8b2b11ca7540a37234a451e9f085471bd94   ·   统计与行数均固定于该版本</text>
+<text x="80" y="2518" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">来源  asgeirtj/system_prompts_leaks · PR #166 · OpenAI/Codex/ 与 OpenAI/gpt-5.6-sol.md</text>
+<text x="80" y="2555" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">机制对照  openai/codex 公开源码（2026-09-10）  ·  原创中文整理；详细证据和链接见配套研究文档</text>
+</svg>

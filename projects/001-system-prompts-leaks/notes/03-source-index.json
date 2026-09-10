@@ -1,0 +1,569 @@
+{
+  "repository": "https://github.com/asgeirtj/system_prompts_leaks",
+  "commit": "f475e8b2b11ca7540a37234a451e9f085471bd94",
+  "research_date": "2026-09-10",
+  "note": "Structural index only. No full upstream source text or private user data included.",
+  "sources": [
+    {
+      "path": "OpenAI/gpt-5.6-sol.md",
+      "line_count": 1845,
+      "bytes": 127131,
+      "sha256": "5f4ca63d00730919bf0046a627a6eef28bf9fc755b1d8c87ccc058aaac6ace89",
+      "headings": [
+        {
+          "line": 4,
+          "heading": "# Environment"
+        },
+        {
+          "line": 11,
+          "heading": "# Artifacts"
+        },
+        {
+          "line": 15,
+          "heading": "## General"
+        },
+        {
+          "line": 68,
+          "heading": "# About you"
+        },
+        {
+          "line": 72,
+          "heading": "## Product guidance"
+        },
+        {
+          "line": 82,
+          "heading": "# Important verbal tic to strictly avoid"
+        },
+        {
+          "line": 90,
+          "heading": "## Tips for Using Tools"
+        },
+        {
+          "line": 98,
+          "heading": "# Desired oververbosity for the final answer (not analysis): 4"
+        },
+        {
+          "line": 107,
+          "heading": "# Content Policy"
+        },
+        {
+          "line": 117,
+          "heading": "# Tools"
+        },
+        {
+          "line": 121,
+          "heading": "## Namespace: python"
+        },
+        {
+          "line": 144,
+          "heading": "## Namespace: genui"
+        },
+        {
+          "line": 199,
+          "heading": "## Namespace: web"
+        },
+        {
+          "line": 702,
+          "heading": "## Namespace: automations"
+        },
+        {
+          "line": 815,
+          "heading": "# When to suggest automations"
+        },
+        {
+          "line": 878,
+          "heading": "## Namespace: local"
+        },
+        {
+          "line": 911,
+          "heading": "## Namespace: python_user_visible"
+        },
+        {
+          "line": 934,
+          "heading": "## Namespace: user_info"
+        },
+        {
+          "line": 951,
+          "heading": "## Namespace: summary_reader"
+        },
+        {
+          "line": 979,
+          "heading": "## Namespace: container"
+        },
+        {
+          "line": 1041,
+          "heading": "## Namespace: personal_context"
+        },
+        {
+          "line": 1085,
+          "heading": "## Namespace: bio"
+        },
+        {
+          "line": 1132,
+          "heading": "## Namespace: api_tool"
+        },
+        {
+          "line": 1238,
+          "heading": "## Namespace: image_gen"
+        },
+        {
+          "line": 1277,
+          "heading": "## Namespace: hotline"
+        },
+        {
+          "line": 1289,
+          "heading": "## Namespace: user_settings"
+        },
+        {
+          "line": 1312,
+          "heading": "## Namespace: canmore"
+        },
+        {
+          "line": 1318,
+          "heading": "# Valid channels: analysis, commentary, final, summary. Channel must be included for every message."
+        },
+        {
+          "line": 1320,
+          "heading": "# Juice: 112"
+        },
+        {
+          "line": 1322,
+          "heading": "## Personality Instruction"
+        },
+        {
+          "line": 1326,
+          "heading": "## Trait Instructions"
+        },
+        {
+          "line": 1332,
+          "heading": "## Additional Instruction"
+        },
+        {
+          "line": 1338,
+          "heading": "# Developer Instructions"
+        },
+        {
+          "line": 1404,
+          "heading": "## File Search Tool"
+        },
+        {
+          "line": 1551,
+          "heading": "## Files Tool"
+        },
+        {
+          "line": 1621,
+          "heading": "## User Bio"
+        },
+        {
+          "line": 1625,
+          "heading": "## User's Instructions"
+        },
+        {
+          "line": 1630,
+          "heading": "## Model Set Context"
+        },
+        {
+          "line": 1634,
+          "heading": "## User Knowledge Memories"
+        },
+        {
+          "line": 1638,
+          "heading": "## Recent Conversation Content"
+        },
+        {
+          "line": 1643,
+          "heading": "## Composer attachments"
+        },
+        {
+          "line": 1648,
+          "heading": "## Local time"
+        },
+        {
+          "line": 1653,
+          "heading": "## Grounding in attached sources"
+        },
+        {
+          "line": 1658,
+          "heading": "## api_tool Tool"
+        },
+        {
+          "line": 1676,
+          "heading": "## Writing blocks"
+        },
+        {
+          "line": 1747,
+          "heading": "## Prefetched genui widgets (UUID mode)"
+        },
+        {
+          "line": 1834,
+          "heading": "## genui widget reminder"
+        }
+      ],
+      "namespaces": [
+        {
+          "name": "python",
+          "start": 121,
+          "end": 143
+        },
+        {
+          "name": "genui",
+          "start": 144,
+          "end": 198
+        },
+        {
+          "name": "web",
+          "start": 199,
+          "end": 701
+        },
+        {
+          "name": "automations",
+          "start": 702,
+          "end": 877
+        },
+        {
+          "name": "local",
+          "start": 878,
+          "end": 910
+        },
+        {
+          "name": "python_user_visible",
+          "start": 911,
+          "end": 933
+        },
+        {
+          "name": "user_info",
+          "start": 934,
+          "end": 950
+        },
+        {
+          "name": "summary_reader",
+          "start": 951,
+          "end": 978
+        },
+        {
+          "name": "container",
+          "start": 979,
+          "end": 1040
+        },
+        {
+          "name": "personal_context",
+          "start": 1041,
+          "end": 1084
+        },
+        {
+          "name": "bio",
+          "start": 1085,
+          "end": 1131
+        },
+        {
+          "name": "api_tool",
+          "start": 1132,
+          "end": 1237
+        },
+        {
+          "name": "image_gen",
+          "start": 1238,
+          "end": 1276
+        },
+        {
+          "name": "hotline",
+          "start": 1277,
+          "end": 1288
+        },
+        {
+          "name": "user_settings",
+          "start": 1289,
+          "end": 1311
+        },
+        {
+          "name": "canmore",
+          "start": 1312,
+          "end": 1317
+        }
+      ]
+    },
+    {
+      "path": "OpenAI/Codex/gpt-5.6.md",
+      "line_count": 168,
+      "bytes": 17753,
+      "sha256": "40f053be80a6ee153b007dc4805d9f480d3847204e80c7f643ee5725054ef42d",
+      "headings": [
+        {
+          "line": 3,
+          "heading": "# Personality"
+        },
+        {
+          "line": 11,
+          "heading": "## Writing style"
+        },
+        {
+          "line": 17,
+          "heading": "## Technical communication"
+        },
+        {
+          "line": 23,
+          "heading": "# Working with the user"
+        },
+        {
+          "line": 33,
+          "heading": "## Intermediate commentary"
+        },
+        {
+          "line": 43,
+          "heading": "## Final answer"
+        },
+        {
+          "line": 76,
+          "heading": "# Rules for getting work done"
+        },
+        {
+          "line": 85,
+          "heading": "## File editing constraints"
+        },
+        {
+          "line": 93,
+          "heading": "## Autonomy and persistence"
+        },
+        {
+          "line": 114,
+          "heading": "# Destructive actions"
+        },
+        {
+          "line": 133,
+          "heading": "# Using skills"
+        }
+      ],
+      "namespaces": []
+    },
+    {
+      "path": "OpenAI/Codex/codex-full.md",
+      "line_count": 11104,
+      "bytes": 359565,
+      "sha256": "156fc3e12b8fc89465fdd2262a4637b4ab32c42e32111d2a47ddce1e7b6668a4",
+      "headings": [
+        {
+          "line": 1,
+          "heading": "# SYSTEM INSTRUCTIONS"
+        },
+        {
+          "line": 7,
+          "heading": "# General"
+        },
+        {
+          "line": 13,
+          "heading": "## Engineering judgment"
+        },
+        {
+          "line": 23,
+          "heading": "## Frontend guidance"
+        },
+        {
+          "line": 57,
+          "heading": "## Editing constraints"
+        },
+        {
+          "line": 72,
+          "heading": "## Special user requests"
+        },
+        {
+          "line": 77,
+          "heading": "## Autonomy and persistence"
+        },
+        {
+          "line": 82,
+          "heading": "# Working with the user"
+        },
+        {
+          "line": 94,
+          "heading": "## Formatting rules"
+        },
+        {
+          "line": 113,
+          "heading": "## Final answer instructions"
+        },
+        {
+          "line": 127,
+          "heading": "## Intermediary updates"
+        },
+        {
+          "line": 142,
+          "heading": "# <DEVELOPER_INSTRUCTIONS>"
+        },
+        {
+          "line": 151,
+          "heading": "# Codex desktop context"
+        },
+        {
+          "line": 195,
+          "heading": "# Collaboration Mode: Default"
+        },
+        {
+          "line": 201,
+          "heading": "## request_user_input availability"
+        },
+        {
+          "line": 210,
+          "heading": "## Apps (Connectors)"
+        },
+        {
+          "line": 218,
+          "heading": "## Skills"
+        },
+        {
+          "line": 256,
+          "heading": "## Plugins"
+        },
+        {
+          "line": 269,
+          "heading": "## Memory"
+        },
+        {
+          "line": 402,
+          "heading": "# </DEVELOPER_INSTRUCTIONS>"
+        },
+        {
+          "line": 404,
+          "heading": "# <USER_INSTRUCTIONS>"
+        },
+        {
+          "line": 412,
+          "heading": "# </USER_INSTRUCTIONS>"
+        },
+        {
+          "line": 414,
+          "heading": "# <ENVIRONMENT_CONTEXT>"
+        },
+        {
+          "line": 445,
+          "heading": "# </ENVIRONMENT_CONTEXT>"
+        },
+        {
+          "line": 447,
+          "heading": "# <BUILTIN_TOOLS>"
+        },
+        {
+          "line": 602,
+          "heading": "# </BUILTIN_TOOLS>"
+        },
+        {
+          "line": 604,
+          "heading": "# <TOOLS>"
+        },
+        {
+          "line": 623,
+          "heading": "## namespace: `codex_app`"
+        },
+        {
+          "line": 1169,
+          "heading": "## namespace: `multi_agent_v1`"
+        },
+        {
+          "line": 1402,
+          "heading": "## namespace: `mcp__codex_apps__github`"
+        },
+        {
+          "line": 4830,
+          "heading": "## namespace: `mcp__codex_apps__gmail`"
+        },
+        {
+          "line": 5698,
+          "heading": "## namespace: `mcp__codex_apps__google_calendar`"
+        },
+        {
+          "line": 6577,
+          "heading": "## namespace: `mcp__codex_apps__google_drive`"
+        },
+        {
+          "line": 8212,
+          "heading": "## namespace: `mcp__codex_apps__openai_platform`"
+        },
+        {
+          "line": 8291,
+          "heading": "## namespace: `mcp__openai_api_key_local_confirmation`"
+        },
+        {
+          "line": 8321,
+          "heading": "## namespace: `mcp__playwright`"
+        },
+        {
+          "line": 9008,
+          "heading": "## namespace: `mcp__chrome_devtools`"
+        },
+        {
+          "line": 9881,
+          "heading": "## namespace: `mcp__datascienceWidgets`"
+        },
+        {
+          "line": 11042,
+          "heading": "## namespace: `mcp__node_repl`"
+        },
+        {
+          "line": 11104,
+          "heading": "# </TOOLS>"
+        }
+      ],
+      "namespaces": [
+        {
+          "name": "`codex_app`",
+          "start": 623,
+          "end": 1168
+        },
+        {
+          "name": "`multi_agent_v1`",
+          "start": 1169,
+          "end": 1401
+        },
+        {
+          "name": "`mcp__codex_apps__github`",
+          "start": 1402,
+          "end": 4829
+        },
+        {
+          "name": "`mcp__codex_apps__gmail`",
+          "start": 4830,
+          "end": 5697
+        },
+        {
+          "name": "`mcp__codex_apps__google_calendar`",
+          "start": 5698,
+          "end": 6576
+        },
+        {
+          "name": "`mcp__codex_apps__google_drive`",
+          "start": 6577,
+          "end": 8211
+        },
+        {
+          "name": "`mcp__codex_apps__openai_platform`",
+          "start": 8212,
+          "end": 8290
+        },
+        {
+          "name": "`mcp__openai_api_key_local_confirmation`",
+          "start": 8291,
+          "end": 8320
+        },
+        {
+          "name": "`mcp__playwright`",
+          "start": 8321,
+          "end": 9007
+        },
+        {
+          "name": "`mcp__chrome_devtools`",
+          "start": 9008,
+          "end": 9880
+        },
+        {
+          "name": "`mcp__datascienceWidgets`",
+          "start": 9881,
+          "end": 11041
+        },
+        {
+          "name": "`mcp__node_repl`",
+          "start": 11042,
+          "end": 1317
+        }
+      ]
+    }
+  ]
+}

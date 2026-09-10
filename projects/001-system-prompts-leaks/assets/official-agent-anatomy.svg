@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2450" viewBox="0 0 1800 2450" role="img" aria-labelledby="title desc">
+<title id="title">Agent 到底由哪些部分组成</title>
+<desc id="desc">依据 OpenAI 官方 Agents SDK 天气助手示例，展示输入、指令、模型、工具说明、工具实现、运行循环、结果、上下文边界与可选工程扩展。</desc>
+<rect x="0" y="0" width="1800" height="2450" rx="0" fill="#edf2f8"/>
+<rect x="0" y="0" width="1800" height="266" rx="0" fill="#102642"/>
+<text x="76" y="35" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#a9c6e8" dominant-baseline="text-before-edge">建立正确的 Agent 认知  /  官方样例解析  /  2026.09.10</text>
+<text x="73" y="88" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="64" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">Agent 到底由哪些部分组成？</text>
+<text x="77" y="183" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="400" fill="#d0e1f6" dominant-baseline="text-before-edge">样例：OpenAI Agents SDK 官方天气助手（Weather bot）</text>
+<text x="80" y="300" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">A  先看一个带工具的最小工作闭环</text>
+<text x="82" y="351" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">官方提供模型、指令和天气函数；以下“查询北京天气”的步骤是教学演绎，未实际调用模型。</text>
+<rect x="80" y="411" width="520" height="151" rx="16" fill="#f3f6fb"/>
+<rect x="80" y="411" width="6" height="151" rx="3" fill="#2158de"/>
+<text x="103" y="429" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">① 用户任务 / 输入</text>
+<text x="103" y="476" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">“北京天气如何？”</text>
+<text x="103" y="513" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">本轮要完成的目标</text>
+<path d="M340 565 L340 617" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M333 608 L340 617" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M347 608 L340 617" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="640" y="411" width="520" height="151" rx="16" fill="#f3f6fb"/>
+<rect x="640" y="411" width="6" height="151" rx="3" fill="#2158de"/>
+<text x="663" y="429" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">② 工作指令</text>
+<text x="663" y="476" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">instructions：天气助手的职责</text>
+<text x="663" y="513" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">决定角色、约束与回答方式</text>
+<path d="M900 565 L900 617" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M893 608 L900 617" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M907 608 L900 617" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="1200" y="411" width="520" height="151" rx="16" fill="#f3f6fb"/>
+<rect x="1200" y="411" width="6" height="151" rx="3" fill="#2158de"/>
+<text x="1223" y="429" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">③ 工具接口说明</text>
+<text x="1223" y="476" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">get_weather · 城市参数 city</text>
+<text x="1223" y="513" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">告诉模型能调用什么、如何填写</text>
+<path d="M1460 565 L1460 617" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1453 608 L1460 617" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1467 608 L1460 617" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="80" y="620" width="1640" height="749" rx="24" fill="#ffffff" stroke="#c2d2e8"/>
+<rect x="80" y="620" width="1640" height="111" rx="24" fill="#dce8fb"/>
+<text x="113" y="641" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">④ Runner 运行器：让各部分真正配合工作</text>
+<text x="116" y="694" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">准备输入 → 调用模型 → 处理工具调用 → 回传结果 → 继续、结束或按配置暂停  [2]</text>
+<rect x="130" y="781" width="559" height="217" rx="20" fill="#2158de"/>
+<text x="161" y="810" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="35" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">⑤ 模型  /  model</text>
+<text x="164" y="872" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="400" fill="#ffffff" dominant-baseline="text-before-edge">理解任务，选择回答或调用工具</text>
+<text x="164" y="927" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400" fill="#d3e1ff" dominant-baseline="text-before-edge">示意：请求查询 city = 北京</text>
+<rect x="1110" y="781" width="560" height="217" rx="20" fill="#087d73"/>
+<text x="1140" y="810" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="35" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">⑥ 工具代码与执行环境</text>
+<text x="1142" y="872" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="400" fill="#ffffff" dominant-baseline="text-before-edge">程序执行 get_weather(city)</text>
+<text x="1142" y="927" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#c5ece6" dominant-baseline="text-before-edge">官方函数返回固定晴天文本</text>
+<path d="M716 889 L1083 889" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1074 882 L1083 889" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M1074 896 L1083 889" fill="none" stroke="#2158de" stroke-width="3"/>
+<text x="748" y="824" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">结构化调用请求</text>
+<text x="754" y="921" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">模型提出；程序执行</text>
+<path d="M1390 1000 L1390 1060" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M1383 1051 L1390 1060" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M1397 1051 L1390 1060" fill="none" stroke="#087d73" stroke-width="3"/>
+<rect x="846" y="1063" width="824" height="110" rx="16" fill="#e4f4ef"/>
+<text x="871" y="1080" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">本轮状态：保留输入、调用与工具结果</text>
+<text x="872" y="1127" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">结果加入模型上下文，再进入下一次判断</text>
+<path d="M819 1117 L410 1117" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M419 1110 L410 1117" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M419 1124 L410 1117" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M410 1117 L410 1016" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M403 1025 L410 1016" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M417 1025 L410 1016" fill="none" stroke="#087d73" stroke-width="3"/>
+<text x="476" y="1056" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">工具结果反馈</text>
+<rect x="130" y="1230" width="1540" height="91" rx="15" fill="#f0f4fa"/>
+<text x="156" y="1247" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">⑦ 交付结果  /  final_output</text>
+<text x="155" y="1290" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">模型完成回答且没有后续工具工作时，运行器将结果交给应用；本例中的天气数据仅为模拟。</text>
+<rect x="80" y="1400" width="1640" height="165" rx="20" fill="#fff3df"/>
+<text x="111" y="1422" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" fill="#9a6010" dominant-baseline="text-before-edge">两个容易误解的边界</text>
+<text x="113" y="1472" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#9a6010" dominant-baseline="text-before-edge">工具说明 ≠ 工具实现：天气函数必须接入真实数据源，才能提供真实天气。</text>
+<text x="113" y="1517" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#9a6010" dominant-baseline="text-before-edge">模型上下文 ≠ 程序本地 context：身份、数据库连接等依赖不会因为传给运行器就自动发给模型。</text>
+<text x="80" y="1612" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">B  按任务增加的工程能力</text>
+<text x="82" y="1663" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">以下由官方 SDK 文档说明；并未全部配置在天气样例中，也不是每个 Agent 都必须具备。</text>
+<rect x="80" y="1720" width="380" height="247" rx="16" fill="#f3f6fb"/>
+<rect x="80" y="1720" width="6" height="247" rx="3" fill="#087d73"/>
+<text x="103" y="1738" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">会话与记忆</text>
+<text x="103" y="1785" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">Session / 历史记录</text>
+<text x="103" y="1819" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">让下一轮接续对话。</text>
+<text x="103" y="1853" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">长期记忆的筛选、检索和更新</text>
+<text x="103" y="1887" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">仍需应用设计。  [2]</text>
+<rect x="500" y="1720" width="380" height="247" rx="16" fill="#f3f6fb"/>
+<rect x="500" y="1720" width="6" height="247" rx="3" fill="#087d73"/>
+<text x="523" y="1738" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">校验与权限</text>
+<text x="523" y="1785" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">Guardrails / 人工审批</text>
+<text x="523" y="1819" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">检查输入、输出与工具行为。</text>
+<text x="523" y="1853" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">程序控制认证和资源权限；</text>
+<text x="523" y="1887" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">按配置暂停、批准或拒绝。 [3]</text>
+<rect x="920" y="1720" width="380" height="247" rx="16" fill="#f3f6fb"/>
+<rect x="920" y="1720" width="6" height="247" rx="3" fill="#087d73"/>
+<text x="943" y="1738" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">协作与能力扩展</text>
+<text x="943" y="1785" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">Handoffs / MCP / 工具</text>
+<text x="943" y="1819" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">转交专门角色或接入服务。</text>
+<text x="943" y="1853" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">多代理、知识检索等按需增加，</text>
+<text x="943" y="1887" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">单个助手也能工作。 [1,4]</text>
+<rect x="1340" y="1720" width="380" height="247" rx="16" fill="#f3f6fb"/>
+<rect x="1340" y="1720" width="6" height="247" rx="3" fill="#087d73"/>
+<text x="1363" y="1738" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">输出与质量</text>
+<text x="1363" y="1785" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">结构化输出 / Tracing</text>
+<text x="1363" y="1819" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">规定结果格式，记录执行过程。</text>
+<text x="1363" y="1853" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">用评测验证正确率、失败原因</text>
+<text x="1363" y="1887" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">与成本；记录不等于通过。 [1,4]</text>
+<rect x="80" y="2006" width="1640" height="221" rx="22" fill="#102642"/>
+<text x="112" y="2030" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">C  这对研究 System Prompts Leaks 有什么帮助？</text>
+<text x="113" y="2093" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#a9c6ff" dominant-baseline="text-before-edge">档案让我们观察</text>
+<text x="113" y="2140" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#d3e0f2" dominant-baseline="text-before-edge">工作指令、工具接口、部分流程与上下文样本。</text>
+<text x="937" y="2093" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#8ed7c8" dominant-baseline="text-before-edge">形成实际能力还需补齐</text>
+<text x="937" y="2140" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#d3e0f2" dominant-baseline="text-before-edge">模型服务、运行器、工具后端、状态、权限与验证。</text>
+<text x="80" y="2270" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">一手依据：OpenAI 官方文档。图为原创中文归纳，不是官方原图，也不声称复原 Codex 全部后端。</text>
+<text x="80" y="2312" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">[1] Agent definitions   [2] Running agents   [3] Guardrails and human review   [4] Integrations and observability</text>
+<text x="80" y="2350" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">developers.openai.com/api/docs/guides/agents/   ·   详见配套来源说明：05-official-agent-anatomy.md</text>
+<text x="80" y="2391" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">读图重点：模型负责决策与生成，运行器组织流程，工具负责执行；按任务选择状态、权限与协作机制。</text>
+</svg>

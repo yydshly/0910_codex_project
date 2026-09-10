@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2440" viewBox="0 0 1800 2440" role="img" aria-labelledby="title desc">
+<title id="title">Agent 如何推进一次任务</title>
+<desc id="desc">指令、记忆和现场材料经程序组织进入上下文；模型理解并规划；程序检查、调度与执行工具；状态和结果反馈后继续或结束。</desc>
+<rect x="0" y="0" width="1800" height="2440" rx="0" fill="#edf2f8"/>
+<rect x="0" y="0" width="1800" height="268" rx="0" fill="#102642"/>
+<text x="75" y="36" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#acc8e9" dominant-baseline="text-before-edge">我们的理解  /  从组成到过程  /  2026.09.10</text>
+<text x="75" y="91" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="66" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">Agent 如何推进一次任务？</text>
+<text x="78" y="186" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="400" fill="#d4e3f7" dominant-baseline="text-before-edge">依据 → 模型决策 → 程序执行 → 反馈 → 再次判断</text>
+<rect x="80" y="329" width="520" height="168" rx="16" fill="#f3f6fb"/>
+<rect x="80" y="329" width="6" height="168" rx="3" fill="#2158de"/>
+<text x="103" y="347" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">指令：明确目标与约定</text>
+<text x="103" y="394" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">用户要做什么？遵循哪些规则？</text>
+<text x="103" y="430" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">例如修复登录，并保留已有修改。</text>
+<path d="M340 501 L340 550" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="640" y="329" width="520" height="168" rx="16" fill="#f3f6fb"/>
+<rect x="640" y="329" width="6" height="168" rx="3" fill="#2158de"/>
+<text x="663" y="347" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">记忆：按需检索已有信息</text>
+<text x="663" y="394" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">长期约定经选择后进入本轮输入。</text>
+<text x="663" y="430" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">不会全部自动加载，也不自动变成指令。</text>
+<path d="M900 501 L900 550" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="1200" y="329" width="520" height="168" rx="16" fill="#f3f6fb"/>
+<rect x="1200" y="329" width="6" height="168" rx="3" fill="#2158de"/>
+<text x="1223" y="347" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">现场材料：提供事实与线索</text>
+<text x="1223" y="394" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">代码、报错、相关历史和工具说明。</text>
+<text x="1223" y="430" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">这些材料帮助判断，不全是工作指令。</text>
+<path d="M1460 501 L1460 550" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M340 550 L1460 550" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M670 550 L670 644" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M663 635 L670 644" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M677 635 L670 644" fill="none" stroke="#2158de" stroke-width="3"/>
+<text x="755" y="578" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">程序选择、读取并组织材料</text>
+<rect x="80" y="613" width="1640" height="851" rx="22" fill="#ffffff" stroke="#d5dfed"/>
+<path d="M670 550 L670 644" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M663 635 L670 644" fill="none" stroke="#2158de" stroke-width="3"/>
+<path d="M677 635 L670 644" fill="none" stroke="#2158de" stroke-width="3"/>
+<rect x="240" y="645" width="860" height="110" rx="17" fill="#2158de"/>
+<text x="266" y="662" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">01  准备模型上下文</text>
+<text x="266" y="714" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#edf3ff" dominant-baseline="text-before-edge">输入包含指令、相关数据、工具定义与已有结果。</text>
+<path d="M670 758 L670 795" fill="none" stroke="#52667d" stroke-width="3"/>
+<path d="M663 786 L670 795" fill="none" stroke="#52667d" stroke-width="3"/>
+<path d="M677 786 L670 795" fill="none" stroke="#52667d" stroke-width="3"/>
+<rect x="240" y="800" width="860" height="110" rx="17" fill="#7543b8"/>
+<text x="266" y="817" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">02  模型理解、规划并提出动作</text>
+<text x="266" y="869" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#edf3ff" dominant-baseline="text-before-edge">可以在同一次调用中理解问题并选择下一步。</text>
+<path d="M670 913 L670 950" fill="none" stroke="#52667d" stroke-width="3"/>
+<path d="M663 941 L670 950" fill="none" stroke="#52667d" stroke-width="3"/>
+<path d="M677 941 L670 950" fill="none" stroke="#52667d" stroke-width="3"/>
+<rect x="240" y="955" width="860" height="110" rx="17" fill="#087d73"/>
+<text x="266" y="972" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">03  程序检查条件并调度</text>
+<text x="266" y="1024" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#edf3ff" dominant-baseline="text-before-edge">检查参数、权限与依赖，安排实际调用和并行。</text>
+<path d="M670 1068 L670 1105" fill="none" stroke="#52667d" stroke-width="3"/>
+<path d="M663 1096 L670 1105" fill="none" stroke="#52667d" stroke-width="3"/>
+<path d="M677 1096 L670 1105" fill="none" stroke="#52667d" stroke-width="3"/>
+<rect x="240" y="1110" width="860" height="110" rx="17" fill="#087d73"/>
+<text x="266" y="1127" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">04  工具真正执行动作</text>
+<text x="266" y="1179" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#edf3ff" dominant-baseline="text-before-edge">读取、搜索、修改或测试；返回真实结果或错误。</text>
+<path d="M670 1223 L670 1260" fill="none" stroke="#52667d" stroke-width="3"/>
+<path d="M663 1251 L670 1260" fill="none" stroke="#52667d" stroke-width="3"/>
+<path d="M677 1251 L670 1260" fill="none" stroke="#52667d" stroke-width="3"/>
+<rect x="240" y="1265" width="860" height="110" rx="17" fill="#087d73"/>
+<text x="266" y="1282" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">05  程序记录状态、回传结果</text>
+<text x="266" y="1334" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#edf3ff" dominant-baseline="text-before-edge">保存进度和反馈，为下一次模型判断准备依据。</text>
+<path d="M237 1320 L126 1320" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M126 1320 L126 700" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M126 700 L234 700" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M225 693 L234 700" fill="none" stroke="#087d73" stroke-width="3"/>
+<path d="M225 707 L234 700" fill="none" stroke="#087d73" stroke-width="3"/>
+<text x="148" y="1130" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">反馈</text>
+<text x="148" y="1171" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">更新</text>
+<text x="148" y="1212" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">输入</text>
+<rect x="1170" y="645" width="508" height="137" rx="16" fill="#f3f6fb"/>
+<rect x="1170" y="645" width="6" height="137" rx="3" fill="#2158de"/>
+<text x="1193" y="663" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#2158de" dominant-baseline="text-before-edge">上下文边界</text>
+<text x="1193" y="710" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">程序本地身份、连接等依赖，</text>
+<text x="1193" y="744" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">不会仅因传给运行器就发给模型。</text>
+<rect x="1170" y="800" width="508" height="137" rx="16" fill="#f3f6fb"/>
+<rect x="1170" y="800" width="6" height="137" rx="3" fill="#7543b8"/>
+<text x="1193" y="818" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#7543b8" dominant-baseline="text-before-edge">直接回答 / 先澄清</text>
+<text x="1193" y="865" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">信息足够就回答；缺少关键条件</text>
+<text x="1193" y="899" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">先提问，等待下一条用户输入。</text>
+<rect x="1170" y="955" width="508" height="137" rx="16" fill="#f3f6fb"/>
+<rect x="1170" y="955" width="6" height="137" rx="3" fill="#9a6010"/>
+<text x="1193" y="973" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#9a6010" dominant-baseline="text-before-edge">审批暂停 / 等待恢复</text>
+<text x="1193" y="1020" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">命中审批配置时先保存待执行状态。</text>
+<text x="1193" y="1054" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">尚未获准，不自动执行修改。</text>
+<rect x="1170" y="1110" width="508" height="137" rx="16" fill="#f3f6fb"/>
+<rect x="1170" y="1110" width="6" height="137" rx="3" fill="#9a6010"/>
+<text x="1193" y="1128" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#9a6010" dominant-baseline="text-before-edge">检查失败 / 调整计划</text>
+<text x="1193" y="1175" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">错误反馈给模型，依据证据修订。</text>
+<text x="1193" y="1209" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">超出条件或限制时也可以停止。</text>
+<rect x="1170" y="1265" width="508" height="137" rx="16" fill="#f3f6fb"/>
+<rect x="1170" y="1265" width="6" height="137" rx="3" fill="#7543b8"/>
+<text x="1193" y="1283" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#7543b8" dominant-baseline="text-before-edge">规划会随证据更新</text>
+<text x="1193" y="1330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">新线索可能推翻旧假设。</text>
+<text x="1193" y="1364" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">持续工作不等于照旧计划无限执行。</text>
+<text x="240" y="1408" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">循环的出口：交付结果 · 向用户澄清 · 等待审批 · 因错误或限制停止</text>
+<text x="80" y="1514" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">把“拆解、调度、状态”分清楚</text>
+<rect x="80" y="1586" width="520" height="175" rx="16" fill="#f3f6fb"/>
+<rect x="80" y="1586" width="6" height="175" rx="3" fill="#7543b8"/>
+<text x="103" y="1604" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#7543b8" dominant-baseline="text-before-edge">模型规划：下一步做什么</text>
+<text x="103" y="1651" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">提出工作拆分、工具选择和计划调整。</text>
+<text x="103" y="1688" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">部分流程也可以由开发者预先规定。</text>
+<rect x="640" y="1586" width="520" height="175" rx="16" fill="#f3f6fb"/>
+<rect x="640" y="1586" width="6" height="175" rx="3" fill="#087d73"/>
+<text x="663" y="1604" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">程序调度：动作怎样落实</text>
+<text x="663" y="1651" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">启动调用，处理依赖、并行和执行条件。</text>
+<text x="663" y="1688" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">模型的请求不会自动授予操作权限。</text>
+<rect x="1200" y="1586" width="520" height="175" rx="16" fill="#f3f6fb"/>
+<rect x="1200" y="1586" width="6" height="175" rx="3" fill="#087d73"/>
+<text x="1223" y="1604" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#087d73" dominant-baseline="text-before-edge">状态管理：已经发生了什么</text>
+<text x="1223" y="1651" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">保留任务、进度、结果、错误和待办。</text>
+<text x="1223" y="1688" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">按需支持会话延续、暂停与恢复。</text>
+<text x="80" y="1810" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="35" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">一次用户任务，可以包含多次模型调用</text>
+<rect x="80" y="1882" width="380" height="138" rx="16" fill="#f3f6fb"/>
+<rect x="80" y="1882" width="6" height="138" rx="3" fill="#7543b8"/>
+<text x="103" y="1900" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#7543b8" dominant-baseline="text-before-edge">模型① 请求读取</text>
+<text x="103" y="1947" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">程序读取代码，</text>
+<text x="103" y="1983" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">把结果交回模型。</text>
+<rect x="500" y="1882" width="380" height="138" rx="16" fill="#f3f6fb"/>
+<rect x="500" y="1882" width="6" height="138" rx="3" fill="#7543b8"/>
+<text x="523" y="1900" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#7543b8" dominant-baseline="text-before-edge">模型② 提出修改</text>
+<text x="523" y="1947" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">程序执行允许的修改，</text>
+<text x="523" y="1983" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">把差异交回模型。</text>
+<rect x="920" y="1882" width="380" height="138" rx="16" fill="#f3f6fb"/>
+<rect x="920" y="1882" width="6" height="138" rx="3" fill="#7543b8"/>
+<text x="943" y="1900" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#7543b8" dominant-baseline="text-before-edge">模型③ 请求验证</text>
+<text x="943" y="1947" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">程序实际运行检查，</text>
+<text x="943" y="1983" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">把结果交回模型。</text>
+<rect x="1340" y="1882" width="380" height="138" rx="16" fill="#f3f6fb"/>
+<rect x="1340" y="1882" width="6" height="138" rx="3" fill="#7543b8"/>
+<text x="1363" y="1900" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="29" font-weight="700" fill="#7543b8" dominant-baseline="text-before-edge">模型④ 判断交付</text>
+<text x="1363" y="1947" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">形成最终回答，</text>
+<text x="1363" y="1983" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">应用向用户展示结果。</text>
+<rect x="80" y="2060" width="1640" height="156" rx="20" fill="#102642"/>
+<text x="112" y="2081" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="700" fill="#ffffff" dominant-baseline="text-before-edge">从基础循环到 Codex、Claude Code 等产品</text>
+<text x="114" y="2132" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#d5e3f5" dominant-baseline="text-before-edge">模型能力 + 指令约定 + 程序实现：共同完善上下文、工具、权限、状态、恢复和交付。</text>
+<text x="114" y="2177" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#aac5e7" dominant-baseline="text-before-edge">提示词档案提供设计线索；工具成功、检查通过与任务真正完成，仍需分别判断。</text>
+<text x="80" y="2259" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">蓝：提供依据    紫：模型决策    绿：程序与工具    橙：暂停、错误与边界</text>
+<text x="80" y="2301" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">依据：OpenAI 官方 Agent definitions、Running agents、Guardrails and human review 等已读文档。</text>
+<text x="80" y="2340" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667d" dominant-baseline="text-before-edge">来源：06-agent-task-loop.md  ·  四次调用是教学示例，非产品固定要求；未运行真实 Agent。</text>
+<text x="80" y="2381" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#142a44" dominant-baseline="text-before-edge">关键认识：记忆提供依据，规划提出路线，程序落实行动，反馈让下一次判断更有根据。</text>
+</svg>

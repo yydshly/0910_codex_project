@@ -11,20 +11,20 @@
 <!-- PROJECT_INDEX_START -->
 | 编号 | 研究项目 | 摘要 | 状态 | 在线演示 |
 | :--- | :--- | :--- | :--- | :--- |
-| — | 暂无项目 | 仓库已初始化，等待加入第一个研究项目 | — | — |
+| 001 | [System Prompts Leaks](projects/001-system-prompts-leaks/README.md) | 理解总稿、任务逻辑汇总图；Web 含 24 项解读与四条任务推进路径 | 研究与本地展示完成 | — |
 <!-- PROJECT_INDEX_END -->
 
 ## 项目预览
 
-暂无项目截图。加入子项目后，在这里按编号放置一张代表性图片和一句话说明；完整图集放在子项目 README。
+### 001 · System Prompts Leaks
 
-<!-- 预览格式：将 001-example 替换为真实目录，并在图片存在后取消注释。
-### 001 · 项目名称
-[![项目名称：主要界面](projects/001-example/assets/cover.png)](projects/001-example/README.md)
-一句话说明项目价值。 [研究详情](projects/001-example/README.md)
--->
+[![System Prompts Leaks 完整概述：来源、整理方式、ChatGPT 5.6 内容与研究意义](projects/001-system-prompts-leaks/assets/research-overview.png)](projects/001-system-prompts-leaks/README.md)
+
+研究 AI 产品如何用提示词组织行为、工具和任务流程，附可交互的「Agent 解剖室」。图源：本研究原创总览，依据固定研究版本、PR #166 与公开源码绘制，非产品截图。[放大查看](projects/001-system-prompts-leaks/assets/research-overview.svg) · [研究详情](projects/001-system-prompts-leaks/README.md) · [展示运行说明](projects/001-system-prompts-leaks/web/README.md)
 
 ## 仓库导航
+
+[新增专题：Agent 如何推进任务](projects/001-system-prompts-leaks/notes/06-agent-task-loop.md) · [任务逻辑汇总图](projects/001-system-prompts-leaks/assets/agent-task-loop.svg)
 
 | 入口 | 内容 |
 | :--- | :--- |

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<title id="title">System Prompts Leaks：档案与运行环境</title>
+<desc id="desc">仓库材料经过来源验证、版本比较与业务适配，为包含模型、工具执行和效果评测的运行环境提供设计参考。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#64748b"/></marker></defs>
+<rect width="1200" height="420" rx="20" fill="#f1f5f9"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="44" y="58" font-size="27" font-weight="700" fill="#0f172a">System Prompts Leaks</text>
+<text x="44" y="91" font-size="17" fill="#475569">从提示词档案，理解 AI 产品的行为设计</text>
+<rect x="44" y="132" width="330" height="196" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="435" y="132" width="330" height="196" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="826" y="132" width="330" height="196" rx="14" fill="#e0f2fe" stroke="#7dd3fc"/>
+<g font-size="22" font-weight="700" fill="#0f172a">
+<text x="68" y="177">01 / 仓库材料</text><text x="459" y="177">02 / 研究与适配</text><text x="850" y="177">03 / 实际运行环境</text>
+</g>
+<g font-size="18" fill="#334155">
+<text x="68" y="221">角色与工作规则</text><text x="68" y="258">工具说明、Skills 与组件</text><text x="68" y="295">产品分类与 Git 历史</text>
+<text x="459" y="221">核对来源与完整性</text><text x="459" y="258">比较版本、提炼设计模式</text><text x="459" y="295">按自己的业务改写与测试</text>
+<text x="850" y="221">模型 + 上下文</text><text x="850" y="258">工具实现 + 权限控制</text><text x="850" y="295">执行反馈 + 效果评测</text>
+</g>
+<path d="M385 230H423" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M776 230H814" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="44" y="378" font-size="16" fill="#475569">原创研究示意 · 提示词描述行为；运行能力还依赖模型与实际工具 · 2026-09-10</text>
+</g>
+</svg>
