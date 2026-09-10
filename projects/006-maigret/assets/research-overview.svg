@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2130" viewBox="0 0 1800 2130" role="img" aria-labelledby="title desc">
+<title id="title">Maigret：我们的完整理解</title>
+<desc id="desc">规则维护与批量检查的原理，能力与网站范围，网页搜索对比，实际价值、身份边界、使用场景与扩展方向。依据 578d603 源码和官方文档原创绘制，未实测。</desc>
+<rect width="1800" height="2130" fill="#F4F5F1"/>
+<text x="60" y="42" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">006  /  OPEN SOURCE RESEARCH  /  MAIGRET</text>
+<text x="60" y="93" dominant-baseline="text-before-edge" fill="#1C343D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="59" font-weight="700">Maigret：我们的完整理解</text>
+<text x="63" y="175" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="400">搜索用户在网站设置的账号用户名（非实名），按预设规则批量检查。</text>
+<rect x="60" y="237" width="1680" height="106" rx="18" fill="#1C343D" stroke="#1C343D" stroke-width="2"/>
+<text x="88" y="260" dominant-baseline="text-before-edge" fill="#FFFFFF" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700">核心判断：站点适配与维护  +  自动化批量检查  +  公开资料整理</text>
+<text x="90" y="309" dominant-baseline="text-before-edge" fill="#D9E8E3" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400">提前收集的是网站规则；查询时再访问主页或接口，并不预先汇总全网用户。</text>
+<rect x="60" y="373" width="810" height="225" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="88" y="399" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700">A  开发者与社区：维护规则</text>
+<text x="90" y="457" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">收集网站 → 找入口 → 配置判断 → 自检与修复</text>
+<text x="90" y="499" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">规则记录：地址模板、请求参数、存在／不存在特征</text>
+<text x="90" y="541" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">相同系统可复用规则；网站改版后需继续维护</text>
+<rect x="900" y="373" width="840" height="225" rx="18" fill="#E1F0E9" stroke="#D0DDD7" stroke-width="2"/>
+<text x="930" y="399" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">“主要是体力活？”——大量适配，也有工程</text>
+<text x="930" y="457" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">人工：收集、比较页面、修规则、跟进失效</text>
+<text x="930" y="499" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">工程：并发、超时重试、错误识别、提取与报告</text>
+<text x="930" y="541" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">长期难点：覆盖面、准确性与维护质量</text>
+<text x="60" y="630" dominant-baseline="text-before-edge" fill="#1C343D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700">B  用户发起查询：规则驱动的实时检查流程</text>
+<rect x="60" y="685" width="312" height="180" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="80" y="707" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700">01  输入与筛选</text>
+<text x="80" y="757" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">账号用户名，非实名</text>
+<text x="80" y="790" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">如 bluecat123／支持的 ID</text>
+<text x="80" y="823" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">按站点、标签与排名筛选</text>
+<polyline points="372,775 402,775" fill="none" stroke="#13796D" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="402,775 390.5914266954251,781.2325320018547 390.5914266954251,768.7674679981453" fill="#13796D"/>
+<rect x="402" y="685" width="312" height="180" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="422" y="707" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700">02  构造请求</text>
+<text x="422" y="757" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">套用站点地址模板</text>
+<text x="422" y="790" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">访问主页或检查接口</text>
+<text x="422" y="823" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">不同网站分别适配</text>
+<polyline points="714,775 744,775" fill="none" stroke="#13796D" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="744,775 732.5914266954252,781.2325320018547 732.5914266954252,768.7674679981453" fill="#13796D"/>
+<rect x="744" y="685" width="312" height="180" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="764" y="707" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700">03  并发与判定</text>
+<text x="764" y="757" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">同时请求多个网站</text>
+<text x="764" y="790" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">检查页面特征／状态码</text>
+<text x="764" y="823" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">存在 · 未找到 · 未知</text>
+<polyline points="1056,775 1086,775" fill="none" stroke="#13796D" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1086,775 1074.591426695425,781.2325320018547 1074.591426695425,768.7674679981453" fill="#13796D"/>
+<rect x="1086" y="685" width="312" height="180" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="1106" y="707" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700">04  提取与关联</text>
+<text x="1106" y="757" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">尝试提取公开资料</text>
+<text x="1106" y="790" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">昵称、简介、关联链接</text>
+<text x="1106" y="823" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">发现其他用户名或 ID</text>
+<polyline points="1398,775 1428,775" fill="none" stroke="#13796D" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="1428,775 1416.591426695425,781.2325320018547 1416.591426695425,768.7674679981453" fill="#13796D"/>
+<rect x="1428" y="685" width="312" height="180" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="1448" y="707" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700">05  汇总结果</text>
+<text x="1448" y="757" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">账号列表与资料报告</text>
+<text x="1448" y="790" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">Web 界面与关系图</text>
+<text x="1448" y="823" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">可选 AI 概括已有报告</text>
+<polyline points="1242,865 1242,907 216,907 216,865" fill="none" stroke="#13796D" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="216,865 222.23253200185465,876.4085733045748 209.76746799814535,876.4085733045748" fill="#13796D"/>
+<text x="590" y="919" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400">关联出的新用户名／ID → 可继续递归搜索</text>
+<rect x="60" y="976" width="810" height="264" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="90" y="1000" dominant-baseline="text-before-edge" fill="#1C343D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">能力：找账号 → 读公开资料 → 整理线索</text>
+<text x="90" y="1060" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">批量发现同名账号；字段完整度取决于站点</text>
+<text x="90" y="1101" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">沿公开关联链接继续寻找其他账号</text>
+<text x="90" y="1142" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">HTML / PDF / JSON / CSV、图谱与 Python 接口</text>
+<text x="90" y="1183" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">普通搜索无需 API Key；AI 摘要需单独配置</text>
+<rect x="900" y="976" width="840" height="264" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="930" y="1000" dominant-baseline="text-before-edge" fill="#1C343D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">网站范围：已有名单 × 本次筛选</text>
+<text x="930" y="1060" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">例：GitHub、Reddit、Telegram、CSDN、微博</text>
+<text x="930" y="1101" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">知乎、豆瓣、YouTube、Bilibili、Steam 等</text>
+<text x="930" y="1142" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">默认约前 500；可指定站点／标签或扩大范围</text>
+<text x="930" y="1183" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">部分需平台 ID；禁用默认跳过；收录不保证可用</text>
+<text x="60" y="1280" dominant-baseline="text-before-edge" fill="#1C343D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="31" font-weight="700">C  网页也能搜到：它的增量价值在哪里？</text>
+<rect x="60" y="1336" width="540" height="185" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="87" y="1360" dominant-baseline="text-before-edge" fill="#1C343D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">搜索引擎</text>
+<text x="87" y="1414" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">在已收录网页中找</text>
+<text x="87" y="1447" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">可找到规则库之外的内容</text>
+<text x="87" y="1480" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">未收录主页可能遗漏</text>
+<rect x="630" y="1336" width="540" height="185" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="657" y="1360" dominant-baseline="text-before-edge" fill="#1C343D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">人工逐站查询</text>
+<text x="657" y="1414" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">自己打开网站查找和核对</text>
+<text x="657" y="1447" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">少数平台通常就够用</text>
+<text x="657" y="1480" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">网站很多时，耗时且易漏记</text>
+<rect x="1200" y="1336" width="540" height="185" rx="18" fill="#E1F0E9" stroke="#D0DDD7" stroke-width="2"/>
+<text x="1227" y="1360" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">Maigret</text>
+<text x="1227" y="1414" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">直接按规则批量检查</text>
+<text x="1227" y="1447" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">有机会发现未被收录的主页</text>
+<text x="1227" y="1480" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">省去重复检查与汇总操作</text>
+<rect x="60" y="1555" width="1680" height="126" rx="18" fill="#FAECD6" stroke="#E4CAA5" stroke-width="2"/>
+<text x="90" y="1579" dominant-baseline="text-before-edge" fill="#925B20" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="33" font-weight="700">边界：同名 ≠ 同一人　｜　没查到 ≠ 没注册　｜　条目多 ≠ 全部有效</text>
+<text x="90" y="1633" dominant-baseline="text-before-edge" fill="#1C343D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400">只查规则库及所选站点；不按实名查人。规则失效、验证码与访问限制会影响结果。</text>
+<rect x="60" y="1720" width="810" height="244" rx="18" fill="#FFFFFF" stroke="#D0DDD7" stroke-width="2"/>
+<text x="90" y="1744" dominant-baseline="text-before-edge" fill="#1C343D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">适合：跨很多平台盘点公开账号</text>
+<text x="90" y="1801" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">自己的数字足迹自查／授权账号盘点</text>
+<text x="90" y="1838" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">品牌同名账号与疑似冒充候选发现</text>
+<text x="90" y="1875" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">公开资料研究／接入已有分析流程</text>
+<text x="90" y="1912" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">价值判断：节省操作 + 有效覆盖；效率未实测</text>
+<rect x="900" y="1720" width="840" height="244" rx="18" fill="#E1F0E9" stroke="#D0DDD7" stroke-width="2"/>
+<text x="930" y="1744" dominant-baseline="text-before-edge" fill="#13796D" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700">可扩展方向（建议，非全部现有能力）</text>
+<text x="930" y="1801" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">优先：人工核验、规则质量、证据追溯</text>
+<text x="930" y="1838" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">后续：授权增量监测、任务队列与服务化</text>
+<text x="930" y="1875" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">AI：引用来源，区分事实、推断与未知</text>
+<text x="930" y="1912" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="400">评估重点：查得准、可复核、长期维护得住</text>
+<text x="60" y="2007" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400">研究基准：soxoj/maigret · 578d603 · v0.6.5 · MIT · 2026-09-10</text>
+<text x="60" y="2042" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">来源：上游 README、sites.md、checking / executors / maigret / ai 源码与官方文档；详见配套研究文档。</text>
+<text x="60" y="2077" dominant-baseline="text-before-edge" fill="#50656B" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400">原创信息图，非产品截图；未运行跨站扫描。固定名单统计 5,373 条站点／搜索方法，含重复平台方法及禁用项。</text>
+</svg>
